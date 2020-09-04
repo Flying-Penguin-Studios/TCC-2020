@@ -7,7 +7,7 @@ public class Gallery : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Teste
     }
 
     // Update is called once per frame

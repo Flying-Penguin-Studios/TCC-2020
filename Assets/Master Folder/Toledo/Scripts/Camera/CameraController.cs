@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour {
     //[Range(1, 8), Tooltip("Altura mínima da Cam. Quando os 2 players se encontram colados um no outro.")]
     //public float MultMinYDistance;
 
-    [Range(0, 15), Tooltip("Afastamento da Câmera em Y")]
+    [Range(0, 15), Tooltip("Afastamento da Câmera em Y")]  
     public float MultYDistance = 6;
 
     [Range(9, 15), Tooltip("Altura máxima da Cam. Quando os 2 players se encontram completamente afastados.")]

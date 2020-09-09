@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gallery : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject target;
     void Start()
     {
-        //Teste
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+    ///public void RotateCamera()
+    //{
+    //    transform.RotateAround(target.transform.position, Vector3.up, 20 * Time.deltaTime);
+    //}
 }

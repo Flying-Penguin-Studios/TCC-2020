@@ -826,7 +826,7 @@ public abstract class PlayerController : MonoBehaviour
 
     bool inCombat = false;
     bool asCombat = false;
-    protected List<EnemyController> l_Inimigos;
+    protected List<EnemyController_Old> l_Inimigos;
 
     IEnumerator CombatZone()
     {
@@ -836,12 +836,12 @@ public abstract class PlayerController : MonoBehaviour
         {
             try
             {
-                l_Inimigos = new List<EnemyController>();
+                l_Inimigos = new List<EnemyController_Old>();
                 Collider[] l_collider = Physics.OverlapSphere(transform.position, 25, 16384);
 
                 foreach (Collider obj in l_collider)
                 {
-                    EnemyController inimigo = obj.GetComponent<EnemyController>();
+                    EnemyController_Old inimigo = obj.GetComponent<EnemyController_Old>();
                     if (inimigo)
                     {
                         if ((inimigo.Enemy.isAlive && inimigo.Enemy.inCombat) && !l_Inimigos.Contains(inimigo))

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHit : HitObject
 {
     public PlayerController Player;
-    protected EnemyController Target;
+    protected EnemyController_Old Target;
 
     public void SetPlayer(PlayerController n_Player)
     {
@@ -31,7 +31,7 @@ public class PlayerHit : HitObject
 
     protected virtual void CalcDamage(GameObject n_gameObject)
     {
-        Target = n_gameObject.GetComponent<EnemyController>();
+        Target = n_gameObject.GetComponent<EnemyController_Old>();
         try
         {
             Target.TakeDamage(RoundDamage(dano));

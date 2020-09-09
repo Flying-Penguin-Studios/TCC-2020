@@ -59,7 +59,7 @@ public class VortexZone : MonoBehaviour
 
                 if (obj.name.ToUpper().Contains("ZOMBI"))
                 {
-                    if (!obj.GetComponent<EnemyController>().BerserkerModeOn)
+                    if (!obj.GetComponent<EnemyController_Old>().BerserkerModeOn)
                         rb.velocity /= 2;
                 }
                 else

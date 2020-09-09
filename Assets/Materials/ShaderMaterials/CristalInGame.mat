@@ -24,14 +24,15 @@ Material:
         m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Alpha: 0.45
-    - _AlphaHeight: 0.34
-    - _AlphaSmooth: 0.703
-    - _EmissionPower: 0
+    - _Alpha: 0.41
+    - _AlphaHeight: -0.3
+    - _AlphaSmooth: 1
+    - _EmissionPower: 1
     - _Glossiness: 0.5
     - _Metallic: 0
-    - _Speed: -1
+    - _Speed: -2
     m_Colors:
-    - _Color: {r: 0.5849056, g: 0.11311853, b: 0.11311853, a: 1}
-    - _Color2: {r: 0.31132078, g: 0.016153438, b: 0.016153438, a: 1}
-    - _EmissionColor: {r: 0.4339623, g: 0.10849057, b: 0.10849057, a: 1}
+    - _Color: {r: 0.14907439, g: 0.4122341, b: 0.4716981, a: 1}
+    - _Color2: {r: 0.1273585, g: 0.14789134, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0.82553196, b: 1, a: 1}
+  m_BuildTextureStacks: []

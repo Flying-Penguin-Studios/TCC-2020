@@ -5,19 +5,46 @@ using UnityEngine.UI;
 
 public class Gallery : MonoBehaviour
 {
-    public GameObject target;
-    void Start()
+    public GameObject item;
+    bool pressedL;
+    bool pressedR;
+
+    void FixedUpdate()
     {
-        
+        if (pressedL)
+        {
+            RotateLeft();
+        }
+        if (pressedR)
+        {
+            RotateRight();
+        }
     }
 
-    void Update()
+    private void RotateLeft()
     {
-        
+        item.transform.Rotate(0 , 2.5f, 0);
+    }
+    private void RotateRight()
+    {
+        item.transform.Rotate(0, -2.5f, 0);
     }
 
-    ///public void RotateCamera()
-    //{
-    //    transform.RotateAround(target.transform.position, Vector3.up, 20 * Time.deltaTime);
-    //}
+    public void LeftPressed()
+    {
+        pressedL = true;
+    }
+    public void LeftRelease()
+    {
+        pressedL = false;
+    }
+    public void RightPressed()
+    {
+        pressedR = true;
+    }
+    public void RightRelease()
+    {
+        pressedR = false;
+    }
+
 }

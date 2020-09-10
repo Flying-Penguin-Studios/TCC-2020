@@ -125,13 +125,13 @@ public abstract class PlayerController : MonoBehaviour
         GameObject TargetHandle = ForwardRaycast();
         if (TargetHandle)
         {
-            Vector3 Target = TargetHandle.transform.position - transform.position;
+            Vector3 Target = (TargetHandle.transform.position - transform.position).normalized;
             Target.y = 0;
-            //Quaternion tr = Quaternion.LookRotation(Target);
-            //transform.localRotation = Quaternion.Slerp(transform.rotation, tr, 1);
+            Quaternion tr = Quaternion.LookRotation(Target);
+            transform.localRotation = Quaternion.Slerp(transform.rotation, tr, 1);
 
-            print(TargetHandle.name);
-            transform.LookAt(TargetHandle.transform.position);
+            //print(TargetHandle.name);
+            //transform.LookAt(TargetHandle.transform.position);
         }
     }
 
@@ -227,8 +227,7 @@ public abstract class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        Vector3 Direction = new Vector3(0, stats.jumpForce, 0);
-        InpulsePlayer(Direction * JumpVar, 0);
+        InpulsePlayer(Vector3.up, stats.jumpForce, 0);
     }
 
     protected bool OnGround()
@@ -242,7 +241,7 @@ public abstract class PlayerController : MonoBehaviour
                 float Distance = terrain.distance;
                 Distance = float.Parse(Distance.ToString("0.00"));
 
-                if (Distance < 0.5f)
+                if (Distance < 0.3f)
                 {
                     onGround = true;
                     anim.SetFloat("groundDistance", 0);
@@ -462,6 +461,10 @@ public abstract class PlayerController : MonoBehaviour
                     StartCoroutine("Fall");
                 }
             }
+            else
+            {
+                anim.SetTrigger("Stag");
+            }
         }
     }
 
@@ -646,17 +649,38 @@ public abstract class PlayerController : MonoBehaviour
         rb.AddForce(Direction, ForceMode.Impulse);
     }
 
+    public void InpulsePlayer(Vector3 Direction, float Force, float newDrag = -1)
+    {
+        if (newDrag >= 0)
+            rb.drag = newDrag;
+
+        rb.AddForce(Direction * Force, ForceMode.Impulse);
+    }
+
     public void newVelocity(Vector3 n_Vel)
     {
         rb.velocity = n_Vel;
     }
 
-    public void InpulsePlayer()
+    public void DoDash()
+    {
+        Vector3 moveDir = getMoveDir();
+
+        InpulseRotate(moveDir);
+        rb.velocity = moveDir * getStats().force;
+    }
+
+    Vector3 getMoveDir()
     {
         Vector3 v = vertical * Vector3.forward;
         Vector3 h = horizontal * Vector3.right;
         Vector3 moveDir = (v + h).normalized;
-        if (moveDir == Vector3.zero)
+        return moveDir;
+    }
+
+    public void InpulsePlayer()
+    {
+        if (getMoveDir() == Vector3.zero)
         {
             Vector3 Direction = transform.TransformDirection(Vector3.forward) * getStats().force;
             InpulsePlayer(Direction, 0);

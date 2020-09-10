@@ -28,14 +28,14 @@ public class Angie : PlayerController
 
         MarkIndicator = this.transform.GetChild(2).gameObject;
 
-        //SetParter(FindObjectOfType<Juninho>());
+        SetParter(FindObjectOfType<Juninho>());
     }
 
     void Update()
     {
-        if (GameController.Singleton.GamePaused) { return; }
+        //if (GameController.Singleton.GamePaused) { return; }
 
-        //Cheats();
+        Cheats();
 
         if (ToVivo)
         {
@@ -103,6 +103,35 @@ public class Angie : PlayerController
                     UseSkill(this.Sup, Input.GetAxis("P1_LT"));
                     UseSkill(this.Control, Input.GetButtonDown("P1_Y"));
                     UseSkill(this.Damage, Input.GetButtonDown("P1_B"));
+                }
+            }
+        }
+    }
+
+    protected override void Atack(string InputControl)
+    {
+        if (OnGround())
+        {
+            if (Input.GetButton(InputControl) && !GetBool("Attacking"))
+            {
+                anim.SetTrigger(StaticVariables.Animator.atackTrigger);
+            }
+            else if (Input.GetButton(InputControl) && GetBool("Attacking"))
+            {
+                rotateSpeed = 5;
+                if (anim.speed <= 2)
+                {
+                    anim.speed += 0.001f;
+                }               
+            }
+
+            if (GetBool("Attacking"))
+            {
+                if (!Input.GetButton(InputControl))
+                {
+                    SetBool("Attacking", false);
+                    rotateSpeed = 10;
+                    anim.speed = 1;
                 }
             }
         }

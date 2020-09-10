@@ -11,7 +11,7 @@ public class Juninho : PlayerController
     protected override void Start()
     {
         base.Start();
-        stats = new playerStats(150, 7f, 8f, 8f, 12f);
+        stats = new playerStats(150, 7f, 8f, 7f, 12f);
 
         HUD = GameObject.Find("HUD/Player1").GetComponent<HUD_Player>();
         Dash = GetComponent<Juninho_Dash>();
@@ -27,14 +27,14 @@ public class Juninho : PlayerController
 
         MarkIndicator = this.transform.GetChild(2).gameObject;
 
-        //SetParter(FindObjectOfType<Angie>());
+        SetParter(FindObjectOfType<Angie>());
     }
 
     void Update()
     {
-        if (GameController.Singleton.GamePaused) { return; }
+        //if (GameController.Singleton.GamePaused) { return; }
 
-        //Cheats();
+        Cheats();
 
         if (ToVivo)
         {

@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour {
         LastStickUse = 0;
         CastRayCast = true;
         MarkIndicator = this.transform.GetChild(1).gameObject;
-        cenario = GameController.Singleton.cenarioController.GetComponent<CenarioController>();
+        //cenario = GameController.Singleton.cenarioController.GetComponent<CenarioController>();
     }
 
 
@@ -366,12 +366,28 @@ public class PlayerMovement : MonoBehaviour {
     /// </summary>
     private void MarkOnGround() {
 
-        if(cenario.TerrainPossition(this.gameObject).HasGround && isAlive) {
+        if(this.TerrainPossition(this.gameObject).HasGround && isAlive) {
             MarkIndicator.SetActive(true);
             MarkIndicator.transform.localPosition = new Vector3(MarkIndicator.transform.localPosition.x, - this.transform.position.y + cenario.TerrainPossition(this.gameObject).YPosition + 0.02f,MarkIndicator.transform.localPosition.z);
         } else {
             MarkIndicator.SetActive(false);
         }        
+    }
+
+
+
+    public (bool HasGround, float YPosition) TerrainPossition(GameObject player) {
+
+        RaycastHit terrain;
+        if(Physics.Raycast(player.transform.position + Vector3.up, Vector3.down, out terrain, 15)) {
+
+            if(terrain.collider.CompareTag("Terrain")) {
+                return (true, terrain.collider.transform.position.y);
+            }
+        }
+
+        ///Em caso do jogador pular plataformas e n ter chão abaixo.
+        return (false, 0);
     }
 
 

@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2_Ilhas_Old.unity
     guid: 1bf264f7f92d9014bbd704adb74057a3
+  - enabled: 1
+    path: Assets/Scenes/3_Galeria.unity
+    guid: be77655adbeefd04b8ddc253a684b1e3
   m_configObjects: {}

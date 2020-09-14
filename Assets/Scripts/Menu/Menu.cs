@@ -96,6 +96,19 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    public void GoToGallery()
+    {
+        if (GameStarted)
+        {
+            GameController.Singleton.CanvasFadeOut();
+            Invoke("LoadGallery", 3);
+        }
+    }
+    private void LoadGallery()
+    {
+        SceneManager.LoadScene(3);
+    }
+
 
 
     // ===== Controle de volume ======================================================

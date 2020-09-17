@@ -24,7 +24,7 @@ public class Juninho_Events : EventsAnimation
     public void OnDashCollider()
     {
         Juninho N_Juninho = Player as Juninho;
-        N_Juninho.NewMass(999);
+        N_Juninho.NewMass(9999);
         Juninho_Dash Dash = Player.Dash as Juninho_Dash;
         Dash.DashEffect(true);
     }

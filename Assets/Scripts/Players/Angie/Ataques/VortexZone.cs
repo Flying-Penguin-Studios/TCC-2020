@@ -31,7 +31,7 @@ public class VortexZone : MonoBehaviour
     {
         Vector3 Direction = transform.TransformDirection(Vector3.forward).normalized;
         Vector3 Destiny = transform.position + (Direction * 10);
-        float Distance = Vector3.Distance(Direction, Destiny);        
+        float Distance = Vector3.Distance(Direction, Destiny);
 
         while (!(Distance >= 0 && Distance <= 1))
         {
@@ -64,7 +64,7 @@ public class VortexZone : MonoBehaviour
                 }
                 else
                 {
-                    Vector3 Direction = (transform.position - rb.transform.position).normalized;
+                    Vector3 Direction = (rb.transform.position - transform.position).normalized;
 
                     float Distance = Vector3.Distance(transform.position, rb.transform.position);
                     Distance = Mathf.Pow(Distance, 1.5f);
@@ -72,7 +72,7 @@ public class VortexZone : MonoBehaviour
                     float PowerForce = (Power / Distance) * 100;
                     PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 4));
                     Direction.y = 0;
-                    rb.AddForce(Direction * PowerForce);
+                    rb.AddForce(Direction * PowerForce, ForceMode.VelocityChange);
                 }
             }
 

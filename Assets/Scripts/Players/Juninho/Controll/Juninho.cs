@@ -38,6 +38,8 @@ public class Juninho : PlayerController
 
         if (ToVivo)
         {
+            rb.WakeUp();
+
             OnGround();
             DustControl();
 

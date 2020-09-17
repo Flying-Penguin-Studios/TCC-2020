@@ -62,8 +62,8 @@ public abstract class PlayerController : MonoBehaviour
         else
             transform.GetChild(3).GetChild(0).GetComponent<ParticleSystem>().Play();
 
-        if (OnGround())
-            moveDir += Vector3.down * moveDir.magnitude;
+        //if (OnGround())
+        //    moveDir += Vector3.down * moveDir.magnitude;
 
         //if(Parter.ToVivo)
         //{
@@ -75,8 +75,14 @@ public abstract class PlayerController : MonoBehaviour
         //}
         //else
         //{
-        rb.velocity = moveDir * (speed * moveAmout);
-        rb.velocity = new Vector3(rb.velocity.x, t, rb.velocity.z);
+
+        moveDir *= (speed * moveAmout);
+
+        Vector3 Mov = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
+        //rb.AddForce(Mov, ForceMode.VelocityChange);
+
+        //rb.velocity = moveDir * (speed * moveAmout);
+        rb.velocity = Mov;
         //}
 
         //Rotate(moveDir);
@@ -241,7 +247,7 @@ public abstract class PlayerController : MonoBehaviour
                 float Distance = terrain.distance;
                 Distance = float.Parse(Distance.ToString("0.00"));
 
-                if (Distance < 0.3f)
+                if (Distance < 0.25f)
                 {
                     onGround = true;
                     anim.SetFloat("groundDistance", 0);
@@ -414,10 +420,12 @@ public abstract class PlayerController : MonoBehaviour
     //[HideInInspector]
     public bool ToVivo = false;
 
-    public void TakeDamage(int dano)
+
+    // Ambos metodos vão retornar o valor da vida apos dar o dano
+    public int TakeDamage(int dano)
     {
         if (GetBool("Fallen"))
-            return;
+            return 0;
 
         if (stats.currentLife > 0)
         {
@@ -466,9 +474,11 @@ public abstract class PlayerController : MonoBehaviour
                 anim.SetTrigger("Stag");
             }
         }
+
+        return stats.currentLife;
     }
 
-    public void SetDamage(int dano)
+    public int SetDamage(int dano)
     {
         if (stats.currentLife > 0)
         {
@@ -513,6 +523,8 @@ public abstract class PlayerController : MonoBehaviour
                 }
             }
         }
+
+        return stats.currentLife;
     }
 
     public bool Caido { get => GetBool("Fallen"); }
@@ -928,5 +940,66 @@ public abstract class PlayerController : MonoBehaviour
     public void SetParter(PlayerController n_Parter)
     {
         Parter = n_Parter;
+    }
+
+    private IslandCheckPoint LastIsland;
+
+    public void SetIslandPoint(IslandCheckPoint CheckPoint)
+    {
+        LastIsland = CheckPoint;
+    }
+
+
+    int FallDamage = 10;
+    public void RespawnOnLastIsland()
+    {
+        if (LastIsland)
+        {
+            if (SetDamage(FallDamage) > 0)
+            {
+                StopCoroutine(Pisca());
+                transform.position = LastIsland.checkPointSpawner;
+                StartCoroutine(Pisca());
+            }
+            else
+            {
+                Kill();
+            }
+        }
+    }
+
+    IEnumerator Pisca()
+    {
+        float BlinkTime = Time.time + 4;
+
+        SkinnedMeshRenderer[] Meshs = transform.GetComponentsInChildren<SkinnedMeshRenderer>();
+        MeshRenderer[] MeshsR = transform.GetComponentsInChildren<MeshRenderer>();
+
+        while (BlinkTime > Time.time)
+        {
+            foreach (SkinnedMeshRenderer Mesh in Meshs)
+            {
+                Mesh.enabled = !Mesh.enabled;
+            }
+
+            foreach (MeshRenderer Mesh in MeshsR)
+            {
+                Mesh.enabled = !Mesh.enabled;
+            }
+
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
+        }
+
+        foreach (SkinnedMeshRenderer Mesh in Meshs)
+        {
+            Mesh.enabled = true;
+        }
+
+        foreach (MeshRenderer Mesh in MeshsR)
+        {
+            Mesh.enabled = true;
+        }
+
+        yield return null;
     }
 }

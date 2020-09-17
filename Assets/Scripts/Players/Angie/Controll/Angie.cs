@@ -39,6 +39,8 @@ public class Angie : PlayerController
 
         if (ToVivo)
         {
+            rb.WakeUp();
+
             OnGround();
             DustControl();
 

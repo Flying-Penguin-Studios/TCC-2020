@@ -268,10 +268,11 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4874126678125670354, guid: c5c591c4b29e3774ca0d63fdb302a3bf, type: 3}
+  - {fileID: 2100000, guid: 8d3d71d3e3cf8e8408d1c76e2e9a276c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -317,7 +318,7 @@ MeshCollider:
   m_GameObject: {fileID: 6675458747587827880}
   m_Material: {fileID: 13400000, guid: 7b1fb2858570e0d48b0b8290991bd33b, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30

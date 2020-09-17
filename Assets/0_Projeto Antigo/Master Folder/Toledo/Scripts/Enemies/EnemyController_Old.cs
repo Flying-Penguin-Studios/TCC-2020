@@ -72,8 +72,8 @@ public class EnemyController_Old : MonoBehaviour {
 
     private void Start() {
 
-        Player1 = GameController.Singleton.InstantiatedPlayer1;
-        Player2 = GameController.Singleton.InstantiatedPlayer2;
+        //Player1 = GameController.Singleton.InstantiatedPlayer1;
+        //Player2 = GameController.Singleton.InstantiatedPlayer2;
 
         DefineEnemy();
         IsAlive = true;

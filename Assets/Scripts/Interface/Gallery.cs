@@ -40,7 +40,7 @@ public class Gallery : MonoBehaviour
             //JoysticRotate();
 
         }
-            
+        
     }
 
     private void RotateLeft()
@@ -93,5 +93,14 @@ public class Gallery : MonoBehaviour
     private void LoadMenu()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void DeactivateAllObjects()
+    {
+        //GameObject[] lista = item.GetComponentsInChildren<GameObject>();
+        //foreach (GameObject x in lista)
+        //{
+        //    x.gameObject.SetActive(false);
+        //}
     }
 }

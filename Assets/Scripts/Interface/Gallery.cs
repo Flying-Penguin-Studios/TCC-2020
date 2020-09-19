@@ -97,10 +97,10 @@ public class Gallery : MonoBehaviour
 
     public void DeactivateAllObjects()
     {
-        //GameObject[] lista = item.GetComponentsInChildren<GameObject>();
-        //foreach (GameObject x in lista)
-        //{
-        //    x.gameObject.SetActive(false);
-        //}
+
+        for(int i = 0; i <= item.transform.childCount - 1; i++)
+        {
+            item.transform.GetChild(i).gameObject.SetActive(false);
+        }
     }
 }

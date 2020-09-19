@@ -50,10 +50,17 @@ public class CameraController : MonoBehaviour {
     private Quaternion CameraFinalRotation;
 
 
+    // TEMPORARIO - APAGAR DEPOIS QUE CORRIGIR O GAMECONTROLLER
+    public GameObject P1;
+    public GameObject P2;
+
 
     private void Start() {
-        Player1 = GameController.Singleton.InstantiatedPlayer1;
-        Player2 = GameController.Singleton.InstantiatedPlayer2;
+        //Player1 = GameController.Singleton.InstantiatedPlayer1;
+        //Player2 = GameController.Singleton.InstantiatedPlayer2;
+
+        Player1 = P1;
+        Player2 = P2;
     }
 
 

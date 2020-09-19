@@ -67,11 +67,7 @@ public class Mob : EnemyController {
     /// Controla todo o comportamento dos inimigos. Desde movimento, até o combate.
     /// </summary>
     public void EnemyBehavior() {
-
         Patrol();
-
-
-
         Movement();
     }
 
@@ -91,11 +87,14 @@ public class Mob : EnemyController {
     private void Patrol() {        
 
         if((Time.time >= lastPatrolTime) && !isPatrolling) {
-
+            
+            
             targetPosition = spotPosition[spotNumber];
             targetPosition.y = this.transform.position.y;
-
+            
             this.transform.LookAt(targetPosition);
+
+            
 
             extraPouseTime = 0;
             if((spotNumber == spotPosition.Count - 1) || (spotNumber == 0)) {
@@ -106,17 +105,19 @@ public class Mob : EnemyController {
 
 
             acceleration = true;
-            isPatrolling = true;            
+            isPatrolling = true;
+            
         }
 
         if((Vector3.Distance(targetPosition, transform.position) <= 1) && isPatrolling) {
             acceleration = false;
             lastPatrolTime = Time.time + Random.Range(minMaxPatroPause.x, minMaxPatroPause.y) + extraPouseTime;
             isPatrolling = false;
+            
         }
-
-        velocity = transform.forward * PatrolSpeed * speed;
-        velocity.y = yGround;
+        Gizmos.DrawSphere(targetPosition, 1);
+        //velocity = transform.forward * PatrolSpeed * speed;
+        //velocity.y = yGround;
 
         rb.velocity = velocity;
     }
@@ -132,7 +133,7 @@ public class Mob : EnemyController {
         } else {
             if(speed > 0) speed -= decelerationFactor * Time.fixedDeltaTime;
             if(speed <= 0.1f) rb.velocity = Vector3.zero;
-        }
+        }        
     }
 
 

@@ -115,9 +115,9 @@ public class Mob : EnemyController {
             isPatrolling = false;
             
         }
-        Gizmos.DrawSphere(targetPosition, 1);
-        //velocity = transform.forward * PatrolSpeed * speed;
-        //velocity.y = yGround;
+    
+        velocity = transform.forward * PatrolSpeed * speed;
+        velocity.y = yGround;
 
         rb.velocity = velocity;
     }

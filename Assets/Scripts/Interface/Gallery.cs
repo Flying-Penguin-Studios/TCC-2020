@@ -90,7 +90,7 @@ public class Gallery : MonoBehaviour
         Invoke("LoadMenu", 3);
     }
 
-    private void LoadMenu()
+    public void LoadMenu()
     {
         SceneManager.LoadScene(1);
     }
@@ -101,6 +101,15 @@ public class Gallery : MonoBehaviour
         for(int i = 0; i <= item.transform.childCount - 1; i++)
         {
             item.transform.GetChild(i).gameObject.SetActive(false);
+        }
+    }
+
+    public void DeactivateAllPanels(GameObject itempanel)
+    {
+
+        for (int i = 0; i <= itempanel.transform.childCount - 1; i++)
+        {
+            itempanel.transform.GetChild(i).gameObject.SetActive(false);
         }
     }
 }

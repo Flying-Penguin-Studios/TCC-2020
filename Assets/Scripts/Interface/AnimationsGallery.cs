@@ -12,7 +12,7 @@ public class AnimationsGallery : MonoBehaviour
     {
         test = GetComponent<Animator>();
         GetComponent<Animator>().fireEvents = false;
-        GetAnimations(test);
+        //GetAnimations(test);
     }
 
     // Update is called once per frame
@@ -21,17 +21,17 @@ public class AnimationsGallery : MonoBehaviour
         
     }
 
-    public void GetAnimations(Animator anim)
-    {
-        anim = GetComponent<Animator>();
-
-        AnimationClip[] animationClips = anim.runtimeAnimatorController.animationClips;
-
-        foreach (AnimationClip animClip in animationClips)
-        {
-            Debug.Log(animClip.name + ": " + animClip.length);
-        }
-    }
+    //public void GetAnimations(Animator anim)
+    //{
+    //    anim = GetComponent<Animator>();
+    //
+    //    AnimationClip[] animationClips = anim.runtimeAnimatorController.animationClips;
+    //
+    //    foreach (AnimationClip animClip in animationClips)
+    //    {
+    //        Debug.Log(animClip.name + ": " + animClip.length);
+    //    }
+    //}
 
     public void ChangeParemeter(string paramName)
     {

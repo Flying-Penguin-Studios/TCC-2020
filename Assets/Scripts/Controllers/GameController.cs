@@ -141,6 +141,15 @@ public class GameController : MonoBehaviour {
             Invoke("CanvasFadeIn", 0.09f);
             Invoke("GetcheckPoint", 0.09f);
 
+        } else if (CheckSceneIndex(3))
+        {
+            if (!InstantiatedBlackCanvas)
+            {  
+                InstantiatedBlackCanvas = Instantiate(BlackCanvas);
+                InstantiatedBlackCanvas.transform.SetParent(this.transform);
+            }
+
+            Invoke("CanvasFadeIn", 0.09f);
         }
     }
 

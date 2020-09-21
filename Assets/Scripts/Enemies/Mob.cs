@@ -109,7 +109,9 @@ public class Mob : EnemyController {
             
         }
 
-        if((Vector3.Distance(targetPosition, transform.position) <= 1) && isPatrolling) {
+        
+
+        if((Vector3.Distance(targetPosition, transform.position) <= 1.5f) && isPatrolling) {
             acceleration = false;
             lastPatrolTime = Time.time + Random.Range(minMaxPatroPause.x, minMaxPatroPause.y) + extraPouseTime;
             isPatrolling = false;

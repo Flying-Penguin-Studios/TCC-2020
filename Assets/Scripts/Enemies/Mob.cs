@@ -87,7 +87,7 @@ public class Mob : EnemyController {
     /// Realiza a patrulha entre spots pré-definidos no mapa. Ao acabar a sequencia de spots,
     /// patrulha os mesmos spots em ordem contrária, fazendo o mesmo caminho de volta.
     /// </summary>
-    private void Patrol() {        
+    private void Patrol() {
 
         if((Time.time >= lastPatrolTime) && !isPatrolling) {
             

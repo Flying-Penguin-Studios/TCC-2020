@@ -64,6 +64,10 @@ public class EnemyController_Old : MonoBehaviour {
     Vector3 NextRoutePoint;
 
 
+    public GameObject P1;
+    public GameObject P2;
+
+
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -74,6 +78,9 @@ public class EnemyController_Old : MonoBehaviour {
 
         //Player1 = GameController.Singleton.InstantiatedPlayer1;
         //Player2 = GameController.Singleton.InstantiatedPlayer2;
+
+        Player1 = P1;
+        Player2 = P2;
 
         DefineEnemy();
         IsAlive = true;

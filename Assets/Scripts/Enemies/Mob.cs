@@ -46,6 +46,9 @@ public class Mob : EnemyController {
 
 
     private void Start() {
+
+        anim = this.transform.GetChild(0).GetComponent<Animator>();
+
         Init(speed);
         isPatrolling = false;
         lastPatrolTime = 0;
@@ -60,7 +63,7 @@ public class Mob : EnemyController {
     }
 
 
-
+    
 
 
     /// <summary>
@@ -109,7 +112,8 @@ public class Mob : EnemyController {
             
         }
 
-        
+        this.transform.LookAt(targetPosition);
+
 
         if((Vector3.Distance(targetPosition, transform.position) <= 1.5f) && isPatrolling) {
             acceleration = false;
@@ -121,6 +125,8 @@ public class Mob : EnemyController {
         velocity = transform.forward * PatrolSpeed * speed;
         velocity.y = yGround;
 
+        anim.SetFloat("WalkType", 1);
+        anim.SetFloat("GuardMoveSpeedModifier", speed);
         rb.velocity = velocity;
     }
 
@@ -135,7 +141,9 @@ public class Mob : EnemyController {
         } else {
             if(speed > 0) speed -= decelerationFactor * Time.fixedDeltaTime;
             if(speed <= 0.1f) rb.velocity = Vector3.zero;
-        }        
+        }
+
+        anim.SetFloat("Speed", speed);
     }
 
 

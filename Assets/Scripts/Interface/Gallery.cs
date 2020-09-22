@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class Gallery : MonoBehaviour
 {
     public GameObject item;
+    public Camera cam;
     bool pressedL;
     bool pressedR;
     public float speedCursor = 0.025f;
@@ -39,6 +40,15 @@ public class Gallery : MonoBehaviour
             //Rotação com controle usando Joystick Direito (ME AJUDA NESSE BRUNO)
             //JoysticRotate();
 
+            if (Input.GetAxis("P1_R_Joystick_Vertical") > 0 || Input.GetAxis("P2_R_Joystick_Vertical") > 0)
+            {
+                ZoomInCamera();
+            }
+
+            if (Input.GetAxis("P1_R_Joystick_Vertical") < 0 || Input.GetAxis("P2_R_Joystick_Vertical") < 0)
+            {
+                ZoomOutCamera();
+            }
         }
         
     }
@@ -111,5 +121,25 @@ public class Gallery : MonoBehaviour
         {
             itempanel.transform.GetChild(i).gameObject.SetActive(false);
         }
+    }
+
+    public void ZoomInCamera()
+    {
+        if(cam.fieldOfView > 15)
+        {
+            cam.fieldOfView = cam.fieldOfView - 1;
+        } 
+    }
+    public void ZoomOutCamera()
+    {
+        if (cam.fieldOfView < 80)
+        {
+            cam.fieldOfView = cam.fieldOfView + 1;
+        }
+    }
+
+    public void ResetZoomCamera()
+    {
+        cam.fieldOfView = 60;
     }
 }

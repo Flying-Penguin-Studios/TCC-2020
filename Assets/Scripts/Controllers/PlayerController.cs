@@ -49,10 +49,7 @@ public abstract class PlayerController : MonoBehaviour
             return;
 
         anim.SetFloat(StaticVariables.Animator.speedFloat, moveAmout);
-        //anim.SetFloat(StaticVariables.Animator.speedFloat, moveAmout, 0.075f, Time.fixedDeltaTime * 2);
-        //anim.speed = animSpeed;
 
-        t = rb.velocity.y;
         rb.drag = moveAmout > 0 ? 0 : 4;
         rb.drag = OnGround() ? 4 : 0;
         float speed = OnGround() ? stats.speed : stats.j_speed;
@@ -62,30 +59,20 @@ public abstract class PlayerController : MonoBehaviour
         else
             transform.GetChild(3).GetChild(0).GetComponent<ParticleSystem>().Play();
 
-        //if (OnGround())
-        //    moveDir += Vector3.down * moveDir.magnitude;
-
-        //if(Parter.ToVivo)
-        //{
-        //    if (Distance <= MaxDistanceWalk)
-        //    {
-        //        rb.velocity = moveDir * (speed * moveAmout);
-        //        rb.velocity = new Vector3(rb.velocity.x, t, rb.velocity.z);
-        //    }
-        //}
-        //else
-        //{
 
         moveDir *= (speed * moveAmout);
 
-        Vector3 Mov = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
-        //rb.AddForce(Mov, ForceMode.VelocityChange);
+        float t = rb.velocity.y;
 
-        //rb.velocity = moveDir * (speed * moveAmout);
+        if (OnGround() && rb.velocity.y < 0f)
+        {
+            //t *= 1000f;
+            print("SAMU");
+        }
+
+        Vector3 Mov = new Vector3(moveDir.x, t, moveDir.z);
         rb.velocity = Mov;
-        //}
 
-        //Rotate(moveDir);
     }
 
     [SerializeField]

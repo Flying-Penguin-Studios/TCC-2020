@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
 
 
     public static GameController Singleton = null;
@@ -80,13 +81,17 @@ public class GameController : MonoBehaviour {
 
 
 
-    private void Awake() {
+    private void Awake()
+    {
 
-        if(Singleton == null) {
+        if (Singleton == null)
+        {
             Singleton = this;
             DontDestroyOnLoad(gameObject);
 
-        } else if(Singleton != this) {
+        }
+        else if (Singleton != this)
+        {
             Destroy(gameObject);
         }
 
@@ -101,7 +106,8 @@ public class GameController : MonoBehaviour {
     void OnDisable() { SceneManager.sceneLoaded -= OnSceneLoaded; }
 
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         LoadScene();
     }
 
@@ -109,22 +115,28 @@ public class GameController : MonoBehaviour {
     /// <summary>
     /// Instancia os jogadores e seta algumas propriedades de jogo; Esse script é rodado assim que a cena carrega.
     /// </summary>
-    private void LoadScene() {
+    private void LoadScene()
+    {
 
-        if(CheckSceneIndex(1)) {    //Verifica se a scena atual tem o index 1 (Menu do jogo).
+        if (CheckSceneIndex(1))
+        {    //Verifica se a scena atual tem o index 1 (Menu do jogo).
 
-            if(!InstantiatedBlackCanvas) {  //Cria BlackCanvas caso o GameController n seja inicializado no menu, e sim na cena 2
+            if (!InstantiatedBlackCanvas)
+            {  //Cria BlackCanvas caso o GameController n seja inicializado no menu, e sim na cena 2
                 InstantiatedBlackCanvas = Instantiate(BlackCanvas);
                 InstantiatedBlackCanvas.transform.SetParent(this.transform);
             }
 
             Invoke("CanvasFadeIn", 0.09f);
 
-        } else if(CheckSceneIndex(2)) {        //Verifica se a scena atual tem o index 2 (Primeira fase do jogo).
+        }
+        else if (CheckSceneIndex(2))
+        {        //Verifica se a scena atual tem o index 2 (Primeira fase do jogo).
 
             SetSoundVolume();
 
-            if(!InstantiatedBlackCanvas) {  //Cria BlackCanvas caso o GameController n seja inicializado no menu, e sim na cena 2
+            if (!InstantiatedBlackCanvas)
+            {  //Cria BlackCanvas caso o GameController n seja inicializado no menu, e sim na cena 2
                 InstantiatedBlackCanvas = Instantiate(BlackCanvas);
                 InstantiatedBlackCanvas.transform.SetParent(this.transform);
             }
@@ -136,15 +148,16 @@ public class GameController : MonoBehaviour {
             GamePaused = false;
 
 
-            StartCoroutine(InstantiatePlayers());
-            Invoke("SetParent", 0.09f);
+            //    StartCoroutine(InstantiatePlayers());
+            //    Invoke("SetParent", 0.09f);
             Invoke("CanvasFadeIn", 0.09f);
-            Invoke("GetcheckPoint", 0.09f);
+            //    Invoke("GetcheckPoint", 0.09f);
 
-        } else if (CheckSceneIndex(3))
+        }
+        else if (CheckSceneIndex(3))
         {
             if (!InstantiatedBlackCanvas)
-            {  
+            {
                 InstantiatedBlackCanvas = Instantiate(BlackCanvas);
                 InstantiatedBlackCanvas.transform.SetParent(this.transform);
             }
@@ -155,7 +168,8 @@ public class GameController : MonoBehaviour {
 
     Vector2 HotSpot = new Vector2(Screen.width, Screen.height);
 
-    private void Update() {
+    private void Update()
+    {
         GameControll();
     }
 
@@ -170,11 +184,15 @@ public class GameController : MonoBehaviour {
     /// Retorna verdadeiro caso a cena atual tenha o mesmo index passado via parâmetro.
     /// </summary>
     /// <returns></returns>
-    private bool CheckSceneIndex(int sceneIndex) {
+    private bool CheckSceneIndex(int sceneIndex)
+    {
 
-        if(SceneManager.GetActiveScene().buildIndex == sceneIndex) {
+        if (SceneManager.GetActiveScene().buildIndex == sceneIndex)
+        {
             return true;
-        } else {
+        }
+        else
+        {
             return false;
         }
     }
@@ -189,7 +207,8 @@ public class GameController : MonoBehaviour {
     /// <summary>
     /// 
     /// </summary>
-    private void SetSoundVolume() {
+    private void SetSoundVolume()
+    {
 
     }
 
@@ -197,12 +216,14 @@ public class GameController : MonoBehaviour {
     // ============== Check Point =========================================
 
 
-    public void SetCheckPoint() {
+    public void SetCheckPoint()
+    {
         Checkpoint = LastCheckPoint;
     }
 
 
-    private void GetcheckPoint() {
+    private void GetcheckPoint()
+    {
         LastCheckPoint = Checkpoint;
     }
 
@@ -220,7 +241,8 @@ public class GameController : MonoBehaviour {
     /// </summary>
     /// <param name="P1Position"></param>
     /// <param name="P2Position"></param>
-    private IEnumerator InstantiatePlayers() {
+    private IEnumerator InstantiatePlayers()
+    {
 
         InstantiatedPlayer1 = Instantiate(player1, Vector3.zero, player1.transform.rotation);
         InstantiatedPlayer1.name = "Player 1";
@@ -236,10 +258,13 @@ public class GameController : MonoBehaviour {
 
         yield return new WaitForSeconds(0.1f);
 
-        if(LastCheckPoint == 0) {
+        if (LastCheckPoint == 0)
+        {
             Player1SpawnPosition = Player1StartPosition;
             Player2SpawnPosition = Player2StartPosition;
-        } else {
+        }
+        else
+        {
             Player1SpawnPosition = new Vector3(CheckPointPosition.x - 1, CheckPointPosition.y, CheckPointPosition.z);
             Player2SpawnPosition = new Vector3(CheckPointPosition.x + 1, CheckPointPosition.y, CheckPointPosition.z);
         }
@@ -255,7 +280,8 @@ public class GameController : MonoBehaviour {
     /// Instancia o player 1.
     /// </summary>
     /// <param name="position"></param>
-    private void InstantiatePlayer1(Vector3 position) {
+    private void InstantiatePlayer1(Vector3 position)
+    {
         InstantiatedPlayer1 = Instantiate(player1, position, player1.transform.rotation);
         InstantiatedPlayer1.name = "Player 1";
         InstantiatedPlayer1.GetComponent<PlayerController>().BackToLife();
@@ -266,14 +292,16 @@ public class GameController : MonoBehaviour {
     /// Instancia o player2.
     /// </summary>
     /// <param name="position"></param>
-    private void InstantiatePlayer2(Vector3 position) {
+    private void InstantiatePlayer2(Vector3 position)
+    {
         InstantiatedPlayer2 = Instantiate(player2, position, player2.transform.rotation);
         InstantiatedPlayer2.name = "Player 2";
         InstantiatedPlayer2.GetComponent<PlayerController>().BackToLife();
     }
 
 
-    private void SetParent() {
+    private void SetParent()
+    {
         InstantiatedPlayer1.transform.parent = playerParent.transform;
         InstantiatedPlayer2.transform.parent = playerParent.transform;
     }
@@ -282,17 +310,22 @@ public class GameController : MonoBehaviour {
     /// <summary>
     /// Retorna true caso os 2 jogadores estejam mortos;
     /// </summary>
-    private bool BothPlayersDead() {
+    private bool BothPlayersDead()
+    {
 
-        if(!InstantiatedPlayer1.GetComponent<PlayerController>().ToVivo && !InstantiatedPlayer2.GetComponent<PlayerController>().ToVivo) {
+        if (!InstantiatedPlayer1.GetComponent<PlayerController>().ToVivo && !InstantiatedPlayer2.GetComponent<PlayerController>().ToVivo)
+        {
             return true;
-        } else {
+        }
+        else
+        {
             return false;
         }
     }
 
 
-    public void Reviveplayer(GameObject player) {
+    public void Reviveplayer(GameObject player)
+    {
         player.GetComponent<PlayerController>().BackToLife();
         player.GetComponent<PlayerController>().SetLifeFull();
     }
@@ -304,41 +337,50 @@ public class GameController : MonoBehaviour {
     /// <summary>
     /// Controla o jogo em termos de vitória ou derrota dos jogadores.
     /// </summary>
-    private void GameControll() {
-        if(CheckSceneIndex(2)) {                                        //Verifica se a scena atual tem o index 1.           
-            if(BothPlayersDead() && !reloadScene) { RestartGame(); }    // Reinicia o jogo quando ambos os jogadores morrem.
+    private void GameControll()
+    {
+        if (CheckSceneIndex(2))
+        {                                        //Verifica se a scena atual tem o index 1.           
+            if (BothPlayersDead() && !reloadScene) { RestartGame(); }    // Reinicia o jogo quando ambos os jogadores morrem.
         }
     }
 
 
-    private void RestartGame() {
+    private void RestartGame()
+    {
         reloadScene = true;
         CanvasFadeOut();
         Invoke("ReloadScene", 2.5f);
     }
 
 
-    private void ReloadScene() {
+    private void ReloadScene()
+    {
         scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(2);
     }
 
 
-    public void CanvasFadeOut() {
+    public void CanvasFadeOut()
+    {
         StartCoroutine(BlackCanvasFadeOut(InstantiatedBlackCanvas));
     }
 
 
-    public void CanvasFadeIn() {
+    public void CanvasFadeIn()
+    {
         StartCoroutine(BlackCanvasFadeIn(InstantiatedBlackCanvas));
     }
 
 
-    IEnumerator BlackCanvasFadeOut(Canvas canvas) {
+    IEnumerator BlackCanvasFadeOut(Canvas canvas)
+    {
 
-        for(float t = 0f; t <= 1; t = t + Time.deltaTime * (FadeSpeed + 0.05f)) {
+        for (float t = 0f; t <= 1; t = t + Time.deltaTime * (FadeSpeed + 0.05f))
+        {
 
-            if(canvas) {
+            if (canvas)
+            {
                 canvas.GetComponent<CanvasGroup>().alpha = t;
                 yield return null;
             }
@@ -346,11 +388,13 @@ public class GameController : MonoBehaviour {
     }
 
 
-    IEnumerator BlackCanvasFadeIn(Canvas canvas) {
+    IEnumerator BlackCanvasFadeIn(Canvas canvas)
+    {
 
         yield return new WaitForSeconds(1);
 
-        for(float t = 1f; t >= 0; t -= Time.deltaTime * (FadeSpeed + 0.05f)) {
+        for (float t = 1f; t >= 0; t -= Time.deltaTime * (FadeSpeed + 0.05f))
+        {
             canvas.GetComponent<CanvasGroup>().alpha = t;
             yield return null;
         }

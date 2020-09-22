@@ -64,11 +64,11 @@ public abstract class PlayerController : MonoBehaviour
 
         float t = rb.velocity.y;
 
-        if (OnGround() && rb.velocity.y < 0f)
-        {
-            //t *= 1000f;
-            print("SAMU");
-        }
+        //if (OnGround() && rb.velocity.y < 0f)
+        //{
+        //    //t *= 1000f;
+        //    print("SAMU");
+        //}
 
         Vector3 Mov = new Vector3(moveDir.x, t, moveDir.z);
         rb.velocity = Mov;

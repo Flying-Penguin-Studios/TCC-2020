@@ -11,9 +11,6 @@ public class IslandCheckPoint : MonoBehaviour
         if (Player = collision.gameObject.GetComponent<PlayerController>())
         {
             Vector3 newPoint = collision.contacts[0].point;
-            //newPoint.x *= .5f;
-            //newPoint.z *= .5f;
-
             Player.SetIslandPoint(newPoint);
         }
     }

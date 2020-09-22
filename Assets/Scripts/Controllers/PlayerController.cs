@@ -437,7 +437,7 @@ public abstract class PlayerController : MonoBehaviour
                 stats.currentLife = 0;
                 SetLife();
 
-                if (!Parter.ToVivo || !getUp)
+                if (!Parter.ToVivo || !getUp || Parter.Caido)
                 {
                     ToVivo = false;
 
@@ -942,23 +942,22 @@ public abstract class PlayerController : MonoBehaviour
         Parter = n_Parter;
     }
 
-    private IslandCheckPoint LastIsland;
+    private Vector3 LastIslandPosition;
 
-    public void SetIslandPoint(IslandCheckPoint CheckPoint)
+    public void SetIslandPoint(Vector3 Pos)
     {
-        LastIsland = CheckPoint;
+        LastIslandPosition = Pos;
     }
-
 
     int FallDamage = 10;
     public void RespawnOnLastIsland()
     {
-        if (LastIsland)
+        if (LastIslandPosition != Vector3.zero)
         {
             if (SetDamage(FallDamage) > 0)
             {
                 StopCoroutine(Pisca());
-                transform.position = LastIsland.checkPointSpawner;
+                transform.position = LastIslandPosition;
                 StartCoroutine(Pisca());
             }
             else
@@ -970,7 +969,7 @@ public abstract class PlayerController : MonoBehaviour
 
     IEnumerator Pisca()
     {
-        float BlinkTime = Time.time + 4;
+        float BlinkTime = Time.time + 1;
 
         SkinnedMeshRenderer[] Meshs = transform.GetComponentsInChildren<SkinnedMeshRenderer>();
         MeshRenderer[] MeshsR = transform.GetComponentsInChildren<MeshRenderer>();
@@ -987,7 +986,7 @@ public abstract class PlayerController : MonoBehaviour
                 Mesh.enabled = !Mesh.enabled;
             }
 
-            yield return new WaitForSeconds(Time.fixedDeltaTime);
+            yield return new WaitForSeconds(0.2f);
         }
 
         foreach (SkinnedMeshRenderer Mesh in Meshs)

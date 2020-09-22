@@ -4,33 +4,17 @@ using UnityEngine;
 
 public class IslandCheckPoint : MonoBehaviour
 {
-
-    [HideInInspector]
-    public Vector3 checkPointSpawner
-    {
-        get { return CheckPointSpawner.position; }
-    }
-
-    public Transform CheckPointSpawner;
-
-    //private void OnCollisionEnter(Collider other)
-    //{
-    //    PlayerController Player = other.GetComponent<PlayerController>();
-
-    //    if (Player)
-    //    {
-    //        Player.SetIslandPoint(this);
-    //    }
-    //}
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         PlayerController Player;
 
         if (Player = collision.gameObject.GetComponent<PlayerController>())
         {
-            Player.SetIslandPoint(this);
-            print("O INICIO DO SONHO");
+            Vector3 newPoint = collision.contacts[0].point;
+            //newPoint.x *= .5f;
+            //newPoint.z *= .5f;
+
+            Player.SetIslandPoint(newPoint);
         }
     }
 }

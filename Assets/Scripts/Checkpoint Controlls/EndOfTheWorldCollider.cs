@@ -11,8 +11,6 @@ public class EndOfTheWorldCollider : MonoBehaviour
         if (Player = other.GetComponent<PlayerController>())
         {
             Player.RespawnOnLastIsland();
-            print("DEU TUDO CERTO");
         }
-
     }
 }

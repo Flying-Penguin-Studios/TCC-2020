@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 4962623515383097704}
   - component: {fileID: 4373374907498893950}
   - component: {fileID: 9189703740374121339}
+  - component: {fileID: 4826148897298356177}
   m_Layer: 8
   m_Name: IlhaG1
   m_TagString: Terrain
@@ -177,6 +178,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3163539605619436318, guid: 79372013edc69864a90af8144c45bd87, type: 3}
+--- !u!114 &4826148897298356177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8274971951076351861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabcddf5d31ff8746acc05a374db9805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CheckPointSpawner: {fileID: 0}
 --- !u!1 &8307183139065611817
 GameObject:
   m_ObjectHideFlags: 0

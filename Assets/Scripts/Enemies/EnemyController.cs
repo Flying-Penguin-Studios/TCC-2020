@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour {
     protected void Init(float speed) {
         enemy = new Enemy(gameObject.name, HP_Max, speed);
         rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+        anim = this.transform.GetChild(0).GetComponent<Animator>();
     }
 
 

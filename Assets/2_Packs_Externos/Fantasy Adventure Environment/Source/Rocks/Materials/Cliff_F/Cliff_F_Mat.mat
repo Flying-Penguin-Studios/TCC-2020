@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Cliff_F_Mat
-  m_Shader: {fileID: -6465566751694194690, guid: 7f57b0c643f528f4297b72348cab9faf,
+  m_Shader: {fileID: -6465566751694194690, guid: 5666065488ed57a4d9f76658a82b25c7,
     type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 5

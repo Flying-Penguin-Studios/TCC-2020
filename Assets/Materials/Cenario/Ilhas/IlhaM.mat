@@ -93,7 +93,7 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _CoverageAmount: 0.9
+    - _CoverageAmount: 1
     - _CoverageTiling: 20
     - _Cull: 2
     - _Cutoff: 0.5

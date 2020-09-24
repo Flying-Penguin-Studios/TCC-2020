@@ -21,10 +21,10 @@ public class Zombie : Mob {
 
 
 
-    public override void TakeDamage() {
+    public override void TakeDamage(int damage) {
         
         //Executa as regras da classe pai.
-        base.TakeDamage();        
+        base.TakeDamage(damage);        
         
         if(enemy.HP <= (enemy.HP_Max * (LifeToBerserkerMode / 100))) {
 

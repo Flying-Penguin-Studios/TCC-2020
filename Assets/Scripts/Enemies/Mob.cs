@@ -170,8 +170,12 @@ public class Mob : EnemyController {
     /// <summary>
     /// Regras ao tomar dano. Ex: Stag, verificação de HP, se morreu, etc...
     /// </summary>
-    public virtual void TakeDamage() {
-        Die();
+    public virtual void TakeDamage(int damage) {
+
+        enemy.HP -= damage;
+
+        if(enemy.HP <= 0) { Die(); }
+
     }
 
 

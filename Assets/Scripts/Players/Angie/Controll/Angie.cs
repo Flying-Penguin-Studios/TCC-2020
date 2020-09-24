@@ -44,7 +44,8 @@ public class Angie : PlayerController
             OnGround();
             DustControl();
 
-            Distance = Vector3.Distance(transform.position, Parter.transform.position);
+            if (Parter && Parter.ToVivo)
+                Distance = Vector3.Distance(transform.position, Parter.transform.position);
 
             if (isPlayer2)
             {
@@ -54,7 +55,7 @@ public class Angie : PlayerController
 
                 if (!GetBool("Charging"))
                 {
-                    if (Parter.ToVivo)
+                    if (Parter && Parter.ToVivo)
                     {
                         if (Parter.GetBool("Fallen") && Distance <= 2f)
                         {
@@ -85,7 +86,7 @@ public class Angie : PlayerController
 
                 if (!GetBool("Charging"))
                 {
-                    if (Parter.ToVivo)
+                    if (Parter && Parter.ToVivo)
                     {
                         if (Parter.GetBool("Fallen") && Distance <= 2f)
                         {
@@ -124,7 +125,7 @@ public class Angie : PlayerController
                 if (anim.speed <= 2)
                 {
                     anim.speed += 0.001f;
-                }               
+                }
             }
 
             if (GetBool("Attacking"))

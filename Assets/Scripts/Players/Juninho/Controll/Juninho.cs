@@ -43,7 +43,8 @@ public class Juninho : PlayerController
             OnGround();
             DustControl();
 
-            Distance = Vector3.Distance(transform.position, Parter.transform.position);
+            if (Parter)
+                Distance = Vector3.Distance(transform.position, Parter.transform.position);
 
             if (!isPlayer2)
             {
@@ -52,7 +53,7 @@ public class Juninho : PlayerController
                 UseDash(Input.GetAxis("P1_RT"));
                 if (!GetBool("Charging"))
                 {
-                    if (Parter.ToVivo)
+                    if (Parter && Parter.ToVivo)
                     {
                         if (Parter.GetBool("Fallen") && Distance <= 2f)
                         {
@@ -83,7 +84,7 @@ public class Juninho : PlayerController
                 UseDash(Input.GetAxis("P2_RT"));
                 if (!GetBool("Charging"))
                 {
-                    if (Parter.ToVivo)
+                    if (Parter && Parter.ToVivo)
                     {
                         if (Parter.GetBool("Fallen") && Distance <= 2f)
                         {

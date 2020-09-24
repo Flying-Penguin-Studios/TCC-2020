@@ -33,7 +33,7 @@ public abstract class PlayerController : MonoBehaviour
         }
 
         rb.angularDrag = 999;
-        rb.drag = 4;
+        //rb.drag = 4;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
 
@@ -41,17 +41,12 @@ public abstract class PlayerController : MonoBehaviour
 
     protected float Distance;
 
-    float t;
-
     void Walk(Vector3 moveDir, float moveAmout)
     {
         if (!getCanMove() || anim.GetBool("onAttack"))
             return;
 
         anim.SetFloat(StaticVariables.Animator.speedFloat, moveAmout);
-
-        rb.drag = moveAmout > 0 ? 0 : 4;
-        rb.drag = OnGround() ? 4 : 0;
         float speed = OnGround() ? stats.speed : stats.j_speed;
 
         if (moveDir == Vector3.zero)
@@ -59,20 +54,8 @@ public abstract class PlayerController : MonoBehaviour
         else
             transform.GetChild(3).GetChild(0).GetComponent<ParticleSystem>().Play();
 
-
-        moveDir *= (speed * moveAmout);
-
-        float t = rb.velocity.y;
-
-        //if (OnGround() && rb.velocity.y < 0f)
-        //{
-        //    //t *= 1000f;
-        //    print("SAMU");
-        //}
-
-        Vector3 Mov = new Vector3(moveDir.x, t, moveDir.z);
-        rb.velocity = Mov;
-
+        moveDir *= speed * moveAmout;
+        rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
     }
 
     [SerializeField]
@@ -98,16 +81,7 @@ public abstract class PlayerController : MonoBehaviour
         Target.y = 0;
         tr = Quaternion.LookRotation(Target);
 
-        float speed = 0;
-        if (RotateSpeedVariant > 0)
-        {
-            speed = RotateSpeedVariant;
-        }
-        else
-        {
-            speed = rotateSpeed * (anim.GetBool("Charging") ? Time.deltaTime / 3 : Time.deltaTime);
-        }
-
+        float speed = RotateSpeedVariant > 0 ? RotateSpeedVariant : rotateSpeed * (anim.GetBool("Charging") ? Time.deltaTime / 3 : Time.deltaTime);
         Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, speed);
 
         transform.localRotation = targetRotation;
@@ -122,9 +96,6 @@ public abstract class PlayerController : MonoBehaviour
             Target.y = 0;
             Quaternion tr = Quaternion.LookRotation(Target);
             transform.localRotation = Quaternion.Slerp(transform.rotation, tr, 1);
-
-            //print(TargetHandle.name);
-            //transform.LookAt(TargetHandle.transform.position);
         }
     }
 
@@ -211,9 +182,6 @@ public abstract class PlayerController : MonoBehaviour
     {
         if (OnGround() && Jump && GetBool("canJump"))
         {
-            //Vector3 Direction = new Vector3(0, stats.jumpForce, 0);
-            // InpulsePlayer(Direction * 1.5f, 0);
-            //InpulsePlayer(Direction * VarTeste, 0);
             anim.SetTrigger(StaticVariables.Animator.jumpTrigger);
         }
     }
@@ -234,7 +202,7 @@ public abstract class PlayerController : MonoBehaviour
                 float Distance = terrain.distance;
                 Distance = float.Parse(Distance.ToString("0.00"));
 
-                if (Distance < 0.25f)
+                if (Distance < .15f)
                 {
                     onGround = true;
                     anim.SetFloat("groundDistance", 0);
@@ -424,7 +392,7 @@ public abstract class PlayerController : MonoBehaviour
                 stats.currentLife = 0;
                 SetLife();
 
-                if (!Parter.ToVivo || !getUp || Parter.Caido)
+                if (!Parter && (!Parter.ToVivo || !getUp || Parter.Caido))
                 {
                     ToVivo = false;
 
@@ -477,7 +445,7 @@ public abstract class PlayerController : MonoBehaviour
                 stats.currentLife = 0;
                 SetLife();
 
-                if (!Parter.ToVivo || !getUp)
+                if (!Parter && (!Parter.ToVivo || !getUp))
                 {
                     ToVivo = false;
 
@@ -523,7 +491,7 @@ public abstract class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         while (GetBool("Fallen"))
         {
-            if (Parter.Caido)
+            if (Parter && Parter.Caido)
             {
                 SetDamage(stats.currentLife);
                 break;
@@ -922,7 +890,20 @@ public abstract class PlayerController : MonoBehaviour
         yield return null;
     }
 
-    protected PlayerController Parter;
+
+    PlayerController Parceiro;
+
+    protected PlayerController Parter
+    {
+        get
+        {
+            if (Parceiro)
+                return Parceiro;
+            else
+                return null;
+        }
+        set { Parceiro = value; }
+    }
 
     public void SetParter(PlayerController n_Parter)
     {

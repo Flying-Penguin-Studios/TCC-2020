@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8598589592087377511}
   m_Layer: 0
   m_Name: RockCluster_A_LOD0
-  m_TagString: Untagged
+  m_TagString: ObjetosDeCena
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967291
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8598589581229719917}
   m_Layer: 0
   m_Name: RockCluster_A_LOD2
-  m_TagString: Untagged
+  m_TagString: ObjetosDeCena
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967291
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 8598589579645732553}
   m_Layer: 0
   m_Name: RockCluster_A_LOD1
-  m_TagString: Untagged
+  m_TagString: ObjetosDeCena
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967291
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 8639797879905198525}
   m_Layer: 0
   m_Name: RockCluster_A
-  m_TagString: Untagged
+  m_TagString: ObjetosDeCena
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967291

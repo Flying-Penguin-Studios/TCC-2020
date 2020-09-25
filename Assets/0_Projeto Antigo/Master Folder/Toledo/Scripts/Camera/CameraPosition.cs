@@ -37,7 +37,7 @@ public class CameraPosition : MonoBehaviour {
 
     private void firstcameraposition() {
         //this.transform.position = GameController.Singleton.Player1StartPosition;
-        this.transform.position = P1StartPosition;
+        //this.transform.position = P1StartPosition;
     }
 
 

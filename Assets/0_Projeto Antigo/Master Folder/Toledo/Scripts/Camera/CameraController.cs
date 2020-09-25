@@ -77,8 +77,11 @@ public class CameraController : MonoBehaviour {
     private void SetCameraDistance() {
 
         CamBasePosition = this.transform.parent.transform.localPosition;
-        P1IsAlive = Player1.GetComponent<PlayerController>().ToVivo;
-        P2IsAlive = Player2.GetComponent<PlayerController>().ToVivo;        
+        //P1IsAlive = Player1.GetComponent<PlayerController>().ToVivo;
+        //P2IsAlive = Player2.GetComponent<PlayerController>().ToVivo;
+
+        P1IsAlive = P1.GetComponent<PlayerController>().ToVivo;
+        P2IsAlive = P2.GetComponent<PlayerController>().ToVivo;
 
 
         if(P1IsAlive && P2IsAlive) {

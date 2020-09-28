@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 8a9315225f7071f41886c2cc6fd158a1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Crystal Deco
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8537505a70843b840acf3315067d1828, type: 3}
+  - {fileID: 12800000, guid: d60dd7cc60ac8c1438415cd01c65d8de, type: 3}
+  - {fileID: 12800000, guid: 2002a00d1f5cd884fa7e2ce179a2e1be, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -46,6 +46,14 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public GameObject ScenePlayer2;
 
+    //Variáveis da Arena - Temporário?
+    [HideInInspector]
+    public bool Arena1Completed = false;
+    [HideInInspector]
+    public int ArenaEnemyCount = 0;
+    [HideInInspector]
+    public bool ArenaCompleted = false;
+
     void OnEnable() { SceneManager.sceneLoaded += OnSceneLoaded; }
     void OnDisable() { SceneManager.sceneLoaded -= OnSceneLoaded; }
 

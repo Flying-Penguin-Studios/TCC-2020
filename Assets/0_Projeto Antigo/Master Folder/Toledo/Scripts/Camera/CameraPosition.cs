@@ -22,7 +22,7 @@ public class CameraPosition : MonoBehaviour {
 
 
     private void Start() {
-        Invoke("firstcameraposition", 0.09f);
+        //Invoke("firstcameraposition", 0.09f);
     }
 
 

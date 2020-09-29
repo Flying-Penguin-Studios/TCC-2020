@@ -5,11 +5,10 @@ using UnityEngine;
 public class ArenaController : MonoBehaviour {
 
 
-    public GameObject Walls;
     public GameObject Archer;
     public GameObject Guard;
     public GameObject Zombie;
-    public GameObject LimitadoresCerca;
+    
 
     private bool P1Inside;
     private bool P2Inside;
@@ -19,7 +18,7 @@ public class ArenaController : MonoBehaviour {
 
 
     private void Start() {
-        ArenaCompleted = GameController_OLD.Singleton.ArenaCompleted;
+        ArenaCompleted = GameController.Singleton.Arena1Completed;
         ArenaStart = false;
         Wave = 1;
     }
@@ -35,11 +34,11 @@ public class ArenaController : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
 
-        if(other.CompareTag("Player") && (other.gameObject.name == "Player 1")) {
+        if((other.gameObject == GameController.Singleton.ScenePlayer1)) {
             P1Inside = true;
         }
 
-        if(other.CompareTag("Player") && (other.gameObject.name == "Player 2")) {
+        if((other.gameObject == GameController.Singleton.ScenePlayer2)) {
             P2Inside = true;
         }
     }
@@ -59,39 +58,30 @@ public class ArenaController : MonoBehaviour {
 
     private void StartArena() {
 
-        if(!GameController_OLD.Singleton.InstantiatedPlayer1.GetComponent<PlayerController>().ToVivo) { P1Inside = true; }
-        if(!GameController_OLD.Singleton.InstantiatedPlayer2.GetComponent<PlayerController>().ToVivo) { P2Inside = true; }
+        if(!GameController.Singleton.ScenePlayer1.GetComponent<PlayerController>().ToVivo) { P1Inside = true; }
+        if(!GameController.Singleton.ScenePlayer2.GetComponent<PlayerController>().ToVivo) { P2Inside = true; }
+
 
         if(P1Inside && P2Inside && !ArenaStart && !ArenaCompleted) {
-            Walls.SetActive(true);
-            StartCoroutine(WallsUp());
+            CloseArena();
             StartCoroutine(WaveSpawn());
         }       
     }
 
 
-    private IEnumerator WallsUp() {
-        for(float i = -3; i <= 3; i = i + Time.deltaTime * 1.5f) {            
-            Walls.transform.localPosition = new Vector3(Walls.transform.localPosition.x, i, Walls.transform.localPosition.z);
-            yield return null;
-        }
+    private void CloseArena() {
+
+        this.transform.GetChild(0).gameObject.SetActive(true);
+        this.transform.GetChild(1).gameObject.SetActive(true);
+
     }
 
-
-    private IEnumerator WallsDown() {
-        for(float i = 0; i >= -4; i = i - Time.deltaTime * 2) {
-            if(Walls) { Walls.transform.localPosition = new Vector3(Walls.transform.localPosition.x, i, Walls.transform.localPosition.z); }            
-            yield return null;
-        }
-        Destroy(Walls, 1);
-    }
 
 
     private void ArenaComplete() {
-        if(ArenaStart && GameController_OLD.Singleton.cenarioController.GetComponent<CenarioController>().ArenaEnemyCount == 0) {
-            StartCoroutine(WallsDown());
-            DestroiLimitadores();
-            GameController_OLD.Singleton.ArenaCompleted = true;
+        if(ArenaStart && GameController.Singleton.ArenaEnemyCount == 0) {
+            GameController.Singleton.ArenaCompleted = true;
+            Destroy(this.gameObject, 2);
         }
     }
 
@@ -99,7 +89,7 @@ public class ArenaController : MonoBehaviour {
     
     private IEnumerator WaveSpawn() {
 
-        GameController_OLD.Singleton.cenarioController.GetComponent<CenarioController>().ArenaEnemyCount = 28;
+        GameController.Singleton.ArenaEnemyCount = 28;
         float WaveDuration = 15;
 
         ArenaStart = true;
@@ -115,7 +105,7 @@ public class ArenaController : MonoBehaviour {
         Quaternion Rotation = Quaternion.Euler(0, 180, 0);
 
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0);
 
         //Wave 1
         StartCoroutine(ArenaenemyConfig(Instantiate(Guard, Spawn2, Rotation)));
@@ -182,10 +172,6 @@ public class ArenaController : MonoBehaviour {
 
 
 
-
-    private void DestroiLimitadores() {
-        Destroy(LimitadoresCerca, 1);
-    }
 
 
 

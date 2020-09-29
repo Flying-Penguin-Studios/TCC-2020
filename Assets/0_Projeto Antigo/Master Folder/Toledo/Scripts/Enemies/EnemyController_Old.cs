@@ -76,11 +76,8 @@ public class EnemyController_Old : MonoBehaviour {
 
     private void Start() {
 
-        //Player1 = GameController.Singleton.InstantiatedPlayer1;
-        //Player2 = GameController.Singleton.InstantiatedPlayer2;
-
-        Player1 = P1;
-        Player2 = P2;
+        Player1 = GameController.Singleton.ScenePlayer1;
+        Player2 = GameController.Singleton.ScenePlayer2;
 
         DefineEnemy();
         IsAlive = true;
@@ -734,7 +731,7 @@ public class EnemyController_Old : MonoBehaviour {
     /// </summary>
     private void ArenaEnemyCount() {
         if(IsArenaEnemy) {
-            GameController_OLD.Singleton.cenarioController.GetComponent<CenarioController>().ArenaEnemyCount--;
+            GameController.Singleton.ArenaEnemyCount--;
         }
     }
 

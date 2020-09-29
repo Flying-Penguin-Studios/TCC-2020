@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
 
 
     private GameObject Player1;
@@ -11,12 +12,12 @@ public class CameraController : MonoBehaviour {
 
     [Header("Velocidade"), Tooltip("Velocidade com que a câmera se afasta ou se apróxima dos Players no eixo Z.")]
     public float ZSpeed;
-    
+
     [Header("Multi-Player")]
     //[Range(1, 8), Tooltip("Altura mínima da Cam. Quando os 2 players se encontram colados um no outro.")]
     //public float MultMinYDistance;
 
-    [Range(0, 15), Tooltip("Afastamento da Câmera em Y")]  
+    [Range(0, 15), Tooltip("Afastamento da Câmera em Y")]
     public float MultYDistance = 6;
 
     [Range(9, 15), Tooltip("Altura máxima da Cam. Quando os 2 players se encontram completamente afastados.")]
@@ -55,16 +56,18 @@ public class CameraController : MonoBehaviour {
     public GameObject P2;
 
 
-    private void Start() {
-        //Player1 = GameController.Singleton.InstantiatedPlayer1;
-        //Player2 = GameController.Singleton.InstantiatedPlayer2;
+    private void Start()
+    {
+        Player1 = GameController.Singleton.ScenePlayer1;
+        Player2 = GameController.Singleton.ScenePlayer2;
 
-        Player1 = P1;
-        Player2 = P2;
+        //Player1 = P1;
+        //Player2 = P2;
     }
 
 
-    private void Update() {
+    private void Update()
+    {
         CheckPlayerDistance();
         SetCameraDistance();
         SetCameraRotation();
@@ -74,17 +77,19 @@ public class CameraController : MonoBehaviour {
 
 
     //Ajusta posição da câmera de agordo com a posição dos Jogadores;
-    private void SetCameraDistance() {
+    private void SetCameraDistance()
+    {
 
         CamBasePosition = this.transform.parent.transform.localPosition;
-        //P1IsAlive = Player1.GetComponent<PlayerController>().ToVivo;
-        //P2IsAlive = Player2.GetComponent<PlayerController>().ToVivo;
+        P1IsAlive = Player1.GetComponent<PlayerController>().ToVivo;
+        P2IsAlive = Player2.GetComponent<PlayerController>().ToVivo;
 
-        P1IsAlive = P1.GetComponent<PlayerController>().ToVivo;
-        P2IsAlive = P2.GetComponent<PlayerController>().ToVivo;
+        //P1IsAlive = P1.GetComponent<PlayerController>().ToVivo;
+        //P2IsAlive = P2.GetComponent<PlayerController>().ToVivo;
 
 
-        if(P1IsAlive && P2IsAlive) {
+        if (P1IsAlive && P2IsAlive)
+        {
 
             CamDistance = new Vector2(CamBasePosition.y + MultYDistance, -PlayerDistance + 2);
 
@@ -97,9 +102,12 @@ public class CameraController : MonoBehaviour {
             PlayerZDistance = Player1.transform.position.z - Player2.transform.position.z;
 
             //Se a distância Z entre os jogadores for negativa, significa que Player1 está antes do Player2.
-            if(PlayerZDistance < 0) {
+            if (PlayerZDistance < 0)
+            {
                 CamDistance.y = Player1.transform.position.z - MultZDistance;
-            } else {
+            }
+            else
+            {
                 CamDistance.y = Player2.transform.position.z - MultZDistance;
             }
 
@@ -115,23 +123,27 @@ public class CameraController : MonoBehaviour {
             //Move a Câmera de forma mais suave.
             this.transform.position = Vector3.MoveTowards(this.transform.position, CamPosition, ZSpeed * 0.001f * dist);
 
-        } else {
+        }
+        else
+        {
 
             CamPosition = new Vector3(this.transform.position.x, CamBasePosition.y + SingleMaxYDistance, CamBasePosition.z - SingleMaxZDistance);
             dist = Vector3.Distance(this.transform.position, CamPosition);
 
-            this.transform.position = Vector3.MoveTowards(this.transform.position, CamPosition, ZSpeed * 0.001f * dist);           
+            this.transform.position = Vector3.MoveTowards(this.transform.position, CamPosition, ZSpeed * 0.001f * dist);
 
-        } 
+        }
 
     }
 
 
 
     //Ajusta rotação da câmera de agordo com a posição dos Jogadores;
-    private void SetCameraRotation() {
+    private void SetCameraRotation()
+    {
 
-        if(P1IsAlive && P2IsAlive) {
+        if (P1IsAlive && P2IsAlive)
+        {
 
             float LimitedPlayerDistance = Mathf.Clamp(PlayerDistance, 0, MaxDistanceBtwPlayers);
 
@@ -140,9 +152,11 @@ public class CameraController : MonoBehaviour {
 
 
             CameraFinalRotation = Quaternion.Euler(CameraXRotation, this.transform.rotation.y, this.transform.rotation.z);
-            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, CameraFinalRotation, Time.deltaTime * 0.3f);            
+            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, CameraFinalRotation, Time.deltaTime * 0.3f);
 
-        } else {
+        }
+        else
+        {
 
             CameraFinalRotation = Quaternion.Euler(SingleRotation, this.transform.rotation.y, this.transform.rotation.z);
 
@@ -152,7 +166,8 @@ public class CameraController : MonoBehaviour {
     }
 
 
-    private void CheckPlayerDistance() {
+    private void CheckPlayerDistance()
+    {
         PlayerDistance = Vector3.Distance(Player1.transform.position, Player2.transform.position);
     }
 

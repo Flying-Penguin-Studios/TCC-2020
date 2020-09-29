@@ -58,7 +58,7 @@ public class Menu : MonoBehaviour
     {
         HotSpot = new Vector2(Screen.width, Screen.height);
         SetCursor();
-        MixerGeral = GameController.Singleton.MixerGeral;
+        MixerGeral = GameController_OLD.Singleton.MixerGeral;
         SetVolume();
         SetResolution();
         SelectButton();
@@ -84,7 +84,7 @@ public class Menu : MonoBehaviour
     {
         if (GameStarted)
         {
-            GameController.Singleton.CanvasFadeOut();
+            GameController_OLD.Singleton.CanvasFadeOut();
             Invoke("LoadGame", 3);
             GameStarted = false;
         }
@@ -100,7 +100,7 @@ public class Menu : MonoBehaviour
     {
         if (GameStarted)
         {
-            GameController.Singleton.CanvasFadeOut();
+            GameController_OLD.Singleton.CanvasFadeOut();
             Invoke("LoadGallery", 3);
         }
     }
@@ -116,14 +116,14 @@ public class Menu : MonoBehaviour
     public void SetVolumeBGM(float volume)
     {
         MixerGeral.SetFloat("VolumeTrilha", volume);
-        GameController.Singleton.BGM_Volume = volume;
+        GameController_OLD.Singleton.BGM_Volume = volume;
     }
 
 
     public void SetVolumeSFX(float volume)
     {
         MixerGeral.SetFloat("VolumeEffects", volume);
-        GameController.Singleton.SFX_Volume = volume;
+        GameController_OLD.Singleton.SFX_Volume = volume;
     }
 
 
@@ -141,8 +141,8 @@ public class Menu : MonoBehaviour
     private void SetVolume()
     {
 
-        float BGM_Volume = GameController.Singleton.BGM_Volume;
-        float SFX_Volume = GameController.Singleton.SFX_Volume;
+        float BGM_Volume = GameController_OLD.Singleton.BGM_Volume;
+        float SFX_Volume = GameController_OLD.Singleton.SFX_Volume;
 
         BGM_Slider.value = BGM_Volume;
         SFX_Slider.value = SFX_Volume;

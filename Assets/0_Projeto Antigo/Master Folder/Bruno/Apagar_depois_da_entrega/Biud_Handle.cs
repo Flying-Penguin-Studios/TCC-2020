@@ -12,8 +12,8 @@ public class Biud_Handle : MonoBehaviour
 
 
     private void Start() {
-        Player1 = GameController.Singleton.InstantiatedPlayer1;
-        Player2 = GameController.Singleton.InstantiatedPlayer2;
+        Player1 = GameController_OLD.Singleton.InstantiatedPlayer1;
+        Player2 = GameController_OLD.Singleton.InstantiatedPlayer2;
     }
 
 

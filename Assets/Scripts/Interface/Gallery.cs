@@ -96,7 +96,7 @@ public class Gallery : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1;
-        GameController.Singleton.CanvasFadeOut();
+        GameController_OLD.Singleton.CanvasFadeOut();
         Invoke("LoadMenu", 3);
     }
 

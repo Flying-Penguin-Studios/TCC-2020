@@ -27,11 +27,11 @@ public class CenarioController : MonoBehaviour {
 
 
     private void Start() {
-        GameController.Singleton.Player1StartPosition = Player1StartPosition;
-        GameController.Singleton.Player2StartPosition = Player2StartPosition;
-        GameController.Singleton.playerParent = PlayerParent;
-        GameController.Singleton.cenarioController = this.gameObject;
-        GameController.Singleton.LastCheckPoint = 0;
+        GameController_OLD.Singleton.Player1StartPosition = Player1StartPosition;
+        GameController_OLD.Singleton.Player2StartPosition = Player2StartPosition;
+        GameController_OLD.Singleton.playerParent = PlayerParent;
+        GameController_OLD.Singleton.cenarioController = this.gameObject;
+        GameController_OLD.Singleton.LastCheckPoint = 0;
         ArenaEnemyCount = 0;
     }
 
@@ -44,8 +44,8 @@ public class CenarioController : MonoBehaviour {
     /// Salva no GameController o último Check Point alvançado.
     /// </summary>
     public void SetCheckPoint() {
-        GameController.Singleton.LastCheckPoint = LastCheckPoint.GetComponent<CheckPoint>().CheckPointNumber;
-        GameController.Singleton.CheckPointPosition = LastCheckPoint.transform.position;
+        //GameController_OLD.Singleton.LastCheckPoint = LastCheckPoint.GetComponent<CheckPoint>().CheckPointNumber;
+        GameController_OLD.Singleton.CheckPointPosition = LastCheckPoint.transform.position;
     }
 
 

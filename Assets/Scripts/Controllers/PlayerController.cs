@@ -15,7 +15,8 @@ public abstract class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject SparkleParticle;
 
-    bool Jumping;
+
+    public bool isPlayer2 = false;
 
     protected void init()
     {
@@ -398,11 +399,11 @@ public abstract class PlayerController : MonoBehaviour
 
                     if (gameObject.name == "Player1")
                     {
-                        GameController.Singleton.P1IsAlive = false;
+                        GameController_OLD.Singleton.P1IsAlive = false;
                     }
                     else if (gameObject.name == "Player2")
                     {
-                        GameController.Singleton.P2IsAlive = false;
+                        GameController_OLD.Singleton.P2IsAlive = false;
                     }
 
                     rb.useGravity = false;
@@ -451,11 +452,11 @@ public abstract class PlayerController : MonoBehaviour
 
                     if (gameObject.name == "Player1")
                     {
-                        GameController.Singleton.P1IsAlive = false;
+                        GameController_OLD.Singleton.P1IsAlive = false;
                     }
                     else if (gameObject.name == "Player2")
                     {
-                        GameController.Singleton.P2IsAlive = false;
+                        GameController_OLD.Singleton.P2IsAlive = false;
                     }
 
                     rb.useGravity = false;
@@ -512,6 +513,15 @@ public abstract class PlayerController : MonoBehaviour
         stats.currentLife = 0;
         SetLife();
         transform.GetChild(0).gameObject.SetActive(false);
+        ToVivo = false;
+    }
+
+    public void Test()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
+        transform.GetChild(3).gameObject.SetActive(false);
         ToVivo = false;
     }
 

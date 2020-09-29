@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6268739808624301376}
   - component: {fileID: 687856720205771907}
   - component: {fileID: 6094756527428833438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 'IlhaM5ColisorTopo '
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,9 +121,9 @@ GameObject:
   - component: {fileID: 6340844285691951706}
   - component: {fileID: 4650481081733590507}
   - component: {fileID: 6425150736828884450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IlhaM5ColisorBorda
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -98,7 +98,7 @@ public class HUD : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1;
-        GameController.Singleton.CanvasFadeOut();
+        GameController_OLD.Singleton.CanvasFadeOut();
         Invoke("LoadMenu", 3);
     }
 
@@ -134,7 +134,7 @@ public class HUD : MonoBehaviour
             if (!GamePause)
                 Invoke("PauseSingle", 0.1f);
             else
-                GameController.Singleton.GamePaused = GamePause;
+                GameController_OLD.Singleton.GamePaused = GamePause;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -162,13 +162,13 @@ public class HUD : MonoBehaviour
             if (!GamePause)
                 Invoke("PauseSingle", 0.1f);
             else
-                GameController.Singleton.GamePaused = GamePause;
+                GameController_OLD.Singleton.GamePaused = GamePause;
         }
     }
 
     public void PauseSingle()
     {
-        GameController.Singleton.GamePaused = GamePause;
+        GameController_OLD.Singleton.GamePaused = GamePause;
     }
 
     public void ResumeGame()
@@ -190,14 +190,14 @@ public class HUD : MonoBehaviour
     public void SetVolumeBGM(float volume)
     {
         MixerGeral.SetFloat("VolumeTrilha", volume);
-        GameController.Singleton.BGM_Volume = volume;
+        GameController_OLD.Singleton.BGM_Volume = volume;
     }
 
 
     public void SetVolumeSFX(float volume)
     {
         MixerGeral.SetFloat("VolumeEffects", volume);
-        GameController.Singleton.SFX_Volume = volume;
+        GameController_OLD.Singleton.SFX_Volume = volume;
     }
 
 
@@ -210,11 +210,11 @@ public class HUD : MonoBehaviour
     private void SetVolume()
     {
 
-        float BGM_Volume = GameController.Singleton.BGM_Volume;
-        float SFX_Volume = GameController.Singleton.SFX_Volume;
+        //float BGM_Volume = GameController_OLD.Singleton.BGM_Volume;
+        //float SFX_Volume = GameController_OLD.Singleton.SFX_Volume;
 
-        BGM_Slider.value = BGM_Volume;
-        SFX_Slider.value = SFX_Volume;
+        //BGM_Slider.value = BGM_Volume;
+        //SFX_Slider.value = SFX_Volume;
     }
 
 

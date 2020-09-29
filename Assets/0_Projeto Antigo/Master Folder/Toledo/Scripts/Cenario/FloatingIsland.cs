@@ -17,7 +17,7 @@ public class FloatingIsland : MonoBehaviour {
 
     private void Start() {
         startY = this.transform.position.y;
-        FlaotingOn = GameController.Singleton.FloatingIsland;
+        FlaotingOn = GameController_OLD.Singleton.FloatingIsland;
     }
 
 

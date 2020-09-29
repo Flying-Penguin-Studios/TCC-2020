@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour {
 
 
     private void DelaySpawn() {
-        LastCheckPoint = GameController.Singleton.LastCheckPoint;
+        LastCheckPoint = GameController_OLD.Singleton.LastCheckPoint;
         SpawnEnemy();
     }
 

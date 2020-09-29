@@ -4,14 +4,11 @@ using UnityEngine;
 
 [SerializeField]
 public class Angie : PlayerController
-{
-    [SerializeField]
-    bool isPlayer2 = true;
-
-    protected override void Start()
+{   
+        protected override void Start()
     {
         base.Start();
-        stats = new playerStats(100, 8f, 9f, 10f, 12f);
+        stats = new playerStats(100, 8f, 9f, 15f, 12f);
 
         HUD = GameObject.Find("HUD/Player2").GetComponent<HUD_Player>();
         Dash = GetComponent<Angie_Dash>();

@@ -28,7 +28,7 @@ public class CameraPosition : MonoBehaviour {
 
     private void Update() {
         SetCameraPosition();
-        P1StartPosition = P1.transform.position;
+        P1StartPosition = Player1.transform.position;
     }
 
 
@@ -36,18 +36,18 @@ public class CameraPosition : MonoBehaviour {
 
 
     private void firstcameraposition() {
-        //this.transform.position = GameController.Singleton.Player1StartPosition;
-        //this.transform.position = P1StartPosition;
+        this.transform.position = GameController.Singleton.Player1.transform.position;
+        this.transform.position = P1StartPosition;
     }
 
 
     private void SetCameraPosition() {
 
-        //Player1 = GameController.Singleton.InstantiatedPlayer1;
-        //Player2 = GameController.Singleton.InstantiatedPlayer2;
+        Player1 = GameController.Singleton.ScenePlayer1;
+        Player2 = GameController.Singleton.ScenePlayer2;
 
-        Player1 = P1;
-        Player2 = P2;
+        //Player1 = P1;
+        //Player2 = P2;
 
         P1IsAlive = Player1.GetComponent<PlayerController>().ToVivo;
         P2IsAlive = Player2.GetComponent<PlayerController>().ToVivo;

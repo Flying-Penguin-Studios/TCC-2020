@@ -19,7 +19,7 @@ public class ArenaController : MonoBehaviour {
 
 
     private void Start() {
-        ArenaCompleted = GameController.Singleton.ArenaCompleted;
+        ArenaCompleted = GameController_OLD.Singleton.ArenaCompleted;
         ArenaStart = false;
         Wave = 1;
     }
@@ -59,8 +59,8 @@ public class ArenaController : MonoBehaviour {
 
     private void StartArena() {
 
-        if(!GameController.Singleton.InstantiatedPlayer1.GetComponent<PlayerController>().ToVivo) { P1Inside = true; }
-        if(!GameController.Singleton.InstantiatedPlayer2.GetComponent<PlayerController>().ToVivo) { P2Inside = true; }
+        if(!GameController_OLD.Singleton.InstantiatedPlayer1.GetComponent<PlayerController>().ToVivo) { P1Inside = true; }
+        if(!GameController_OLD.Singleton.InstantiatedPlayer2.GetComponent<PlayerController>().ToVivo) { P2Inside = true; }
 
         if(P1Inside && P2Inside && !ArenaStart && !ArenaCompleted) {
             Walls.SetActive(true);
@@ -88,10 +88,10 @@ public class ArenaController : MonoBehaviour {
 
 
     private void ArenaComplete() {
-        if(ArenaStart && GameController.Singleton.cenarioController.GetComponent<CenarioController>().ArenaEnemyCount == 0) {
+        if(ArenaStart && GameController_OLD.Singleton.cenarioController.GetComponent<CenarioController>().ArenaEnemyCount == 0) {
             StartCoroutine(WallsDown());
             DestroiLimitadores();
-            GameController.Singleton.ArenaCompleted = true;
+            GameController_OLD.Singleton.ArenaCompleted = true;
         }
     }
 
@@ -99,7 +99,7 @@ public class ArenaController : MonoBehaviour {
     
     private IEnumerator WaveSpawn() {
 
-        GameController.Singleton.cenarioController.GetComponent<CenarioController>().ArenaEnemyCount = 28;
+        GameController_OLD.Singleton.cenarioController.GetComponent<CenarioController>().ArenaEnemyCount = 28;
         float WaveDuration = 15;
 
         ArenaStart = true;

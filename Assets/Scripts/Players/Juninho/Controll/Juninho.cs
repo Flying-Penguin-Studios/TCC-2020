@@ -5,13 +5,10 @@ using UnityEngine;
 [SerializeField]
 public class Juninho : PlayerController
 {
-    [SerializeField]
-    bool isPlayer2 = true;
-
     protected override void Start()
     {
         base.Start();
-        stats = new playerStats(150, 7f, 8f, 7f, 12f);
+        stats = new playerStats(150, 7f, 8f, 12f, 12f);
 
         HUD = GameObject.Find("HUD/Player1").GetComponent<HUD_Player>();
         Dash = GetComponent<Juninho_Dash>();

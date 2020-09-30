@@ -33,6 +33,11 @@ public class Juninho : PlayerController
 
         Cheats();
 
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            Kill();
+        }
+
         if (ToVivo)
         {
             rb.WakeUp();

@@ -4,8 +4,8 @@ using UnityEngine;
 
 [SerializeField]
 public class Angie : PlayerController
-{   
-        protected override void Start()
+{
+    protected override void Start()
     {
         base.Start();
         stats = new playerStats(100, 8f, 9f, 15f, 12f);
@@ -33,6 +33,11 @@ public class Angie : PlayerController
         //if (GameController.Singleton.GamePaused) { return; }
 
         Cheats();
+
+        if (Input.GetKeyDown(KeyCode.F7))
+        {
+            Kill();
+        }
 
         if (ToVivo)
         {

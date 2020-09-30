@@ -58,7 +58,7 @@ public class Menu : MonoBehaviour
     {
         HotSpot = new Vector2(Screen.width, Screen.height);
         SetCursor();
-        MixerGeral = GameController_OLD.Singleton.MixerGeral;
+        MixerGeral = GameController.Singleton.MixerGeral;
         SetVolume();
         SetResolution();
         SelectButton();
@@ -84,25 +84,19 @@ public class Menu : MonoBehaviour
     {
         if (GameStarted)
         {
-            GameController_OLD.Singleton.CanvasFadeOut();
-            Invoke("LoadGame", 3);
-            GameStarted = false;
+            LoadGame();
         }
     }
 
 
     private void LoadGame()
     {
-        SceneManager.LoadScene(2);
+        GameController.Singleton.LoadScene("Ilhas");
     }
 
     public void GoToGallery()
     {
-        if (GameStarted)
-        {
-            GameController_OLD.Singleton.CanvasFadeOut();
-            Invoke("LoadGallery", 3);
-        }
+        GameController.Singleton.LoadScene("3_Galeria");
     }
     private void LoadGallery()
     {
@@ -116,14 +110,14 @@ public class Menu : MonoBehaviour
     public void SetVolumeBGM(float volume)
     {
         MixerGeral.SetFloat("VolumeTrilha", volume);
-        GameController_OLD.Singleton.BGM_Volume = volume;
+        GameController.Singleton.BGM_Volume = volume;
     }
 
 
     public void SetVolumeSFX(float volume)
     {
         MixerGeral.SetFloat("VolumeEffects", volume);
-        GameController_OLD.Singleton.SFX_Volume = volume;
+        GameController.Singleton.SFX_Volume = volume;
     }
 
 
@@ -141,8 +135,8 @@ public class Menu : MonoBehaviour
     private void SetVolume()
     {
 
-        float BGM_Volume = GameController_OLD.Singleton.BGM_Volume;
-        float SFX_Volume = GameController_OLD.Singleton.SFX_Volume;
+        float BGM_Volume = GameController.Singleton.BGM_Volume;
+        float SFX_Volume = GameController.Singleton.SFX_Volume;
 
         BGM_Slider.value = BGM_Volume;
         SFX_Slider.value = SFX_Volume;
@@ -243,14 +237,14 @@ public class Menu : MonoBehaviour
 
         //if (!Cursor.visible)
         //{
-            if (mouseDelta.x < 0)
-            {
-                LastButton = EventSystem.currentSelectedGameObject;
-                Cursor.SetCursor(MouseImage, Vector2.zero, CursorMode.Auto);
-                Cursor.visible = true;
-                EventSystem.firstSelectedGameObject = EventSystem.currentSelectedGameObject;
-                EventSystem.SetSelectedGameObject(null);
-            }            
+        if (mouseDelta.x < 0)
+        {
+            LastButton = EventSystem.currentSelectedGameObject;
+            Cursor.SetCursor(MouseImage, Vector2.zero, CursorMode.Auto);
+            Cursor.visible = true;
+            EventSystem.firstSelectedGameObject = EventSystem.currentSelectedGameObject;
+            EventSystem.SetSelectedGameObject(null);
+        }
         //}
 
         if (Cursor.visible)

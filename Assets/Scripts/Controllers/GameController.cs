@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
         else if (ActualScene.name.ToUpper().Contains("Teste".ToUpper()))
         {
             StartCoroutine(FadeOut(FadeObject));
-            if (!FindObjectOfType<HudController>())
+            if (!FindObjectOfType<HUD>())
             {
                 Instantiate(HUD);
             }
@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
         else if (ActualScene.name.ToUpper().Contains("Ilhas".ToUpper()))
         {
             StartCoroutine(FadeOut(FadeObject));
-            if (!FindObjectOfType<HudController>())
+            if (!FindObjectOfType<HUD>())
             {
                 Instantiate(HUD);
             }
@@ -138,7 +138,7 @@ public class GameController : MonoBehaviour
             yield return null;
         }
 
-        Destroy(CloneCanvas);
+        //Destroy(CloneCanvas);
         yield return null;
     }
 

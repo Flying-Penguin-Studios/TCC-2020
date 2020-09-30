@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloatingIsland : MonoBehaviour {
+public class FloatingIsland : MonoBehaviour
+{
 
 
     [Range(0, 3)]
@@ -12,25 +13,29 @@ public class FloatingIsland : MonoBehaviour {
 
     private bool FlaotingOn;
     private float startY;
-   
 
 
-    private void Start() {
+
+    private void Start()
+    {
         startY = this.transform.position.y;
-        FlaotingOn = GameController_OLD.Singleton.FloatingIsland;
+        FlaotingOn = true;
     }
 
 
-    private void Update() {
-        Levitating();        
+    private void Update()
+    {
+        Levitating();
     }
 
 
 
 
-    private void Levitating() {
-        
-        if(FlaotingOn) {
+    private void Levitating()
+    {
+
+        if (FlaotingOn)
+        {
             float x = this.transform.position.x;
             float y = startY + Magnitude * Mathf.Sin(Time.time * Frequency);
             float z = this.transform.position.z;

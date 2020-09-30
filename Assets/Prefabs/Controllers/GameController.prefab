@@ -44,11 +44,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player1: {fileID: 6997604553415815145, guid: fd9bf46e05fa9714f8339a12e6c7eb5d, type: 3}
+  CriarPlayer1: 1
   Player2: {fileID: 8618723331379543795, guid: d31bd91dfcc6c2c4193c141e9818127d, type: 3}
+  CriarPlayer2: 1
   HUD: {fileID: 557774866002362079, guid: 82fb19d443bc87f4b835553206cfef7b, type: 3}
   FadeObject: {fileID: 7213573186634040368, guid: e0b4fe520b13b004f9072196d5cf7cda,
     type: 3}
   MixerGeral: {fileID: 24100000, guid: 9f2e9ca6a00a1164baf575a5051e18ed, type: 2}
   BGM_Volume: -30
   SFX_Volume: -30
+  ScenePlayer1: {fileID: 0}
+  ScenePlayer2: {fileID: 0}
+  Arena1Completed: 0
+  ArenaEnemyCount: 0
+  ArenaCompleted: 0
   FadeSpeed: 0.4

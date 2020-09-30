@@ -203,7 +203,7 @@ public abstract class PlayerController : MonoBehaviour
                 float Distance = terrain.distance;
                 Distance = float.Parse(Distance.ToString("0.00"));
 
-                if (Distance < .15f)
+                if (Distance < .4f)
                 {
                     onGround = true;
                     anim.SetFloat("groundDistance", 0);
@@ -214,6 +214,7 @@ public abstract class PlayerController : MonoBehaviour
                     transform.GetChild(3).GetChild(0).GetComponent<ParticleSystem>().Stop();
                     anim.SetFloat("groundDistance", Distance);
                 }
+
                 anim.SetBool("onGround", onGround);
             }
         }
@@ -787,12 +788,7 @@ public abstract class PlayerController : MonoBehaviour
             Heal(stats.maxLife);
             ToVivo = true;
             gameObject.SetActive(true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.F12))
-        {
-            Kill();
-        }
+        }       
     }
 
     private void FixedUpdate()

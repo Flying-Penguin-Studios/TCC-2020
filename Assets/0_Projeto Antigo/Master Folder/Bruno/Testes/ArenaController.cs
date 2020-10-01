@@ -47,7 +47,6 @@ public class ArenaController : MonoBehaviour
     List<string> Arenas = new List<string>();
     Dictionary<string, bool> d_ArenaCompleted = new Dictionary<string, bool>();
 
-    // Start is called before the first frame update
     void Start()
     {
         Arena[] arenas = FindObjectsOfType<Arena>();

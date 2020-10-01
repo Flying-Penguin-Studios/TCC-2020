@@ -731,7 +731,7 @@ public class EnemyController_Old : MonoBehaviour {
     /// </summary>
     private void ArenaEnemyCount() {
         if(IsArenaEnemy) {
-            GameController.Singleton.ArenaEnemyCount--;
+            //GameController.Singleton.ArenaEnemyCount--;
         }
     }
 

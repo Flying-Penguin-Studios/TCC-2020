@@ -10,6 +10,7 @@ TagManager:
   - StaticObject
   - ObjetosDeCena
   - Shield
+  - ArenaWall
   layers:
   - Default
   - TransparentFX

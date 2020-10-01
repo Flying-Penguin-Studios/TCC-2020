@@ -46,13 +46,12 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public GameObject ScenePlayer2;
 
-    //Variáveis da Arena - Temporário?
     [HideInInspector]
-    public bool Arena1Completed = false;
+    public PlayerController P1;
     [HideInInspector]
-    public int ArenaEnemyCount = 0;
-    [HideInInspector]
-    public bool ArenaCompleted = false;
+    public PlayerController P2;
+
+    //public List<Arena> Arenas = new List<Arena>();
 
     void OnEnable() { SceneManager.sceneLoaded += OnSceneLoaded; }
     void OnDisable() { SceneManager.sceneLoaded -= OnSceneLoaded; }
@@ -98,16 +97,20 @@ public class GameController : MonoBehaviour
     {
         ScenePlayer1 = Instantiate(Player1);
         ScenePlayer2 = Instantiate(Player2);
-        ScenePlayer2.GetComponent<PlayerController>().isPlayer2 = true;
+
+        P1 = ScenePlayer1.GetComponent<PlayerController>();
+        P2 = ScenePlayer2.GetComponent<PlayerController>();
+
+        P2.isPlayer2 = true;
         CheckPointController.Singleton.SetPlayers(ScenePlayer1, ScenePlayer2);
 
         if (CriarPlayer1 && !CriarPlayer2)
         {
-            ScenePlayer2.GetComponent<PlayerController>().Test();
+            P2.Test();
         }
         else if (!CriarPlayer1 && CriarPlayer2)
         {
-            ScenePlayer1.GetComponent<PlayerController>().Test();
+            P1.Test();
         }
     }
 

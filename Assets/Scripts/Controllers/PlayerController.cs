@@ -788,7 +788,7 @@ public abstract class PlayerController : MonoBehaviour
             Heal(stats.maxLife);
             ToVivo = true;
             gameObject.SetActive(true);
-        }       
+        }
     }
 
     private void FixedUpdate()

@@ -284,7 +284,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1515086526}
     m_SelectOnDown: {fileID: 221539077}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -446,9 +446,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1320,7 +1320,7 @@ MonoBehaviour:
     m_Mode: 4
     m_SelectOnUp: {fileID: 572939962}
     m_SelectOnDown: {fileID: 733475466}
-    m_SelectOnLeft: {fileID: 1963846236}
+    m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
   m_Colors:
@@ -1494,7 +1494,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1770937145}
     m_SelectOnDown: {fileID: 710864200}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -1636,9 +1636,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1737,9 +1737,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1766,7 +1766,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1070650381}
     m_SelectOnDown: {fileID: 2067935107}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -1932,9 +1932,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1961,7 +1961,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 50447150}
     m_SelectOnDown: {fileID: 1070650381}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -2887,7 +2887,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 710864200}
     m_SelectOnDown: {fileID: 901580781}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -3013,9 +3013,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3266,6 +3266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 1314229094}
+  backButton: {fileID: 572939962}
   cam: {fileID: 298446335}
   speedCursor: 0.025
   speedJoystick: 2.5
@@ -3388,6 +3389,75 @@ RectTransform:
   m_AnchoredPosition: {x: -357.49994, y: -169.0875}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &401547152
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8153029383080014862, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153029383080014862, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153029383080014862, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153029383080014862, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153029383080014862, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153029383080014862, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153029383080014862, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153029383080014862, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153029383080014862, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153029383080014862, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153029383080014862, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153029383080014864, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: m_Name
+      value: GameController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d1d6409af8738d14cb096792d1cca4ea, type: 3}
 --- !u!1 &402327114
 GameObject:
   m_ObjectHideFlags: 0
@@ -3927,7 +3997,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1923413132}
     m_SelectOnDown: {fileID: 1865015372}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -4117,9 +4187,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4262,7 +4332,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 2039241259}
     m_SelectOnDown: {fileID: 1438108896}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -4452,9 +4522,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4547,18 +4617,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 400641199}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 298446337}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: Play
@@ -4583,10 +4641,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 364951439}
-        m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
-        m_MethodName: DeactivateAllObjects
+      - m_Target: {fileID: 971459459}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 400641199}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4599,30 +4669,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
         m_MethodName: CanRotate
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 689352389}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1227280905}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4691,15 +4737,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 971459459}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: Select
-        m_Mode: 1
+      - m_Target: {fileID: 298446335}
+        m_TargetAssemblyTypeName: UnityEngine.Camera, UnityEngine
+        m_MethodName: set_fieldOfView
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 60
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
@@ -4855,18 +4901,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 400641199}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 298446337}
           m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
           m_MethodName: Play
@@ -4891,9 +4925,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 364951439}
-          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
-          m_MethodName: DeactivateAllObjects
+        - m_Target: {fileID: 971459459}
+          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+          m_MethodName: Select
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4901,21 +4935,9 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 364951439}
-          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
-          m_MethodName: CanRotate
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 689352389}
+        - m_Target: {fileID: 400641199}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -4927,10 +4949,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1227280905}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: CanRotate
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4973,7 +4995,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 364951439}
           m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
@@ -4985,7 +5007,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 364951439}
           m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
@@ -4997,19 +5019,19 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 971459459}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
-          m_Mode: 1
+        - m_Target: {fileID: 298446335}
+          m_TargetAssemblyTypeName: UnityEngine.Camera, UnityEngine
+          m_MethodName: set_fieldOfView
+          m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0
+            m_FloatArgument: 60
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &574799726
 GameObject:
@@ -5334,7 +5356,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 177467029}
     m_SelectOnDown: {fileID: 264014991}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -5717,7 +5739,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 852282793}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -5859,9 +5881,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6029,7 +6051,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1422893030}
     m_SelectOnDown: {fileID: 2030945124}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -6771,7 +6793,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 213170750}
     m_SelectOnDown: {fileID: 308870255}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -6933,9 +6955,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -7174,7 +7196,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 177467029}
     m_SelectOnDown: {fileID: 2039241259}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -7352,9 +7374,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8024,7 +8046,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1422893030}
     m_SelectOnDown: {fileID: 2030945124}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -8598,7 +8620,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 901580781}
     m_SelectOnDown: {fileID: 632635092}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -8724,9 +8746,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8799,7 +8821,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 308870255}
     m_SelectOnDown: {fileID: 852282793}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -8941,9 +8963,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9755,9 +9777,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9784,7 +9806,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 221539077}
     m_SelectOnDown: {fileID: 218770143}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -10184,7 +10206,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1422893030}
     m_SelectOnDown: {fileID: 2030945124}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -10610,7 +10632,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1963846236}
+      objectReference: {fileID: 572939962}
     - target: {fileID: 8142959596119579983, guid: 323879139c380f04a9d75dfb9bd56f44,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
@@ -11194,7 +11216,7 @@ MonoBehaviour:
     m_Mode: 4
     m_SelectOnUp: {fileID: 572939962}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 1963846236}
+    m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
   m_Colors:
@@ -12139,7 +12161,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1422893030}
     m_SelectOnDown: {fileID: 2030945124}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -12686,7 +12708,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1963846236}
+      objectReference: {fileID: 572939962}
     - target: {fileID: 8142959596119579983, guid: 323879139c380f04a9d75dfb9bd56f44,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
@@ -13456,6 +13478,22 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 16
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackToMenu
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14387,7 +14425,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1422893030}
     m_SelectOnDown: {fileID: 2030945124}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -15125,7 +15163,7 @@ MonoBehaviour:
     m_Mode: 4
     m_SelectOnUp: {fileID: 572939962}
     m_SelectOnDown: {fileID: 1544746119}
-    m_SelectOnLeft: {fileID: 1963846236}
+    m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
   m_Colors:
@@ -15427,7 +15465,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 177467029}
     m_SelectOnDown: {fileID: 264014991}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -15627,7 +15665,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 541480723}
     m_SelectOnDown: {fileID: 1770937145}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -15753,9 +15791,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -15881,7 +15919,7 @@ MonoBehaviour:
     m_Mode: 4
     m_SelectOnUp: {fileID: 572939962}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 1963846236}
+    m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
   m_Colors:
@@ -16055,7 +16093,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1585332957}
     m_SelectOnDown: {fileID: 50447150}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -16197,9 +16235,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -16436,7 +16474,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1422893030}
     m_SelectOnDown: {fileID: 1923413132}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -16626,9 +16664,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -16774,7 +16812,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1865015372}
     m_SelectOnDown: {fileID: 1515086526}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -16948,9 +16986,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -18524,7 +18562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: P1_L_Joystick_Horizontal
+  m_HorizontalAxis: Horizontal Joy
   m_VerticalAxis: Vertical Joy
   m_SubmitButton: Submit Joy
   m_CancelButton: Cancel Joy
@@ -18734,7 +18772,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1438108896}
     m_SelectOnDown: {fileID: 213170750}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -18908,9 +18946,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -19651,7 +19689,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 501929257}
     m_SelectOnDown: {fileID: 1585332957}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -19777,9 +19815,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -19955,7 +19993,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 177467029}
     m_SelectOnDown: {fileID: 264014991}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -20527,7 +20565,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1544746119}
     m_SelectOnDown: {fileID: 501929257}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -20705,9 +20743,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -21969,7 +22007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1977721217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22116,7 +22154,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -22606,7 +22644,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 733475466}
     m_SelectOnDown: {fileID: 541480723}
     m_SelectOnLeft: {fileID: 1420702057}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}
@@ -22784,9 +22822,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -23009,9 +23047,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 572939962}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: Select
+        - m_Target: {fileID: 364951439}
+          m_TargetAssemblyTypeName: Gallery, Assembly-CSharp
+          m_MethodName: BackButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -23038,7 +23076,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 218770143}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 1181032288}
-    m_SelectOnRight: {fileID: 1068548959}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8117647, g: 0.011764706, b: 0.02745098, a: 1}

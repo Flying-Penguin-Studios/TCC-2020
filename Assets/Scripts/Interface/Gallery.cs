@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Gallery : MonoBehaviour
 {
     public GameObject item;
+    public Button backButton;
     public Camera cam;
     bool pressedL;
     bool pressedR;
@@ -95,14 +97,12 @@ public class Gallery : MonoBehaviour
 
     public void BackToMenu()
     {
-        Time.timeScale = 1;
-        GameController_OLD.Singleton.CanvasFadeOut();
-        Invoke("LoadMenu", 3);
+        GameController.Singleton.LoadScene("1_Menu");
     }
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("1_Menu");
     }
 
     public void DeactivateAllObjects()
@@ -141,5 +141,10 @@ public class Gallery : MonoBehaviour
     public void ResetZoomCamera()
     {
         cam.fieldOfView = 60;
+    }
+
+    public void BackButton()
+    {
+        backButton.onClick.Invoke();
     }
 }

@@ -363,6 +363,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: d60dd7cc60ac8c1438415cd01c65d8de,
         type: 3}
+    - target: {fileID: 3196766981350955961, guid: 4723e76821fe7fb409c8a36df46dea81,
+        type: 3}
+      propertyPath: m_HorizontalAxis
+      value: Horizontal Joy
+      objectReference: {fileID: 0}
     - target: {fileID: 3303853576834024422, guid: 4723e76821fe7fb409c8a36df46dea81,
         type: 3}
       propertyPath: m_FontData.m_FontSize

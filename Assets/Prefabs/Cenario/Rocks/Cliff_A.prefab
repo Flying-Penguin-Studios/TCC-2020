@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7225509779410497323}
   m_Layer: 0
   m_Name: Cliff_A
-  m_TagString: Untagged
+  m_TagString: ObjetosDeCena
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123

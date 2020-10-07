@@ -97,14 +97,7 @@ public class HUD : MonoBehaviour
 
     public void BackToMenu()
     {
-        Time.timeScale = 1;
-        GameController_OLD.Singleton.CanvasFadeOut();
-        Invoke("LoadMenu", 3);
-    }
-
-    private void LoadMenu()
-    {
-        SceneManager.LoadScene(1);
+        GameController.Singleton.LoadScene("1_Menu");
     }
 
     public void PauseGame()

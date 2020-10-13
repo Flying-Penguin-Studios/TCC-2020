@@ -21,7 +21,6 @@ public class ArenaController : MonoBehaviour
     }
 
     void OnEnable() { SceneManager.sceneLoaded += OnSceneLoaded; }
-    //void OnDisable() { SceneManager.sceneLoaded -= OnSceneLoaded; }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

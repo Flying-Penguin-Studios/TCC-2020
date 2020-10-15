@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2750156940728376281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6731681094816168007}
+  - component: {fileID: 2328163898393324148}
+  - component: {fileID: 4496972974746958532}
+  m_Layer: 0
+  m_Name: Boss_Helmet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6731681094816168007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2750156940728376281}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2752511551858856885}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &2328163898393324148
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2750156940728376281}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4496972974746958532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2750156940728376281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30235c9e149ddee42931ca60688097cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP_Max: 100
+  speed: 7
+  AttackCD: 5
+  Skill1CD: 5
+  Skill2CD: 5
+  AttackDamage: 5
+  Skill1Damage: 5
+  Skill2Damage: 5
+  LifeToNextPhase: 5
+  TimeBetweenThunders: 5
+  ThunderDamage: 5
+--- !u!1001 &9152723627684561904
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6731681094816168007}
+    m_Modifications:
+    - target: {fileID: 5943682395096091391, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_Name
+      value: Boss_wHelmet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 038d72b2006d0e644b1dd2b91e446804, type: 3}
+--- !u!4 &2752511551858856885 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
+    type: 3}
+  m_PrefabInstance: {fileID: 9152723627684561904}
+  m_PrefabAsset: {fileID: 0}

@@ -67,9 +67,9 @@ public class GameController : MonoBehaviour
         {
             StartCoroutine(FadeOut(FadeObject));
         }
-        else if (ActualScene.name.ToUpper().Contains("Teste".ToUpper()))
+        else if (ActualScene.name.ToUpper().Contains("Teste".ToUpper()) || ActualScene.name.ToUpper().Contains("Boss".ToUpper()))
         {
-            StartCoroutine(FadeOut(FadeObject));
+            //StartCoroutine(FadeOut(FadeObject));
             if (!FindObjectOfType<HUD>())
             {
                 Instantiate(HUD);
@@ -102,7 +102,17 @@ public class GameController : MonoBehaviour
         P2 = ScenePlayer2.GetComponent<PlayerController>();
 
         P2.isPlayer2 = true;
-        CheckPointController.Singleton.SetPlayers(ScenePlayer1, ScenePlayer2);
+
+        if (CheckPointController.Singleton != null)
+        {
+            CheckPointController.Singleton.SetPlayers(ScenePlayer1, ScenePlayer2);
+        }
+        else
+        {
+            ScenePlayer1.transform.position = new Vector3(-5, 0, 0);
+            ScenePlayer2.transform.position = new Vector3(+5, 0, 0);
+        }
+
 
         if (CriarPlayer1 && !CriarPlayer2)
         {

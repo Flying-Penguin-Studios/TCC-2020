@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 3295638958784222766}
   - component: {fileID: 3416558370956905210}
   m_Layer: 0
-  m_Name: Bush_A
+  m_Name: BushG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,11 +210,11 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.4037554
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3306756711977416962}
-  - screenRelativeHeight: 0.3
+  - screenRelativeHeight: 0.19514468
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3306756697398526626}

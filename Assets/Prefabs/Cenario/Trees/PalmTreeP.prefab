@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 8285422337314385907}
   - component: {fileID: 8213228308098107015}
   m_Layer: 0
-  m_Name: FAE_Palm_A
+  m_Name: PalmTreeP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,15 +215,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.402088
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 8307213451325263153}
-  - screenRelativeHeight: 0.3
+  - screenRelativeHeight: 0.20279703
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 8307213450175143235}
-  - screenRelativeHeight: 0.1548205
+  - screenRelativeHeight: 0.095814995
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 8307213450243718861}

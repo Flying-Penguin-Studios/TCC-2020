@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 4355684042599906308}
   - component: {fileID: 4571984060417282380}
   m_Layer: 0
-  m_Name: FAE_Birch_C
+  m_Name: YellowTreeM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,15 +296,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.40437502
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4449805636720342514}
-  - screenRelativeHeight: 0.3
+  - screenRelativeHeight: 0.19956222
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4449805613843221372}
-  - screenRelativeHeight: 0.14598863
+  - screenRelativeHeight: 0.1014921
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4449805613567699404}

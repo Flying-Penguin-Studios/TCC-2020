@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 70768825924659408}
   - component: {fileID: 287284096592140850}
   m_Layer: 0
-  m_Name: FAE_Spruce_A
+  m_Name: PineP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,15 +51,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.40437502
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 92876805399674346}
-  - screenRelativeHeight: 0.3
+  - screenRelativeHeight: 0.20117638
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 92876783610166818}
-  - screenRelativeHeight: 0.15089127
+  - screenRelativeHeight: 0.095814995
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 92876806577270308}

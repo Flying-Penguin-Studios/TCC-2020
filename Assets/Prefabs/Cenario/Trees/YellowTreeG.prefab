@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5157380059173528995}
   - component: {fileID: 4942033147867121185}
   m_Layer: 0
-  m_Name: FAE_Birch_A
+  m_Name: YellowTreeG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,15 +132,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.39980742
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 5053088256546971021}
-  - screenRelativeHeight: 0.3
+  - screenRelativeHeight: 0.20279703
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 5053088256981836353}
-  - screenRelativeHeight: 0.14701253
+  - screenRelativeHeight: 0.09806643
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 5053088259638299241}

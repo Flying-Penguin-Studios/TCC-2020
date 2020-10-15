@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 5010320989222109423}
   - component: {fileID: 5083777020313472319}
   m_Layer: 0
-  m_Name: FAE_Tree_C
+  m_Name: GreenTreeG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,15 +378,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.504729
+  - screenRelativeHeight: 0.40437502
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4916419298095620997}
-  - screenRelativeHeight: 0.25148976
+  - screenRelativeHeight: 0.19635326
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4916419296120855127}
-  - screenRelativeHeight: 0.14981523
+  - screenRelativeHeight: 0.10380825
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4916419295658746239}

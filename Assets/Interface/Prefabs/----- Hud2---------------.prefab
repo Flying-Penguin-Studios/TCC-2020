@@ -1526,7 +1526,7 @@ PrefabInstance:
     - target: {fileID: 7663244748539582422, guid: 4723e76821fe7fb409c8a36df46dea81,
         type: 3}
       propertyPath: m_Name
-      value: Player2
+      value: Juninho
       objectReference: {fileID: 0}
     - target: {fileID: 7663244748539582423, guid: 4723e76821fe7fb409c8a36df46dea81,
         type: 3}
@@ -1702,7 +1702,7 @@ PrefabInstance:
     - target: {fileID: 7663244748605079250, guid: 4723e76821fe7fb409c8a36df46dea81,
         type: 3}
       propertyPath: m_Name
-      value: Player1
+      value: Angie
       objectReference: {fileID: 0}
     - target: {fileID: 7663244748605079251, guid: 4723e76821fe7fb409c8a36df46dea81,
         type: 3}

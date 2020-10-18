@@ -738,6 +738,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 3.0000026
       objectReference: {fileID: 0}
+    - target: {fileID: 7663244748539582422, guid: 4723e76821fe7fb409c8a36df46dea81,
+        type: 3}
+      propertyPath: m_Name
+      value: Juninho
+      objectReference: {fileID: 0}
     - target: {fileID: 7663244748554811472, guid: 4723e76821fe7fb409c8a36df46dea81,
         type: 3}
       propertyPath: m_Camera
@@ -873,6 +878,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_MaxSize
       value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663244748605079250, guid: 4723e76821fe7fb409c8a36df46dea81,
+        type: 3}
+      propertyPath: m_Name
+      value: Angie
       objectReference: {fileID: 0}
     - target: {fileID: 7663244748658567680, guid: 4723e76821fe7fb409c8a36df46dea81,
         type: 3}

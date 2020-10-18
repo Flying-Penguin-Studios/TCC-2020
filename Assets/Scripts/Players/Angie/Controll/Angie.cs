@@ -10,7 +10,7 @@ public class Angie : PlayerController
         base.Start();
         stats = new playerStats(100, 8f, 9f, 15f, 12f);
 
-        HUD = GameObject.Find("HUD/Player2").GetComponent<HUD_Player>();
+        HUD = GameObject.Find("HUD/Angie").GetComponent<HUD_Player>();
         Dash = GetComponent<Angie_Dash>();
         Sup = GetComponent<Heal>();
         Control = GetComponent<Vortex>();
@@ -18,10 +18,10 @@ public class Angie : PlayerController
 
 
         HUD.Init(this);
-        Dash.Init(GameObject.Find("HUD/Player2/Dash").GetComponent<HUD_Dash>(), this, "Dash");
-        Sup.Init(GameObject.Find("HUD/Player2/SkillLT").GetComponent<HUD_Skill>(), this, "Heal");
-        Control.Init(GameObject.Find("HUD/Player2/SkillY").GetComponent<HUD_Skill>(), this, "Vortex");
-        Damage.Init(GameObject.Find("HUD/Player2/SkillB").GetComponent<HUD_Skill>(), this, "Explosion");
+        Dash.Init(GameObject.Find("HUD/Angie/Dash").GetComponent<HUD_Dash>(), this, "Dash");
+        Sup.Init(GameObject.Find("HUD/Angie/SkillLT").GetComponent<HUD_Skill>(), this, "Heal");
+        Control.Init(GameObject.Find("HUD/Angie/SkillY").GetComponent<HUD_Skill>(), this, "Vortex");
+        Damage.Init(GameObject.Find("HUD/Angie/SkillB").GetComponent<HUD_Skill>(), this, "Explosion");
 
         MarkIndicator = this.transform.GetChild(2).gameObject;
 

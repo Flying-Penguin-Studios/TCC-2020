@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6731681094816168007}
   - component: {fileID: 2328163898393324148}
   - component: {fileID: 4496972974746958532}
-  m_Layer: 0
+  - component: {fileID: 5850367956675487513}
+  m_Layer: 14
   m_Name: Boss_Helmet
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,16 +63,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP_Max: 100
-  speed: 7
+  speed: 2
   AttackCD: 5
   Skill1CD: 5
   Skill2CD: 5
-  AttackDamage: 5
+  AttackDamage: 25
   Skill1Damage: 5
   Skill2Damage: 5
   LifeToNextPhase: 5
   TimeBetweenThunders: 5
   ThunderDamage: 5
+  HitArea: {fileID: 8943566964896013118}
+  HUD: {fileID: 0}
+--- !u!136 &5850367956675487513
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2750156940728376281}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.5964813
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.31, z: 0}
+--- !u!114 &3400328450939596621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3276705182993647887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ae4c0c6235abe41b06a0042cdf27af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Alabarda: {fileID: 1714858261488059908}
 --- !u!1001 &9152723627684561904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139,11 +169,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7550679661682181620, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550679661682181620, guid: 038d72b2006d0e644b1dd2b91e446804,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 038d72b2006d0e644b1dd2b91e446804, type: 3}
+--- !u!1 &3276705182993647887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5943682395096091391, guid: 038d72b2006d0e644b1dd2b91e446804,
+    type: 3}
+  m_PrefabInstance: {fileID: 9152723627684561904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2752511551858856885 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6428856621488820293, guid: 038d72b2006d0e644b1dd2b91e446804,
     type: 3}
   m_PrefabInstance: {fileID: 9152723627684561904}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1714858261488059908 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 7550679661682181620, guid: 038d72b2006d0e644b1dd2b91e446804,
+    type: 3}
+  m_PrefabInstance: {fileID: 9152723627684561904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8943566964896013118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223191383945320654, guid: 038d72b2006d0e644b1dd2b91e446804,
+    type: 3}
+  m_PrefabInstance: {fileID: 9152723627684561904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd466d6a397e55a459bad199975b1552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

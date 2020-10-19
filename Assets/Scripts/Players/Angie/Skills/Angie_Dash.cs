@@ -7,6 +7,8 @@ public class Angie_Dash : Dash
     [SerializeField]
     private GameObject VFX;
 
+
+
     //[SerializeField]
     //private Transform SpawnPoint;
 

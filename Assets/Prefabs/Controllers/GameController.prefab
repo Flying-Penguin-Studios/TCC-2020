@@ -43,10 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d746e8d759ca959448b6611340994e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1: {fileID: 6997604553415815145, guid: fd9bf46e05fa9714f8339a12e6c7eb5d, type: 3}
+  Player1: {fileID: 8618723331379543795, guid: d31bd91dfcc6c2c4193c141e9818127d, type: 3}
   CriarPlayer1: 1
-  Player2: {fileID: 8618723331379543795, guid: d31bd91dfcc6c2c4193c141e9818127d, type: 3}
+  Player2: {fileID: 6997604553415815145, guid: fd9bf46e05fa9714f8339a12e6c7eb5d, type: 3}
   CriarPlayer2: 1
+  HUD1: {fileID: 557774866002362079, guid: 82fb19d443bc87f4b835553206cfef7b, type: 3}
+  HUD2: {fileID: 1828318354520199833, guid: 6454b7fe4f47bc34ba42df62de866ddd, type: 3}
   HUD: {fileID: 557774866002362079, guid: 82fb19d443bc87f4b835553206cfef7b, type: 3}
   FadeObject: {fileID: 7213573186634040368, guid: e0b4fe520b13b004f9072196d5cf7cda,
     type: 3}
@@ -55,7 +57,6 @@ MonoBehaviour:
   SFX_Volume: -30
   ScenePlayer1: {fileID: 0}
   ScenePlayer2: {fileID: 0}
-  Arena1Completed: 0
-  ArenaEnemyCount: 0
-  ArenaCompleted: 0
+  P1: {fileID: 0}
+  P2: {fileID: 0}
   FadeSpeed: 0.4

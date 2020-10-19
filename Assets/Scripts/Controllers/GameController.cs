@@ -28,6 +28,10 @@ public class GameController : MonoBehaviour
     public GameObject Player2;
     public bool CriarPlayer2;
 
+    [Header("HUD Options")]
+    public GameObject HUD1;
+    public GameObject HUD2;
+
     [Header("HUD")]
     public GameObject HUD;
 
@@ -101,6 +105,9 @@ public class GameController : MonoBehaviour
         P1 = ScenePlayer1.GetComponent<PlayerController>();
         P2 = ScenePlayer2.GetComponent<PlayerController>();
 
+        ScenePlayer1.name = "Player1";
+        ScenePlayer2.name = "Player2";
+
         P2.isPlayer2 = true;
 
         if (CheckPointController.Singleton != null)
@@ -112,7 +119,6 @@ public class GameController : MonoBehaviour
             ScenePlayer1.transform.position = new Vector3(-5, 0, 0);
             ScenePlayer2.transform.position = new Vector3(+5, 0, 0);
         }
-
 
         if (CriarPlayer1 && !CriarPlayer2)
         {
@@ -181,5 +187,14 @@ public class GameController : MonoBehaviour
         StartCoroutine(ILoadScene(Scene));
     }
 
-    #endregion
+    #endregion   
+
+    public void ChangePlayers()
+    {
+        GameObject temp = Player1;
+        Player1 = Player2;
+        Player2 = temp;
+
+        HUD = HUD.name.Contains("1") ? HUD2 : HUD1;
+    }
 }

@@ -1441,6 +1441,7 @@ GameObject:
   - component: {fileID: 6000219487436227606}
   - component: {fileID: 5898289556051664832}
   - component: {fileID: 7550679661682181620}
+  - component: {fileID: 223191383945320654}
   m_Layer: 16
   m_Name: Alabarda
   m_TagString: HitCollider
@@ -1525,6 +1526,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0037107714, y: 0.0004921255, z: 0.008386327}
   m_Center: {x: -0.0000000010933905, y: -0.0000148899, z: 0.004934696}
+--- !u!114 &223191383945320654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657429457951339921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd466d6a397e55a459bad199975b1552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2673938369521837766
 GameObject:
   m_ObjectHideFlags: 0

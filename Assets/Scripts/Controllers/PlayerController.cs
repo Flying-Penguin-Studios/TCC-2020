@@ -377,11 +377,21 @@ public abstract class PlayerController : MonoBehaviour
     //[HideInInspector]
     public bool ToVivo = false;
 
+    bool Invensible = false;
+
+    public IEnumerator DashInvunable()
+    {
+        Invensible = true;
+        print(Invensible);
+        yield return 3;
+        Invensible = false;
+        print(Invensible);
+    }
 
     // Ambos metodos vão retornar o valor da vida apos dar o dano
     public int TakeDamage(int dano)
     {
-        if (GetBool("Fallen"))
+        if (GetBool("Fallen") || Invensible)
             return 0;
 
         if (stats.currentLife > 0)

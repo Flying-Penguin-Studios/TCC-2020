@@ -10,17 +10,17 @@ public class Juninho : PlayerController
         base.Start();
         stats = new playerStats(150, 7f, 8f, 12f, 12f);
 
-        HUD = GameObject.Find("HUD/Player1").GetComponent<HUD_Player>();
+        HUD = GameObject.Find("HUD/Juninho").GetComponent<HUD_Player>();
         Dash = GetComponent<Juninho_Dash>();
         Sup = GetComponent<Shield>();
         Control = GetComponent<Shout>();
         Damage = GetComponent<QuakePunch>();
 
         HUD.Init(this);
-        Dash.Init(GameObject.Find("HUD/Player1/Dash").GetComponent<HUD_Dash>(), this, "Dash");
-        Sup.Init(GameObject.Find("HUD/Player1/SkillLT").GetComponent<HUD_Skill>(), this, "Shield");
-        Control.Init(GameObject.Find("HUD/Player1/SkillY").GetComponent<HUD_Skill>(), this, "Shout");
-        Damage.Init(GameObject.Find("HUD/Player1/SkillB").GetComponent<HUD_Skill>(), this, "QPunch");
+        Dash.Init(GameObject.Find("HUD/Juninho/Dash").GetComponent<HUD_Dash>(), this, "Dash");
+        Sup.Init(GameObject.Find("HUD/Juninho/SkillLT").GetComponent<HUD_Skill>(), this, "Shield");
+        Control.Init(GameObject.Find("HUD/Juninho/SkillY").GetComponent<HUD_Skill>(), this, "Shout");
+        Damage.Init(GameObject.Find("HUD/Juninho/SkillB").GetComponent<HUD_Skill>(), this, "QPunch");
 
         MarkIndicator = this.transform.GetChild(2).gameObject;
 

@@ -34,7 +34,7 @@ public class PlayerHit : HitObject
         Target = n_gameObject.GetComponent<EnemyController>();
         try
         {
-            //Target.TakeDamage(RoundDamage(dano),Player.Name);              
+            Target.TakeDamage(RoundDamage(dano), Player.name);
         }
         catch (System.Exception e)
         {

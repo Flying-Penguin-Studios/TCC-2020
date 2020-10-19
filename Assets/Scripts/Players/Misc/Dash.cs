@@ -50,6 +50,7 @@ public class Dash : Skill
     {
         Player.newVelocity(Vector3.zero);
         Player.InpulsePlayer();
+        StartCoroutine(Player.DashInvunable());
     }
 
     public override void CountCD()

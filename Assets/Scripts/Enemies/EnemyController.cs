@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
 
     [SerializeField]
-    private int HP_Max;
+    protected int HP_Max;
 
 
     protected Enemy enemy;

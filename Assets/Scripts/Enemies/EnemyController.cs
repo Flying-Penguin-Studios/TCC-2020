@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : MonoBehaviour
+{
 
     [SerializeField]
     private int HP_Max;
@@ -17,15 +18,20 @@ public class EnemyController : MonoBehaviour {
     /// <summary>
     /// Inicializa o Inimigo.
     /// </summary>
-    protected void Init(float speed) {
+    protected void Init(float speed)
+    {
         enemy = new Enemy(gameObject.name, HP_Max, speed);
         rb = GetComponent<Rigidbody>();
         anim = this.transform.GetChild(0).GetComponent<Animator>();
     }
 
 
+    public virtual void TakeDamage(int damage, string player)
+    {
+        return;
+    }
 
-    
+
 
 
 

@@ -12,13 +12,13 @@ public class BowMan : Mob {
 
     protected override void Combat() {
         Target = SetTarget();
-        transform.LookAt(Target.transform.position);
         Attack();
     }
 
 
     protected override void Attack() {
         if(!attacking) {
+            transform.LookAt(Target.transform.position);
             attacking = true;
             anim.SetTrigger("Attack");
         }        

@@ -45,15 +45,16 @@ public class Mob : EnemyController {
     public float aggroRange;
     [HideInInspector]
     public bool attacking = false;
-
-
-    
-
-    
+    private bool ReachebleTarget;
 
 
 
-    
+
+
+
+
+
+
 
 
 
@@ -68,6 +69,8 @@ public class Mob : EnemyController {
         Init(speed);
         isPatrolling = false;
         lastPatrolTime = 0;
+
+        ReachebleTarget = true;
 
         FreezeConstraints(true);
     }
@@ -199,7 +202,12 @@ public class Mob : EnemyController {
 
         LookToTarget();
 
-        acceleration = !attacking;
+        if(EnemyHasGround()) {
+            acceleration = !attacking;
+        } else {
+            acceleration = false;
+        }
+
         Accelerate();
     }
 
@@ -319,6 +327,66 @@ public class Mob : EnemyController {
     /// </summary>
     private void UpdateLifeBar() {
         this.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = ((float)enemy.HP / (float)enemy.HP_Max);
+    }
+
+
+    /// <summary>
+    /// Retorna verdadeiro caso o iniimgo tenha terreno em sua frente.. Caso contrário, retorna falso
+    /// </summary>
+    /// <returns></returns>
+    private bool EnemyHasGround() {
+
+        RaycastHit Terrain;
+        if(Physics.Raycast(this.transform.position + (this.transform.forward * 1.5f) + new Vector3(0, 1, 0), Vector3.down * 1.3f, out Terrain, 1.3f)) {
+
+            if(Terrain.collider.CompareTag("Terrain") || Terrain.collider.CompareTag("ObjetosDeCena") || Terrain.collider.CompareTag("HitCollider")) {
+                return true;
+            } else {
+
+                if(ReachebleTarget) {   //Troca de alvo a cada 0.25s caso o alvo atual esteja em outra ilha, e inalcansável.
+                    ReachebleTarget = false;
+                    StartCoroutine(SetReachebleTarget());
+                }
+
+                anim.SetFloat("Speed", 0);
+                return false;
+            }
+
+        } else {
+
+            if(ReachebleTarget) {   //BoyBand - Troca de alvo a cada 0.25s caso o alvo atual esteja em outra ilha, e inalcansável.
+                ReachebleTarget = false;
+                StartCoroutine(SetReachebleTarget());
+            }
+
+            anim.SetFloat("Speed", 0);
+            return false;
+        }
+    }
+
+
+
+    /// <summary>
+    /// Troca de alvo caso o alvo atual esteja fora da ilha e inalcansável.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator SetReachebleTarget() {
+
+        yield return new WaitForSeconds(0.5f);
+
+        if(Target == Player1.gameObject) {
+            P2Agro = P1Agro;
+            Target = Player2.gameObject;
+        } else if(Target == Player2) {
+            P1Agro = P2Agro;
+            Target = Player1.gameObject;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        ReachebleTarget = true;
+        yield return null;
+
     }
 
 

@@ -11,7 +11,7 @@ public class Projetil : MonoBehaviour {
 
 
     private void Start() {
-        Destroy(this.gameObject, 2);
+        Destroy(this.gameObject, 0.75f);
     }
 
 

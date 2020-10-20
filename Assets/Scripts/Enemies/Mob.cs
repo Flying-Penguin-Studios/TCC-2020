@@ -89,6 +89,8 @@ public class Mob : EnemyController {
     /// Controla todo o comportamento dos inimigos. Desde movimento, até o combate.
     /// </summary>
     public void EnemyBehavior() {
+
+        if(!isAlive) { FreezeConstraints(true); return; }
         
         if(CheckInCombate()) {
             Combat();

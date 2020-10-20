@@ -1706,11 +1706,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50830924659563184}
-<<<<<<< Updated upstream:Assets/Prefabs/Inimigos/SwordMan/SwordMan.prefab
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-=======
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
->>>>>>> Stashed changes:Assets/Prefabs/Inimigos/SwordMan.prefab
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1718,7 +1714,7 @@ Transform:
   - {fileID: 246569586192241679}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!54 &50830924659563197
 Rigidbody:
   m_ObjectHideFlags: 0

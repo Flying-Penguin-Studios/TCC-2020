@@ -177,7 +177,7 @@ public class Mob : EnemyController {
     /// </summary>
     protected GameObject SetTarget() {
 
-        if(Player1.ToVivo && Player2.ToVivo) {
+        if((Player1.ToVivo && !Player1.Caido) && (Player2.ToVivo && !Player2.Caido)) {
 
             if(P1Agro >= P2Agro) {
                 return Player1.gameObject;
@@ -186,11 +186,18 @@ public class Mob : EnemyController {
             }
 
         } else if(!Player2.ToVivo) {
+
             P2Agro = 0;
             return Player1.gameObject;
-        } else {
+
+        } else if(!Player1.ToVivo) {
+
             P1Agro = 0;
             return Player2.gameObject;
+
+        } else {
+            acceleration = false;
+            return null;
         }
     }
 

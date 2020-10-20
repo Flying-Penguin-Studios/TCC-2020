@@ -404,18 +404,18 @@ public abstract class PlayerController : MonoBehaviour
                 stats.currentLife = 0;
                 SetLife();
 
-                if (!Parter && (!Parter.ToVivo || !getUp || Parter.Caido))
+                if (!Parter.ToVivo || !getUp || Parter.Caido)
                 {
                     ToVivo = false;
 
-                    if (gameObject.name == "Player1")
-                    {
-                        GameController_OLD.Singleton.P1IsAlive = false;
-                    }
-                    else if (gameObject.name == "Player2")
-                    {
-                        GameController_OLD.Singleton.P2IsAlive = false;
-                    }
+                    //if (gameObject.name == "Player1")
+                    //{
+                    //    GameController_OLD.Singleton.P1IsAlive = false;
+                    //}
+                    //else if (gameObject.name == "Player2")
+                    //{
+                    //    GameController_OLD.Singleton.P2IsAlive = false;
+                    //}
 
                     rb.useGravity = false;
                     GetComponent<Collider>().enabled = false;
@@ -528,12 +528,13 @@ public abstract class PlayerController : MonoBehaviour
     }
 
     public void Test()
-    {
+    {       
+        ToVivo = false;
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(false);
         transform.GetChild(2).gameObject.SetActive(false);
         transform.GetChild(3).gameObject.SetActive(false);
-        ToVivo = false;
+        transform.GetChild(4).gameObject.SetActive(false);
     }
 
     public void Heal(int value)

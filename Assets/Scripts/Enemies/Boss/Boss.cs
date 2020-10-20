@@ -33,7 +33,7 @@ public abstract class Boss : EnemyController
 
     float PercentToChangeTarget;
 
-    protected GameObject Target;
+    [SerializeField]  protected GameObject Target;
     protected PlayerController Player1;
     protected PlayerController Player2;
 

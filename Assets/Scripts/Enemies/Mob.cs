@@ -259,6 +259,7 @@ public class Mob : EnemyController {
 
         if(enemy.HP <= 0 && isAlive) {
             isAlive = false;
+            GetComponent<CapsuleCollider>().enabled = false;
             anim.SetTrigger("Dead");
             Die();
         }

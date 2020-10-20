@@ -4,62 +4,78 @@ using UnityEngine;
 
 public class Mob : EnemyController {
 
-
-
+    
 
     // --- Variáveis gerais
-    public Vector3 velocity;                            //Velocidade do Inimigo.
-    public float EnemyMass;                             //Massa do Inimigo
-    private bool acceleration;                          //Define se o inimigo irá acelerar ou desacelerar.
-    public float accelerationFactor;                    //Fator de aceleração do inimigo.
-    public float decelerationFactor;                    //Fator de desaceleração do inimigo.
-    private float yGround;                              //Posição em Y do terreno;
-
-    [Range(0.0f, 1.0f)]
-    public float speed;                                 //Velocidade atual do Inimigo
-
+    private PlayerController Player1;
+    private GameObject player1O;
+    private PlayerController Player2;
+    private Vector3 velocity;                           //Velocidade do Inimigo.
+    private float accelerationFactor = 2;               //Fator de aceleração do inimigo.
+    private float decelerationFactor = 2;               //Fator de desaceleração do inimigo.
+    private float speed;                                //Velocidade atual do Inimigo
+    private bool inCombat;
+    private bool isAlive = true;
 
 
     // --- Variáveis de Patrulha
-    public Vector3 targetPosition;
-    public List<Vector3> spotPosition;                  //Próxima posição para onde o inimigo deve se mover na patrulha.
+    [Space(20)]
+    public Transform nextWaypoint;
+    public bool patrulheiro;
     public float PatrolSpeed = 2;                       //Velocidade máxima durante a patrulha.    
     public Vector2 minMaxPatroPause;                    //Tempo minimo e máximo de pausa entre as Patrulhas.
+    private bool acceleration = false;
     private bool isPatrolling;                          //Define se o inimigo está ou não em patrulha.
     private float lastPatrolTime;                       //Guarda o momento (Time.time) da última patrulha.
-    public float endRoutPauseTime = 10;                 //Tempo extra de pausa ao chegar no ultimo ponto da patrulha.
     private float extraPouseTime;                       //Tempo extra de pausa para acréscimos gerais.
-    private bool isLastSpot;                            //Indica se é o último spot a ser patrulhado.
-    private int spotNumber;
-    private int direction;                              //Define a direção que o inimigo está fazendo a patrulha. 1 indo e -1 voltando.
 
 
 
-
-
-
-    // --- Variaveis de Combate
-    public float CombatSpeed = 5;
+    // --- Variáveis de Combte e Aggro    
+    private GameObject Target;
+    [Space(20)]
+    public GameObject sword;
+    public GameObject Bow;
+    private bool isVulnerable = false;
+    private int P1Agro = 0;
+    private int P2Agro = 0;
+    private bool P1Incombat = false;
+    private bool P2Incombat = false;
+    private float minDistanceToPlayer = 1.5f;
     public float aggroRange;
+    [HideInInspector]
+    public bool attacking = false;
+
+
+    
+
+    
+
+
+
+    
 
 
 
 
     private void Start() {
 
+        Player1 = GameController.Singleton.ScenePlayer1.GetComponent<PlayerController>();
+        Player2 = GameController.Singleton.ScenePlayer2.GetComponent<PlayerController>();        
+
         anim = this.transform.GetChild(0).GetComponent<Animator>();
 
         Init(speed);
         isPatrolling = false;
         lastPatrolTime = 0;
-        spotNumber = 0;
-        direction = -1;
-        yGround = GetGoundYPosition();
+
+        FreezeConstraints(true);
     }
 
 
     private void FixedUpdate() {
         EnemyBehavior();
+        print(enemy.HP);
     }
 
 
@@ -70,118 +86,217 @@ public class Mob : EnemyController {
     /// Controla todo o comportamento dos inimigos. Desde movimento, até o combate.
     /// </summary>
     public void EnemyBehavior() {
-        Patrol();
-        Movement();
+        
+        if(CheckInCombate()) {
+            Combat();
+        } else {
+            if(patrulheiro) Patrol();
+            StartCombatByDistance();
+        }
     }
 
 
  
 
-
-    private void Movement() {
-        Accelerate();
-    }
-    
-
     /// <summary>
-    /// Realiza a patrulha entre spots pré-definidos no mapa. Ao acabar a sequencia de spots,
-    /// patrulha os mesmos spots em ordem contrária, fazendo o mesmo caminho de volta.
+    /// 
     /// </summary>
     private void Patrol() {
 
         if((Time.time >= lastPatrolTime) && !isPatrolling) {
-            
-            
-            targetPosition = spotPosition[spotNumber];
-            targetPosition.y = this.transform.position.y;
-            
-            this.transform.LookAt(targetPosition);
-
-            
-
-            extraPouseTime = 0;
-            if((spotNumber == spotPosition.Count - 1) || (spotNumber == 0)) {
-                direction *= -1;
-                extraPouseTime = endRoutPauseTime;    
-            } 
-            spotNumber += direction;
-
-
+            transform.rotation = Quaternion.LookRotation(nextWaypoint.position - transform.position, Vector3.up);
             acceleration = true;
             isPatrolling = true;
-            
         }
 
-        this.transform.LookAt(targetPosition);
+        Vector3 dist = nextWaypoint.transform.position - transform.position;
 
-
-        if((Vector3.Distance(targetPosition, transform.position) <= 1.5f) && isPatrolling) {
+        if(dist.magnitude <= 1.5f) {
+            nextWaypoint = nextWaypoint.GetComponent<WayPoint>().getNext();
             acceleration = false;
-            lastPatrolTime = Time.time + Random.Range(minMaxPatroPause.x, minMaxPatroPause.y) + extraPouseTime;
             isPatrolling = false;
-            
+            lastPatrolTime = Time.time + Random.Range(minMaxPatroPause.x, minMaxPatroPause.y);
         }
-    
-        velocity = transform.forward * PatrolSpeed * speed;
-        velocity.y = yGround;
 
-        anim.SetFloat("WalkType", 1);
-        anim.SetFloat("GuardMoveSpeedModifier", speed);
-        rb.velocity = velocity;
+        Accelerate();
     }
 
-
+    
     /// <summary>
     /// Aumenta ou diminui a velocidade do inimigo de forma gradativa.
     /// </summary>
     private void Accelerate() {
 
         if(acceleration) {
+            FreezeConstraints(false);
             if(speed < 1) speed += accelerationFactor * Time.fixedDeltaTime;
         } else {
-            if(speed > 0) speed -= decelerationFactor * Time.fixedDeltaTime;
-            if(speed <= 0.1f) rb.velocity = Vector3.zero;
+            //if(speed > 0) speed -= decelerationFactor * Time.fixedDeltaTime;
+            //if(speed <= 0.1f)  speed = 0;
+            speed = 0;
+            FreezeConstraints(true);
         }
 
         anim.SetFloat("Speed", speed);
+
+        velocity = transform.forward * PatrolSpeed * speed;
+        rb.velocity = velocity;        
     }
 
 
+    protected virtual void Combat() {
+
+        Target = SetTarget();
+
+        if(DistanceToTarget() <= minDistanceToPlayer && !attacking) {
+            acceleration = false;
+            Attack();
+        } else {
+            ChaseTarget();            
+        }
+
+        return;
+    }
+
+
+    private void StartCombatByDistance() {
+
+        if(Player1.ToVivo && (Vector3.Distance(transform.position, Player1.transform.position) <= aggroRange)) {
+            inCombat = true;
+            P1Incombat = true;
+            P1Agro += 1;
+        }
+
+        if(Player2.ToVivo && (Vector3.Distance(transform.position, Player2.transform.position) <= aggroRange)) {
+            inCombat = true;
+            P2Incombat = true;
+            P2Agro += 1;
+        }
+    }
+
 
     /// <summary>
-    /// Retorna a posição Y do terreno abaixo do inimigo.
+    /// 
     /// </summary>
-    private float GetGoundYPosition() {
+    private GameObject SetTarget() {
 
-        RaycastHit hit;
+        if(Player1.ToVivo && Player2.ToVivo) {
 
-        if(Physics.Raycast(this.transform.position, Vector3.down, out hit, 10)) {
-
-            if(hit.collider.CompareTag("Terrain")) {
-                return hit.transform.position.y;
+            if(P1Agro >= P2Agro) {
+                return Player1.gameObject;
             } else {
-                return this.transform.position.y;
+                return Player2.gameObject;
             }
+
+        } else if(!Player2.ToVivo) {
+            P2Agro = 0;
+            return Player1.gameObject;
+        } else {
+            P1Agro = 0;
+            return Player2.gameObject;
         }
-        return this.transform.position.y;
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void ChaseTarget() {
+
+        LookToTarget();
+
+        acceleration = !attacking;
+        Accelerate();
+    }
+
+
+    private void Attack() {
+        attacking = true;
+        sword.GetComponent<BoxCollider>().enabled = true;
+        anim.SetTrigger("Attack");
+    }
+
+
+    /// <summary>
+    /// Retorna verdadeiro se estiver em combate com algum dos Jogadores.
+    /// </summary>
+    private bool CheckInCombate() {
+
+        if(((Player1.ToVivo && !Player1.Caido && P1Incombat) || (Player2.ToVivo && !Player2.Caido && P2Incombat)) && isAlive) {
+
+            inCombat = true;
+            return true;
+
+        } else {
+
+            inCombat = false;
+            P1Agro = 0;
+            P2Agro = 0;
+            P1Incombat = false;
+            P2Incombat = false;
+            return false;
+        }
     }
 
        
     /// <summary>
     /// Regras ao tomar dano. Ex: Stag, verificação de HP, se morreu, etc...
     /// </summary>
-    public virtual void TakeDamage(int damage) {
+    public override void TakeDamage(int damage, string player) {
 
-        enemy.HP -= damage;
+        if(player == "Player1") {
+            P1Incombat = true;
+            P1Agro += damage;
+        } else if(player == "Player2") {
+            P2Incombat = true;
+            P2Agro += damage;
+        }
 
-        if(enemy.HP <= 0) { Die(); }
+        if(!isVulnerable) enemy.HP -= damage;
 
+        if(enemy.HP <= 0) {
+            isAlive = false;
+            anim.SetTrigger("Dead");
+            Die();
+        }
     }
 
 
-
+    /// <summary>
+    /// Destroi o Inimigo.
+    /// </summary>
     public void Die() {
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 5);
+    }
+
+
+    /// <summary>
+    /// Trava ou libera as Constraints de posição do inimigo.
+    /// </summary>
+    /// <param name="freeze"></param>
+    private void FreezeConstraints(bool freeze) {
+
+        if(freeze) {
+            rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+        } else {
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+    }
+
+
+    /// <summary>
+    /// Calcula a distancia até o Alvo, desconsiderando o eixo Y.
+    /// </summary>
+    private float DistanceToTarget() {
+        return Vector3.Distance(transform.position, new Vector3(Target.transform.position.x, transform.position.y, Target.transform.position.z));         
+    }
+
+
+    /// <summary>
+    /// Olha pra direção do alvo.
+    /// </summary>
+    private void LookToTarget() {
+        transform.LookAt(new Vector3(Target.transform.position.x, transform.position.y, Target.transform.position.z));
     }
 
 

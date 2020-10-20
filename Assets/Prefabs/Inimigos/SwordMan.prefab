@@ -296,7 +296,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: 848917b346295954c976cb437757cb6b, type: 3}
+  - {fileID: 2100000, guid: da84b4d3af151b549bdd032b0c742631, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -801,7 +801,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: 848917b346295954c976cb437757cb6b, type: 3}
+  - {fileID: 2100000, guid: da84b4d3af151b549bdd032b0c742631, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1762,11 +1762,10 @@ MonoBehaviour:
   patrulheiro: 0
   PatrolSpeed: 2
   minMaxPatroPause: {x: 5, y: 10}
-  sword: {fileID: 50830923568201898}
-  Bow: {fileID: 50830924100389588}
   combatSpeed: 5
   aggroRange: 10
   attacking: 0
+  sword: {fileID: 50830923568201898}
 --- !u!1 &50830924675928866
 GameObject:
   m_ObjectHideFlags: 0

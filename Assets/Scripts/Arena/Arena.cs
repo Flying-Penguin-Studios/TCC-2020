@@ -55,19 +55,21 @@ public class Arena : MonoBehaviour
                 RaycastHit RayHit;
                 if (Physics.Raycast(transform.position, Vector3.forward, out RayHit, 15))
                 {
-                    if (RayHit.transform.CompareTag("ArenaWall"))
-                    {
-                        float Area = RayHit.distance;
-                        Area = float.Parse(Area.ToString("0.00"));
+                    //if (RayHit.transform.CompareTag("ArenaWall"))
+                    //{
+                    //float Area = RayHit.distance;     
+                    //Area = float.Parse(Area.ToString("0.00"));
 
-                        float AreaX = UnityEngine.Random.Range(-Area + 3, Area - 3);
-                        float AreaZ = UnityEngine.Random.Range(-Area + 3, Area - 3);
-                        Vector3 Pos = new Vector3(AreaX, transform.position.y, AreaZ);
-                        GameObject i_Inimigo = Instantiate(Inimigo, transform.position + Pos, Quaternion.identity, transform);
-                        i_Inimigo.transform.localScale *= 0.1f;
-                        EnemyCount++;
-                        i_Inimigo.AddComponent<ArenaMob>().Arena = this;
-                    }
+                    //float AreaX = UnityEngine.Random.Range(-Area + 3, Area - 3);
+                    //float AreaZ = UnityEngine.Random.Range(-Area + 3, Area - 3);
+                    float AreaX = UnityEngine.Random.Range(-11, 11);
+                    float AreaZ = UnityEngine.Random.Range(-11, 11);
+                    Vector3 Pos = new Vector3(AreaX, transform.position.y, AreaZ);
+                    GameObject i_Inimigo = Instantiate(Inimigo, transform.position + Pos, Quaternion.identity, transform);
+                    i_Inimigo.transform.localScale *= 0.1f;
+                    EnemyCount++;
+                    i_Inimigo.AddComponent<ArenaMob>().Arena = this;
+                    //}
                 }
             }
             yield return new WaitForSeconds(_wave.Duration);

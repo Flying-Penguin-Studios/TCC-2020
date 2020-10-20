@@ -64,7 +64,7 @@ MonoBehaviour:
   dano: 8
   Player: {fileID: 0}
   vel: 20
-  destructionTime: 1.5
+  destructionTime: 0.5
 --- !u!1 &6721079815760662944
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,6 +121,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -145,6 +146,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!135 &6269458682313908198
 SphereCollider:
   m_ObjectHideFlags: 0

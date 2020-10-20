@@ -167,6 +167,8 @@ public abstract class PlayerController : MonoBehaviour
 
     protected virtual void Move()
     {
+
+
         Vector3 v = vertical * Vector3.forward;
         Vector3 h = horizontal * Vector3.right;
         moveDir = (v + h).normalized;
@@ -174,7 +176,9 @@ public abstract class PlayerController : MonoBehaviour
         float m = Mathf.Abs(horizontal) + Mathf.Abs(vertical);
         float moveAmout = Mathf.Clamp01(m);
 
-        Walk(moveDir, moveAmout);
+        if (!GetBool("Attacking"))
+            Walk(moveDir, moveAmout);
+
         Rotate(moveDir);
     }
 
@@ -409,15 +413,6 @@ public abstract class PlayerController : MonoBehaviour
                 {
                     ToVivo = false;
 
-                    //if (gameObject.name == "Player1")
-                    //{
-                    //    GameController_OLD.Singleton.P1IsAlive = false;
-                    //}
-                    //else if (gameObject.name == "Player2")
-                    //{
-                    //    GameController_OLD.Singleton.P2IsAlive = false;
-                    //}
-
                     rb.useGravity = false;
                     GetComponent<Collider>().enabled = false;
                     ZoneInterction.enabled = false;
@@ -428,13 +423,15 @@ public abstract class PlayerController : MonoBehaviour
                     }
 
                     anim.SetTrigger("Death");
+
+                    //GameController.Singleton.CheckPlayerIsAlive();
                 }
                 else if (getUp)
                 {
                     anim.SetTrigger("Fall");
                     ZoneInterction.enabled = true;
                     getUp = false;
-                    StartCoroutine("Fall");
+                    StartCoroutine(Fall());
                 }
             }
             else
@@ -464,15 +461,6 @@ public abstract class PlayerController : MonoBehaviour
                 if (!Parter.ToVivo || !getUp)
                 {
                     ToVivo = false;
-
-                    if (gameObject.name == "Player1")
-                    {
-                        GameController_OLD.Singleton.P1IsAlive = false;
-                    }
-                    else if (gameObject.name == "Player2")
-                    {
-                        GameController_OLD.Singleton.P2IsAlive = false;
-                    }
 
                     rb.useGravity = false;
                     GetComponent<Collider>().enabled = false;
@@ -989,5 +977,10 @@ public abstract class PlayerController : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    public void NewVelocity(Vector3 Velocity)
+    {
+        rb.velocity = Velocity;
     }
 }

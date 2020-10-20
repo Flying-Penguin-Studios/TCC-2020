@@ -103,6 +103,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.000000011026859
+        functionName: ZeroVelocity
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.51552796
         functionName: CastBall
         data: 
@@ -156,6 +163,14 @@ ModelImporter:
         messageOptions: 0
       - time: 0
         functionName: CastBall
+        data: 
+        objectReferenceParameter: {fileID: 2069097200921955422, guid: 319c46dc36339194ca051aca223dc32d,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.0175
+        functionName: ZeroVelocity
         data: 
         objectReferenceParameter: {fileID: 2069097200921955422, guid: 319c46dc36339194ca051aca223dc32d,
           type: 3}

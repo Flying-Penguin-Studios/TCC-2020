@@ -61,6 +61,10 @@ public class EventsAnimation : MonoBehaviour
     {
         Player.transform.GetChild(0).gameObject.SetActive(false);
         Player.transform.GetChild(2).gameObject.SetActive(false);
+        Player.transform.GetChild(3).gameObject.SetActive(false);
+        Player.transform.GetChild(4).gameObject.SetActive(false);
+        Player.transform.GetChild(5).gameObject.SetActive(false);
+        GameController.Singleton.CheckPlayerIsAlive();
     }
 
     public void SetRotateSpeed(float _value)
@@ -82,5 +86,10 @@ public class EventsAnimation : MonoBehaviour
     public void Jump()
     {
         Player.Jump();
+    }
+
+    public void ZeroVelocity()
+    {
+        Player.NewVelocity(Vector3.zero);
     }
 }

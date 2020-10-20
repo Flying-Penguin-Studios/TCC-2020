@@ -45,7 +45,7 @@ public class Juninho : PlayerController
             OnGround();
             DustControl();
 
-            if (Parter)
+            if (Parter && Parter.ToVivo)
                 Distance = Vector3.Distance(transform.position, Parter.transform.position);
 
             if (!isPlayer2)

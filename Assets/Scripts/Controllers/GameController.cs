@@ -165,6 +165,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator ILoadScene(string Scene)
     {
+        Time.timeScale = 1;
         yield return StartCoroutine(FadeIn(FadeObject));
         SceneManager.LoadScene(Scene);
         yield return null;
@@ -172,6 +173,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator ILoadScene(int Scene)
     {
+        Time.timeScale = 1;
         yield return StartCoroutine(FadeIn(FadeObject));
         SceneManager.LoadScene(Scene);
         yield return null;
@@ -196,5 +198,13 @@ public class GameController : MonoBehaviour
         Player2 = temp;
 
         HUD = HUD.name.Contains("1") ? HUD2 : HUD1;
+    }
+
+    public void CheckPlayerIsAlive()
+    {
+        if (!P1.ToVivo && !P2.ToVivo)
+        {
+            LoadScene(ActualScene.name);
+        }
     }
 }

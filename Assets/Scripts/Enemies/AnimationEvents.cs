@@ -5,27 +5,58 @@ using UnityEngine;
 public class AnimationEvents : MonoBehaviour {
 
 
-    private Mob mob;
-    
+    private SwordMan swordMan;
+    private BowMan bowMan;
+
 
 
 
     private void Start() {
-        mob = transform.parent.GetComponent<Mob>();
+        swordMan = transform.parent.GetComponent<SwordMan>();
+        bowMan = transform.parent.GetComponent<BowMan>();
     }
 
+
+
+
+
+
+
+
+
+
+    // ============== SwordMan ===============================
 
 
     private void SetAttackFalse() {
-        mob.attacking = false;
-        mob.sword.GetComponent<BoxCollider>().enabled = false;
+        swordMan.attacking = false;
+        swordMan.sword.GetComponent<BoxCollider>().enabled = false;
     }
 
 
 
-    
 
 
+
+    // ============== BowMan ===============================
+
+
+
+    private void ResetBowManAttack() {
+        Invoke("ResetBowManAttackAfterDelay", 2);
+    }
+
+
+
+    private void ResetBowManAttackAfterDelay() {
+        bowMan.attacking = false;
+    }
+
+
+    private void Projetil() {
+        
+        Instantiate(bowMan.projetil, bowMan.Bow.transform.position , transform.rotation);
+    }
 
 
 

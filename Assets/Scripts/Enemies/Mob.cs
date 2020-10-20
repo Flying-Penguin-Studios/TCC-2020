@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mob : EnemyController {
 
@@ -22,9 +23,9 @@ public class Mob : EnemyController {
     [Space(20)]
     public Transform nextWaypoint;
     public bool patrulheiro;
-    public float PatrolSpeed = 2;                       //Velocidade máxima durante a patrulha.    
+    public float PatrolSpeed;                       //Velocidade máxima durante a patrulha.    
     public Vector2 minMaxPatroPause;                    //Tempo minimo e máximo de pausa entre as Patrulhas.
-    private bool acceleration = false;
+    protected bool acceleration = false;
     private bool isPatrolling;                          //Define se o inimigo está ou não em patrulha.
     private float lastPatrolTime;                       //Guarda o momento (Time.time) da última patrulha.
     private float extraPouseTime;                       //Tempo extra de pausa para acréscimos gerais.
@@ -32,16 +33,15 @@ public class Mob : EnemyController {
 
 
     // --- Variáveis de Combte e Aggro    
-    private GameObject Target;
+    protected GameObject Target;
     [Space(20)]
-    public GameObject sword;
-    public GameObject Bow;
+    public float combatSpeed;
     private bool isVulnerable = false;
     private int P1Agro = 0;
     private int P2Agro = 0;
     private bool P1Incombat = false;
     private bool P2Incombat = false;
-    private float minDistanceToPlayer = 1.5f;
+    protected float minDistanceToPlayer = 1.5f;
     public float aggroRange;
     [HideInInspector]
     public bool attacking = false;
@@ -75,7 +75,7 @@ public class Mob : EnemyController {
 
     private void FixedUpdate() {
         EnemyBehavior();
-        print(enemy.HP);
+        transform.GetChild(1).LookAt(Camera.main.gameObject.transform);
     }
 
 
@@ -139,23 +139,17 @@ public class Mob : EnemyController {
 
         anim.SetFloat("Speed", speed);
 
-        velocity = transform.forward * PatrolSpeed * speed;
+
+        float movementSpeed;
+        movementSpeed = (inCombat) ? combatSpeed : PatrolSpeed;
+
+        velocity = transform.forward * movementSpeed * speed;
         rb.velocity = velocity;        
     }
 
 
     protected virtual void Combat() {
-
-        Target = SetTarget();
-
-        if(DistanceToTarget() <= minDistanceToPlayer && !attacking) {
-            acceleration = false;
-            Attack();
-        } else {
-            ChaseTarget();            
-        }
-
-        return;
+                
     }
 
 
@@ -178,7 +172,7 @@ public class Mob : EnemyController {
     /// <summary>
     /// 
     /// </summary>
-    private GameObject SetTarget() {
+    protected GameObject SetTarget() {
 
         if(Player1.ToVivo && Player2.ToVivo) {
 
@@ -201,7 +195,7 @@ public class Mob : EnemyController {
     /// <summary>
     /// 
     /// </summary>
-    private void ChaseTarget() {
+    protected void ChaseTarget() {
 
         LookToTarget();
 
@@ -210,10 +204,8 @@ public class Mob : EnemyController {
     }
 
 
-    private void Attack() {
-        attacking = true;
-        sword.GetComponent<BoxCollider>().enabled = true;
-        anim.SetTrigger("Attack");
+    protected virtual void Attack() {
+        
     }
 
 
@@ -225,6 +217,7 @@ public class Mob : EnemyController {
         if(((Player1.ToVivo && !Player1.Caido && P1Incombat) || (Player2.ToVivo && !Player2.Caido && P2Incombat)) && isAlive) {
 
             inCombat = true;
+            anim.SetFloat("InCombat", 1);
             return true;
 
         } else {
@@ -254,7 +247,9 @@ public class Mob : EnemyController {
 
         if(!isVulnerable) enemy.HP -= damage;
 
-        if(enemy.HP <= 0) {
+        UpdateHP();
+
+        if(enemy.HP <= 0 && isAlive) {
             isAlive = false;
             anim.SetTrigger("Dead");
             Die();
@@ -287,7 +282,7 @@ public class Mob : EnemyController {
     /// <summary>
     /// Calcula a distancia até o Alvo, desconsiderando o eixo Y.
     /// </summary>
-    private float DistanceToTarget() {
+    protected float DistanceToTarget() {
         return Vector3.Distance(transform.position, new Vector3(Target.transform.position.x, transform.position.y, Target.transform.position.z));         
     }
 
@@ -298,6 +293,36 @@ public class Mob : EnemyController {
     private void LookToTarget() {
         transform.LookAt(new Vector3(Target.transform.position.x, transform.position.y, Target.transform.position.z));
     }
+
+
+
+
+    /// <summary>
+    /// Atualiza A Barra de vida dos inimigos.
+    /// </summary>
+    private void UpdateHP() {
+        FixLifeBarRotation();
+        UpdateLifeBar();
+    }
+
+
+    /// <summary>
+    /// Mantem a Barra de Vida dos inimigos sempre viradas pra câmera.
+    /// </summary>
+    private void FixLifeBarRotation() {
+        this.transform.GetChild(1).GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 180, 0);
+    }
+
+
+    /// <summary>
+    /// Atualiza a Barra de Vida dos Inimigos.
+    /// </summary>
+    private void UpdateLifeBar() {
+        this.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = ((float)enemy.HP / (float)enemy.HP_Max);
+    }
+
+
+
 
 
 }

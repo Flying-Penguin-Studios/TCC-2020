@@ -22,10 +22,6 @@ public class SwordManAttack : MonoBehaviour {
 
         if(other.CompareTag("Player")) {
 
-
-
-
-
             if((other.name == "Player1") && (Time.time >= P1NextAttack)) {
                 other.GetComponent<PlayerController>().TakeDamage(Random.Range(danoMin, danoMax));
                 P1NextAttack = Time.time + AttackRate;

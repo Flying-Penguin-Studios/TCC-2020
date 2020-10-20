@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Waves: []
+  EnemyCount: 0
 --- !u!1 &500336730562115368
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8603012972741764083
 Transform:
   m_ObjectHideFlags: 0
@@ -520,7 +521,7 @@ PrefabInstance:
     - target: {fileID: 4662408560687163717, guid: 781266d01b129e148a8914d6d55e36e3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 781266d01b129e148a8914d6d55e36e3, type: 3}

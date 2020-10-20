@@ -211,7 +211,7 @@ MonoBehaviour:
     type: 3}
   VortexZoneT: {fileID: 5679354671271729364, guid: 75fe5abfb11b83241860fb89ac854dac,
     type: 3}
-  SpawnPoint: {fileID: 0}
+  SpawnPoint: {fileID: 3614994978689830402}
 --- !u!114 &1513151491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1586,6 +1586,12 @@ Transform:
 --- !u!4 &9020229583758171674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8612282122100729, guid: 6ffe423bcaabe3a40beb0f8b8774192b,
+    type: 3}
+  m_PrefabInstance: {fileID: 202429089352007197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3614994978689830402 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5700388447875174369, guid: 6ffe423bcaabe3a40beb0f8b8774192b,
     type: 3}
   m_PrefabInstance: {fileID: 202429089352007197}
   m_PrefabAsset: {fileID: 0}

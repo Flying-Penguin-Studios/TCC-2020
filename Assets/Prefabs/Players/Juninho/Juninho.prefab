@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SparkleParticle: {fileID: 1821929143923694868, guid: fe9087c1be137ce439ab083e0c84b8ef,
     type: 3}
-  isPlayer2: 1
+  isPlayer2: 0
   MaxDistanceWalk: 15
   JumpVar: 1.8
   getUpFriend: 0
@@ -234,9 +234,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StringTrigger: 
-  CD: 3
+  CD: 2
   MaxSlotDash: 3
-  CD_Slots: 1
+  CD_Slots: 3
   DashCount: {fileID: 182251215564877581}
 --- !u!114 &1103094200
 MonoBehaviour:

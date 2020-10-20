@@ -48,6 +48,7 @@ public abstract class PlayerController : MonoBehaviour
             return;
 
         anim.SetFloat(StaticVariables.Animator.speedFloat, moveAmout);
+
         float speed = OnGround() ? stats.speed : stats.j_speed;
 
         if (moveDir == Vector3.zero)
@@ -438,14 +439,14 @@ public abstract class PlayerController : MonoBehaviour
             }
             else
             {
-                anim.SetTrigger("Stag");
+                //anim.SetTrigger("Stag");
             }
         }
 
         return stats.currentLife;
     }
 
-    public int SetDamage(int dano)
+    public int SetDamage(int dano, bool fallDamage = false)
     {
         if (stats.currentLife > 0)
         {
@@ -457,7 +458,10 @@ public abstract class PlayerController : MonoBehaviour
                 stats.currentLife = 0;
                 SetLife();
 
-                if (!Parter && (!Parter.ToVivo || !getUp))
+                if (fallDamage)
+                    return 0;
+
+                if (!Parter.ToVivo || !getUp)
                 {
                     ToVivo = false;
 
@@ -528,7 +532,7 @@ public abstract class PlayerController : MonoBehaviour
     }
 
     public void Test()
-    {       
+    {
         ToVivo = false;
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(false);
@@ -939,7 +943,7 @@ public abstract class PlayerController : MonoBehaviour
     {
         if (LastIslandPosition != Vector3.zero)
         {
-            if (SetDamage(FallDamage) > 0)
+            if (SetDamage(FallDamage, true) > 0)
             {
                 StopCoroutine(Pisca());
                 transform.position = LastIslandPosition;

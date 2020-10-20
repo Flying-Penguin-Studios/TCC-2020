@@ -66,7 +66,7 @@ public class Arena : MonoBehaviour
                     float AreaZ = UnityEngine.Random.Range(-11, 11);
                     Vector3 Pos = new Vector3(AreaX, transform.position.y, AreaZ);
                     GameObject i_Inimigo = Instantiate(Inimigo, transform.position + Pos, Quaternion.identity, transform);
-                    i_Inimigo.transform.localScale *= 0.1f;
+                    //i_Inimigo.transform.localScale *= 0.1f;
                     EnemyCount++;
                     i_Inimigo.AddComponent<ArenaMob>().Arena = this;
                     //}

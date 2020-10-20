@@ -265,6 +265,8 @@ public class Mob : EnemyController {
         UpdateHP();
 
         if(enemy.HP <= 0 && isAlive) {
+            FreezeConstraints(true);
+            rb.velocity = Vector3.zero;
             isAlive = false;
             GetComponent<CapsuleCollider>().enabled = false;
             anim.SetTrigger("Dead");

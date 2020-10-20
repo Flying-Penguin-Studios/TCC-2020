@@ -269,6 +269,11 @@ public class Menu : MonoBehaviour
         lastMouseCoordinate = Input.mousePosition;
     }
 
+    public void ChangeOrder()
+    {
+        GameController.Singleton.ChangePlayers();
+    }
+
     /*
     private void SetResolution1() {
 

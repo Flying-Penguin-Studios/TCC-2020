@@ -91,6 +91,10 @@ public class GameController : MonoBehaviour
 
             StartPlayers();
         }
+        else if (ActualScene.name.ToUpper().Contains("Galeria".ToUpper()))
+        {
+            return;
+        }
         else
         {
             print("Cena Não Encontrada GAME CONTROLLER IS DEAD");

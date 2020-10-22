@@ -7,6 +7,7 @@ public class AnimationEvents : MonoBehaviour {
 
     private SwordMan swordMan;
     private BowMan bowMan;
+    private Zombie zombie;
 
 
 
@@ -14,6 +15,7 @@ public class AnimationEvents : MonoBehaviour {
     private void Start() {
         swordMan = transform.parent.GetComponent<SwordMan>();
         bowMan = transform.parent.GetComponent<BowMan>();
+        zombie = transform.parent.GetComponent<Zombie>();
     }
 
 
@@ -57,6 +59,28 @@ public class AnimationEvents : MonoBehaviour {
         
         Instantiate(bowMan.projetil, bowMan.Bow.transform.position , transform.rotation);
     }
+
+
+
+
+
+
+    // ============== BowMan ===============================
+
+
+
+    private void ResetZombieAttack() {
+        zombie.attacking = false;
+        zombie.LHand.GetComponent<BoxCollider>().enabled = false;
+        zombie.RHand.GetComponent<BoxCollider>().enabled = false;
+    }
+
+
+
+
+
+
+
 
 
 

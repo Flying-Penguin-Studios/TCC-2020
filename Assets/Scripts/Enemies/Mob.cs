@@ -77,8 +77,10 @@ public class Mob : EnemyController {
 
 
     private void FixedUpdate() {
-        EnemyBehavior();
-        transform.GetChild(1).LookAt(Camera.main.gameObject.transform);
+        if(EnemyAlive()) {
+            EnemyBehavior();
+            transform.GetChild(1).LookAt(Camera.main.gameObject.transform);
+        }        
     }
 
 
@@ -90,7 +92,7 @@ public class Mob : EnemyController {
     /// </summary>
     public void EnemyBehavior() {
 
-        if(!isAlive) { FreezeConstraints(true); return; }
+        //if(!isAlive) { FreezeConstraints(true); return; }
         
         if(CheckInCombate()) {
             Combat();
@@ -101,6 +103,11 @@ public class Mob : EnemyController {
     }
 
 
+
+
+    private bool EnemyAlive() {
+        return isAlive;
+    }
  
 
     /// <summary>
@@ -187,18 +194,19 @@ public class Mob : EnemyController {
                 return Player2.gameObject;
             }
 
-        } else if(!Player2.ToVivo) {
+        } else if(!Player2.ToVivo || Player2.Caido) {
 
             P2Agro = 0;
             return Player1.gameObject;
 
-        } else if(!Player1.ToVivo) {
+        } else if(!Player1.ToVivo || Player1.Caido) {
 
             P1Agro = 0;
             return Player2.gameObject;
 
         } else {
             acceleration = false;
+            LeaveCombat();
             return null;
         }
     }
@@ -231,21 +239,31 @@ public class Mob : EnemyController {
     /// </summary>
     private bool CheckInCombate() {
 
-        if(((Player1.ToVivo && !Player1.Caido && P1Incombat) || (Player2.ToVivo && !Player2.Caido && P2Incombat)) && isAlive) {
+        if(((Player1.ToVivo && !Player1.Caido && P1Incombat) || (Player2.ToVivo && !Player2.Caido && P2Incombat))) {
 
             inCombat = true;
-            anim.SetFloat("InCombat", 1);
+
+            if(enemy.name == "SwordMan") {
+                anim.SetFloat("InCombat", 1);
+            } else {
+                anim.SetFloat("InCombat", 0.5f);
+            }            
             return true;
 
         } else {
-
-            inCombat = false;
-            P1Agro = 0;
-            P2Agro = 0;
-            P1Incombat = false;
-            P2Incombat = false;
+            LeaveCombat();
             return false;
         }
+    }
+
+
+    private void LeaveCombat() {
+
+        inCombat = false;
+        P1Agro = 0;
+        P2Agro = 0;
+        P1Incombat = false;
+        P2Incombat = false;
     }
 
        
@@ -310,7 +328,7 @@ public class Mob : EnemyController {
     /// <summary>
     /// Olha pra direção do alvo.
     /// </summary>
-    private void LookToTarget() {
+    protected void LookToTarget() {
         transform.LookAt(new Vector3(Target.transform.position.x, transform.position.y, Target.transform.position.z));
     }
 

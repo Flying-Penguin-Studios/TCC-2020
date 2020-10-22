@@ -7,6 +7,7 @@ public class Zombie : Mob {
     
     [Tooltip("Porcentagem (%) de vida para entrar em Berserker Mode"), Header("Zombie"), Space(10)]
     public float LifeToBerserkerMode;
+    public bool berserkerModeOn = false;
 
     public GameObject LHand;
     public GameObject RHand;
@@ -26,6 +27,8 @@ public class Zombie : Mob {
         } else {
             ChaseTarget();
         }
+
+        print(attacking);
 
     }
 
@@ -51,7 +54,7 @@ public class Zombie : Mob {
 
 
     private int SortAttack() {
-        return Random.Range(1, 3);
+        return Random.Range(1, 1);
     }
 
 
@@ -61,7 +64,10 @@ public class Zombie : Mob {
 
 
     private void EnterBerserkerMode() {
-
+        berserkerModeOn = true;
+        anim.SetFloat("BerserkerModeOn", 1); 
+        anim.SetTrigger("ActivateBerserker");
+        combatSpeed = 4;
     }
 
 
@@ -73,8 +79,8 @@ public class Zombie : Mob {
         //Executa as regras da classe pai.
         base.TakeDamage(damage, player);        
         
-        if(enemy.HP <= (enemy.HP_Max * (LifeToBerserkerMode / 100))) {
-
+        if(enemy.HP <= (enemy.HP_Max * (LifeToBerserkerMode / 100)) && !berserkerModeOn) {
+            EnterBerserkerMode();
         }
     }
 

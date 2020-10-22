@@ -70,13 +70,14 @@ public class AnimationEvents : MonoBehaviour {
 
 
     private void ResetZombieAttack() {
-        zombie.attacking = false;
-        zombie.LHand.GetComponent<BoxCollider>().enabled = false;
-        zombie.RHand.GetComponent<BoxCollider>().enabled = false;
+        zombie.attacking = false;        
     }
 
 
-
+    private void TurnOfColliders() {
+        zombie.LHand.GetComponent<BoxCollider>().enabled = false;
+        zombie.RHand.GetComponent<BoxCollider>().enabled = false;
+    }
 
 
 

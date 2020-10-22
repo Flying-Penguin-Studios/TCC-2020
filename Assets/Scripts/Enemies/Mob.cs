@@ -241,13 +241,9 @@ public class Mob : EnemyController {
 
         if(((Player1.ToVivo && !Player1.Caido && P1Incombat) || (Player2.ToVivo && !Player2.Caido && P2Incombat))) {
 
-            inCombat = true;
-
-            if(enemy.name == "SwordMan") {
-                anim.SetFloat("InCombat", 1);
-            } else {
-                anim.SetFloat("InCombat", 0.5f);
-            }            
+            inCombat = true;            
+            anim.SetFloat("InCombat", 1);
+                   
             return true;
 
         } else {

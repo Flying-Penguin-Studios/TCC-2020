@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HitBoss : MonoBehaviour
 {
-    int ActualDamage = 0;
+    protected int ActualDamage = 0;
 
     private void OnTriggerEnter(Collider other)
     {

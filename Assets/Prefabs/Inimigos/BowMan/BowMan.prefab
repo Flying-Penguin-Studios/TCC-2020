@@ -175,7 +175,7 @@ MonoBehaviour:
   PatrolSpeed: 0
   minMaxPatroPause: {x: 0, y: 0}
   combatSpeed: 0
-  aggroRange: 10
+  aggroRange: 7
   attacking: 0
   Bow: {fileID: 4843452764629035361}
   projetil: {fileID: 8338038257625151385, guid: 9da101152e48477469388ede29cd3710,

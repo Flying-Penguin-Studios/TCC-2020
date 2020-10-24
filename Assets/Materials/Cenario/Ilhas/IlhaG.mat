@@ -94,10 +94,10 @@ Material:
     - _Blend: 0
     - _BumpScale: 1
     - _CoverageAmount: 0.9
-    - _CoverageTiling: 180
+    - _CoverageTiling: 100
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Detailstrength: 0.2
+    - _Detailstrength: 0
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _Globaltiling: 0

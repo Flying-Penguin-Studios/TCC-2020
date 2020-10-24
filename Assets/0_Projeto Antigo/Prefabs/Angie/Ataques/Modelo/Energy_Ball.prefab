@@ -61,10 +61,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39c6552435382042a0a2f561fa902af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dano: 8
+  dano: 3
   Player: {fileID: 0}
   vel: 20
-  destructionTime: 0.5
+  destructionTime: 0.7
 --- !u!1 &6721079815760662944
 GameObject:
   m_ObjectHideFlags: 0

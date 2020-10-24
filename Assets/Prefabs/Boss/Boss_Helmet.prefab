@@ -70,11 +70,18 @@ MonoBehaviour:
   AttackDamage: 25
   Skill1Damage: 5
   Skill2Damage: 5
-  LifeToNextPhase: 5
+  LifeToNextPhase: 70
+  DurationChangePhase: 20
   TimeBetweenThunders: 5
   ThunderDamage: 5
+  Target: {fileID: 0}
   HitArea: {fileID: 8943566964896013118}
   HUD: {fileID: 0}
+  Raio: {fileID: 807628597502164547, guid: a1e9e772167bd4d489ccd840f9dd55f4, type: 3}
+  MinRaioCD: 2
+  MaxRaioCD: 5
+  AggroP1: 0
+  AggroP2: 0
 --- !u!136 &5850367956675487513
 CapsuleCollider:
   m_ObjectHideFlags: 0

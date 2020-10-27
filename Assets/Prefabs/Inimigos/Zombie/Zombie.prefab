@@ -113,6 +113,7 @@ MonoBehaviour:
   aggroRange: 10
   attacking: 0
   LifeToBerserkerMode: 50
+  berserkerModeOn: 0
   LHand: {fileID: 8810944528830306974}
   RHand: {fileID: 2721349032050701469}
 --- !u!65 &1532015215
@@ -346,6 +347,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 194108241099807720, guid: cbc41378bc57d5147b955cf111ca6b25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 698227b74c8e87b4c960a3170e659246, type: 2}
     - target: {fileID: 919132149155446097, guid: cbc41378bc57d5147b955cf111ca6b25,
         type: 3}
       propertyPath: m_Name

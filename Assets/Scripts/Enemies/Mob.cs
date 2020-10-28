@@ -17,6 +17,10 @@ public class Mob : EnemyController {
     private float speed;                                //Velocidade atual do Inimigo
     private bool inCombat;
     private bool isAlive = true;
+    [HideInInspector]
+    public bool inStag = false;
+    private float stagRate = 0f;
+    private float nextStag = 0;
 
 
     // --- Variáveis de Patrulha
@@ -275,10 +279,9 @@ public class Mob : EnemyController {
 
 
 
-        Stag();
-        //Empurrar o inimigo pra traz
-        anim.SetTrigger("Stag");
-        FreezeOnStag();
+        //Stag();
+        
+        
 
 
         if(player == "Player1") {
@@ -298,34 +301,34 @@ public class Mob : EnemyController {
             rb.velocity = Vector3.zero;
             isAlive = false;
             GetComponent<CapsuleCollider>().enabled = false;
-            anim.SetTrigger("Dead");
+            anim.SetBool("Dead", true);
             Die();
         }
     }
 
 
     private void Stag() {
+        
+        if(Time.time >= nextStag) {
+
+            inStag = true;
+            anim.SetTrigger("Stag");
+            rb.velocity = Vector3.zero;
+            rb.AddForce(-transform.forward * 2, ForceMode.Impulse);
+
+            nextStag = Time.time + stagRate;
+        }
+
+        
 
     }
 
-
-    private void FreezeOnStag() {
-        FreezeConstraints(true);
-        StartCoroutine(ReleaseFreezeStag());
-    }
-
-
-    IEnumerator ReleaseFreezeStag() {
-        yield return new WaitForSeconds(0.3f);
-        FreezeConstraints(false);
-        yield return null;
-    }
 
     /// <summary>
     /// Destroi o Inimigo.
     /// </summary>
     public void Die() {
-        Destroy(this.gameObject, 5);
+        Destroy(this.gameObject, 4);
     }
 
 

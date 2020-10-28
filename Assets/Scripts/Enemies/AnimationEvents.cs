@@ -35,7 +35,9 @@ public class AnimationEvents : MonoBehaviour {
         swordMan.sword.GetComponent<BoxCollider>().enabled = false;
     }
 
-
+    private void ResetSwordManStag() {
+        swordMan.inStag = false;
+    }
 
 
 
@@ -65,7 +67,7 @@ public class AnimationEvents : MonoBehaviour {
 
 
 
-    // ============== BowMan ===============================
+    // ============== Zombie ===============================
 
 
 
@@ -82,6 +84,8 @@ public class AnimationEvents : MonoBehaviour {
     private void BecomeVulnerable() {
         zombie.isVulnerable = true;
     }
+
+    
 
 
 

@@ -18,6 +18,8 @@ public class SwordMan : Mob {
         if(DistanceToTarget() <= minDistanceToPlayer && !attacking) {
             acceleration = false;
             Attack();
+        } else if(inStag) {
+
         } else {
             ChaseTarget();
         }

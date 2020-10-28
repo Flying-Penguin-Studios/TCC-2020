@@ -24,6 +24,8 @@ public class Zombie : Mob {
         if(DistanceToTarget() <= minDistanceToPlayer && !attacking) {
             acceleration = false;
             Attack();
+        } else if(inStag) {
+
         } else {
             ChaseTarget();
         }
@@ -66,6 +68,7 @@ public class Zombie : Mob {
         berserkerModeOn = true;
         anim.SetFloat("BerserkerModeOn", 1); 
         anim.SetTrigger("ActivateBerserker");
+        anim.SetFloat("AttackSpeedMultiplier", 1.5f);
         combatSpeed = 3;
     }
 

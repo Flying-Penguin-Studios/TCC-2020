@@ -79,7 +79,9 @@ public class AnimationEvents : MonoBehaviour {
         zombie.RHand.GetComponent<BoxCollider>().enabled = false;
     }
 
-
+    private void BecomeVulnerable() {
+        zombie.isVulnerable = true;
+    }
 
 
 

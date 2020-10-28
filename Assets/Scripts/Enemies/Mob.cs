@@ -36,7 +36,8 @@ public class Mob : EnemyController {
     protected GameObject Target;
     [Space(20)]
     public float combatSpeed;
-    private bool isVulnerable = false;
+    [HideInInspector]
+    public bool isVulnerable = true;
     private int P1Agro = 0;
     private int P2Agro = 0;
     private bool P1Incombat = false;
@@ -268,6 +269,11 @@ public class Mob : EnemyController {
     /// </summary>
     public override void TakeDamage(int damage, string player) {
 
+        if(!isVulnerable) {
+            return;
+        }
+
+
         if(player == "Player1") {
             P1Incombat = true;
             P1Agro += damage;
@@ -276,7 +282,7 @@ public class Mob : EnemyController {
             P2Agro += damage;
         }
 
-        if(!isVulnerable) enemy.HP -= damage;
+        enemy.HP -= damage;
 
         UpdateHP();
 

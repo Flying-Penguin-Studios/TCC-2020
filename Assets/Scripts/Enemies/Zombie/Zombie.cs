@@ -27,9 +27,6 @@ public class Zombie : Mob {
         } else {
             ChaseTarget();
         }
-
-        print(attacking);
-
     }
 
 
@@ -54,7 +51,7 @@ public class Zombie : Mob {
 
 
     private int SortAttack() {
-        return Random.Range(1, 1);
+        return Random.Range(1, 3);
     }
 
 
@@ -64,10 +61,12 @@ public class Zombie : Mob {
 
 
     private void EnterBerserkerMode() {
+        StartCoroutine(GetBigger());
+        isVulnerable = false;
         berserkerModeOn = true;
         anim.SetFloat("BerserkerModeOn", 1); 
         anim.SetTrigger("ActivateBerserker");
-        combatSpeed = 4;
+        combatSpeed = 3;
     }
 
 
@@ -84,6 +83,15 @@ public class Zombie : Mob {
         }
     }
 
+
+    IEnumerator GetBigger() {
+
+        for(float i = 1; i <= 1.5f; i = i + 0.15f * Time.fixedDeltaTime) {
+            transform.localScale = new Vector3(i, i, i);
+            yield return null;
+        }
+
+    }
 
 
 

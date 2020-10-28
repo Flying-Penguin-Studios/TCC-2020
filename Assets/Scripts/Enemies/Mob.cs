@@ -274,6 +274,13 @@ public class Mob : EnemyController {
         }
 
 
+
+        Stag();
+        //Empurrar o inimigo pra traz
+        anim.SetTrigger("Stag");
+        FreezeOnStag();
+
+
         if(player == "Player1") {
             P1Incombat = true;
             P1Agro += damage;
@@ -296,6 +303,23 @@ public class Mob : EnemyController {
         }
     }
 
+
+    private void Stag() {
+
+    }
+
+
+    private void FreezeOnStag() {
+        FreezeConstraints(true);
+        StartCoroutine(ReleaseFreezeStag());
+    }
+
+
+    IEnumerator ReleaseFreezeStag() {
+        yield return new WaitForSeconds(0.3f);
+        FreezeConstraints(false);
+        yield return null;
+    }
 
     /// <summary>
     /// Destroi o Inimigo.

@@ -90,7 +90,6 @@ public class Zombie : Mob {
             transform.localScale = new Vector3(i, i, i);
             yield return null;
         }
-
     }
 
 

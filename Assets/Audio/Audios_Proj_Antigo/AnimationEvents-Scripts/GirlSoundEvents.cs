@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SoundEvents : MonoBehaviour
+public class GirlSoundEvents : MonoBehaviour
 {
     [SerializeField]
     private AudioClip[] JumpClips;

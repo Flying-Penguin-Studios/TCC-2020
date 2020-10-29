@@ -16,6 +16,9 @@ public class BoySoundEvents : MonoBehaviour
     [SerializeField]
     private AudioClip[] DashClips;
 
+    [SerializeField]
+    private AudioClip[] PunchClips;
+
     private AudioSource audioSource;
 
     private void Start()
@@ -41,6 +44,11 @@ public class BoySoundEvents : MonoBehaviour
     private void BoyDash()
     {
         PlayRandomClip(DashClips);
+    }
+
+    private void BoyPunch()
+    {
+        PlayRandomClip(PunchClips);
     }
 
     void PlayRandomClip(AudioClip[] Clips)

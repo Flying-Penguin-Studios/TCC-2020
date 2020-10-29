@@ -1541,6 +1541,17 @@ MonoBehaviour:
   DashClips:
   - {fileID: 8300000, guid: f7f03c359c5253a4db04be23c4d78e8d, type: 3}
   - {fileID: 8300000, guid: a13a68c1d0ea92c4d808d37ec0859084, type: 3}
+  PunchClips:
+  - {fileID: 8300000, guid: 6a9558dde676fb44e9ac3e5b49d2f373, type: 3}
+  - {fileID: 8300000, guid: 4c35e073d0df79f4d9d0bdeffa645ad7, type: 3}
+  - {fileID: 8300000, guid: 130eb9015318abc4584b34144e47c537, type: 3}
+  - {fileID: 8300000, guid: 8b142720d54855e48a92920c1d012681, type: 3}
+  - {fileID: 8300000, guid: 62ee5db6fcd20034382d3180da445703, type: 3}
+  - {fileID: 8300000, guid: b8f5978f7d9914f45a4d2b00df84a563, type: 3}
+  - {fileID: 8300000, guid: 67dffa0d1774ca447864009705e83426, type: 3}
+  - {fileID: 8300000, guid: bca58f912e9a9944cbf65762844e27e3, type: 3}
+  - {fileID: 8300000, guid: 75af1154c7b10a943a83bf84caaa0c88, type: 3}
+  - {fileID: 8300000, guid: e17786fccde91fa4c8edc3f647518866, type: 3}
 --- !u!1 &1943480643611431611
 GameObject:
   m_ObjectHideFlags: 0

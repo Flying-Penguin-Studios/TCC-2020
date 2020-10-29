@@ -21,6 +21,11 @@ public class Mob : EnemyController {
     public bool inStag = false;
     private float stagRate = 0f;
     private float nextStag = 0;
+    private bool jump = false;
+    private float jumpRate = 2;
+    private float nextJump = 0;
+    private float distanceToJump = 15;
+    public float targetDistanceToGround;
 
 
     // --- Variáveis de Patrulha
@@ -85,7 +90,7 @@ public class Mob : EnemyController {
         if(EnemyAlive()) {
             EnemyBehavior();
             transform.GetChild(1).LookAt(Camera.main.gameObject.transform);
-        }        
+        }
     }
 
 
@@ -222,16 +227,39 @@ public class Mob : EnemyController {
     /// </summary>
     protected void ChaseTarget() {
 
+        CheckPlayerOnGround();
+
         LookToTarget();
 
         if(EnemyHasGround()) {
             acceleration = !attacking;
         } else {
             acceleration = false;
+            Jump();
         }
 
         Accelerate();
     }
+
+
+    /// <summary>
+    /// Checa se o inimigo está apto a pular de uma ilha para outra.
+    /// </summary>
+    private void Jump() {        
+
+        if((Time.time >= nextJump) && (DistanceToTarget() <= distanceToJump) && CheckPlayerOnGround()) {
+            DoJump();
+            nextJump = Time.time + jumpRate;
+        }
+    }
+
+
+    private void DoJump() {
+
+        this.transform.position = Target.transform.position;
+
+    }
+
 
 
     protected virtual void Attack() {
@@ -279,7 +307,7 @@ public class Mob : EnemyController {
 
 
 
-        //Stag();
+        Stag();
         
         
 
@@ -448,6 +476,24 @@ public class Mob : EnemyController {
 
     }
 
+
+
+    private bool CheckPlayerOnGround() {
+
+        RaycastHit PHit;
+        if(Physics.Raycast(Target.transform.position, Vector3.down * targetDistanceToGround, out PHit, targetDistanceToGround)) {
+
+            if(PHit.collider.CompareTag("Terrain") || PHit.collider.CompareTag("ObjetosDeCena") || PHit.collider.CompareTag("HitCollider")) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
+            return false;
+        }        
+
+    }
 
 
 

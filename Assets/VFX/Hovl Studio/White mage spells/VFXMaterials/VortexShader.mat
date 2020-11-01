@@ -35,3 +35,4 @@ Material:
     - Vector2_51A9347D: {r: 1, g: 1, b: 0, a: 0}
     - Vector2_7B8F698E: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_7D267F8A: {r: 0.5, g: 0.5, b: 0, a: 0}
+  m_BuildTextureStacks: []

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SkillShader
+  m_Name: SkillShaderJuninho
   m_Shader: {fileID: -6465566751694194690, guid: 75ca0818998a14d41820e3a273fed891,
     type: 3}
   m_ShaderKeywords: 
@@ -21,11 +21,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Vector1_29099CCA: 5
+    - Vector1_29099CCA: 0.2
     - Vector1_C57E1176: 2
     - Vector1_D9931A84: 20
     m_Colors:
-    - Color_4F96C6B9: {r: 1, g: 1, b: 1, a: 1}
+    - Color_4F96C6B9: {r: 2.471204, g: 0.66442746, b: 0.66442746, a: 1}
     - Vector2_9B9BFF6B: {r: 0, g: 0.5, b: 0, a: 0}
     - Vector2_9CDA4698: {r: 0.1, g: -0.5, b: 0, a: 0}
   m_BuildTextureStacks: []

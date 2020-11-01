@@ -20130,7 +20130,9 @@ GameObject:
   - component: {fileID: 5619087320085327463}
   - component: {fileID: 5586477673687650087}
   - component: {fileID: 5648021312876182251}
-  m_Layer: 0
+  - component: {fileID: 7625932755900777522}
+  - component: {fileID: 1415839219}
+  m_Layer: 15
   m_Name: GroundPunch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20144,7 +20146,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5711081936975481613}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -20159,7 +20161,7 @@ Transform:
   - {fileID: 5716209565903722957}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!198 &5619087320085327463
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -25175,6 +25177,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7625932755900777522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711081936975481613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f5d3c3c0fb78e4fb914a385ce0e7c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dano: 30
+  Player: {fileID: 0}
+  ScaleSpeed: 15
+  MaxLenth: 6.75
+--- !u!135 &1415839219
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711081936975481613}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5711191132411886245
 GameObject:
   m_ObjectHideFlags: 0

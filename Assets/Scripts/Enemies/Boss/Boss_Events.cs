@@ -26,4 +26,9 @@ public class Boss_Events : MonoBehaviour
     {
         StartCoroutine(Boss.IDash());
     }
+
+    public void UnlockAttack()
+    {
+        Boss.UnlockAttack();
+    }
 }

@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8781324430507049866}
   - component: {fileID: 3846522803789025301}
-  - component: {fileID: 3008574184187495846}
   - component: {fileID: 8174250887590603676}
+  - component: {fileID: 6106761448491523065}
   m_Layer: 14
-  m_Name: Boss Final - w_Helmet
+  m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,38 +51,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3008574184187495846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261185648790484683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30235c9e149ddee42931ca60688097cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP_Max: 500
-  speed: 2
-  AttackCD: 5
-  Skill1CD: 5
-  Skill2CD: 5
-  AttackDamage: 25
-  Skill1Damage: 40
-  Skill2Damage: 5
-  LifePercentToChangePhase: 70
-  DurationChangePhase: 20
-  TimeBetweenThunders: 5
-  ThunderDamage: 5
-  Target: {fileID: 0}
-  HitArea: {fileID: 3011789830201916701}
-  HUD: {fileID: 0}
-  Raio: {fileID: 807628597502164547, guid: a1e9e772167bd4d489ccd840f9dd55f4, type: 3}
-  MinRaioCD: 2
-  MaxRaioCD: 5
-  AggroP1: 0
-  AggroP2: 0
 --- !u!136 &8174250887590603676
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -97,6 +65,40 @@ CapsuleCollider:
   m_Height: 2.5964813
   m_Direction: 1
   m_Center: {x: 0, y: 1.31, z: 0}
+--- !u!114 &6106761448491523065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261185648790484683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3b24ebaaba041429d654e8e622f08f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP_Max: 1000
+  Target: {fileID: 0}
+  HitArea: {fileID: 3011789830201916701}
+  HUD: {fileID: 0}
+  AggroP1: 0
+  AggroP2: 0
+  Raio: {fileID: 807628597502164547, guid: a1e9e772167bd4d489ccd840f9dd55f4, type: 3}
+  Phase:
+    speed: 0
+    AttackCD: 0
+    Skill1CD: 0
+    Skill2CD: 0
+    AttackDamage: 0
+    Skill1Damage: 0
+    Skill2Damage: 0
+    PercentToChangePhase: 0
+    DurationChangePhase: 0
+    TimeBetweenThunders: 0
+    ThunderDamage: 0
+    MinRaioCD: 0
+    MaxRaioCD: 0
+    AninSpeed: 0
 --- !u!1 &1198536896820847005
 GameObject:
   m_ObjectHideFlags: 0

@@ -509,10 +509,10 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.17812909
+      - time: 0
         functionName: MegaPunch
         data: 
-        objectReferenceParameter: {fileID: 3845497692205806886, guid: bc0daeb963f44154e8027da9f7fc8f48,
+        objectReferenceParameter: {fileID: 2698372891983583808, guid: 6a4ff2172e64a9a43b67c03b60807413,
           type: 3}
         floatParameter: 0
         intParameter: 0

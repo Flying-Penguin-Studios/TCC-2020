@@ -4881,7 +4881,9 @@ GameObject:
   - component: {fileID: 2389419558580513912}
   - component: {fileID: 2592377648089665252}
   - component: {fileID: 2593270162391662530}
-  m_Layer: 0
+  - component: {fileID: 4812064478900347532}
+  - component: {fileID: 1786772891787710431}
+  m_Layer: 15
   m_Name: Shout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9744,6 +9746,35 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &4812064478900347532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395310503566972942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d626e020f8602419c4a4e6caa31da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dano: 0
+  Player: {fileID: 0}
+  ScaleSpeed: 10
+  MaxLenth: 6
+--- !u!135 &1786772891787710431
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395310503566972942}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2395434280301742468
 GameObject:
   m_ObjectHideFlags: 0

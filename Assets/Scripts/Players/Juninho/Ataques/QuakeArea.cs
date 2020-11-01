@@ -25,13 +25,12 @@ public class QuakeArea : PlayerHit
 
     IEnumerator Expand()
     {
-        Vector3 sr = transform.localScale * MaxLenth;
+        SphereCollider Area = GetComponent<SphereCollider>();
+        Area.enabled = true;
 
-        while (transform.localScale.x < sr.x)
+        while (Area.radius < MaxLenth)
         {
-            Vector3 s = Vector3.one;
-            s.y = 0;
-            transform.localScale += s * ScaleSpeed;
+            Area.radius += ScaleSpeed * Time.deltaTime;
             yield return null;
         }
 

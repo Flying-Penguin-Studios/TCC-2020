@@ -18,11 +18,12 @@ public class Shout_Area : PlayerHit
 
     IEnumerator Expand()
     {
-        Vector3 sr = transform.localScale * MaxLenth;
+        SphereCollider Area = GetComponent<SphereCollider>();
+        Area.enabled = true;
 
-        while (transform.localScale.x < sr.x)
+        while (Area.radius < MaxLenth)
         {
-            transform.localScale += Vector3.one * ScaleSpeed;
+            Area.radius += ScaleSpeed * Time.deltaTime;
             yield return null;
         }
 

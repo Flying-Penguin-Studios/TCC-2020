@@ -52,7 +52,9 @@ public class Vortex : Skill
 
     public void Teste()
     {
-        Vortex_Temp = Instantiate(VortexZoneT, Player.transform.position + Vector3.up * 3, Quaternion.identity);
+        Vector3 Pos = Player.transform.position;
+        Pos.y += 3;     
+        Vortex_Temp = Instantiate(VortexZoneT, Pos, Quaternion.identity);
     }
 
     public override void Brinks()

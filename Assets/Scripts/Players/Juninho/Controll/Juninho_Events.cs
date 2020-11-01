@@ -81,7 +81,8 @@ public class Juninho_Events : EventsAnimation
 
     public void MegaPunch(GameObject AreaEffect)
     {
-        GameObject Effect = Instantiate(AreaEffect, MegaPos.position, Player.transform.localRotation);
+        GameObject Effect = Instantiate(AreaEffect, MegaPos);
+        Effect.transform.localScale = new Vector3(0.014846f, 0.014846f, 0.014846f);
         Effect.GetComponent<PlayerHit>().SetPlayer(Player);
         Player.AttackHandle();
         MoveOnAnimation(2f);

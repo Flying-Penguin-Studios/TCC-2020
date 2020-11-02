@@ -21,6 +21,11 @@ public class HUD_Player : MonoBehaviour
     [Header("CD Skill B")]
     public Image i_CD_Skill_B;
     public Text t_CD_Skill_B;
+    [Header("Background")]
+    public Image background;
+    public float fadeSpeed;
+    bool coroutineStart = false;
+
 
     public void Init(PlayerController n_player)
     {
@@ -29,8 +34,25 @@ public class HUD_Player : MonoBehaviour
 
     public void setLife(float currentLife, float maxLife)
     {
+        float life = int.Parse(t_HP.text.Substring(0, t_HP.text.IndexOf("/")));
         t_HP.text = currentLife + "/" + maxLife;
         i_HP.fillAmount = currentLife / maxLife;
+
+        if((coroutineStart == false) && (life - currentLife > 0))
+        {
+            StartCoroutine(whiteBackground());
+        }
+        
+    }
+
+    IEnumerator whiteBackground()
+    {
+        coroutineStart = true;
+        Color baseColor = background.color;
+        background.GetComponent<Image>().color = Color.white;
+        yield return new WaitForSeconds(0.4f);
+        background.GetComponent<Image>().color = baseColor;
+        coroutineStart = false;
     }
 
     public void setCD_Skill_X(float current_time, float skill_cd = 0)

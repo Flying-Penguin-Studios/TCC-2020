@@ -14,20 +14,22 @@ public class Shout_Area : PlayerHit
     {
         //Player = FindObjectOfType<Angie>();
         StartCoroutine("Expand");
+        Destroy(gameObject, 1.1f);
     }
 
     IEnumerator Expand()
     {
-        Vector3 sr = transform.localScale * MaxLenth;
+        SphereCollider Area = GetComponent<SphereCollider>();
+        Area.enabled = true;
 
-        while (transform.localScale.x < sr.x)
+        while (Area.radius < MaxLenth)
         {
-            transform.localScale += Vector3.one * ScaleSpeed;
+            Area.radius += ScaleSpeed * Time.deltaTime;
             yield return null;
         }
 
         Player.GetComponent<Shout>().CountCD();
-        Destroy(gameObject);
+        //Destroy(gameObject);
         yield return null;
     }
 

@@ -1423,6 +1423,16 @@ PrefabInstance:
       propertyPath: HUD
       value: 
       objectReference: {fileID: 1947709697}
+    - target: {fileID: 4924276846024686300, guid: 9a667921bc3cf274185c2e1ef30d9f7f,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106761448491523065, guid: 9a667921bc3cf274185c2e1ef30d9f7f,
+        type: 3}
+      propertyPath: HUD
+      value: 
+      objectReference: {fileID: 1947709697}
     - target: {fileID: 8781324430507049866, guid: 9a667921bc3cf274185c2e1ef30d9f7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1436,7 +1446,7 @@ PrefabInstance:
     - target: {fileID: 8781324430507049866, guid: 9a667921bc3cf274185c2e1ef30d9f7f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: -3.68
       objectReference: {fileID: 0}
     - target: {fileID: 8781324430507049866, guid: 9a667921bc3cf274185c2e1ef30d9f7f,
         type: 3}

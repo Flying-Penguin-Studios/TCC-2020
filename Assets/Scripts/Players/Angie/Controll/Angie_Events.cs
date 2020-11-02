@@ -5,11 +5,15 @@ using UnityEngine;
 public class Angie_Events : EventsAnimation
 {
     public Transform Pauzinho;
+    public GameObject Antecipation;
+
 
     public void CastBall(GameObject Energy_Ball)
     {
         Vector3 pos = Pauzinho.position;
         GameObject Energy = Instantiate(Energy_Ball, pos, Player.transform.localRotation);
+        GameObject Pre = Instantiate(Antecipation, pos, Player.transform.localRotation);
+        Destroy(Pre, 2f);
         Energy.GetComponent<PlayerHit>().SetPlayer(Player);
         //setCanMove(1);
     }

@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StringTrigger: 
   CD: 20
-  ExplosionZone: {fileID: 7387885496473293362, guid: 6a512fe0eeaf36142b00f15a406fafb6,
+  ExplosionZone: {fileID: 7776578575003203428, guid: 7bd16e86071decd4d92b627508499006,
     type: 3}
 --- !u!114 &1513151490
 MonoBehaviour:
@@ -207,9 +207,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StringTrigger: 
   CD: 20
-  VortexZone: {fileID: 5679354671271729364, guid: 5821e53ca39877d41b4beebb71d97b74,
+  VortexZone: {fileID: 8525330702354610436, guid: 24ae76f71346cde4ca0a6aa96f4341b2,
     type: 3}
-  VortexZoneT: {fileID: 5679354671271729364, guid: 75fe5abfb11b83241860fb89ac854dac,
+  VortexZoneT: {fileID: 1488365076262670173, guid: 73601b96481718f41b2599b86e6df551,
     type: 3}
   SpawnPoint: {fileID: 3614994978689830402}
 --- !u!114 &1513151491
@@ -383,6 +383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pauzinho: {fileID: 9020229583758171674}
+  Antecipation: {fileID: 4090126528229288797, guid: f9d7598428eadf045b85ec8797dbfcc9,
+    type: 3}
 --- !u!114 &9183917414128193478
 MonoBehaviour:
   m_ObjectHideFlags: 0

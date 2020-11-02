@@ -33,6 +33,7 @@ TagManager:
   - Vortex_Zone
   - Shield
   - PlayerBlock
+  - VFX_Collider
   - 
   - 
   - 
@@ -41,8 +42,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - VFX
   - 
   m_SortingLayers:
   - name: Default

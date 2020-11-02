@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StringTrigger: 
   CD: 20
-  ShoutEffect: {fileID: 7387885496473293362, guid: 0f744b805d9e9794e808c650277872c1,
+  ShoutEffect: {fileID: 2395310503566972942, guid: 566acdc330155d94da8745351d51e921,
     type: 3}
 --- !u!114 &3527970996397818621
 MonoBehaviour:
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StringTrigger: 
   CD: 25
-  QuakeZone: {fileID: 7387885496473293362, guid: 1a064962fdb23154cbbdc0275ead01ef,
+  QuakeZone: {fileID: 5711081936975481613, guid: c3a947251e722644e8084a2f61a5a1d6,
     type: 3}
 --- !u!135 &116743416085609474
 SphereCollider:
@@ -307,6 +307,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 936889038933669359}
     m_Modifications:
+    - target: {fileID: 168173631339390027, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00004
+      objectReference: {fileID: 0}
+    - target: {fileID: 168173631339390027, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00478
+      objectReference: {fileID: 0}
+    - target: {fileID: 168173631339390027, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00005
+      objectReference: {fileID: 0}
     - target: {fileID: 1552679387402634524, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -424,9 +439,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 33d092d83c5254c4fa718984458b5689, type: 2}
     - target: {fileID: 9068649814333018771, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068649814333018771, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 33d092d83c5254c4fa718984458b5689, type: 2}
+    - target: {fileID: 9068649814333018771, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e28234165df9c64e8e47baf5c80f998, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4b8a0f91fe4c6c4d89b995720df675e, type: 3}
 --- !u!4 &3516364576132143511 stripped

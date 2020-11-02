@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MegaPunch : PlayerHit
 {
-    BoxCollider Collider;
+    public BoxCollider Collider;
 
     void Start()
     {
         //Player = FindObjectOfType<Angie>();
-        Collider = GetComponent<BoxCollider>();
+        //Collider = GetComponent<BoxCollider>();
         StartCoroutine("Size");
-        //Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 1.5f);
     }
 
     IEnumerator Size()
@@ -27,8 +27,8 @@ public class MegaPunch : PlayerHit
         yield return null;
     }
 
-    public void Destroy()
-    {
-        Destroy(gameObject);
-    }
+    //public void Destroy()
+    //{
+    //    Destroy(gameObject);
+    //}
 }

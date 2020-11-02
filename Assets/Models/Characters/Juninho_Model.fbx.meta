@@ -197,6 +197,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
+      - time: 0.33566338
+        functionName: BoyPunch
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.46064883
         functionName: turnOnAtack
         data: 
@@ -274,6 +281,13 @@ ModelImporter:
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 2
+        messageOptions: 0
+      - time: 0.33984762
+        functionName: BoyPunch
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
         messageOptions: 0
       - time: 0.40586805
         functionName: TurnOffAllColliders
@@ -353,6 +367,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 3
         messageOptions: 0
+      - time: 0.31617966
+        functionName: BoyPunch
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.4564658
         functionName: TurnOffAllColliders
         data: 
@@ -424,6 +445,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.25493246
+        functionName: BoyPunch
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.27011493
         functionName: SetAttack
         data: 
@@ -481,10 +509,10 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.17812909
+      - time: 0
         functionName: MegaPunch
         data: 
-        objectReferenceParameter: {fileID: 3845497692205806886, guid: bc0daeb963f44154e8027da9f7fc8f48,
+        objectReferenceParameter: {fileID: 2698372891983583808, guid: 6a4ff2172e64a9a43b67c03b60807413,
           type: 3}
         floatParameter: 0
         intParameter: 0

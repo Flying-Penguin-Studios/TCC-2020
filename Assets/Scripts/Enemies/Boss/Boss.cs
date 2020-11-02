@@ -4,35 +4,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 
-public abstract class Boss : EnemyController
+public class Boss : EnemyController
 {
-    //protected HUD_Player HUD;
-
-    [SerializeField] protected float speed;
-
-    [Space(20)]
-
-    [SerializeField] protected float AttackCD;
-    [SerializeField] protected float Skill1CD;
-    [SerializeField] protected float Skill2CD;
-
-    [Space(20)]
-
-    [SerializeField] protected int AttackDamage;
-    [SerializeField] protected int Skill1Damage;
-    [SerializeField] protected int Skill2Damage;
-
-    [Space(20)]
-
-    [SerializeField] protected float LifeToNextPhase;
-    [SerializeField] protected float DurationChangePhase;
-
-    [Space(20)]
-
-    [SerializeField] protected float TimeBetweenThunders;
-    [SerializeField] protected float ThunderDamage;
-
-    float PercentToChangeTarget;
+    //protected HUD_Player HUD;   
 
     [SerializeField] protected GameObject Target;
     protected PlayerController Player1;
@@ -44,24 +18,33 @@ public abstract class Boss : EnemyController
     [SerializeField] protected HUD_Boss HUD;
 
     [Space(20)]
-    [SerializeField] protected GameObject Raio;
-    [SerializeField] protected float MinRaioCD;
-    [SerializeField] protected float MaxRaioCD;
-
-
-
-    [Space(20)]
 
     [SerializeField] float AggroP1;
     [SerializeField] float AggroP2;
 
-    //protected abstract void StartPhaseX();
+    float PercentToChangeTarget;
 
-    bool CanAttack = true;
+    bool CanAttack = false;
+    bool CanSkill1 = false;
+    bool CanSkill2 = false;
+
+    public GameObject Raio;
+
+    public BossPhase Phase;
+
+    Vector3 StartPosition;
+    Quaternion StartRot;
+    Quaternion StartLocRot;
+
 
     void Start()
     {
-        Init(speed);
+        Phase = new Boss_Phase1();
+        StartPosition = transform.position;
+        StartRot = transform.rotation;
+        StartLocRot = transform.localRotation;
+
+        Init(Phase.speed);
         rb.angularDrag = 999;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
@@ -72,7 +55,16 @@ public abstract class Boss : EnemyController
 
         HUD.SetLife(enemy.HP);
 
-        TimeDistance = Time.time;
+        Invoke("UnlockAttacks", Random.Range(1f, 3f));
+
+        TimeDistance = Time.time + 10;
+    }
+
+    void UnlockAttacks()
+    {
+        CanAttack = true;
+        CanSkill1 = true;
+        CanSkill2 = true;
     }
 
     GameObject SortTarget()
@@ -86,7 +78,7 @@ public abstract class Boss : EnemyController
     public void WalkOnAttack()
     {
         rb.drag = 0;
-        Vector3 Dir = transform.forward.normalized * 7;
+        Vector3 Dir = transform.forward.normalized * 4;
         rb.AddForce(Dir, ForceMode.Impulse);
     }
 
@@ -97,14 +89,15 @@ public abstract class Boss : EnemyController
             NormalAttack();
         }
 
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Dash();
+        }
+
         if (Input.GetKeyDown(KeyCode.J))
         {
-            enemy.HP -= 10;
-            HUD.Life(enemy.HP);
-            if (enemy.HP <= LifeToNextPhase)
-            {
-                StartCoroutine(ChangePhase());
-            }
+            int d = enemy.HP_Max - (int)(HP_Max * (Phase.PercentToChangePhase / 100));
+            TakeDamage(d, "Player1");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -117,20 +110,20 @@ public abstract class Boss : EnemyController
             GenerateAggro(Player2);
         }
 
-        if (!anim.GetBool("OnAttack") || !anim.GetBool("OnChange"))
-        {
-            TakeDecision();
-        }
+        TakeDecision();
     }
 
     float DistanceTarget = 0;
     float TimePassed;
     float TimeDistance;
 
-    bool Waiting = false;
+    bool Moving = false;
 
     void TakeDecision()
     {
+        if (anim.GetBool("OnAttack") || anim.GetBool("OnChange"))
+            return;
+
         if (Target == null)
         {
             Target = GetNewTarget();
@@ -138,62 +131,53 @@ public abstract class Boss : EnemyController
 
         DistanceTarget = Vector3.Distance(transform.position, Target.transform.position);
 
-        if (!CanAttack)
+        if (DistanceTarget > 20 && CanAttack)
         {
-            if (DistanceTarget > 1 && DistanceTarget < 50)
-            {
-                if (!Waiting)
-                {
-                    if (Random.Range(0, 1) == 0)
-                    {
-                        StartCoroutine(Wait());
-                    }
-                    else
-                    {
-                        Seek();
-                    }
-                }
-            }
-            else
-            {
-                //Vagar por X segundos
-            }
-
-            return;
+            Dash();
         }
-        else
-        {
-            Attack();
-        }
-    }
-
-    void Attack()
-    {
-        if (DistanceTarget > 50)
-        {
-            //Dash
-        }
-        else if (DistanceTarget < 1)
+        else if (DistanceTarget < 1 && CanAttack)
         {
             NormalAttack();
         }
+        else if (DistanceTarget < 1 && !CanAttack && !Moving)
+        {
+            StartCoroutine(Wait());
+        }
         else
         {
-            Seek();
+            if (!Moving)
+            {
+                if (Random.Range(0f, 100f) <= 10f)
+                {
+                    print("Parada");
+                    StartCoroutine(Wait());
+                }
+                //else if (Random.Range(0f, 100f) <= 30f)
+                //{
+                //    print("Vagando");
+                //    StartCoroutine(Wander());
+                //}
+                else
+                {
+                    print("Seguindo");
+                    StartCoroutine(Seek());
+                }
+            }
         }
     }
 
-    void Seek()
+    public void UnlockAttack()
     {
-        Vector3 moveDir = Vector3.Normalize(Target.transform.position - transform.position);
-        moveDir *= speed;
-        anim.SetFloat("Speed", 1);
-        rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
-        transform.LookAt(new Vector3(Target.transform.position.x, 0, Target.transform.position.z));
+        anim.SetBool("CanAttack", true);
     }
 
     GameObject GetNewTarget()
     {
+        if (!Player1.ToVivo || Player1.Caido)
+            return Player2.gameObject;
+        else if (!Player2.ToVivo || Player2.Caido)
+            return Player1.gameObject;
+
         if (Mathf.Abs(AggroP1 - AggroP2) > 20)//Primeira regra, ela bate quem tiver mais de 20% de aggro que outro player
         {
             return AggroP1 > AggroP2 ? Player1.gameObject : Player2.gameObject;
@@ -207,31 +191,171 @@ public abstract class Boss : EnemyController
         }
     }
 
+    IEnumerator Seek()
+    {
+        Moving = true;
+        float Duration = Time.time + Random.Range(2f, 5f);
+
+        while (Time.time < Duration)
+        {
+            Vector3 moveDir = Vector3.Normalize(Target.transform.position - transform.position);
+            moveDir *= Phase.speed;
+            anim.SetFloat("Speed", 1);
+            rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
+            transform.LookAt(new Vector3(Target.transform.position.x, 0, Target.transform.position.z));
+
+            if (TimeDistance + 5 < Time.time)
+            {
+                Dash();
+            }
+
+            yield return null;
+        }
+
+        Target = GetNewTarget();
+        Moving = false;
+
+        yield return null;
+    }
+
     IEnumerator Wait()
     {
-        Waiting = true;
+        Moving = true;
         rb.velocity = Vector3.zero;
         anim.SetFloat("Speed", 0);
-        yield return new WaitForSeconds(Random.Range(2f, 5f));
+
+        yield return new WaitForSeconds(Random.Range(1f, 2f));
+
         Target = GetNewTarget();
-        Waiting = false;
+
+        //if (TimeDistance + 5 < Time.time)
+        //{
+        //    Dash();
+        //}
+        //else
+        //{
+        //    StartCoroutine(Seek());
+        //}
+
+        yield return null;
     }
+
+    IEnumerator Wander()
+    {
+        Moving = true;
+        anim.SetFloat("Speed", 1);
+        float WanderDuration = Time.time + Random.Range(2f, 5f);
+        float angle = Random.Range(-45.0f, 45.0f);
+
+        while (Time.time < WanderDuration)
+        {
+            Vector3 changeDir = Quaternion.AngleAxis(angle, Vector3.forward) * rb.velocity;
+            Vector3 desired_vel = changeDir.normalized * Phase.speed;
+            rb.velocity = new Vector3(desired_vel.x, rb.velocity.y, desired_vel.z);
+            transform.LookAt(new Vector3(changeDir.normalized.x, 0, changeDir.normalized.z));
+
+            if (TimeDistance + 5 < Time.time)
+            {
+                Dash();
+            }
+
+            yield return null;
+        }
+
+        Target = GetNewTarget();
+        Moving = false;
+    }
+
+    void CancelWanderWait()
+    {
+        //StopCoroutine(Wander());
+        //StopCoroutine(Wait());
+        //StopCoroutine(Seek());
+
+        StopAllCoroutines();
+
+        Moving = false;
+        rb.velocity = Vector3.zero;
+        anim.SetFloat("Speed", 0);
+    }
+
+    int AttackCount = 1;
 
     void NormalAttack()
     {
-        HitArea.setNewDamage(AttackDamage);
-        rb.velocity = Vector3.zero;
+        anim.SetBool("OnAttack", true);
+        CancelWanderWait();
+        HitArea.setNewDamage(Phase.AttackDamage);
         transform.LookAt(new Vector3(Target.transform.position.x, 0, Target.transform.position.z));
         anim.SetTrigger("Attack");
-        StartCoroutine(CountAttack());
+        //StartCoroutine(CountAttack());
+
+        if (AttackCount != 3)
+            AttackCount++;
+        else
+        {
+            AttackCount = 0;
+            Target = GetNewTarget();
+            TimeDistance = Time.time;
+            return;
+        }
+
+        //DistanceTarget = Vector3.Distance(transform.position, Target.transform.position);
+        //if (DistanceTarget < 2)
+        //{
+        //    Invoke("NormalAttack", 0.1f);
+        //    TimeDistance = Time.time;
+        //    return;
+        //}
+
         Target = GetNewTarget();
+        TimeDistance = Time.time;
     }
 
     IEnumerator CountAttack()
     {
         CanAttack = false;
-        yield return new WaitForSeconds(AttackCD);
+        yield return new WaitForSeconds(Phase.AttackCD);
         CanAttack = true;
+        yield return null;
+    }
+
+    void Dash()
+    {
+        CancelWanderWait();
+        CanAttack = false;
+        HitArea.setNewDamage(Phase.Skill1Damage);
+        anim.SetBool("OnAttack", true);
+        transform.LookAt(new Vector3(Target.transform.position.x, 0, Target.transform.position.z));
+        anim.SetTrigger("Dash");
+        TimeDistance = Time.time;
+    }
+
+    public IEnumerator IDash()
+    {
+        Vector3 Destino = Target.transform.position;
+        Vector3 moveDir = Vector3.Normalize(Target.transform.position - transform.position) * 14;
+
+        while (Vector3.Distance(Destino, transform.position) > 1)
+        {
+            rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
+            yield return null;
+        }
+
+        anim.SetTrigger("Attack");
+        rb.velocity = Vector3.zero;
+        Target = GetNewTarget();
+        transform.LookAt(new Vector3(Target.transform.position.x, 0, Target.transform.position.z));
+
+        if (Vector3.Distance(Destino, transform.position) < 1)
+        {
+            //Combo
+        }
+
+        yield return new WaitForSeconds(Phase.AttackCD);
+
+        CanAttack = true;
+
         yield return null;
     }
 
@@ -279,48 +403,75 @@ public abstract class Boss : EnemyController
         enemy.HP -= damage;
         HUD.Life(enemy.HP);
         GenerateAggro(player);
-        if (enemy.HP <= LifeToNextPhase)
+        if (enemy.HP <= HP_Max * (Phase.PercentToChangePhase / 100))
         {
-
             StartCoroutine(ChangePhase());
         }
     }
 
+    int PhaseCount = 1;
+
     IEnumerator ChangePhase()
     {
+        CancelWanderWait();
+
         anim.SetTrigger("Change");
+
+        Moving = true;
+        CanAttack = false;
+
         rb.isKinematic = true;
         rb.useGravity = false;
 
-        float Duration = Time.time + DurationChangePhase;
-
-        Vector3 Pos = Vector3.zero;
-        Pos.y = 5;
+        Vector3 Pos = StartPosition;
+        Pos.y += 5;
         transform.position = Pos;
-        transform.localRotation = Quaternion.identity;
+
+        while (transform.rotation != StartRot)
+        {
+            transform.rotation = StartRot;
+            yield return null;
+        }
+
+        //transform.localRotation = StartLocRot;
+        //transform.rotation = StartRot;       
+
+        yield return new WaitForSeconds(.3f);
+
+        float Duration = Time.time + Phase.DurationChangePhase;
 
         while (Duration > Time.time)
         {
-            //int ThunderCount = Random.Range(MinRaioCount, MaxRaioCount);
-
-            //int i = 0;
-            //while (i != ThunderCount)
-            //{
-
             Instantiate(Raio, Player1.transform.position, Quaternion.identity);
             Instantiate(Raio, Player2.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(Random.Range(Phase.MinRaioCD, Phase.MaxRaioCD));
+        }
 
-            //i++;
-            //}
-
-            yield return new WaitForSeconds(Random.Range(MinRaioCD, MaxRaioCD));
+        while (transform.position != StartPosition)
+        {
+            transform.position = Vector3.Lerp(transform.position, StartPosition, Time.deltaTime * 10);
+            yield return null;
         }
 
         rb.isKinematic = false;
         rb.useGravity = true;
-        anim.SetBool("OnChange", false);
+        anim.SetTrigger("ResetChange");
 
-        transform.position = Vector3.zero;
+        PhaseCount++;
+
+        if (PhaseCount == 2)
+        {
+            Phase = new Boss_Phase2();
+        }
+        else if (PhaseCount == 3)
+        {
+
+        }
+
+        TimeDistance = Time.time + 5;
+
+        Moving = false;
+        CanAttack = true;
 
         yield return null;
     }

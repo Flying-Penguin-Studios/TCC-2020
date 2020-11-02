@@ -21,4 +21,14 @@ public class Boss_Events : MonoBehaviour
     {
         Boss.WalkOnAttack();
     }
+
+    public void Dash()
+    {
+        StartCoroutine(Boss.IDash());
+    }
+
+    public void UnlockAttack()
+    {
+        Boss.UnlockAttack();
+    }
 }

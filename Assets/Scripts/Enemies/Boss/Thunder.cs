@@ -9,10 +9,11 @@ public class Thunder : HitBoss
     private void Start()
     {
         ActualDamage = Damage;
+        Destroy(gameObject, 1f);
     }
 
     void Update()
     {
-        transform.Translate(transform.up * 5 * Time.deltaTime);
+        transform.Translate(transform.up * 14 * Time.deltaTime);
     }
 }

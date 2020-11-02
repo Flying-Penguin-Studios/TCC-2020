@@ -311,7 +311,8 @@ public abstract class PlayerController : MonoBehaviour
                     if (getFloat("chargeValue") > 2f && !TimingCharge)
                     {
                         TimingCharge = true;
-                        Instantiate(SparkleParticle, transform.position + Vector3.up, SparkleParticle.transform.rotation);
+                        GameObject a = Instantiate(SparkleParticle, transform.position + Vector3.up, SparkleParticle.transform.rotation);
+                        Destroy(a, .2f);
                     }
 
                     if (getFloat("chargeValue") > 5f)

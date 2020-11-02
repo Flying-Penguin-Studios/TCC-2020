@@ -14,6 +14,7 @@ public class Shout_Area : PlayerHit
     {
         //Player = FindObjectOfType<Angie>();
         StartCoroutine("Expand");
+        Destroy(gameObject, 1.1f);
     }
 
     IEnumerator Expand()
@@ -28,7 +29,7 @@ public class Shout_Area : PlayerHit
         }
 
         Player.GetComponent<Shout>().CountCD();
-        Destroy(gameObject);
+        //Destroy(gameObject);
         yield return null;
     }
 

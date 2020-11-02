@@ -14,6 +14,7 @@ public class QuakeArea : PlayerHit
     {
         //Player = FindObjectOfType<Angie>();
         StartCoroutine("Expand");
+        Destroy(gameObject, 2.1f);
     }
 
     protected override void DamageInteraction(GameObject n_gameObject)
@@ -35,7 +36,7 @@ public class QuakeArea : PlayerHit
         }
 
         Player.GetComponent<QuakePunch>().CountCD();
-        Destroy(gameObject);
+        //Destroy(gameObject);
         yield return null;
     }
 }

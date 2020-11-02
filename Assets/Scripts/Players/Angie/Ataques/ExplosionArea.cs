@@ -14,7 +14,7 @@ public class ExplosionArea : PlayerHit
     {
         Player = FindObjectOfType<Angie>();
         StartCoroutine("Explose");
-        //Destroy(gameObject, 2.3f);
+        Destroy(gameObject, 2.5f);
     }
 
     IEnumerator Explose()
@@ -39,7 +39,7 @@ public class ExplosionArea : PlayerHit
         //}
 
         Player.GetComponent<Explosion>().CountCD();
-        Destroy(gameObject);
+        //Destroy(gameObject);
         yield return null;
     }
 }

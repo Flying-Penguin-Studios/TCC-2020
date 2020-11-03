@@ -754,6 +754,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435917946}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &562041238
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1866340198, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0, type: 3}
+      propertyPath: maxDistanceInCombat
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860293, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_Name
+      value: BowMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860293, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860297, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860297, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860297, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860297, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860297, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860297, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860297, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860297, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860297, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860297, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843452764114860297, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0, type: 3}
 --- !u!1 &569485368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,10 +1199,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwordMan
       objectReference: {fileID: 0}
+    - target: {fileID: 50830924659563184, guid: a3051cb0856701443939e5d1db7952e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 50830924659563196, guid: a3051cb0856701443939e5d1db7952e2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45.9
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 50830924659563196, guid: a3051cb0856701443939e5d1db7952e2,
         type: 3}
@@ -1134,7 +1217,7 @@ PrefabInstance:
     - target: {fileID: 50830924659563196, guid: a3051cb0856701443939e5d1db7952e2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.4
+      value: 13.8
       objectReference: {fileID: 0}
     - target: {fileID: 50830924659563196, guid: a3051cb0856701443939e5d1db7952e2,
         type: 3}

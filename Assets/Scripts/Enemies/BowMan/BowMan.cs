@@ -12,6 +12,12 @@ public class BowMan : Mob {
 
     protected override void Combat() {
         Target = SetTarget();
+
+        if(Vector3.Distance(transform.position, Target.transform.position) >= maxDistanceInCombat) {
+            LeaveCombat();
+            return;
+        }
+
         LookToTarget();
         Attack();
     }

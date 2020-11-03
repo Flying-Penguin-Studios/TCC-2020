@@ -25,13 +25,14 @@ public class Mob : EnemyController {
     private float jumpRate = 2;
     private float nextJump = 0;
     private float distanceToJump = 15;
+    [HideInInspector]
     public float targetDistanceToGround;
 
 
     // --- Variáveis de Patrulha
     [Space(20)]
-    public Transform nextWaypoint;
     public bool patrulheiro;
+    public Transform nextWaypoint;
     public float PatrolSpeed;                       //Velocidade máxima durante a patrulha.    
     public Vector2 minMaxPatroPause;                    //Tempo minimo e máximo de pausa entre as Patrulhas.
     protected bool acceleration = false;
@@ -55,6 +56,7 @@ public class Mob : EnemyController {
     public float aggroRange;
     [HideInInspector]
     public bool attacking = false;
+    public float maxDistanceInCombat = 30f;
     private bool ReachebleTarget;
 
 
@@ -171,7 +173,7 @@ public class Mob : EnemyController {
 
 
     protected virtual void Combat() {
-                
+
     }
 
 
@@ -286,13 +288,13 @@ public class Mob : EnemyController {
     }
 
 
-    private void LeaveCombat() {
-
+    protected void LeaveCombat() {
         inCombat = false;
         P1Agro = 0;
         P2Agro = 0;
         P1Incombat = false;
         P2Incombat = false;
+        anim.SetFloat("InCombat", 0);
     }
 
        

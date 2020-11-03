@@ -15,7 +15,7 @@ public class SwordMan : Mob {
 
         Target = SetTarget();
 
-        if(DistanceToTarget() <= minDistanceToPlayer && !attacking) {
+        if(DistanceToTarget() <= minDistanceToPlayer && !attacking && !inStag) {
             acceleration = false;
             Attack();
         } else if(inStag) {

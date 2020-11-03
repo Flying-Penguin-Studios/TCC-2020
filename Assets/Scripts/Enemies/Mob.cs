@@ -249,7 +249,7 @@ public class Mob : EnemyController {
     /// </summary>
     private void Jump() {        
 
-        if((Time.time >= nextJump) && (DistanceToTarget() <= distanceToJump) && CheckPlayerOnGround()) {
+        if((Time.time >= nextJump) && (DistanceToTarget() <= distanceToJump) && (DistanceToTarget() >= 5) && CheckPlayerOnGround()) {
             DoJump();
             nextJump = Time.time + jumpRate;
         }
@@ -257,9 +257,7 @@ public class Mob : EnemyController {
 
 
     private void DoJump() {
-
         this.transform.position = Target.transform.position;
-
     }
 
 

@@ -136,14 +136,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP_Max: 200
-  nextWaypoint: {fileID: 0}
+  inStag: 0
+  targetDistanceToGround: 0
   patrulheiro: 0
+  nextWaypoint: {fileID: 0}
   PatrolSpeed: 2
   minMaxPatroPause: {x: 0, y: 0}
   combatSpeed: 2.5
   isVulnerable: 1
   aggroRange: 10
   attacking: 0
+  maxDistanceInCombat: 30
   LifeToBerserkerMode: 50
   berserkerModeOn: 0
   LHand: {fileID: 889170522750303807}
@@ -237,6 +240,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 194108241099807720, guid: aac65993f6a3cea4899ee144fdc9b38b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 698227b74c8e87b4c960a3170e659246, type: 2}
     - target: {fileID: 919132149155446097, guid: aac65993f6a3cea4899ee144fdc9b38b,
         type: 3}
       propertyPath: m_Name

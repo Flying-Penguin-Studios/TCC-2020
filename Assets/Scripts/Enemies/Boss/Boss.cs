@@ -402,7 +402,16 @@ public class Boss : EnemyController
 
         enemy.HP -= damage;
         HUD.Life(enemy.HP);
+
+        if (enemy.HP <= 0)
+        {
+            rb.velocity = Vector3.zero;
+            anim.Play("IdleChangePhase");
+            Destroy(this);
+        }
+
         GenerateAggro(player);
+
         if (enemy.HP <= HP_Max * (Phase.PercentToChangePhase / 100))
         {
             StartCoroutine(ChangePhase());
@@ -430,7 +439,7 @@ public class Boss : EnemyController
         while (transform.rotation != StartRot)
         {
             transform.rotation = StartRot;
-            yield return null;
+            // yield return null;
         }
 
         //transform.localRotation = StartLocRot;
@@ -438,24 +447,29 @@ public class Boss : EnemyController
 
         yield return new WaitForSeconds(.3f);
 
-        float Duration = Time.time + Phase.DurationChangePhase;
+        //float Duration = Time.time + Phase.DurationChangePhase;
+        float Duration = Time.time + 5;
 
         while (Duration > Time.time)
         {
-            Instantiate(Raio, Player1.transform.position, Quaternion.identity);
-            Instantiate(Raio, Player2.transform.position, Quaternion.identity);
+            GameObject raio1 = Instantiate(Raio, Player1.transform.position, Quaternion.identity);
+            GameObject raio2 = Instantiate(Raio, Player2.transform.position, Quaternion.identity);
+
+            raio1.GetComponent<ThunderWarning>().SetThunderDamage(Phase.ThunderDamage);
+            raio2.GetComponent<ThunderWarning>().SetThunderDamage(Phase.ThunderDamage);
+
             yield return new WaitForSeconds(Random.Range(Phase.MinRaioCD, Phase.MaxRaioCD));
         }
 
         while (transform.position != StartPosition)
         {
             transform.position = Vector3.Lerp(transform.position, StartPosition, Time.deltaTime * 10);
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
 
+        anim.SetTrigger("ResetChange");
         rb.isKinematic = false;
         rb.useGravity = true;
-        anim.SetTrigger("ResetChange");
 
         PhaseCount++;
 
@@ -465,7 +479,13 @@ public class Boss : EnemyController
         }
         else if (PhaseCount == 3)
         {
+            Phase = new Boss_Phase3();
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
 
+            anim = this.transform.GetChild(1).GetComponent<Animator>();
+
+            StartCoroutine(Phase3Chaos());
         }
 
         TimeDistance = Time.time + 5;
@@ -474,6 +494,19 @@ public class Boss : EnemyController
         CanAttack = true;
 
         yield return null;
+    }
+
+    IEnumerator Phase3Chaos()
+    {
+        yield return new WaitForSeconds(3f);
+
+        GameObject raio1 = Instantiate(Raio, Player1.transform.position, Quaternion.identity);
+        GameObject raio2 = Instantiate(Raio, Player2.transform.position, Quaternion.identity);
+
+        raio1.GetComponent<ThunderWarning>().SetThunderDamage(Phase.ThunderDamage);
+        raio2.GetComponent<ThunderWarning>().SetThunderDamage(Phase.ThunderDamage);
+
+        yield return new WaitForSeconds(Random.Range(Phase.MinRaioCD, Phase.MaxRaioCD));
     }
 
     IEnumerator AggroControl()

@@ -388,10 +388,8 @@ public abstract class PlayerController : MonoBehaviour
     public IEnumerator DashInvunable()
     {
         Invensible = true;
-        print(Invensible);
         yield return 3;
         Invensible = false;
-        print(Invensible);
     }
 
     // Ambos metodos vão retornar o valor da vida apos dar o dano

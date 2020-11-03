@@ -8,8 +8,13 @@ public class Thunder : HitBoss
 
     private void Start()
     {
-        ActualDamage = Damage;
+        //ActualDamage = Damage;
         Destroy(gameObject, 1f);
+    }
+
+    public void SetDamage(int D)
+    {
+        ActualDamage = D;
     }
 
     void Update()

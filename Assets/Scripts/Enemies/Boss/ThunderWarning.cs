@@ -10,14 +10,22 @@ public class ThunderWarning : MonoBehaviour
 
     public GameObject Thunder;
 
+    int ThunderDamage;
+
     void Start()
     {
         Invoke("SummonThunder", TimeWarning);
     }
 
+    public void SetThunderDamage(int D)
+    {
+        ThunderDamage = D;
+    }
+
     void SummonThunder()
     {
-        Instantiate(Thunder, transform.position, Quaternion.identity);
+        GameObject T = Instantiate(Thunder, transform.position, Quaternion.identity);
+        T.GetComponent<Thunder>().SetDamage(ThunderDamage);
         Destroy(gameObject);
     }
 }

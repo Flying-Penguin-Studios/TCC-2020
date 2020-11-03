@@ -29,7 +29,7 @@ public class BossPhase
     [Space(20)]
 
     public float TimeBetweenThunders;
-    public float ThunderDamage;
+    public int ThunderDamage;
 
     [Space(20)]
    

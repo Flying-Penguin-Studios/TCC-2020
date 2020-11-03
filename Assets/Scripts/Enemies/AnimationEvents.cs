@@ -44,9 +44,13 @@ public class AnimationEvents : MonoBehaviour {
 
         if(transform.parent.name == "SwordMan") {
             swordMan.inStag = false;
+            swordMan.FreezeConstraints(true);
         } else if(transform.parent.name == "BowMan") {
             bowMan.inStag = false;
-        }    
+            bowMan.FreezeConstraints(true);
+        }
+
+        
 
     }
 

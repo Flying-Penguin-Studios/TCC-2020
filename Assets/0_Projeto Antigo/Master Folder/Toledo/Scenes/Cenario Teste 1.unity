@@ -1202,7 +1202,7 @@ PrefabInstance:
     - target: {fileID: 50830924659563184, guid: a3051cb0856701443939e5d1db7952e2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 50830924659563196, guid: a3051cb0856701443939e5d1db7952e2,
         type: 3}
@@ -1774,9 +1774,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player1: {fileID: 6997604553415815145, guid: fd9bf46e05fa9714f8339a12e6c7eb5d, type: 3}
-  CriarPlayer1: 1
+  CriarPlayer1: 0
   Player2: {fileID: 8618723331379543795, guid: d31bd91dfcc6c2c4193c141e9818127d, type: 3}
-  CriarPlayer2: 0
+  CriarPlayer2: 1
   HUD1: {fileID: 557774866002362079, guid: 82fb19d443bc87f4b835553206cfef7b, type: 3}
   HUD2: {fileID: 1828318354520199833, guid: 6454b7fe4f47bc34ba42df62de866ddd, type: 3}
   HUD: {fileID: 557774866002362079, guid: 82fb19d443bc87f4b835553206cfef7b, type: 3}

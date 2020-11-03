@@ -171,14 +171,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP_Max: 100
   inStag: 0
-  nextWaypoint: {fileID: 0}
+  targetDistanceToGround: 0
   patrulheiro: 0
+  nextWaypoint: {fileID: 0}
   PatrolSpeed: 0
   minMaxPatroPause: {x: 0, y: 0}
   combatSpeed: 0
   isVulnerable: 1
   aggroRange: 7
   attacking: 0
+  maxDistanceInCombat: 30
   Bow: {fileID: 4843452764629035361}
   projetil: {fileID: 8338038257625151385, guid: 9da101152e48477469388ede29cd3710,
     type: 3}

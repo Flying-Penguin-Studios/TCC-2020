@@ -335,6 +335,7 @@ public class Mob : EnemyController {
     private void Stag() {
         inStag = true;
         anim.SetTrigger("Stag");
+        FreezeConstraints(false);
         rb.velocity = Vector3.zero;
         rb.AddForce(-transform.forward * 2, ForceMode.Impulse);
     }
@@ -352,7 +353,7 @@ public class Mob : EnemyController {
     /// Trava ou libera as Constraints de posição do inimigo.
     /// </summary>
     /// <param name="freeze"></param>
-    private void FreezeConstraints(bool freeze) {
+    public void FreezeConstraints(bool freeze) {
 
         if(freeze) {
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;

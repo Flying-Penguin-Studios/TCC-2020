@@ -761,10 +761,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1866340198, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0, type: 3}
-      propertyPath: maxDistanceInCombat
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 4843452764114860293, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
         type: 3}
       propertyPath: m_Name
@@ -773,7 +769,7 @@ PrefabInstance:
     - target: {fileID: 4843452764114860293, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4843452764114860297, guid: 58f42ddf0aeb9cf43900aa45c7fc9ba0,
         type: 3}

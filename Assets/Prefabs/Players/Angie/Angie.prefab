@@ -402,8 +402,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 14b3eb063d09e284e8041002bc3d78e0, type: 3}
   ExplosionClips:
   - {fileID: 8300000, guid: 22a704992d538cc4c97afab94fc46308, type: 3}
+  ExplosionImpactClips:
+  - {fileID: 8300000, guid: 00710c6391c8aa84aa5edb275645b89c, type: 3}
   VortexClips:
-  - {fileID: 8300000, guid: aa4a1a5be9f1e4b17a7096f857ef0edb, type: 3}
+  - {fileID: 8300000, guid: 000238a090e9141429b691d12e9ad54b, type: 3}
   VortexScreamClips:
   - {fileID: 8300000, guid: 796f6708ebd57c54f83c6efecbd10f10, type: 3}
   DashClips:

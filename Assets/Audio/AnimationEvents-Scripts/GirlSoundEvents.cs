@@ -8,8 +8,11 @@ public class GirlSoundEvents : MonoBehaviour
     [SerializeField]
     private AudioClip[] ExplosionClips;
 
-    //[SerializeField]
-    //private AudioClip[] VortexClips;
+    [SerializeField]
+    private AudioClip[] ExplosionImpactClips;
+
+    [SerializeField]
+    private AudioClip[] VortexClips;
 
     [SerializeField]
     private AudioClip[] VortexScreamClips;
@@ -37,10 +40,15 @@ public class GirlSoundEvents : MonoBehaviour
         PlayRandomClip(ExplosionClips);
     }
 
-    //private void GirlVortex()
-    //{
-    //    PlayRandomClip(VortexClips);
-    //}
+    private void GirlExplosionImpact()
+    {
+        PlayRandomClip(ExplosionImpactClips);
+    }
+
+    private void GirlVortex()
+    {
+        PlayRandomClip(VortexClips);
+    }
 
     private void GirlVortexScream()
     {

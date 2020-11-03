@@ -29,6 +29,15 @@ public class BoySoundEvents : MonoBehaviour
     private AudioClip[] PunchClips;
 
     [SerializeField]
+    private AudioClip[] ChargePrepClips;
+
+    [SerializeField]
+    private AudioClip[] ChargeReleaseClips;
+
+    [SerializeField]
+    private AudioClip[] ChargePunchClips;
+
+    [SerializeField]
     private AudioClip[] MaleFootstepsClips;
 
     private AudioSource audioSource;
@@ -76,6 +85,21 @@ public class BoySoundEvents : MonoBehaviour
     private void BoyPunch()
     {
         PlayRandomClip(PunchClips);
+    }
+
+    private void BoyChargePrep()
+    {
+        PlayRandomClip(ChargePrepClips);
+    }
+
+    private void BoyChargeRelease()
+    {
+        PlayRandomClip(ChargeReleaseClips);
+    }
+
+    private void BoyChargePunch()
+    {
+        PlayRandomClip(ChargePunchClips);
     }
 
     private void BoyFootsteps()

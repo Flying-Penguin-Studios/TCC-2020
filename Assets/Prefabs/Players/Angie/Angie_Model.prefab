@@ -3683,7 +3683,6 @@ GameObject:
   - component: {fileID: 2380586325223839075}
   - component: {fileID: 350912393662533345}
   - component: {fileID: 3483135162925063953}
-  - component: {fileID: 2184285393340193884}
   m_Layer: 13
   m_Name: Angie_Model
   m_TagString: Untagged
@@ -3839,40 +3838,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pauzinho: {fileID: 2731594403952277436}
   Antecipation: {fileID: 0}
---- !u!114 &2184285393340193884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3985509981930295230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d832279d0d8c0499f0015107a8a748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JumpClips:
-  - {fileID: 8300000, guid: 012bc730b3b34cc4a9e73fc46d45b957, type: 3}
-  - {fileID: 8300000, guid: 14b3eb063d09e284e8041002bc3d78e0, type: 3}
-  ExplosionClips:
-  - {fileID: 8300000, guid: 22a704992d538cc4c97afab94fc46308, type: 3}
-  VortexClips:
-  - {fileID: 0}
-  VortexScreamClips:
-  - {fileID: 8300000, guid: 796f6708ebd57c54f83c6efecbd10f10, type: 3}
-  DashClips:
-  - {fileID: 8300000, guid: 867232a6b6d1bd44fbdf65fde7eeb51d, type: 3}
-  FootstepsClips:
-  - {fileID: 8300000, guid: 3d15de5f6e9c64be6a518b68db23d67e, type: 3}
-  - {fileID: 8300000, guid: 19c8e1740f7eb4057a22360dae7fc6be, type: 3}
-  - {fileID: 8300000, guid: 7739b0c2049c84061a3fa27d0dcec1f6, type: 3}
-  - {fileID: 8300000, guid: bf3ea6cd2155f44729acad1fe6721257, type: 3}
-  - {fileID: 8300000, guid: dfea68a25bf004ce7996a75e0d215b5c, type: 3}
-  - {fileID: 8300000, guid: 1ebab6ae23238478ba3b0d18648b4a12, type: 3}
-  - {fileID: 8300000, guid: 549819604bb994980bb676b524286306, type: 3}
-  - {fileID: 8300000, guid: 60f1ba8badbde42ecb2697dc8664b1ee, type: 3}
-  - {fileID: 8300000, guid: ca963dd98e1be450ab5b42d12920ec3d, type: 3}
-  - {fileID: 8300000, guid: e5cc3e50da79b4c08acc8ef2dde8dbd5, type: 3}
 --- !u!1 &3985800591193013627
 GameObject:
   m_ObjectHideFlags: 0

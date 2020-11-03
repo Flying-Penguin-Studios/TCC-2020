@@ -985,7 +985,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: BoyFootsteps
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5365854
+        functionName: BoyFootsteps
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -1038,6 +1052,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.72250515
         functionName: canMove
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.58885014
+        functionName: BoyGroundPunchImpact
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -1117,6 +1138,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.70305675
         functionName: ShieldUP
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6864112
+        functionName: BoyShieldCrystal
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -1239,6 +1267,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0
         functionName: MoveOnAnimation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 2
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.34843206
+        functionName: BoyGrowl
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 2

@@ -11,13 +11,25 @@ public class BoySoundEvents : MonoBehaviour
     private AudioClip[] ShieldClips;
 
     [SerializeField]
+    private AudioClip[] ShieldCrystalClips;
+
+    [SerializeField]
     private AudioClip[] GroundPunchClips;
+
+    [SerializeField]
+    private AudioClip[] GroundPunchImpactClips;
+
+    [SerializeField]
+    private AudioClip[] GrowlClips;
 
     [SerializeField]
     private AudioClip[] DashClips;
 
     [SerializeField]
     private AudioClip[] PunchClips;
+
+    [SerializeField]
+    private AudioClip[] MaleFootstepsClips;
 
     private AudioSource audioSource;
 
@@ -36,9 +48,24 @@ public class BoySoundEvents : MonoBehaviour
         PlayRandomClip(ShieldClips);
     }
 
+    private void BoyShieldCrystal()
+    {
+        PlayRandomClip(ShieldCrystalClips);
+    }
+
     private void BoyGroundPunch()
     {
         PlayRandomClip(GroundPunchClips);
+    }
+
+    private void BoyGroundPunchImpact()
+    {
+        PlayRandomClip(GroundPunchImpactClips);
+    }
+
+    private void BoyGrowl()
+    {
+        PlayRandomClip(GrowlClips);
     }
 
     private void BoyDash()
@@ -49,6 +76,11 @@ public class BoySoundEvents : MonoBehaviour
     private void BoyPunch()
     {
         PlayRandomClip(PunchClips);
+    }
+
+    private void BoyFootsteps()
+    {
+        PlayRandomClip(MaleFootstepsClips);
     }
 
     void PlayRandomClip(AudioClip[] Clips)

@@ -402,8 +402,23 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 14b3eb063d09e284e8041002bc3d78e0, type: 3}
   ExplosionClips:
   - {fileID: 8300000, guid: 22a704992d538cc4c97afab94fc46308, type: 3}
+  VortexClips:
+  - {fileID: 8300000, guid: aa4a1a5be9f1e4b17a7096f857ef0edb, type: 3}
+  VortexScreamClips:
+  - {fileID: 8300000, guid: 796f6708ebd57c54f83c6efecbd10f10, type: 3}
   DashClips:
   - {fileID: 8300000, guid: 867232a6b6d1bd44fbdf65fde7eeb51d, type: 3}
+  FootstepsClips:
+  - {fileID: 8300000, guid: 3d15de5f6e9c64be6a518b68db23d67e, type: 3}
+  - {fileID: 8300000, guid: 19c8e1740f7eb4057a22360dae7fc6be, type: 3}
+  - {fileID: 8300000, guid: 7739b0c2049c84061a3fa27d0dcec1f6, type: 3}
+  - {fileID: 8300000, guid: bf3ea6cd2155f44729acad1fe6721257, type: 3}
+  - {fileID: 8300000, guid: dfea68a25bf004ce7996a75e0d215b5c, type: 3}
+  - {fileID: 8300000, guid: 1ebab6ae23238478ba3b0d18648b4a12, type: 3}
+  - {fileID: 8300000, guid: 549819604bb994980bb676b524286306, type: 3}
+  - {fileID: 8300000, guid: 60f1ba8badbde42ecb2697dc8664b1ee, type: 3}
+  - {fileID: 8300000, guid: ca963dd98e1be450ab5b42d12920ec3d, type: 3}
+  - {fileID: 8300000, guid: e5cc3e50da79b4c08acc8ef2dde8dbd5, type: 3}
 --- !u!1001 &202429089352007197
 PrefabInstance:
   m_ObjectHideFlags: 0

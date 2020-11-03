@@ -1637,7 +1637,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1acba49a56d414646bbf1a99f9195562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwordClips: []
+  SwordClips:
+  - {fileID: 8300000, guid: b2b23b2b88095cd47a91a41aabb58dcb, type: 3}
+  - {fileID: 8300000, guid: 01e04eed2079f2643a37c34e43da4128, type: 3}
+  - {fileID: 8300000, guid: bcd4f41b8847b0844ae2a39b41d5e742, type: 3}
 --- !u!1 &50830924459713773
 GameObject:
   m_ObjectHideFlags: 0

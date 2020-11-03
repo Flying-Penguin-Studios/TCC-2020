@@ -331,11 +331,14 @@ public class Mob : EnemyController {
 
 
     private void Stag() {
-        inStag = true;
-        anim.SetTrigger("Stag");
-        FreezeConstraints(false);
-        rb.velocity = Vector3.zero;
-        rb.AddForce(-transform.forward * 1.5f, ForceMode.Impulse);
+
+        if((enemy.name == "SwordMan") || enemy.name == "BowMan") {
+            inStag = true;
+            anim.SetTrigger("Stag");
+            FreezeConstraints(false);
+            rb.velocity = Vector3.zero;
+            rb.AddForce(-transform.forward * 1.5f, ForceMode.Impulse);
+        }        
     }
 
 

@@ -14663,7 +14663,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   Power: 5
-  Duration: 6
+  Duration: 7
 --- !u!54 &4285422826172559963
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14688,10 +14688,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8525330702354610436}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8525330702519929793
 GameObject:

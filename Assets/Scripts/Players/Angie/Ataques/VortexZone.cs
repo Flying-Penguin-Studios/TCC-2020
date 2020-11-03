@@ -47,11 +47,13 @@ public class VortexZone : MonoBehaviour
 
     IEnumerator Vortex()
     {
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+
         float TimeDuration = Time.time + Duration;
 
         while (TimeDuration >= Time.time)
         {
-            l_collider = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, l_Mask);
+            l_collider = Physics.OverlapSphere(transform.position, 4, l_Mask);
 
             foreach (Collider obj in l_collider)
             {
@@ -64,19 +66,28 @@ public class VortexZone : MonoBehaviour
                 }
                 else
                 {
-                    Vector3 Direction = (rb.transform.position - transform.position).normalized;
+                    Vector3 Direction = (rb.transform.position - transform.position).normalized * -1;
 
                     float Distance = Vector3.Distance(transform.position, rb.transform.position);
                     Distance = Mathf.Pow(Distance, 1.5f);
 
-                    float PowerForce = (Power / Distance) * 100;
-                    PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 4));
+                    float PowerForce = Power / Distance * 50;
+                    PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
                     Direction.y = 0;
+
                     rb.AddForce(Direction * PowerForce, ForceMode.VelocityChange);
                 }
             }
 
             yield return new WaitForFixedUpdate();
+        }
+
+        l_collider = Physics.OverlapSphere(transform.position, 4, l_Mask);
+
+        foreach (Collider obj in l_collider)
+        {
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            rb.velocity = Vector3.zero;
         }
 
         Player.GetComponent<Vortex>().CountCD();

@@ -400,6 +400,8 @@ public abstract class PlayerController : MonoBehaviour
         if (GetBool("Fallen") || Invensible)
             return 0;
 
+        rb.velocity = Vector3.zero;
+
         if (stats.currentLife > 0)
         {
             stats.currentLife -= dano;
@@ -491,6 +493,7 @@ public abstract class PlayerController : MonoBehaviour
 
     IEnumerator Fall()
     {
+        rb.velocity = Vector3.zero;
         stats.currentLife += (int)(stats.maxLife * 0.3f);
         SetLife();
         yield return new WaitForSeconds(1f);

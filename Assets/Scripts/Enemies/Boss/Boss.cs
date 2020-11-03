@@ -96,7 +96,7 @@ public class Boss : EnemyController
 
         if (Input.GetKeyDown(KeyCode.J))
         {
-            int d = enemy.HP_Max - (int)(HP_Max * (Phase.PercentToChangePhase / 100));
+            int d = enemy.HP - (int)(enemy.HP * (Phase.PercentToChangePhase / 100));
             TakeDamage(d, "Player1");
         }
 
@@ -110,7 +110,8 @@ public class Boss : EnemyController
             GenerateAggro(Player2);
         }
 
-        TakeDecision();
+        if (!(anim.GetBool("OnAttack") || anim.GetBool("OnChange")))
+            TakeDecision();
     }
 
     float DistanceTarget = 0;
@@ -121,9 +122,6 @@ public class Boss : EnemyController
 
     void TakeDecision()
     {
-        if (anim.GetBool("OnAttack") || anim.GetBool("OnChange"))
-            return;
-
         if (Target == null)
         {
             Target = GetNewTarget();
@@ -414,7 +412,9 @@ public class Boss : EnemyController
 
         if (enemy.HP <= HP_Max * (Phase.PercentToChangePhase / 100))
         {
+            CancelWanderWait();
             StartCoroutine(ChangePhase());
+            //StartCoroutine(Phase3Chaos());
         }
     }
 
@@ -422,7 +422,7 @@ public class Boss : EnemyController
 
     IEnumerator ChangePhase()
     {
-        CancelWanderWait();
+        //CancelWanderWait();
 
         anim.SetTrigger("Change");
 
@@ -439,7 +439,7 @@ public class Boss : EnemyController
         while (transform.rotation != StartRot)
         {
             transform.rotation = StartRot;
-            // yield return null;
+            yield return new WaitForFixedUpdate();
         }
 
         //transform.localRotation = StartLocRot;
@@ -498,15 +498,18 @@ public class Boss : EnemyController
 
     IEnumerator Phase3Chaos()
     {
-        yield return new WaitForSeconds(3f);
+       yield return new WaitForSeconds(3f);
 
-        GameObject raio1 = Instantiate(Raio, Player1.transform.position, Quaternion.identity);
-        GameObject raio2 = Instantiate(Raio, Player2.transform.position, Quaternion.identity);
+        while (true)
+        {
+            GameObject raio1 = Instantiate(Raio, Player1.transform.position, Quaternion.identity);
+            GameObject raio2 = Instantiate(Raio, Player2.transform.position, Quaternion.identity);
 
-        raio1.GetComponent<ThunderWarning>().SetThunderDamage(Phase.ThunderDamage);
-        raio2.GetComponent<ThunderWarning>().SetThunderDamage(Phase.ThunderDamage);
+            raio1.GetComponent<ThunderWarning>().SetThunderDamage(Phase.ThunderDamage);
+            raio2.GetComponent<ThunderWarning>().SetThunderDamage(Phase.ThunderDamage);
 
-        yield return new WaitForSeconds(Random.Range(Phase.MinRaioCD, Phase.MaxRaioCD));
+            yield return new WaitForSeconds(Random.Range(Phase.MinRaioCD, Phase.MaxRaioCD));
+        }               
     }
 
     IEnumerator AggroControl()

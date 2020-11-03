@@ -1874,14 +1874,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP_Max: 100
   inStag: 0
-  nextWaypoint: {fileID: 0}
+  targetDistanceToGround: 0.5
   patrulheiro: 0
+  nextWaypoint: {fileID: 0}
   PatrolSpeed: 2
   minMaxPatroPause: {x: 5, y: 10}
   combatSpeed: 5
   isVulnerable: 1
   aggroRange: 10
   attacking: 0
+  maxDistanceInCombat: 30
   sword: {fileID: 50830923568201898}
 --- !u!1 &50830924675928866
 GameObject:

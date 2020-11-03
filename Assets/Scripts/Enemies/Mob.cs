@@ -306,13 +306,8 @@ public class Mob : EnemyController {
         if(!isVulnerable) {
             return;
         }
-
-
-
-        Stag();
-        
-        
-
+               
+        Stag();      
 
         if(player == "Player1") {
             P1Incombat = true;
@@ -348,9 +343,6 @@ public class Mob : EnemyController {
 
             nextStag = Time.time + stagRate;
         }
-
-        
-
     }
 
 

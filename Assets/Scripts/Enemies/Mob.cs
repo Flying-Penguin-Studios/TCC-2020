@@ -335,7 +335,7 @@ public class Mob : EnemyController {
         anim.SetTrigger("Stag");
         FreezeConstraints(false);
         rb.velocity = Vector3.zero;
-        rb.AddForce(-transform.forward * 1, ForceMode.Impulse);
+        rb.AddForce(-transform.forward * 1.5f, ForceMode.Impulse);
     }
 
 

@@ -287,6 +287,7 @@ public class Mob : EnemyController {
 
 
     protected void LeaveCombat() {
+        FreezeConstraints(true);
         inCombat = false;
         P1Agro = 0;
         P2Agro = 0;
@@ -473,7 +474,7 @@ public class Mob : EnemyController {
         RaycastHit PHit;
         if(Physics.Raycast(Target.transform.position, Vector3.down * targetDistanceToGround, out PHit, targetDistanceToGround)) {
 
-            if(PHit.collider.CompareTag("Terrain") || PHit.collider.CompareTag("ObjetosDeCena") || PHit.collider.CompareTag("HitCollider")) {
+            if(PHit.collider.CompareTag("Terrain") || PHit.collider.CompareTag("ObjetosDeCena")) {
                 return true;
             } else {
                 return false;

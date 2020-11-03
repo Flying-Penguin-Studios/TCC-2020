@@ -22,7 +22,7 @@ public class Mob : EnemyController {
     private float stagRate = 0f;
     private float nextStag = 0;
     private bool jump = false;
-    private float jumpRate = 2;
+    private float jumpRate = 5;
     private float nextJump = 0;
     private float distanceToJump = 15;
     [HideInInspector]
@@ -287,6 +287,7 @@ public class Mob : EnemyController {
 
 
     protected void LeaveCombat() {
+        FreezeConstraints(true);
         inCombat = false;
         P1Agro = 0;
         P2Agro = 0;
@@ -331,11 +332,14 @@ public class Mob : EnemyController {
 
 
     private void Stag() {
-        inStag = true;
-        anim.SetTrigger("Stag");
-        FreezeConstraints(false);
-        rb.velocity = Vector3.zero;
-        rb.AddForce(-transform.forward * 1.5f, ForceMode.Impulse);
+
+        if((enemy.name == "SwordMan") || enemy.name == "BowMan") {
+            inStag = true;
+            anim.SetTrigger("Stag");
+            FreezeConstraints(false);
+            rb.velocity = Vector3.zero;
+            rb.AddForce(-transform.forward * 1.5f, ForceMode.Impulse);
+        }        
     }
 
 
@@ -470,7 +474,7 @@ public class Mob : EnemyController {
         RaycastHit PHit;
         if(Physics.Raycast(Target.transform.position, Vector3.down * targetDistanceToGround, out PHit, targetDistanceToGround)) {
 
-            if(PHit.collider.CompareTag("Terrain") || PHit.collider.CompareTag("ObjetosDeCena") || PHit.collider.CompareTag("HitCollider")) {
+            if(PHit.collider.CompareTag("Terrain") || PHit.collider.CompareTag("ObjetosDeCena")) {
                 return true;
             } else {
                 return false;

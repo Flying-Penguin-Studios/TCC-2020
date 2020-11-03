@@ -67,7 +67,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 1
-        functionName: ResetSwordManStag
+        functionName: ResetStag
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

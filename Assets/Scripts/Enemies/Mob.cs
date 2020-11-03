@@ -333,16 +333,10 @@ public class Mob : EnemyController {
 
 
     private void Stag() {
-        
-        if(Time.time >= nextStag) {
-
-            inStag = true;
-            anim.SetTrigger("Stag");
-            rb.velocity = Vector3.zero;
-            rb.AddForce(-transform.forward * 2, ForceMode.Impulse);
-
-            nextStag = Time.time + stagRate;
-        }
+        inStag = true;
+        anim.SetTrigger("Stag");
+        rb.velocity = Vector3.zero;
+        rb.AddForce(-transform.forward * 2, ForceMode.Impulse);
     }
 
 
@@ -486,10 +480,31 @@ public class Mob : EnemyController {
         } else {
             return false;
         }        
+    }
+    
 
+    /// <summary>
+    /// 
+    /// </summary>
+    public void ShoutThreat(string player) {
+
+        if(player == "Player1") {
+            P1Agro += 100;
+            Invoke("RemoveThreatP1", 5);
+        } else {
+            P2Agro += 100;
+            Invoke("RemoveThreatP2", 5);
+        }
     }
 
 
+    private void RemoveThreatP1() {
+        P1Agro -= 100;
+    }
+    
+    private void RemoveThreatP2() {
+        P2Agro -= 100;
+    }
 
 
 }

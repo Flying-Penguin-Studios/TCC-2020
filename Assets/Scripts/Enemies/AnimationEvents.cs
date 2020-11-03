@@ -27,10 +27,36 @@ public class AnimationEvents : MonoBehaviour {
 
 
 
-    // ============== SwordMan ===============================
 
 
     private void SetAttackFalse() {
+
+        if(transform.parent.name == "SwordMan") {
+            swordMan.attacking = false;
+            swordMan.sword.GetComponent<BoxCollider>().enabled = false;
+        } else if(transform.parent.name == "BowMan") {
+            bowMan.attacking = false;
+        }        
+    }
+
+
+    private void ResetStag() {
+
+        if(transform.parent.name == "SwordMan") {
+            swordMan.inStag = false;
+        } else if(transform.parent.name == "BowMan") {
+            bowMan.inStag = false;
+        }    
+
+    }
+
+
+
+
+    // ============== SwordMan ===============================
+
+
+    private void SetSwordManAttackFalse() {
         swordMan.attacking = false;
         swordMan.sword.GetComponent<BoxCollider>().enabled = false;
     }

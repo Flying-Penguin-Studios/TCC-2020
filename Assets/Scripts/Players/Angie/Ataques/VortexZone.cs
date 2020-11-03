@@ -37,6 +37,33 @@ public class VortexZone : MonoBehaviour
         {
             transform.position += Direction * (Time.deltaTime * 10);
             Distance = Vector3.Distance(transform.position, Destiny);
+
+            l_collider = Physics.OverlapSphere(transform.position, 6, l_Mask);
+
+            foreach (Collider obj in l_collider)
+            {
+                Rigidbody rb = obj.GetComponent<Rigidbody>();
+
+                if (obj.name.ToUpper().Contains("ZOMBI"))
+                {
+                    if (!obj.GetComponent<EnemyController_Old>().BerserkerModeOn)
+                        rb.velocity /= 2;
+                }
+                else
+                {
+                    Vector3 Dir = (rb.transform.position - transform.position).normalized * -1;
+
+                    float Dist = Vector3.Distance(transform.position, rb.transform.position);
+                    Dist = Mathf.Pow(Dist, 1.5f);
+
+                    float PowerForce = Power / Dist * 50;
+                    PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
+                    Dir.y = 0;
+
+                    rb.AddForce(Dir * PowerForce, ForceMode.VelocityChange);
+                }
+            }
+
             yield return null;
         }
 
@@ -53,7 +80,7 @@ public class VortexZone : MonoBehaviour
 
         while (TimeDuration >= Time.time)
         {
-            l_collider = Physics.OverlapSphere(transform.position, 4, l_Mask);
+            l_collider = Physics.OverlapSphere(transform.position, 6, l_Mask);
 
             foreach (Collider obj in l_collider)
             {

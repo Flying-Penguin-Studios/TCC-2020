@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.5398445, g: 0.6167105, b: 0.74652267, a: 1}
+  m_IndirectSpecularColor: {r: 0.5397387, g: 0.61669874, b: 0.7464954, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12993,9 +12993,9 @@ MonoBehaviour:
   MixerGeral: {fileID: 24100000, guid: 9f2e9ca6a00a1164baf575a5051e18ed, type: 2}
   BGM_AudioSource: {fileID: 1068861136}
   SFX_AudioSource: {fileID: 87543012}
-  StartSFX: {fileID: 8300000, guid: a5baf02198c128f45b054615b4aa06df, type: 3}
+  StartSFX: {fileID: 8300000, guid: 3d2854ce3c59c4c5b866ffd38012bd4e, type: 3}
   ButtonMouseOverSFX: {fileID: 8300000, guid: cee64774e8c9e8740a2f1edacef95707, type: 3}
-  ButtonClick: {fileID: 8300000, guid: a5baf02198c128f45b054615b4aa06df, type: 3}
+  ButtonClick: {fileID: 8300000, guid: 5d9348b48901b41909d32c269f6d483d, type: 3}
   BGM_Slider: {fileID: 1838359392}
   SFX_Slider: {fileID: 1630961565}
   resol: {fileID: 58015571}

@@ -1536,8 +1536,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1de95bef81c24eb438314dbe1b2b263b, type: 3}
   ShieldClips:
   - {fileID: 8300000, guid: 565ed77be5907234aa2cbfff3b406cb9, type: 3}
+  ShieldCrystalClips:
+  - {fileID: 8300000, guid: dd093713e21714a32be3f51a396d8b2a, type: 3}
   GroundPunchClips:
   - {fileID: 8300000, guid: c7b1f9c18378b0c46b2aa4f87c6b5139, type: 3}
+  GroundPunchImpactClips:
+  - {fileID: 8300000, guid: c6a1934561a1012479681d5bcb9e25ff, type: 3}
+  GrowlClips:
+  - {fileID: 8300000, guid: 0763cbcdf21e2844d9da08ef9bebb8f5, type: 3}
   DashClips:
   - {fileID: 8300000, guid: f7f03c359c5253a4db04be23c4d78e8d, type: 3}
   - {fileID: 8300000, guid: a13a68c1d0ea92c4d808d37ec0859084, type: 3}
@@ -1552,6 +1558,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bca58f912e9a9944cbf65762844e27e3, type: 3}
   - {fileID: 8300000, guid: 75af1154c7b10a943a83bf84caaa0c88, type: 3}
   - {fileID: 8300000, guid: e17786fccde91fa4c8edc3f647518866, type: 3}
+  MaleFootstepsClips:
+  - {fileID: 8300000, guid: 7a720e2e798194a008777bb620229afd, type: 3}
+  - {fileID: 8300000, guid: 3ca5052e6cd144ae58eb2d18e7f46eba, type: 3}
+  - {fileID: 8300000, guid: 4d3ce56ff4bfe484c8586e849e6d9798, type: 3}
+  - {fileID: 8300000, guid: e2fa396d295d84bf88db01944a64719e, type: 3}
+  - {fileID: 8300000, guid: 65b90edcb4b7c4203ad79d22fcaafd50, type: 3}
+  - {fileID: 8300000, guid: 22fcc988b7ba6426e8fbce4d7d91ae12, type: 3}
+  - {fileID: 8300000, guid: 0d205ba5bb2294fd2bbbb345bcab442d, type: 3}
+  - {fileID: 8300000, guid: 696343fb8ea464f3db92b51538ebec08, type: 3}
+  - {fileID: 8300000, guid: ed29a8181e09446f8b5835213be1a091, type: 3}
+  - {fileID: 8300000, guid: 73add0fa20c704d3f9fa8fcddc9ec1a6, type: 3}
+  - {fileID: 8300000, guid: 26c3fc8527a794b2095aecbbde72baa8, type: 3}
 --- !u!1 &1943480643611431611
 GameObject:
   m_ObjectHideFlags: 0

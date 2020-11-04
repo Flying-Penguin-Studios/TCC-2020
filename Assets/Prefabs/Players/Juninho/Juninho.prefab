@@ -356,7 +356,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ChargePunchClips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 7d1242c10eadf104487517133af7c801, type: 3}
+      objectReference: {fileID: 8300000, guid: 18bdb64b876d39e43837074a56d94061, type: 3}
     - target: {fileID: 1938704988443107454, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
       propertyPath: m_Name

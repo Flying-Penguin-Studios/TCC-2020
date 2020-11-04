@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class BigZombieSoundEvents : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private AudioClip[] GolemAttackClips;
+
+    [SerializeField]
+    private AudioClip[] GolemRageClips;
+
+    private AudioSource audioSource;
+
+    private void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void GolemAttack()
     {
-        
+        PlayRandomClip(GolemAttackClips);
+    }
+
+    private void GolemRage()
+    {
+        PlayRandomClip(GolemRageClips);
+    }
+
+    void PlayRandomClip(AudioClip[] Clips)
+    {
+        audioSource.PlayOneShot(Clips[Random.Range(0, Clips.Length)]);
     }
 }

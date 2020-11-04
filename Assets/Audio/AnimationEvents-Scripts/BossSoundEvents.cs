@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class BossSoundEvents : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private AudioClip[] BossAttackClips;
+
+    [SerializeField]
+    private AudioClip[] BossDashClips;
+
+    [SerializeField]
+    private AudioClip[] BossMagicScreamClips;
+
+    private AudioSource audioSource;
+
+    private void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void PokiAttack()
     {
-        
+        PlayRandomClip(BossAttackClips);
+    }
+
+    private void PokiDash()
+    {
+        PlayRandomClip(BossDashClips);
+    }
+
+    private void PokiMagicScream()
+    {
+        PlayRandomClip(BossMagicScreamClips);
+    }
+
+    void PlayRandomClip(AudioClip[] Clips)
+    {
+        audioSource.PlayOneShot(Clips[Random.Range(0, Clips.Length)]);
     }
 }

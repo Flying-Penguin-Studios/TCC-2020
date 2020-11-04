@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/0_Intro.unity
     guid: fa85f60e89b649b4a8c4ded0741b100f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/1_Menu.unity
     guid: 4f7ee7ff58e5cf7409faa25541935ee9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Ilhas.unity
     guid: 8a30cbf4c7baf6a46ad4e6383c114871
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/3_Galeria.unity
     guid: be77655adbeefd04b8ddc253a684b1e3
   - enabled: 0
@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/0_Projeto Antigo/Master Folder/Bruno/Boss/Boss.unity
     guid: bbfebd1315015c64296317a7144fa0a2
-  - enabled: 1
+  - enabled: 0
     path: Assets/0_Projeto Antigo/Master Folder/Bruno/Boss/Boss Backup.unity
     guid: 95574fde0484e0f4abdcfc0eac9c6605
   m_configObjects: {}

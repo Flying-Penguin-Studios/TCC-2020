@@ -62,3 +62,7 @@ crashlytics-build.properties
 ProjectSettings/ProjectVersion.txt
 
 Assets/2_Pack/Fantasy Adventure Environment/Shaders/URP/_UniversalRenderPipeline.unitypackage.meta
+
+Assets/Scripts/Interface/Panel.cs
+
+Assets/Scripts/Interface/Panel.cs.meta

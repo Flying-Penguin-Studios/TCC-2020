@@ -4354,7 +4354,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: chargeValue
-    m_EventTreshold: 2
+    m_EventTreshold: 1.5
   - m_ConditionMode: 1
     m_ConditionEvent: Atack
     m_EventTreshold: 0

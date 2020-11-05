@@ -19,9 +19,7 @@ public class QuakeArea : PlayerHit
 
     protected override void DamageInteraction(GameObject n_gameObject)
     {
-        Rigidbody rb = n_gameObject.GetComponent<Rigidbody>();
-        rb.velocity = Vector3.zero;
-        rb.AddForce(Vector3.back * 5, ForceMode.Impulse);
+       //n_gameObject.GetComponent<Mob>().kno;    
     }
 
     IEnumerator Expand()

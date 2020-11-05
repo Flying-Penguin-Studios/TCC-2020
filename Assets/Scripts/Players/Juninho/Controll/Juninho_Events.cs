@@ -83,7 +83,7 @@ public class Juninho_Events : EventsAnimation
     {
         GameObject Effect = Instantiate(AreaEffect, MegaPos);
         Effect.transform.localScale = new Vector3(0.014846f, 0.014846f, 0.014846f);
-        Effect.GetComponent<PlayerHit>().SetPlayer(Player);
+        Effect.GetComponentInChildren<PlayerHit>().SetPlayer(Player);
         Player.AttackHandle();
         MoveOnAnimation(2f);
     }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3393443677565111273}
+  - component: {fileID: 3132285238080060717}
   - component: {fileID: 664688301692558568}
   m_Layer: 15
   m_Name: Collider
@@ -31,6 +32,21 @@ Transform:
   m_Father: {fileID: 2700724119726379066}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &3132285238080060717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459538573593597052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01e500e5ff52474d842fe7e521e7be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dano: 30
+  Player: {fileID: 0}
+  Collider: {fileID: 664688301692558568}
 --- !u!65 &664688301692558568
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53946,7 +53962,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2700724119726379066}
-  - component: {fileID: 2202896246888671579}
   m_Layer: 15
   m_Name: CarregadoJuninSemAtecipation
   m_TagString: Untagged
@@ -53986,21 +54001,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2202896246888671579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2698372891983583808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c01e500e5ff52474d842fe7e521e7be1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dano: 30
-  Player: {fileID: 0}
-  Collider: {fileID: 664688301692558568}
 --- !u!1 &2698529266688652640
 GameObject:
   m_ObjectHideFlags: 0

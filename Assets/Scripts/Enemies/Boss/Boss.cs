@@ -493,6 +493,8 @@ public class Boss : EnemyController
         Moving = false;
         CanAttack = true;
 
+        StartCoroutine(Seek());
+
         yield return null;
     }
 

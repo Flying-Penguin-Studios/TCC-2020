@@ -60,8 +60,8 @@ public abstract class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
     }
 
-    [SerializeField]
-    float MaxDistanceWalk = 15;
+    //[SerializeField]
+    //float MaxDistanceWalk = 15;
 
     GameObject TargetInFront;
 
@@ -183,7 +183,7 @@ public abstract class PlayerController : MonoBehaviour
     }
 
 
-    public float JumpVar = 1.5f;
+    //public float JumpVar = 1.5f;
     protected virtual void Jump(bool Jump)
     {
         if (OnGround() && Jump && GetBool("canJump"))
@@ -298,6 +298,10 @@ public abstract class PlayerController : MonoBehaviour
     //float chargeTime = 0.3f;
     bool TimingCharge = false;
     bool StartCharge = false;
+
+    public float MinTimeCharge = 1.5f;
+    public float MaxTimeCharge = 5f;
+
     protected virtual void Atack(string InputControl)
     {
         if (OnGround())
@@ -308,14 +312,14 @@ public abstract class PlayerController : MonoBehaviour
                 {
                     anim.SetFloat("chargeValue", getFloat("chargeValue") + Time.fixedDeltaTime);
 
-                    if (getFloat("chargeValue") > 2f && !TimingCharge)
+                    if (getFloat("chargeValue") > MinTimeCharge && !TimingCharge)
                     {
                         TimingCharge = true;
-                        GameObject a = Instantiate(SparkleParticle, transform.position + Vector3.up, SparkleParticle.transform.rotation);
-                        Destroy(a, .2f);
+                        GameObject a = Instantiate(SparkleParticle, transform.position + (Vector3.up * 1.5f) + Vector3.right, SparkleParticle.transform.rotation);
+                        Destroy(a, .6f);
                     }
 
-                    if (getFloat("chargeValue") > 5f)
+                    if (getFloat("chargeValue") > MaxTimeCharge)
                     {
                         TimingCharge = false;
                         anim.SetTrigger(StaticVariables.Animator.atackTrigger);
@@ -432,6 +436,8 @@ public abstract class PlayerController : MonoBehaviour
                     anim.SetTrigger("Fall");
                     ZoneInterction.enabled = true;
                     getUp = false;
+                    rb.velocity = Vector3.zero;
+                    setCanMove(false);
                     StartCoroutine(Fall());
                 }
             }
@@ -491,6 +497,8 @@ public abstract class PlayerController : MonoBehaviour
 
     IEnumerator Fall()
     {
+        rb.constraints = RigidbodyConstraints.FreezePosition;
+
         rb.velocity = Vector3.zero;
         stats.currentLife += (int)(stats.maxLife * 0.3f);
         SetLife();
@@ -509,6 +517,8 @@ public abstract class PlayerController : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
         }
+
+        rb.constraints = ~RigidbodyConstraints.FreezePosition;
 
         yield return null;
     }
@@ -533,6 +543,9 @@ public abstract class PlayerController : MonoBehaviour
 
     public void Heal(int value)
     {
+        if (Caido)
+            return;
+
         if (ToVivo)
         {
             if (stats.currentLife > 0)

@@ -41,7 +41,6 @@ public class SwordMan : Mob {
 
         }
 
-        print(attacking);
     }
 
 
@@ -54,6 +53,7 @@ public class SwordMan : Mob {
             acceleration = false;
             Attack();
         } else if(inStag) {
+            FreezeConstraints(false);
 
         } else {
             ChaseTarget();

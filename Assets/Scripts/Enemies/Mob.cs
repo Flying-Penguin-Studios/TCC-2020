@@ -22,7 +22,7 @@ public class Mob : EnemyController {
     private float stagRate = 0f;
     private float nextStag = 0;
     private bool jump = false;
-    private float jumpRate = 30;
+    private float jumpRate = 15;
     protected float nextJump = 0;
     private float distanceToJump = 15;
     [HideInInspector]
@@ -95,6 +95,12 @@ public class Mob : EnemyController {
             EnemyBehavior();
             transform.GetChild(1).LookAt(Camera.main.gameObject.transform);
         }
+
+
+        if(Input.GetKeyDown(KeyCode.I)) {
+            KnockBack(Target.transform.position);
+        }
+
     }
 
 
@@ -106,7 +112,7 @@ public class Mob : EnemyController {
     /// </summary>
     public void EnemyBehavior() {
 
-        //if(!isAlive) { FreezeConstraints(true); return; }
+        if(!EnemyHasGround()) { FreezeConstraints(false); return; }  //Impede que os inimigos fiquem travados no ar por qualquer motivo;
         
         if(CheckInCombate()) {
             Combat();
@@ -579,9 +585,17 @@ public class Mob : EnemyController {
 
     public void KnockBack(Vector3 punchPosition) {
 
-        Vector3 direction = (transform.position - punchPosition).normalized;
-        
+        inStag = true;
+        anim.SetTrigger("Stag");
+        FreezeConstraints(false);
 
+
+
+        Vector3 direction = (transform.position - punchPosition).normalized;
+
+        Vector3 impulse = direction * 5 + (Vector3.up * 6);
+
+        rb.velocity = impulse;
 
 
     }

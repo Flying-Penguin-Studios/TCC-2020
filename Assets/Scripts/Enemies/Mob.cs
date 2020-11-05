@@ -374,11 +374,12 @@ public class Mob : EnemyController {
         UpdateHP();
 
         if(enemy.HP <= 0 && isAlive) {
+            anim.ResetTrigger("Stag");      //Cancela a ativação do Stag
             FreezeConstraints(true);
             rb.velocity = Vector3.zero;
             isAlive = false;
             GetComponent<CapsuleCollider>().enabled = false;
-            anim.SetBool("Dead", true);
+            anim.SetTrigger("Dead");
             Die();
         }
     }

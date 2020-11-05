@@ -11,11 +11,46 @@ public class SwordMan : Mob {
 
 
 
+
+
+
+
+
+
+
+
+    protected override void ChaseTarget() {
+        
+        LookToTarget();        
+
+        if(EnemyHasGroundToMove()) {
+
+            acceleration = !attacking;
+            Accelerate();
+
+        } else {
+            
+            if(EnemyShouldJump() && !jumping && (Time.time >= nextJump)) {
+                Jump();
+            }
+
+            if(!jumping) {
+                acceleration = false;
+                Accelerate();
+            }
+
+        }
+
+        print(attacking);
+    }
+
+
+
     protected override void Combat() {
 
         Target = SetTarget();
 
-        if(DistanceToTarget() <= minDistanceToPlayer && !attacking && !inStag) {
+        if(DistanceToTarget() <= minDistanceToPlayer && !attacking && !inStag && !jumping) {
             acceleration = false;
             Attack();
         } else if(inStag) {
@@ -25,6 +60,8 @@ public class SwordMan : Mob {
         }
 
     }
+
+
 
 
     protected override void Attack() {

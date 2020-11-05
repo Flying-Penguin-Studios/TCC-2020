@@ -22,11 +22,13 @@ public class Mob : EnemyController {
     private float stagRate = 0f;
     private float nextStag = 0;
     private bool jump = false;
-    private float jumpRate = 5;
-    private float nextJump = 0;
+    private float jumpRate = 30;
+    protected float nextJump = 0;
     private float distanceToJump = 15;
     [HideInInspector]
     public float targetDistanceToGround;
+    [HideInInspector]
+    public bool jumping = false;
 
 
     // --- Variáveis de Patrulha
@@ -149,14 +151,12 @@ public class Mob : EnemyController {
     /// <summary>
     /// Aumenta ou diminui a velocidade do inimigo de forma gradativa.
     /// </summary>
-    private void Accelerate() {
+    protected void Accelerate() {
 
         if(acceleration) {
             FreezeConstraints(false);
             if(speed < 1) speed += accelerationFactor * Time.fixedDeltaTime;
         } else {
-            //if(speed > 0) speed -= decelerationFactor * Time.fixedDeltaTime;
-            //if(speed <= 0.1f)  speed = 0;
             speed = 0;
             FreezeConstraints(true);
         }
@@ -227,29 +227,37 @@ public class Mob : EnemyController {
     /// <summary>
     /// 
     /// </summary>
-    protected void ChaseTarget() {
+    protected virtual void ChaseTarget() {
 
-        CheckPlayerOnGround();
+        LookToTarget();        
 
-        LookToTarget();
+        if(EnemyHasGroundToMove()) {
 
-        if(EnemyHasGround()) {
             acceleration = !attacking;
+            Accelerate();
+
         } else {
             acceleration = false;
-            Jump();
+            Accelerate();
         }
 
-        Accelerate();
+        
+
     }
 
 
     /// <summary>
     /// Checa se o inimigo está apto a pular de uma ilha para outra.
     /// </summary>
-    private void Jump() {        
+    protected void Jump() {        
 
-        if((Time.time >= nextJump) && (DistanceToTarget() <= distanceToJump) && (DistanceToTarget() >= 5) && CheckPlayerOnGround()) {
+        if((DistanceToTarget() <= distanceToJump) && (DistanceToTarget() >= 5) && CheckPlayerOnGround() && EnemyHasGround()) {
+
+            jumping = true;
+
+            acceleration = false;
+            Accelerate();            
+
             DoJump();
             nextJump = Time.time + jumpRate;
         }
@@ -257,9 +265,54 @@ public class Mob : EnemyController {
 
 
     private void DoJump() {
-        this.transform.position = Target.transform.position;
+
+        FreezeConstraints(true);
+        StartCoroutine(WaitBeforeJump());
+        anim.SetTrigger("Jump");
+
     }
 
+
+    IEnumerator WaitBeforeJump() {
+
+        yield return new WaitForSeconds(0.4f);
+
+        FreezeConstraints(false);
+
+
+        float altura = 3;
+        float jumpDuration = Mathf.Sqrt((2 * altura) / -Physics.gravity.y);
+        float h = jumpDuration * -Physics.gravity.y;
+
+        Vector3 jumpDirection = (Target.transform.position - transform.position);
+        Vector3 jump = jumpDirection + new Vector3(0, h, 0);
+
+        rb.AddForce(jump, ForceMode.Impulse);
+
+        yield return null;
+
+    }
+
+
+    /// <summary>
+    /// Retorna verdadeiro se o inimigo chegou ao limite da ilha.
+    /// </summary>
+    /// <returns></returns>
+    protected bool EnemyShouldJump() {
+
+        RaycastHit Terrain;
+        if(Physics.Raycast(this.transform.position + (this.transform.forward * 1.5f) + new Vector3(0, 1, 0), Vector3.down * 1.2f, out Terrain, 1.2f)) {
+
+            if(Terrain.collider.CompareTag("Terrain") || Terrain.collider.CompareTag("ObjetosDeCena")) {
+                return false;
+            } else {
+                return false;
+            }
+
+        } else {
+            return true;
+        }        
+    }
 
 
     protected virtual void Attack() {
@@ -333,12 +386,13 @@ public class Mob : EnemyController {
 
     private void Stag() {
 
-        if((enemy.name == "SwordMan") || enemy.name == "BowMan") {
+        if(((enemy.name == "SwordMan") || (enemy.name == "BowMan")) && (Time.time >= nextStag)) {
             inStag = true;
             anim.SetTrigger("Stag");
             FreezeConstraints(false);
             rb.velocity = Vector3.zero;
             rb.AddForce(-transform.forward * 1.5f, ForceMode.Impulse);
+            nextStag = Time.time + stagRate;
         }        
     }
 
@@ -412,32 +466,44 @@ public class Mob : EnemyController {
     /// Retorna verdadeiro caso o iniimgo tenha terreno em sua frente.. Caso contrário, retorna falso
     /// </summary>
     /// <returns></returns>
-    private bool EnemyHasGround() {
+    protected bool EnemyHasGroundToMove() { 
 
-        RaycastHit Terrain;
-        if(Physics.Raycast(this.transform.position + (this.transform.forward * 1.5f) + new Vector3(0, 1, 0), Vector3.down * 1.3f, out Terrain, 1.3f)) {
+        RaycastHit Ter;
 
-            if(Terrain.collider.CompareTag("Terrain") || Terrain.collider.CompareTag("ObjetosDeCena") || Terrain.collider.CompareTag("HitCollider")) {
+        if(Physics.Raycast(transform.position + transform.forward * 1.5f + new Vector3(0, 1, 0), Vector3.down * 1.2f, out Ter, 1.2f)) {
+
+            if(Ter.collider.CompareTag("Terrain")) {
                 return true;
             } else {
-
-                if(ReachebleTarget) {   //Troca de alvo a cada 0.25s caso o alvo atual esteja em outra ilha, e inalcansável.
-                    ReachebleTarget = false;
-                    StartCoroutine(SetReachebleTarget());
-                }
-
-                anim.SetFloat("Speed", 0);
                 return false;
             }
 
         } else {
+            anim.SetFloat("Speed", 0);
+            return false;
+        }
+    }
 
-            if(ReachebleTarget) {   //BoyBand - Troca de alvo a cada 0.25s caso o alvo atual esteja em outra ilha, e inalcansável.
-                ReachebleTarget = false;
-                StartCoroutine(SetReachebleTarget());
+
+
+
+
+    /// <summary>
+    /// Retorna verdadeiro caso o iniimgo tenha terreno em sua frente.. Caso contrário, retorna falso
+    /// </summary>
+    /// <returns></returns>
+    private bool EnemyHasGround() {
+
+        RaycastHit Terrain;
+        if(Physics.Raycast(this.transform.position + new Vector3(0, 1, 0), Vector3.down * 1.2f, out Terrain, 1.2f)) {
+
+            if(Terrain.collider.CompareTag("Terrain") || Terrain.collider.CompareTag("ObjetosDeCena")) {
+                return true;
+            } else {
+                return false;
             }
 
-            anim.SetFloat("Speed", 0);
+        } else {
             return false;
         }
     }
@@ -508,6 +574,17 @@ public class Mob : EnemyController {
     private void RemoveThreatP2() {
         P2Agro -= 100;
     }
+
+
+    public void KnockBack(Vector3 punchPosition) {
+
+        Vector3 direction = (transform.position - punchPosition).normalized;
+        
+
+
+
+    }
+
 
 
 }

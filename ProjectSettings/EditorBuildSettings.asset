@@ -30,6 +30,6 @@ EditorBuildSettings:
     path: Assets/0_Projeto Antigo/Master Folder/Bruno/Boss/Boss.unity
     guid: bbfebd1315015c64296317a7144fa0a2
   - enabled: 0
-    path: Assets/0_Projeto Antigo/Master Folder/Bruno/Boss/Boss Backup.unity
+    path: Assets/0_Projeto Antigo/Master Folder/Bruno/Boss/Boss.unity
     guid: 95574fde0484e0f4abdcfc0eac9c6605
   m_configObjects: {}

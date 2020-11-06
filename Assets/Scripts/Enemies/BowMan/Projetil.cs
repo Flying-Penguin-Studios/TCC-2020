@@ -7,6 +7,7 @@ public class Projetil : MonoBehaviour {
 
     public float speed;
     public int dano;
+    public GameObject impactVFX;
 
 
 
@@ -27,6 +28,7 @@ public class Projetil : MonoBehaviour {
 
             if((other.name == "Player1") || other.name == "Player2") {
                 other.GetComponent<PlayerController>().TakeDamage(dano);
+                Instantiate(impactVFX, other.transform.position + Vector3.up, impactVFX.transform.rotation);
                 Destroy(this.gameObject);
             }
         }

@@ -22,7 +22,7 @@ public class Mob : EnemyController {
     private float stagRate = 0f;
     private float nextStag = 0;
     private bool jump = false;
-    private float jumpRate = 15;
+    private float jumpRate = 5;
     protected float nextJump = 0;
     private float distanceToJump = 15;
     [HideInInspector]

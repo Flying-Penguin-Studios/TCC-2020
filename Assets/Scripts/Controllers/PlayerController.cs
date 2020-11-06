@@ -316,7 +316,7 @@ public abstract class PlayerController : MonoBehaviour
                     {
                         TimingCharge = true;
                         GameObject a = Instantiate(SparkleParticle, transform.position + (Vector3.up * 1.5f) + Vector3.right, SparkleParticle.transform.rotation);
-                        Destroy(a, .6f);
+                        Destroy(a, 1.0f);
                     }
 
                     if (getFloat("chargeValue") > MaxTimeCharge)

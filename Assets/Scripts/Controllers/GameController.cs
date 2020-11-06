@@ -88,6 +88,7 @@ public class GameController : MonoBehaviour
             {
                 Instantiate(HUD);
             }
+            Cursor.visible = false;
 
             StartPlayers();
         }

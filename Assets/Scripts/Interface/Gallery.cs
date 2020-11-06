@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Gallery : MonoBehaviour
 {
@@ -12,6 +13,25 @@ public class Gallery : MonoBehaviour
     public float speedCursor = 0.025f;
     public float speedJoystick = 2.5f;
     bool canRotate = false;
+    public Sprite ButtonBase;
+    bool PanelActive = false;
+    EventSystem EventSystem;
+    public Texture2D MouseImage;
+    public Button StartButton;
+    Button LastButton;
+
+
+    private void Start()
+    {
+        HotSpot = new Vector2(Screen.width, Screen.height);
+        SetCursor();
+        SelectButton();
+    }
+
+    private void OnEnable()
+    {
+        EventSystem = EventSystem.current;
+    }
 
     void FixedUpdate()
     {
@@ -53,6 +73,51 @@ public class Gallery : MonoBehaviour
             }
         }
         
+    }
+
+    Vector3 lastMouseCoordinate = Vector3.zero;
+    Vector2 HotSpot;
+    void Update()
+    {
+        Vector3 mouseDelta = Input.mousePosition - lastMouseCoordinate;
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            StartButton.Select();
+        }
+
+        //if (!Cursor.visible)
+        //{
+        if (mouseDelta.x < 0)
+        {
+            //LastButton = EventSystem.currentSelectedGameObject;
+            Cursor.SetCursor(MouseImage, Vector2.zero, CursorMode.Auto);
+            Cursor.visible = true;
+            EventSystem.firstSelectedGameObject = EventSystem.currentSelectedGameObject;
+            EventSystem.SetSelectedGameObject(null);
+        }
+        //}
+
+        if (Cursor.visible)
+        {
+            if (Input.GetAxis("P1_L_Joystick_Vertical") != 0 ||
+                Input.GetAxis("P1_L_Joystick_Horizontal") != 0 ||
+                Input.GetButtonDown("Vertical") ||
+                Input.GetAxisRaw("Vertical Joy") != 0)
+            {
+                Cursor.visible = false;
+                Cursor.SetCursor(null, HotSpot, CursorMode.Auto);
+
+                if (PanelActive)
+                    LastButton.GetComponent<Button>().Select();
+                else
+                    StartButton.Select();
+
+                EventSystem.firstSelectedGameObject = EventSystem.currentSelectedGameObject;
+            }
+        }
+
+        lastMouseCoordinate = Input.mousePosition;
     }
 
     private void RotateLeft()
@@ -146,5 +211,35 @@ public class Gallery : MonoBehaviour
     public void BackButton()
     {
         backButton.onClick.Invoke();
+    }
+    public void PanelIsOpen(Button firstSelected)
+    {
+        PanelActive = true;
+        LastButton = firstSelected;
+    }
+
+    public void PanelClose()
+    {
+        PanelActive = false;
+    }
+
+    public void FixButtonAnimation(Button b)
+    {
+        b.GetComponent<Image>().color = new Color(0.8018868f, 0.7602795f, 0.7602795f);
+        b.GetComponent<Image>().sprite = ButtonBase;
+    }
+
+    private void SetCursor()
+    {
+        Cursor.SetCursor(MouseImage, HotSpot, CursorMode.Auto);
+        Cursor.visible = false;
+    }
+
+
+    private void SelectButton()
+    {
+        EventSystem.SetSelectedGameObject(null);
+        EventSystem.SetSelectedGameObject(EventSystem.firstSelectedGameObject);
+        StartButton.Select();
     }
 }

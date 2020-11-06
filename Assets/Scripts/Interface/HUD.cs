@@ -26,6 +26,12 @@ public class HUD : MonoBehaviour
     public AudioMixer MixerGeral;
     public AudioSource SFX_AudioSource;
     public AudioClip ButtonMouseOverSFX;
+    public Sprite ButtonBase;
+    public Button Options;
+    public Button Menu;
+    public Button Back;
+
+    bool PanelActive = false;
 
     [HideInInspector]
     public Slider BGM_Slider;
@@ -44,7 +50,7 @@ public class HUD : MonoBehaviour
     }
 
     Vector3 lastMouseCoordinate = Vector3.zero;
-    GameObject LastButton;
+    Button LastButton;
     EventSystem EventSystem;
     Vector2 HotSpot = new Vector2(Screen.width, Screen.height);
     public Texture2D MouseImage;
@@ -60,9 +66,11 @@ public class HUD : MonoBehaviour
 
         if (mouseDelta != Vector3.zero)
         {
-            LastButton = EventSystem.currentSelectedGameObject;
+            //LastButton = EventSystem.currentSelectedGameObject;
             Cursor.SetCursor(MouseImage, Vector2.zero, CursorMode.Auto);
             Cursor.visible = true;
+            EventSystem.firstSelectedGameObject = EventSystem.currentSelectedGameObject;
+            EventSystem.SetSelectedGameObject(null);
         }
 
         if (Cursor.visible)
@@ -75,10 +83,12 @@ public class HUD : MonoBehaviour
                 Cursor.visible = false;
                 Cursor.SetCursor(null, HotSpot, CursorMode.Auto);
 
-                if (LastButton)
+                if (PanelActive)
                     LastButton.GetComponent<Button>().Select();
                 else
                     InitialButton.Select();
+
+                EventSystem.firstSelectedGameObject = EventSystem.currentSelectedGameObject;
             }
         }
 
@@ -125,9 +135,15 @@ public class HUD : MonoBehaviour
             }
 
             if (!GamePause)
-                Invoke("PauseSingle", 0.1f);
-            else
-                GameController_OLD.Singleton.GamePaused = GamePause;
+            {
+                FixButtonAnimation(InitialButton);
+                FixButtonAnimation(Options);
+                FixButtonAnimation(Menu);
+            }
+            //if (!GamePause)
+            //    Invoke("PauseSingle", 0.1f);
+            //else
+            //    GameController_OLD.Singleton.GamePaused = GamePause;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -135,7 +151,7 @@ public class HUD : MonoBehaviour
             GamePause = !GamePause;
             PausePanel.SetActive(GamePause);
             Cursor.visible = GamePause;
-            Cursor.SetCursor(MouseImage, Vector2.zero, CursorMode.Auto);
+            //Cursor.SetCursor(MouseImage, Vector2.zero, CursorMode.Auto);
             Time.timeScale = GamePause ? 0 : 1;
 
             try
@@ -153,16 +169,24 @@ public class HUD : MonoBehaviour
             }
 
             if (!GamePause)
-                Invoke("PauseSingle", 0.1f);
-            else
-                GameController_OLD.Singleton.GamePaused = GamePause;
+            {
+                FixButtonAnimation(InitialButton);
+                FixButtonAnimation(Options);
+                FixButtonAnimation(Menu);
+                FixButtonAnimation(Back);
+            }
+
+            //if (!GamePause)
+            //    Invoke("PauseSingle", 0.1f);
+            //else
+            //    GameController_OLD.Singleton.GamePaused = GamePause;
         }
     }
 
-    public void PauseSingle()
-    {
-        GameController_OLD.Singleton.GamePaused = GamePause;
-    }
+    //public void PauseSingle()
+    //{
+    //    GameController_OLD.Singleton.GamePaused = GamePause;
+    //}
 
     public void ResumeGame()
     {
@@ -170,7 +194,7 @@ public class HUD : MonoBehaviour
         PausePanel.SetActive(GamePause);
         Cursor.visible = GamePause;
         Time.timeScale = GamePause ? 0 : 1;
-        Invoke("PauseSingle", 0.1f);
+        //Invoke("PauseSingle", 0.1f);
         try
         {
             GameObject.Find("Options Panel").gameObject.SetActive(false);
@@ -183,14 +207,14 @@ public class HUD : MonoBehaviour
     public void SetVolumeBGM(float volume)
     {
         MixerGeral.SetFloat("VolumeTrilha", volume);
-        GameController_OLD.Singleton.BGM_Volume = volume;
+        //GameController_OLD.Singleton.BGM_Volume = volume;
     }
 
 
     public void SetVolumeSFX(float volume)
     {
         MixerGeral.SetFloat("VolumeEffects", volume);
-        GameController_OLD.Singleton.SFX_Volume = volume;
+        //GameController_OLD.Singleton.SFX_Volume = volume;
     }
 
 
@@ -208,6 +232,23 @@ public class HUD : MonoBehaviour
 
         //BGM_Slider.value = BGM_Volume;
         //SFX_Slider.value = SFX_Volume;
+    }
+
+    public void PanelIsOpen(Button firstSelected)
+    {
+        PanelActive = true;
+        LastButton = firstSelected;
+    }
+
+    public void PanelClose()
+    {
+        PanelActive = false;
+    }
+
+    public void FixButtonAnimation(Button b)
+    {
+        b.GetComponent<Image>().color = new Color(0.8018868f, 0.7602795f, 0.7602795f);
+        b.GetComponent<Image>().sprite = ButtonBase;
     }
 
 

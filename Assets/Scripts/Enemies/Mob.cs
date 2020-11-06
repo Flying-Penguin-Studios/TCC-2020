@@ -95,12 +95,6 @@ public class Mob : EnemyController {
             EnemyBehavior();
             transform.GetChild(1).LookAt(Camera.main.gameObject.transform);
         }
-
-
-        if(Input.GetKeyDown(KeyCode.I)) {
-            KnockBack(Target.transform.position);
-        }
-
     }
 
 
@@ -281,7 +275,7 @@ public class Mob : EnemyController {
 
     IEnumerator WaitBeforeJump() {
 
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
 
         FreezeConstraints(false);
 
@@ -583,22 +577,7 @@ public class Mob : EnemyController {
     }
 
 
-    public void KnockBack(Vector3 punchPosition) {
-
-        inStag = true;
-        anim.SetTrigger("Stag");
-        FreezeConstraints(false);
-
-
-
-        Vector3 direction = (transform.position - punchPosition).normalized;
-
-        Vector3 impulse = direction * 5 + (Vector3.up * 6);
-
-        rb.velocity = impulse;
-
-
-    }
+    
 
 
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 448418}
   - component: {fileID: 3353212}
   - component: {fileID: 2348762}
+  - component: {fileID: 6071781120250787460}
   m_Layer: 0
   m_Name: LowFenceExtentionLeft1
   m_TagString: Untagged
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6071781120250787460
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172180}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 21.711594, y: 11.174135, z: 0.5226264}
+  m_Center: {x: 0.00000095367426, y: 5.5870676, z: -0.0000019073485}

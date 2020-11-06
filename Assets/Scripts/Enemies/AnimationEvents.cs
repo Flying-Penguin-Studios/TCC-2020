@@ -29,7 +29,7 @@ public class AnimationEvents : MonoBehaviour {
 
 
 
-    private void SetAttackFalse() {
+    private void SetAttackFalse() {        
 
         if(transform.parent.name == "SwordMan") {
             swordMan.attacking = false;
@@ -42,7 +42,7 @@ public class AnimationEvents : MonoBehaviour {
 
     private void ResetStag() {
 
-        if(transform.parent.name == "SwordMan") {
+        if (transform.parent.name == "SwordMan") {
             swordMan.inStag = false;
             swordMan.FreezeConstraints(true);
         } else if(transform.parent.name == "BowMan") {
@@ -67,6 +67,10 @@ public class AnimationEvents : MonoBehaviour {
 
     private void ResetSwordManStag() {
         swordMan.inStag = false;
+    }
+
+    private void SetJumpFalse() {
+        swordMan.jumping = false;
     }
 
 

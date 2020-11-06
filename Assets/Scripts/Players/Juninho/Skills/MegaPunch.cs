@@ -16,7 +16,7 @@ public class MegaPunch : PlayerHit
 
     IEnumerator Size()
     {
-        while (Collider.size.z <= 16)
+        while (Collider.size.z <= 7)
         {
             Collider.size += new Vector3(0, 0, 1);
             Collider.center += new Vector3(0, 0, 0.5f);

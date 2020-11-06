@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SG_GAP_ParticlesAddScroll_HDR
-  m_Shader: {fileID: -6465566751694194690, guid: e9a993b01d6046545abba81fcd4f7075,
+  m_Name: Shield
+  m_Shader: {fileID: -6465566751694194690, guid: a15f2a911ffad8246a7f5e1e2584603a,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,15 +20,17 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_12538D6B:
-        m_Texture: {fileID: 2800000, guid: e8e7032ad5b1f6a429eb2632a11b0d5e, type: 3}
+    - Texture2D_71BD3B2E:
+        m_Texture: {fileID: 2800000, guid: 9ad1eff1ff918ef4091cbf3c568d23b9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_3BD888F6: 0.0437
-    - Vector1_8D588927: 10
+    - Vector1_1F95CF6: 2.5
+    - Vector1_B58501F2: 3
     m_Colors:
-    - Color_7D9E84EC: {r: 4.5412054, g: 4.5412054, b: 4.5412054, a: 1}
-    - Vector2_74479B4E: {r: 0, g: 0, b: 0, a: 0}
-    - Vector2_C12106B1: {r: 0.4, g: 0, b: 0, a: 0}
+    - Color_1D4D85A0: {r: 1, g: 1, b: 1, a: 1}
+    - Color_E52E662A: {r: 18.164822, g: 7.9887176, b: 7.9887176, a: 1}
+    - Vector2_CAD06183: {r: 1, g: 2.28, b: 0, a: 0}
+    - Vector3_13A5EA77: {r: 0, g: 0, b: 0, a: 0}
+    - Vector3_DB7B3E4E: {r: 0.05, g: 0.05, b: 0.05, a: 0.05}
   m_BuildTextureStacks: []

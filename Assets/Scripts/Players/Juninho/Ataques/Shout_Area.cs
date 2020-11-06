@@ -35,7 +35,13 @@ public class Shout_Area : PlayerHit
 
     protected override void DamageInteraction(GameObject n_gameObject)
     {
-        //Target = n_gameObject.GetComponent<EnemyController_>();
-        //Target.ShoutThreat();
+        try
+        {
+            n_gameObject.GetComponent<Mob>().ShoutThreat(Player.gameObject.name);
+        }
+        catch (System.Exception ex)
+        {
+            print(ex.Message);
+        }
     }
 }

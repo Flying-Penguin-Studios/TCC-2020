@@ -208,11 +208,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb9c7ef8498afa4b99b83c76fb7f6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SparkleParticle: {fileID: 1821929143923694868, guid: fe9087c1be137ce439ab083e0c84b8ef,
+  SparkleParticle: {fileID: 3395792076332924847, guid: bb8521f157b646f4da3607376aa91466,
     type: 3}
   isPlayer2: 0
   MaxDistanceWalk: 15
   JumpVar: 1.8
+  MinTimeCharge: 1.5
+  MaxTimeCharge: 5
   getUpFriend: 0
   getUp: 1
   isAlive: 0

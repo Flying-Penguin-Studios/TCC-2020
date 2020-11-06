@@ -29,10 +29,7 @@ public class Projetil : MonoBehaviour {
                 other.GetComponent<PlayerController>().TakeDamage(dano);
                 Destroy(this.gameObject);
             }
-
-
         }
-
     }
 
 

@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
-  dano: 10
+  dano: 5
 --- !u!65 &1174491627205158476
 BoxCollider:
   m_ObjectHideFlags: 0

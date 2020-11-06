@@ -32,4 +32,19 @@ public class BowMan : Mob {
 
 
 
+    public void KnockBack(Vector3 punchPosition)    {
+
+        inStag = true;
+        anim.SetTrigger("Stag");
+        FreezeConstraints(false);
+
+
+        Vector3 direction = (transform.position - punchPosition).normalized;
+        Vector3 impulse = direction * 5 + (Vector3.up * 6);
+
+        rb.velocity = impulse;
+    }
+
+
+
 }

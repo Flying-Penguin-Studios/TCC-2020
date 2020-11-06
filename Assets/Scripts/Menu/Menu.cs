@@ -14,9 +14,11 @@ public class Menu : MonoBehaviour
     private bool GameStarted = true;
     public Texture2D MouseImage;
     public Button StartButton;
+    public Sprite ButtonBase;
 
+    bool PanelActive = false;
     GameObject CurrentButton;
-    GameObject LastButton;
+    Button LastButton;
 
     EventSystem EventSystem;
 
@@ -239,7 +241,7 @@ public class Menu : MonoBehaviour
         //{
         if (mouseDelta.x < 0)
         {
-            LastButton = EventSystem.currentSelectedGameObject;
+            //LastButton = EventSystem.currentSelectedGameObject;
             Cursor.SetCursor(MouseImage, Vector2.zero, CursorMode.Auto);
             Cursor.visible = true;
             EventSystem.firstSelectedGameObject = EventSystem.currentSelectedGameObject;
@@ -257,7 +259,7 @@ public class Menu : MonoBehaviour
                 Cursor.visible = false;
                 Cursor.SetCursor(null, HotSpot, CursorMode.Auto);
 
-                if (LastButton)
+                if (PanelActive)
                     LastButton.GetComponent<Button>().Select();
                 else
                     StartButton.Select();
@@ -274,8 +276,25 @@ public class Menu : MonoBehaviour
         GameController.Singleton.ChangePlayers();
     }
 
+    public void PanelIsOpen(Button firstSelected)
+    {
+        PanelActive = true;
+        LastButton = firstSelected;
+    }
+
+    public void PanelClose()
+    {
+        PanelActive = false;
+    }
+
+    public void FixButtonAnimation(Button b)
+    {
+        b.GetComponent<Image>().color = new Color(0.8018868f, 0.7602795f, 0.7602795f);
+        b.GetComponent<Image>().sprite = ButtonBase;
+    }
     /*
     private void SetResolution1() {
+
 
         resolutions = Screen.resolutions;
 

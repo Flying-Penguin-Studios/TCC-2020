@@ -206,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StringTrigger: 
   CD: 30
-  HealZone: {fileID: 9198310691506969159, guid: cfc85eac8f1259b49afa031a4165aee8,
+  HealZone: {fileID: 9198310691506969159, guid: 78c78f4c94473c24f9aff761c43f6c2b,
     type: 3}
 --- !u!114 &1513151489
 MonoBehaviour:

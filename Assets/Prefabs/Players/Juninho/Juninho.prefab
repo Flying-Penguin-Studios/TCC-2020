@@ -221,6 +221,7 @@ MonoBehaviour:
   Sup: {fileID: 0}
   Control: {fileID: 0}
   Damage: {fileID: 0}
+  ShieldMaxDuration: 7
 --- !u!114 &6960233988094498125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StringTrigger: 
   CD: 30
-  Escudinho: {fileID: 3778611052550261790, guid: a8afd67774f32954c9de85959734fd0f,
+  Escudinho: {fileID: 1902000514771392619, guid: cd044c7b428a7ca4da33eb32b83957ce,
     type: 3}
   Duration: 5
 --- !u!114 &7842311614959066849

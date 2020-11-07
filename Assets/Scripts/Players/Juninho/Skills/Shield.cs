@@ -1,43 +1,19 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Shield : Skill
 {
     public GameObject Escudinho;
-    private GameObject InstShield;
+    private GameObject InstShield;   
 
-    public int Duration = 5;
+    //public int Duration = 5;
 
     protected override void Effect()
     {
-        Vector3 n = Player.transform.position + Escudinho.transform.position;
-        //InstShield = Instantiate(Escudinho, n, Player.transform.localRotation);
-        InstShield = Instantiate(Escudinho, Player.transform);
-        InstShield.transform.parent = null;
-
-        Collider[] Inimigos = Physics.OverlapSphere(InstShield.transform.position, 5);
-
-        foreach (Collider item in Inimigos)
-        {
-            if (item.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            {
-                double t = Vector3.Distance(item.transform.position, InstShield.transform.position);
-
-                if (t < 5)
-                {
-                    Rigidbody rb = item.GetComponent<Rigidbody>();
-
-                    if (rb)
-                    {
-                        Vector3 Dir = (item.transform.position - InstShield.transform.position).normalized;
-                        Dir.y = 0;
-                        rb.AddForce(Dir * 5, ForceMode.Impulse);
-                    }
-                }
-            }
-        }
-
+        Vector3 Position = Player.transform.position + Escudinho.transform.position;
+        InstShield = Instantiate(Escudinho, Position, Player.transform.localRotation);
     }
 
     public override void Play()

@@ -4,30 +4,21 @@ using UnityEngine;
 
 public class ShieldWall : MonoBehaviour
 {
-    public void Parede()
+    IEnumerator Wall()
     {
-        //Collider[] Inimigos = Physics.OverlapSphere(transform.position, 5);
+        SphereCollider Sphere = GetComponent<SphereCollider>();
 
-        //foreach (Collider item in Inimigos)
-        //{
-        //    if (item.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        //    {
-        //        double t = Vector3.Distance(item.transform.position, transform.position);
+        while (Sphere.radius < 3)
+        {
+            Sphere.radius += Time.deltaTime * 5;
+            yield return null;
+        }
 
-        //        if (t < 5)
-        //        {
-        //            Rigidbody rb = item.GetComponent<Rigidbody>();
+        yield return null;
 
-        //            if (rb)
-        //            {
-        //                Vector3 Dir = (item.transform.position - transform.position).normalized;
-        //                Dir.y = 0;
-        //                rb.AddForce(Dir * 5, ForceMode.Impulse);
-        //            }
-        //        }
-        //    }
-        //}
-
-        //GetComponentInChildren<Collider>().enabled = true;
+    }
+    private void Start()
+    {
+        StartCoroutine(Wall());
     }
 }

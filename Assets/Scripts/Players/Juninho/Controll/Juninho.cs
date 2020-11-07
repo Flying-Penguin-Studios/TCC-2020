@@ -118,17 +118,21 @@ public class Juninho : PlayerController
 
     bool CanTrigger = true;
 
+    public float ShieldMaxDuration = 5f;
+    private float ShieldTime;
+
     public void ShieldUP(Skill Skill, float Trigger)
     {
         if (Skill.IsAvaliable() && Trigger == 1 && OnGround() && CanTrigger && GetBool("canCast"))
         {
             CanTrigger = false;
             SetTrigger(Skill.StringTrigger);
+            ShieldTime = Time.time + ShieldMaxDuration;
         }
 
         if (OnGround() && GetBool("ShieldUP"))
         {
-            if (Trigger == 0)
+            if (Trigger == 0 || Time.time > ShieldTime)
             {
                 CanTrigger = true;
                 SetBool("ShieldUP", false);

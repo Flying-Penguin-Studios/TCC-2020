@@ -40,6 +40,9 @@ public class BoySoundEvents : MonoBehaviour
     [SerializeField]
     private AudioClip[] MaleFootstepsClips;
 
+    [SerializeField]
+    private AudioClip[] MaleDamageClips;
+
     private AudioSource audioSource;
 
     private void Start()
@@ -105,6 +108,11 @@ public class BoySoundEvents : MonoBehaviour
     private void BoyFootsteps()
     {
         PlayRandomClip(MaleFootstepsClips);
+    }
+
+    private void BoyDamage()
+    {
+        PlayRandomClip(MaleDamageClips);
     }
 
     void PlayRandomClip(AudioClip[] Clips)

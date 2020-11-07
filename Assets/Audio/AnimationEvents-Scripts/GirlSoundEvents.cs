@@ -23,6 +23,9 @@ public class GirlSoundEvents : MonoBehaviour
     [SerializeField]
     private AudioClip[] FootstepsClips;
 
+    [SerializeField]
+    private AudioClip[] GirlDamageClips;
+
     private AudioSource audioSource;
 
     private void Start()
@@ -63,6 +66,11 @@ public class GirlSoundEvents : MonoBehaviour
     private void GirlFootsteps()
     {
         PlayRandomClip(FootstepsClips);
+    }
+
+    private void GirlDamage()
+    {
+        PlayRandomClip(GirlDamageClips);
     }
 
     void PlayRandomClip(AudioClip[] Clips)

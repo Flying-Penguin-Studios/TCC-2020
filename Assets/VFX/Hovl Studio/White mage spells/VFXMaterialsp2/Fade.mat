@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HitJuninho
-  m_Shader: {fileID: -6465566751694194690, guid: 719a109811c3c3d458fd9d51eaac4eb3,
+  m_Name: Fade
+  m_Shader: {fileID: -6465566751694194690, guid: 74eb846cb8cd30347960d4bb6790cfda,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,11 +20,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_E7A03C47:
-        m_Texture: {fileID: 2800000, guid: 46b242f6013399d48b19a762560c2914, type: 3}
+    - Texture2D_89B745C5:
+        m_Texture: {fileID: 2800000, guid: 0d8d0e181db9c0049be7f6f3a1779441, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
+    - Texture2D_C20E8A40:
+        m_Texture: {fileID: 2800000, guid: f5f2906683ce4e645a6d1a98927b6122, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_50BF2854: 0.5
+    - Vector1_5500C8EE: 0.29
+    - Vector1_B9D6FFC2: 0.65
     m_Colors:
-    - Color_CC2F38C1: {r: 3.9533494, g: 3.9533494, b: 3.9533494, a: 1}
+    - Vector4_C271D19C: {r: 0.5, g: 0.5, b: 0.5, a: 0}
   m_BuildTextureStacks: []

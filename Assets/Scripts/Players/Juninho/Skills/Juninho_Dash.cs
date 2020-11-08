@@ -22,9 +22,9 @@ public class Juninho_Dash : Dash
         Collider.enabled = Val;
     }
 
-    protected override void Effect()
-    {
-        //Player.newVelocity(Vector3.zero);
-        Player.InpulsePlayer();
-    }
+    //protected override void Effect()
+    //{
+    //    //Player.newVelocity(Vector3.zero);
+    //    Player.InpulsePlayer();
+    //}
 }

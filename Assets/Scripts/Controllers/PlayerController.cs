@@ -396,6 +396,8 @@ public abstract class PlayerController : MonoBehaviour
         Invensible = false;
     }
 
+    protected abstract void SoundDamage();
+
     // Ambos metodos vão retornar o valor da vida apos dar o dano
     public int TakeDamage(int dano)
     {
@@ -403,6 +405,7 @@ public abstract class PlayerController : MonoBehaviour
             return 0;
 
         rb.velocity = Vector3.zero;
+        SoundDamage();
 
         if (stats.currentLife > 0)
         {

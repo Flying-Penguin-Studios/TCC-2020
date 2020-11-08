@@ -28,6 +28,11 @@ public class Angie : PlayerController
         SetParter(FindObjectOfType<Juninho>());
     }
 
+    protected override void SoundDamage()
+    {
+        GetComponentInChildren<GirlSoundEvents>().GirlDamage();
+    }
+
     void Update()
     {
         //if (GameController.Singleton.GamePaused) { return; }

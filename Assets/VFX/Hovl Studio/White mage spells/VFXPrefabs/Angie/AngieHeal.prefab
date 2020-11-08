@@ -19429,6 +19429,7 @@ MonoBehaviour:
   Power: 5
   Duration: 10
   TickTime: 0.5
+  Test: {fileID: 9198310692198997136}
 --- !u!82 &2479262139376934980
 AudioSource:
   m_ObjectHideFlags: 0

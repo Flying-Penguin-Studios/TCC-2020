@@ -27,6 +27,11 @@ public class Juninho : PlayerController
         SetParter(FindObjectOfType<Angie>());
     }
 
+    protected override void SoundDamage()
+    {
+        GetComponentInChildren<BoySoundEvents>().BoyDamage();
+    }
+
     void Update()
     {
         //if (GameController.Singleton.GamePaused) { return; }

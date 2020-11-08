@@ -68,7 +68,7 @@ public class GirlSoundEvents : MonoBehaviour
         PlayRandomClip(FootstepsClips);
     }
 
-    private void GirlDamage()
+    public void GirlDamage()
     {
         PlayRandomClip(GirlDamageClips);
     }

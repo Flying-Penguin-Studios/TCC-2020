@@ -26,10 +26,10 @@ public class HealZone : MonoBehaviour
 
     IEnumerator Heal()
     {
-        ParticleSystem[] Particles = {transform.GetChild(0).GetComponent<ParticleSystem>(),
-                                      transform.GetChild(1).GetComponent<ParticleSystem>(),
-                                      transform.GetChild(2).GetComponent<ParticleSystem>(),
-                                      transform.GetChild(3).GetComponent<ParticleSystem>()};
+        GameObject[] Particiles = {transform.GetChild(0).gameObject,
+                                      transform.GetChild(1).gameObject,
+                                      transform.GetChild(2).gameObject,
+                                      transform.GetChild(3).gameObject};
 
         yield return new WaitForSeconds(.75f);
 
@@ -47,25 +47,19 @@ public class HealZone : MonoBehaviour
             yield return new WaitForSeconds(TickTime);
         }
 
-
-        //for (float i = 1; i > 0; i -= Time.deltaTime)
-        //{
-        //    Particles[0].gameObject.GetComponent<Material>().color = Alpha()
-        //}
-
-        //foreach (ParticleSystem Particle in Particles)
-        //{
-        //    Particle
-        //}
+        //Particiles[0].GetComponent<ParticleSystem>().Stop();
+        //Particiles[1].GetComponent<ParticleSystem>().Stop();
+        //Particiles[2].GetComponent<ParticleSystem>().Stop();
+        //Particiles[3].GetComponent<ParticleSystem>().Stop();
 
         Player.GetComponent<Heal>().CountCD();
         Destroy(gameObject);
         yield return null;
     }
 
-    private Color Alpha(Material Mat, float i)
+    private Color Alpha(Color MatCol, float i)
     {
-        Color Color = Mat.color;
+        Color Color = MatCol;
         Color.a = i;
         return Color;
     }

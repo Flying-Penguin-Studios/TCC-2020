@@ -18,6 +18,14 @@ public class Dash : Skill
 
     public Image DashCount;
 
+    [SerializeField]
+    private GameObject VFX;
+
+    //void Start()
+    //{
+    //    StopVFX();
+    //}
+
     public override void Init(HUD_Skill HUD_Skill, PlayerController Player, string Trigger)
     {
         base.Init(HUD_Skill, Player, Trigger);
@@ -26,6 +34,7 @@ public class Dash : Skill
         HUD_Dash.setSlotCount(CountDash);
         HUD_Dash.setSlotCD(0);
         StaminaDash(CountDash);
+        StopVFX();
     }
 
     public int getCount()
@@ -51,6 +60,25 @@ public class Dash : Skill
         Player.newVelocity(Vector3.zero);
         Player.InpulsePlayer();
         StartCoroutine(Player.DashInvunable());
+
+        ParticleSystem[] Particles = VFX.GetComponentsInChildren<ParticleSystem>();
+
+        foreach (ParticleSystem item in Particles)
+        {
+            item.Play();
+        }
+
+        Invoke("StopVFX", 1.2f);
+    }
+
+    private void StopVFX()
+    {
+        ParticleSystem[] Particles = VFX.GetComponentsInChildren<ParticleSystem>();
+
+        foreach (ParticleSystem item in Particles)
+        {
+            item.Stop();
+        }
     }
 
     public override void CountCD()

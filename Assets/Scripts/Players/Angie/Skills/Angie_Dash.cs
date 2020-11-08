@@ -4,26 +4,21 @@ using UnityEngine;
 
 public class Angie_Dash : Dash
 {
-    [SerializeField]
-    private GameObject VFX;
+    ////[SerializeField]
+    ////private Transform SpawnPoint;
 
+    //protected override void Effect()
+    //{
+    //    base.Effect();
 
+    //    Quaternion Rot = Player.transform.localRotation;
+    //    //Rot.y *= -1;
 
-    //[SerializeField]
-    //private Transform SpawnPoint;
+    //    Vector3 Pos = Player.transform.position;
+    //    Pos.y += 0.5f;
 
-    protected override void Effect()
-    {
-        base.Effect();
-
-        Quaternion Rot = Player.transform.localRotation;
-        //Rot.y *= -1;
-
-        Vector3 Pos = Player.transform.position;
-        Pos.y += 0.5f;
-
-        GameObject Peido = Instantiate(VFX, Pos, Rot);
-        Peido.GetComponent<PlayerHit>().SetPlayer(Player);
-    }
+    //    GameObject Peido = Instantiate(VFX, Pos, Rot);
+    //    Peido.GetComponent<PlayerHit>().SetPlayer(Player);
+    //}
 
 }

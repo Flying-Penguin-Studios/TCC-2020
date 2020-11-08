@@ -110,7 +110,7 @@ public class BoySoundEvents : MonoBehaviour
         PlayRandomClip(MaleFootstepsClips);
     }
 
-    private void BoyDamage()
+    public void BoyDamage()
     {
         PlayRandomClip(MaleDamageClips);
     }

@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//[RequireComponent(typeof(AudioSource))]
+
 public class PlayerHit : HitObject
 {
     public PlayerController Player;
     protected EnemyController Target;
+
+    //public AudioClip HitAudio;
+    //private AudioSource audioSource;
+
+    //private void Start()
+    //{
+    //    audioSource = GetComponent<AudioSource>();
+    //}
 
     public void SetPlayer(PlayerController n_Player)
     {
@@ -35,6 +45,7 @@ public class PlayerHit : HitObject
         try
         {
             Target.TakeDamage(RoundDamage(dano), Player.name);
+            //audioSource.PlayOneShot(HitAudio);
         }
         catch (System.Exception e)
         {
@@ -45,7 +56,6 @@ public class PlayerHit : HitObject
             else
             {
                 Debug.Log(e.Message);
-                throw;
             }
         }
     }

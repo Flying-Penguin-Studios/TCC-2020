@@ -19,7 +19,15 @@ public class QuakeArea : PlayerHit
 
     protected override void DamageInteraction(GameObject n_gameObject)
     {
-       //n_gameObject.GetComponent<Mob>().kno;    
+        if (n_gameObject.GetComponent<SwordMan>())
+        {
+            n_gameObject.GetComponent<SwordMan>().KnockBack(transform.position);
+        }
+
+        if (n_gameObject.GetComponent<BowMan>())
+        {
+            n_gameObject.GetComponent<BowMan>().KnockBack(transform.position);
+        }
     }
 
     IEnumerator Expand()

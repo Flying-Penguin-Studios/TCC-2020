@@ -255,7 +255,6 @@ MonoBehaviour:
   CD: 30
   Escudinho: {fileID: 1902000514771392619, guid: cd044c7b428a7ca4da33eb32b83957ce,
     type: 3}
-  Duration: 5
 --- !u!114 &7842311614959066849
 MonoBehaviour:
   m_ObjectHideFlags: 0

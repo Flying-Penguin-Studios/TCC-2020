@@ -14663,7 +14663,7 @@ MonoBehaviour:
   l_Mask:
     serializedVersion: 2
     m_Bits: 16384
-  Power: 5
+  Power: 1.5
   Duration: 7
 --- !u!54 &4285422826172559963
 Rigidbody:
@@ -14690,7 +14690,7 @@ SphereCollider:
   m_GameObject: {fileID: 8525330702354610436}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}

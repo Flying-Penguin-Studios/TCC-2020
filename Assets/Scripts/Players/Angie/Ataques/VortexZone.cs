@@ -44,9 +44,9 @@ public class VortexZone : MonoBehaviour
             {
                 Rigidbody rb = obj.GetComponent<Rigidbody>();
 
-                if (obj.name.ToUpper().Contains("ZOMBI"))
+                if (obj.gameObject.GetComponent<Zombie>())
                 {
-                    if (!obj.GetComponent<EnemyController_Old>().BerserkerModeOn)
+                    if (!obj.gameObject.GetComponent<Zombie>().berserkerModeOn)
                         rb.velocity /= 2;
                 }
                 else

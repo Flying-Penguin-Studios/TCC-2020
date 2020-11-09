@@ -26,10 +26,10 @@ public class HealZone : MonoBehaviour
 
     IEnumerator Heal()
     {
-        GameObject[] Particiles = {transform.GetChild(0).gameObject,
-                                      transform.GetChild(1).gameObject,
-                                      transform.GetChild(2).gameObject,
-                                      transform.GetChild(3).gameObject};
+        //GameObject[] Particiles = {transform.GetChild(0).gameObject,
+        //                              transform.GetChild(1).gameObject,
+        //                              transform.GetChild(2).gameObject,
+        //                              transform.GetChild(3).gameObject};
 
         yield return new WaitForSeconds(.75f);
 

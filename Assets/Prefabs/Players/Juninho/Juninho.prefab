@@ -318,17 +318,17 @@ PrefabInstance:
         type: 3}
       propertyPath: MaleDamageClips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 1070eb5dbabc8f6498988359fb7184d9, type: 3}
+      objectReference: {fileID: 8300000, guid: 29cb1eef3e1928e4ba0242c4722c3392, type: 3}
     - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
       propertyPath: MaleDamageClips.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: a497cc1935e92374891efb3103afd80c, type: 3}
+      objectReference: {fileID: 8300000, guid: fa0068e8c9516cf48b5053be949588a6, type: 3}
     - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
       propertyPath: MaleDamageClips.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 879cde95fbe0f524bab5441bc27ae056, type: 3}
+      objectReference: {fileID: 8300000, guid: 14dbf3d4be0b6984ba3b73456fabd8eb, type: 3}
     - target: {fileID: 1938704988443107454, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
       propertyPath: m_Name

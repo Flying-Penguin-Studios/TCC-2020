@@ -453,7 +453,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 60f1ba8badbde42ecb2697dc8664b1ee, type: 3}
   - {fileID: 8300000, guid: ca963dd98e1be450ab5b42d12920ec3d, type: 3}
   - {fileID: 8300000, guid: e5cc3e50da79b4c08acc8ef2dde8dbd5, type: 3}
-  GirlDamageClips: []
+  GirlDamageClips:
+  - {fileID: 8300000, guid: 827baa97ddc225144b2a8ffc746f703f, type: 3}
+  - {fileID: 8300000, guid: d40290e7362e6584480d8a52b7029fbd, type: 3}
+  - {fileID: 8300000, guid: 19e4ddb04e27ead488a46978e21df7fe, type: 3}
 --- !u!1001 &134632339528075542
 PrefabInstance:
   m_ObjectHideFlags: 0

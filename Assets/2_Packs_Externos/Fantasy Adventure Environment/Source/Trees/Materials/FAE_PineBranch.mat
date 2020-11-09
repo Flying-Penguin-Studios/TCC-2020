@@ -8,10 +8,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FAE_PineBranch
-  m_Shader: {fileID: -6465566751694194690, guid: 85827a98514358f438446da0fc64b0f0,
+  m_Shader: {fileID: -6465566751694194690, guid: 8ffeb5264084ee441b67c1122aaa95dc,
     type: 3}
   m_ShaderKeywords: GEOM_TYPE_LEAF _EMISSION
-  m_LightmapFlags: 1
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -20,6 +20,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_89B745C5:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_C20E8A40:
+        m_Texture: {fileID: 2800000, guid: c4e35c139d28a2340a80c2793df5f994, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -81,6 +89,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_50BF2854: 5
+    - Vector1_5500C8EE: 0.4
+    - Vector1_B9D6FFC2: 1
     - _AO: 1
     - _AmbientOcclusion: 0.5
     - _BumpScale: 1
@@ -119,6 +130,7 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
+    - Vector4_C271D19C: {r: 1, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}

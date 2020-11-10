@@ -401,7 +401,7 @@ public abstract class PlayerController : MonoBehaviour
 
     // Ambos metodos vão retornar o valor da vida apos dar o dano
     public int TakeDamage(int dano)
-    {        
+    {
         if (GetBool("Fallen") || Invensible)
             return 0;
 
@@ -503,11 +503,16 @@ public abstract class PlayerController : MonoBehaviour
     IEnumerator Fall()
     {
         rb.constraints = RigidbodyConstraints.FreezePosition;
-
         rb.velocity = Vector3.zero;
+
+        rb.useGravity = false;
+        GetComponent<Collider>().enabled = false;
+        transform.GetChild(4).GetComponent<Collider>().enabled = false;
+
         stats.currentLife += (int)(stats.maxLife * 0.3f);
         SetLife();
         yield return new WaitForSeconds(1f);
+
         while (GetBool("Fallen"))
         {
             pressA.SetActive(true);
@@ -523,6 +528,10 @@ public abstract class PlayerController : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
         }
+
+        rb.useGravity = true;
+        GetComponent<Collider>().enabled = true;
+        transform.GetChild(4).GetComponent<Collider>().enabled = true;
 
         rb.constraints = ~RigidbodyConstraints.FreezePosition;
 
@@ -610,7 +619,7 @@ public abstract class PlayerController : MonoBehaviour
             if (Input.GetButton(Button))
             {
                 revive_value += Time.deltaTime;
-                percentage.fillAmount += Time.deltaTime / revive_time;
+                percentage.fillAmount += revive_value / revive_time;
                 print(revive_value + " - Tempo para reviver");
 
                 if (revive_value >= revive_time)
@@ -773,7 +782,7 @@ public abstract class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (ToVivo)
+        if (ToVivo && !Caido)
         {
             MarkOnGround();
             rb.useGravity = anim.GetBool("Gravity");

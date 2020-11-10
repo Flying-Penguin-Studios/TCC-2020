@@ -8,7 +8,7 @@ public class Energy_Ball : PlayerHit
     public float vel;
     public float destructionTime;
 
-    public GameObject VFX_HIT;
+    //public GameObject VFX_HIT;
 
     protected virtual void Start()
     {
@@ -19,8 +19,10 @@ public class Energy_Ball : PlayerHit
 
     protected override void EnterDamage(GameObject n_gameObject)
     {
-        GameObject VFX = Instantiate(VFX_HIT, transform.position, Quaternion.identity);
-        Destroy(VFX, .8f);
+        //GameObject VFX = Instantiate(VFX_HIT, transform.position, Quaternion.identity);
+        //Destroy(VFX, .8f);
+
+        CrateVFX_HIT();
 
         if (n_gameObject.CompareTag("ObjetosDeCena"))
         {

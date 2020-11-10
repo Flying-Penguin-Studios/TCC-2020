@@ -212,4 +212,16 @@ public class GameController : MonoBehaviour
             LoadScene(ActualScene.name);
         }
     }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.F1))
+        {
+            LoadScene("4-Boss");
+        }
+        else if(Input.GetKeyDown(KeyCode.F2))
+        {
+            LoadScene("Boss");
+        }
+    }
 }

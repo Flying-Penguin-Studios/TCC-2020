@@ -17,6 +17,14 @@ public class PlayerHit : HitObject
     //    audioSource = GetComponent<AudioSource>();
     //}
 
+    public GameObject VFX_HIT;
+
+    public void CrateVFX_HIT()
+    {
+        GameObject VFX = Instantiate(VFX_HIT, transform.position, Quaternion.identity);
+        Destroy(VFX, .8f);
+    }
+
     public void SetPlayer(PlayerController n_Player)
     {
         Player = n_Player;

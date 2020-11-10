@@ -37,7 +37,7 @@ public class Angie : PlayerController
     {
         //if (GameController.Singleton.GamePaused) { return; }
 
-        Cheats();
+        //Cheats();
 
         if (Input.GetKeyDown(KeyCode.F7))
         {

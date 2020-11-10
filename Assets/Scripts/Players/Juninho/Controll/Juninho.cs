@@ -36,7 +36,7 @@ public class Juninho : PlayerController
     {
         //if (GameController.Singleton.GamePaused) { return; }
 
-        Cheats();
+        //Cheats();
 
         if (Input.GetKeyDown(KeyCode.F6))
         {

@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dano: 15
   Player: {fileID: 5633299176524242888}
+  VFX_HIT: {fileID: 0}
 --- !u!1 &7999974596856273913
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +73,7 @@ GameObject:
   - component: {fileID: 4993825401369080189}
   - component: {fileID: 5285771175004031326}
   m_Layer: 20
-  m_Name: Teste
+  m_Name: PlayerBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -312,6 +313,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 936889038933669359}
     m_Modifications:
+    - target: {fileID: 1071739160580534628, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: VFX_HIT
+      value: 
+      objectReference: {fileID: 570227666890588905, guid: b924555b00544e94baa13058c2ffaba2,
+        type: 3}
     - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
       propertyPath: MaleDamageClips.Array.size
@@ -392,6 +399,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5405195833491932315, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: VFX_HIT
+      value: 
+      objectReference: {fileID: 570227666890588905, guid: b924555b00544e94baa13058c2ffaba2,
+        type: 3}
     - target: {fileID: 6798686799558064328, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
       propertyPath: m_IsActive

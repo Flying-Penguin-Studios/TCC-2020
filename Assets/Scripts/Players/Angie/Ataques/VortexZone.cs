@@ -81,7 +81,7 @@ public class VortexZone : MonoBehaviour
 
     IEnumerator Vortex()
     {
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
         float TimeDuration = Time.time + Duration;
 
@@ -100,18 +100,16 @@ public class VortexZone : MonoBehaviour
                 }
                 else
                 {
-                    rb.velocity /= 1.5f;
+                    Vector3 Direction = (transform.position - rb.transform.position).normalized;
 
-                    //Vector3 Direction = (rb.transform.position - transform.position).normalized;
+                    float Distance = Vector3.Distance(transform.position, rb.transform.position);
+                    Distance = Mathf.Pow(Distance, 1.5f);
 
-                    //float Distance = Vector3.Distance(transform.position, rb.transform.position);
-                    //Distance = Mathf.Pow(Distance, 1.5f);
+                    float PowerForce = Power / Distance * 50;
+                    PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
+                    Direction.y = 0;
 
-                    //float PowerForce = Power / Distance * 50;
-                    //PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
-                    //Direction.y = 0;                   
-
-                    // rb.AddForce(Direction * PowerForce, ForceMode.VelocityChange);
+                    rb.AddForce(Direction * PowerForce, ForceMode.VelocityChange);
                 }
             }
 

@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 3993429477739316029}
   - component: {fileID: 2508212028679132973}
   - component: {fileID: 907959129268777302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Portpt3.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3993429477739316029
 Transform:
@@ -111,12 +111,12 @@ GameObject:
   - component: {fileID: 1364330719533017636}
   - component: {fileID: 6680202265126594024}
   - component: {fileID: 6589881710144228470}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Porto1
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4057483154850771171
 Transform:
@@ -419,12 +419,12 @@ GameObject:
   - component: {fileID: 545362805007445353}
   - component: {fileID: 978157316864835098}
   - component: {fileID: 2654283234269117879}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Portpt1.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &545362805007445353
 Transform:
@@ -500,12 +500,12 @@ GameObject:
   - component: {fileID: 2605793121307420513}
   - component: {fileID: 7900498784903511929}
   - component: {fileID: 7460733877215287777}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Portpt2.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2605793121307420513
 Transform:

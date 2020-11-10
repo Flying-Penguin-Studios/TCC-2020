@@ -117,7 +117,12 @@ public class GameController : MonoBehaviour
 
         P2.isPlayer2 = true;
 
-        if (CheckPointController.Singleton != null)
+        if (ActualScene.name.ToUpper().Contains("Boss".ToUpper()))
+        {
+            ScenePlayer1.transform.position = new Vector3(0, 2, -60);
+            ScenePlayer2.transform.position = new Vector3(1, 2, -60);
+        }
+        else if (CheckPointController.Singleton != null)
         {
             CheckPointController.Singleton.SetPlayers(ScenePlayer1, ScenePlayer2);
         }
@@ -217,11 +222,11 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             LoadScene("4-Boss");
         }
-        else if(Input.GetKeyDown(KeyCode.F2))
+        else if (Input.GetKeyDown(KeyCode.F2))
         {
             LoadScene("Boss");
         }

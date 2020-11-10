@@ -7,6 +7,9 @@ public class BowManSoundEvents : MonoBehaviour
     [SerializeField]
     private AudioClip[] BowClips;
 
+    [SerializeField]
+    private AudioClip[] DamageClips;
+
     private AudioSource audioSource;
 
     private void Start()
@@ -17,6 +20,11 @@ public class BowManSoundEvents : MonoBehaviour
     private void BowManBow()
     {
         PlayRandomClip(BowClips);
+    }
+
+    private void BowManDamage()
+    {
+        PlayRandomClip(DamageClips);
     }
 
     void PlayRandomClip(AudioClip[] Clips)

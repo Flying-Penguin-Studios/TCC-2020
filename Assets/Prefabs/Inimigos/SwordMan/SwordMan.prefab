@@ -1638,16 +1638,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SwordClips:
-  - {fileID: 8300000, guid: 24cd681d3af603a4cb69cdd318f3ccab, type: 3}
-  - {fileID: 8300000, guid: 17bd501471022a74c863734072b273a9, type: 3}
-  - {fileID: 8300000, guid: a6306d840735aa9409ebf1b2e223a486, type: 3}
-  - {fileID: 8300000, guid: 8925547b3ef473a418a2d24db19943cb, type: 3}
-  - {fileID: 8300000, guid: b214ec62a081c5a479b80594be789f84, type: 3}
+  - {fileID: 8300000, guid: 173064452d73a7d48b4ee1fd488714d7, type: 3}
+  - {fileID: 8300000, guid: 6908bb4b1c8d08643a2f04a835db6d6a, type: 3}
+  - {fileID: 8300000, guid: d6a36f1e5e668fb4094a65f5b1a833aa, type: 3}
+  - {fileID: 8300000, guid: ed2a4f82ef2fc494686b06c58df111b8, type: 3}
+  - {fileID: 8300000, guid: 7a5935d65b293ce43b227c0a7a7df8eb, type: 3}
   SwordManDamageClips:
-  - {fileID: 8300000, guid: 7685507f89ffe804481a2ca7f6c237e8, type: 3}
-  - {fileID: 8300000, guid: ceb74c0f039dfe848a3e4eb77192f74d, type: 3}
-  - {fileID: 8300000, guid: 9df42e5fca6507f4f8a01c58f08ef917, type: 3}
-  - {fileID: 8300000, guid: 13fdf8dfbaa22ce4fb2b89a3c054c3a4, type: 3}
+  - {fileID: 8300000, guid: a4f03e00673672e4781b1ef888646c6b, type: 3}
+  - {fileID: 8300000, guid: f8466c89f4af7954dad51a827e41ff06, type: 3}
+  - {fileID: 8300000, guid: 1d63e17eb290a7c41a3ac97e6838db39, type: 3}
+  - {fileID: 8300000, guid: 15fbe52755f926e4582646f5240e2e9f, type: 3}
 --- !u!1 &50830924459713773
 GameObject:
   m_ObjectHideFlags: 0

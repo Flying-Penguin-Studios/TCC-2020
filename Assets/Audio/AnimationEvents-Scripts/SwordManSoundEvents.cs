@@ -17,7 +17,8 @@ public class SwordManSoundEvents : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void SwordManSword() {
+    private void SwordManSword()
+    {
         PlayRandomClip(SwordClips);
     }
 

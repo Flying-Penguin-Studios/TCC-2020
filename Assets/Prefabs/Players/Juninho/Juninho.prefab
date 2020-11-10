@@ -221,7 +221,6 @@ MonoBehaviour:
   ToVivo: 1
   pressA: {fileID: 7663122132051177020}
   percentage: {fileID: 4470722601342454718}
-  percentAnim: {fileID: 7783079390713057391}
   Dash: {fileID: 0}
   Sup: {fileID: 0}
   Control: {fileID: 0}
@@ -322,17 +321,17 @@ PrefabInstance:
         type: 3}
       propertyPath: MaleDamageClips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 29cb1eef3e1928e4ba0242c4722c3392, type: 3}
+      objectReference: {fileID: 8300000, guid: bfbc01ca9263b454ab0107d9152b2065, type: 3}
     - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
       propertyPath: MaleDamageClips.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: fa0068e8c9516cf48b5053be949588a6, type: 3}
+      objectReference: {fileID: 8300000, guid: ee7ec62fb0834694e9f573f987246eda, type: 3}
     - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
       propertyPath: MaleDamageClips.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 14dbf3d4be0b6984ba3b73456fabd8eb, type: 3}
+      objectReference: {fileID: 8300000, guid: 68695c4617d27564fafe08452ae12548, type: 3}
     - target: {fileID: 1938704988443107454, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
       propertyPath: m_Name
@@ -561,12 +560,6 @@ GameObject:
 --- !u!224 &2533055686092426072 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7370291387778011310, guid: 8b801709ec10e284b9d05369856da697,
-    type: 3}
-  m_PrefabInstance: {fileID: 5003411562073136118}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &7783079390713057391 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2984968694015069081, guid: 8b801709ec10e284b9d05369856da697,
     type: 3}
   m_PrefabInstance: {fileID: 5003411562073136118}
   m_PrefabAsset: {fileID: 0}

@@ -47,6 +47,7 @@ public class SwordMan : Mob {
 
     protected override void Combat() {
 
+        patrulheiro = false;
         Target = SetTarget();
 
         if(DistanceToTarget() <= minDistanceToPlayer && !attacking && !inStag && !jumping) {

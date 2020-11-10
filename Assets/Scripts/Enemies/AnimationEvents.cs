@@ -49,9 +49,6 @@ public class AnimationEvents : MonoBehaviour {
             bowMan.inStag = false;
             bowMan.FreezeConstraints(true);
         }
-
-        
-
     }
 
 
@@ -76,7 +73,7 @@ public class AnimationEvents : MonoBehaviour {
 
     IEnumerator JumpFalse() {
 
-        yield return new WaitForSeconds(1.35f);
+        yield return new WaitForSeconds(1.37f);
         swordMan.jumping = false;
         
         yield return null;

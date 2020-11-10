@@ -22,7 +22,7 @@ public class Mob : EnemyController {
     private float stagRate = 0f;
     private float nextStag = 0;
     private bool jump = false;
-    private float jumpRate = 5;
+    private float jumpRate = 0;
     protected float nextJump = 0;
     private float distanceToJump = 15;
     [HideInInspector]
@@ -254,6 +254,7 @@ public class Mob : EnemyController {
         if((DistanceToTarget() <= distanceToJump) && (DistanceToTarget() >= 5) && CheckPlayerOnGround() && EnemyHasGround()) {
 
             jumping = true;
+            isVulnerable = false;
 
             acceleration = false;
             Accelerate();            
@@ -267,30 +268,62 @@ public class Mob : EnemyController {
     private void DoJump() {
 
         FreezeConstraints(true);
-        StartCoroutine(WaitBeforeJump());
+        StartCoroutine(WaitThanJump());
         anim.SetTrigger("Jump");
 
     }
 
 
-    IEnumerator WaitBeforeJump() {
-
-        yield return new WaitForSeconds(0.5f);
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator WaitThanJump() {        
 
         FreezeConstraints(false);
-
 
         float altura = 3;
         float jumpDuration = Mathf.Sqrt((2 * altura) / -Physics.gravity.y);
         float h = jumpDuration * -Physics.gravity.y;
 
         Vector3 jumpDirection = (Target.transform.position - transform.position);
-        Vector3 jump = jumpDirection + new Vector3(0, h, 0);
+        
+
+        Vector3 centerIlanddirection =  directionToIlandCenter(Target.transform.position);
+
+
+
+        Vector3 jump = jumpDirection + centerIlanddirection + new Vector3(0, h, 0);
+
+
+
+
+        yield return new WaitForSeconds(0.5f);
+        Invoke("MakeenemyVulnerable", 0.5f);
 
         rb.AddForce(jump, ForceMode.Impulse);
 
-        yield return null;
 
+
+        yield return null;
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    private Vector3 directionToIlandCenter(Vector3 playerPosition) {
+
+        Vector3 iland = getIland();
+        Vector3 centerDirection = (playerPosition - iland).normalized * -2;
+
+        return centerDirection; 
+    }
+
+
+    private void MakeenemyVulnerable() {
+        isVulnerable = true;
     }
 
 
@@ -311,7 +344,7 @@ public class Mob : EnemyController {
 
         } else {
             return true;
-        }        
+        }
     }
 
 
@@ -551,6 +584,23 @@ public class Mob : EnemyController {
             return false;
         }        
     }
+
+
+    private Vector3 getIland() {
+
+        RaycastHit IHit;
+        if(Physics.Raycast(Target.transform.position, Vector3.down * targetDistanceToGround, out IHit, targetDistanceToGround)) {
+
+            if(IHit.collider.CompareTag("Terrain") || IHit.collider.CompareTag("ObjetosDeCena")) {
+                return IHit.collider.gameObject.transform.position;
+            } else {
+                return Vector3.zero;
+            }
+
+        } else {
+            return Vector3.zero;
+        }
+    }
     
 
     /// <summary>
@@ -575,9 +625,6 @@ public class Mob : EnemyController {
     private void RemoveThreatP2() {
         P2Agro -= 100;
     }
-
-
-    
 
 
 

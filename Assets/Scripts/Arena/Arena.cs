@@ -6,6 +6,10 @@ using System;
 
 public class Arena : MonoBehaviour
 {
+    public GameObject ARENA_BLOCK;
+
+    [Space(30)]
+
     public List<Wave> Waves = new List<Wave>();
 
     GameObject Walls;
@@ -33,6 +37,9 @@ public class Arena : MonoBehaviour
 
     void StartArena()
     {
+        Walls.SetActive(true);
+        VFX.SetActive(true);
+
         StartCoroutine(IeArena());
     }
 
@@ -64,11 +71,12 @@ public class Arena : MonoBehaviour
                     //float AreaZ = UnityEngine.Random.Range(-Area + 3, Area - 3);
                     float AreaX = UnityEngine.Random.Range(-11, 11);
                     float AreaZ = UnityEngine.Random.Range(-11, 11);
-                    Vector3 Pos = new Vector3(AreaX, transform.position.y, AreaZ);
-                    GameObject i_Inimigo = Instantiate(Inimigo, transform.position + Pos, Quaternion.identity, transform);
+                    Vector3 Pos = new Vector3(AreaX, 0, AreaZ) + transform.position;
+                    GameObject i_Inimigo = Instantiate(Inimigo, Pos, Quaternion.identity, transform);
                     //i_Inimigo.transform.localScale *= 0.1f;
                     EnemyCount++;
                     i_Inimigo.AddComponent<ArenaMob>().Arena = this;
+                    i_Inimigo.GetComponent<Mob>().maxDistanceInCombat = 999;
                     //}
                 }
             }
@@ -78,7 +86,7 @@ public class Arena : MonoBehaviour
 
         yield return new WaitUntil(() => EnemyCount == 0);
         print("cabo");
-        ArenaController.Singleton.ArenaCompleted(gameObject.name);
+        ArenaController.Singleton.ArenaCompleted(this);
         Destroy(gameObject);
     }
 

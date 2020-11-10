@@ -27,6 +27,11 @@ public class VortexZone : MonoBehaviour
         Player = n_Player;
     }
 
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawSphere(transform.position, GetComponent<SphereCollider>().radius);
+    //}
+
     IEnumerator Move()
     {
         Vector3 Direction = transform.TransformDirection(Vector3.forward).normalized;
@@ -38,29 +43,31 @@ public class VortexZone : MonoBehaviour
             transform.position += Direction * (Time.deltaTime * 10);
             Distance = Vector3.Distance(transform.position, Destiny);
 
-            l_collider = Physics.OverlapSphere(transform.position, 6, l_Mask);
+            l_collider = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, l_Mask);
 
             foreach (Collider obj in l_collider)
             {
                 Rigidbody rb = obj.GetComponent<Rigidbody>();
 
-                if (obj.name.ToUpper().Contains("ZOMBI"))
+                if (obj.gameObject.GetComponent<Zombie>())
                 {
-                    if (!obj.GetComponent<EnemyController_Old>().BerserkerModeOn)
+                    if (!obj.gameObject.GetComponent<Zombie>().berserkerModeOn)
                         rb.velocity /= 2;
                 }
                 else
                 {
-                    Vector3 Dir = (rb.transform.position - transform.position).normalized * -1;
+                    rb.velocity /= 1.5f;
 
-                    float Dist = Vector3.Distance(transform.position, rb.transform.position);
-                    Dist = Mathf.Pow(Dist, 1.5f);
+                    //Vector3 Dir = (rb.transform.position - transform.position).normalized;
 
-                    float PowerForce = Power / Dist * 50;
-                    PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
-                    Dir.y = 0;
+                    //float Dist = Vector3.Distance(transform.position, rb.transform.position);
+                    //Dist = Mathf.Pow(Dist, 1.5f);
 
-                    rb.AddForce(Dir * PowerForce, ForceMode.VelocityChange);
+                    //float PowerForce = Power / Dist * 50;
+                    //PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
+                    //Dir.y = 0;
+
+                    //rb.AddForce(Dir  * PowerForce, ForceMode.VelocityChange);
                 }
             }
 
@@ -80,36 +87,38 @@ public class VortexZone : MonoBehaviour
 
         while (TimeDuration >= Time.time)
         {
-            l_collider = Physics.OverlapSphere(transform.position, 6, l_Mask);
+            l_collider = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, l_Mask);
 
             foreach (Collider obj in l_collider)
             {
                 Rigidbody rb = obj.GetComponent<Rigidbody>();
 
-                if (obj.name.ToUpper().Contains("ZOMBI"))
+                if (obj.gameObject.GetComponent<Zombie>())
                 {
-                    if (!obj.GetComponent<EnemyController_Old>().BerserkerModeOn)
+                    if (!obj.gameObject.GetComponent<Zombie>().berserkerModeOn)
                         rb.velocity /= 2;
                 }
                 else
                 {
-                    Vector3 Direction = (rb.transform.position - transform.position).normalized * -1;
+                    rb.velocity /= 1.5f;
 
-                    float Distance = Vector3.Distance(transform.position, rb.transform.position);
-                    Distance = Mathf.Pow(Distance, 1.5f);
+                    //Vector3 Direction = (rb.transform.position - transform.position).normalized;
 
-                    float PowerForce = Power / Distance * 50;
-                    PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
-                    Direction.y = 0;
+                    //float Distance = Vector3.Distance(transform.position, rb.transform.position);
+                    //Distance = Mathf.Pow(Distance, 1.5f);
 
-                    rb.AddForce(Direction * PowerForce, ForceMode.VelocityChange);
+                    //float PowerForce = Power / Distance * 50;
+                    //PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
+                    //Direction.y = 0;                   
+
+                    // rb.AddForce(Direction * PowerForce, ForceMode.VelocityChange);
                 }
             }
 
             yield return new WaitForFixedUpdate();
         }
 
-        l_collider = Physics.OverlapSphere(transform.position, 4, l_Mask);
+        l_collider = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, l_Mask);
 
         foreach (Collider obj in l_collider)
         {

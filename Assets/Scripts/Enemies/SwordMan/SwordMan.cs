@@ -8,14 +8,7 @@ public class SwordMan : Mob {
 
     public GameObject sword;
 
-
-
-
-
-
-
-
-
+    
 
 
 
@@ -23,7 +16,7 @@ public class SwordMan : Mob {
         
         LookToTarget();        
 
-        if(EnemyHasGroundToMove()) {
+        if(EnemyHasGroundToMove() && !jumping) {
 
             acceleration = !attacking;
             Accelerate();
@@ -41,8 +34,8 @@ public class SwordMan : Mob {
 
         }
 
+        
     }
-
 
 
     protected override void Combat() {
@@ -61,8 +54,6 @@ public class SwordMan : Mob {
         }
 
     }
-
-
 
 
     protected override void Attack() {
@@ -109,7 +100,5 @@ public class SwordMan : Mob {
 
         rb.velocity = impulse;
     }
-
-
 
 }

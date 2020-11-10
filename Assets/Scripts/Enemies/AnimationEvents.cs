@@ -31,10 +31,10 @@ public class AnimationEvents : MonoBehaviour {
 
     private void SetAttackFalse() {        
 
-        if(transform.parent.name == "SwordMan") {
+        if((transform.parent.name == "SwordMan") || (transform.parent.name == "SwordMan(Clone)")) {
             swordMan.attacking = false;
             swordMan.sword.GetComponent<BoxCollider>().enabled = false;
-        } else if(transform.parent.name == "BowMan") {
+        } else if((transform.parent.name == "BowMan") || (transform.parent.name == "BowMan(Clone)")) {
             bowMan.attacking = false;
         }        
     }
@@ -42,10 +42,10 @@ public class AnimationEvents : MonoBehaviour {
 
     private void ResetStag() {
 
-        if (transform.parent.name == "SwordMan") {
+        if ((transform.parent.name == "SwordMan") || (transform.parent.name == "SwordMan(Clone)")) {
             swordMan.inStag = false;
             swordMan.FreezeConstraints(true);
-        } else if(transform.parent.name == "BowMan") {
+        } else if((transform.parent.name == "BowMan") || (transform.parent.name == "BowMan(Clone)")) {
             bowMan.inStag = false;
             bowMan.FreezeConstraints(true);
         }
@@ -70,9 +70,18 @@ public class AnimationEvents : MonoBehaviour {
     }
 
     private void SetJumpFalse() {
-        swordMan.jumping = false;
+        StartCoroutine(JumpFalse());
     }
 
+
+    IEnumerator JumpFalse() {
+
+        yield return new WaitForSeconds(1.35f);
+        swordMan.jumping = false;
+        
+        yield return null;
+
+    }
 
 
 

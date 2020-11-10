@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2704211622230089512}
   - component: {fileID: 172189488742738914}
   - component: {fileID: 2901319292127709054}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: HouseRoofM1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

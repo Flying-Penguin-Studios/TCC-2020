@@ -289,11 +289,11 @@ public class Mob : EnemyController {
         Vector3 jumpDirection = (Target.transform.position - transform.position);
         
 
-        Vector3 centerIlanddirection =  directionToIlandCenter();
+        Vector3 centerIlanddirection =  directionToIlandCenter(Target.transform.position);
 
 
 
-        Vector3 jump = jumpDirection + new Vector3(0, h, 0);
+        Vector3 jump = jumpDirection + centerIlanddirection + new Vector3(0, h, 0);
 
 
 
@@ -313,20 +313,12 @@ public class Mob : EnemyController {
     /// 
     /// </summary>
     /// <returns></returns>
-    private Vector3 directionToIlandCenter() {
+    private Vector3 directionToIlandCenter(Vector3 playerPosition) {
 
         Vector3 iland = getIland();
+        Vector3 centerDirection = (playerPosition - iland).normalized * -2;
 
-        print(iland);
-
-
-
-
-        
-
-
-        return Vector3.zero; 
-
+        return centerDirection; 
     }
 
 
@@ -352,7 +344,7 @@ public class Mob : EnemyController {
 
         } else {
             return true;
-        }        
+        }
     }
 
 

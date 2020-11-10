@@ -8,7 +8,7 @@ public class SwordManSoundEvents : MonoBehaviour
     private AudioClip[] SwordClips;
 
     [SerializeField]
-    private AudioClip[] DamageClips;
+    private AudioClip[] SwordManDamageClips;
 
     private AudioSource audioSource;
 
@@ -23,7 +23,7 @@ public class SwordManSoundEvents : MonoBehaviour
 
     private void SwordManDamage()
     {
-        PlayRandomClip(DamageClips);
+        PlayRandomClip(SwordManDamageClips);
     }
 
     void PlayRandomClip(AudioClip[] Clips)

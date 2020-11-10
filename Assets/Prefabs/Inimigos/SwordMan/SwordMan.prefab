@@ -1643,11 +1643,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a6306d840735aa9409ebf1b2e223a486, type: 3}
   - {fileID: 8300000, guid: 8925547b3ef473a418a2d24db19943cb, type: 3}
   - {fileID: 8300000, guid: b214ec62a081c5a479b80594be789f84, type: 3}
-  DamageClips:
-  - {fileID: 8300000, guid: 13fdf8dfbaa22ce4fb2b89a3c054c3a4, type: 3}
-  - {fileID: 8300000, guid: 9df42e5fca6507f4f8a01c58f08ef917, type: 3}
-  - {fileID: 8300000, guid: ceb74c0f039dfe848a3e4eb77192f74d, type: 3}
+  SwordManDamageClips:
   - {fileID: 8300000, guid: 7685507f89ffe804481a2ca7f6c237e8, type: 3}
+  - {fileID: 8300000, guid: ceb74c0f039dfe848a3e4eb77192f74d, type: 3}
+  - {fileID: 8300000, guid: 9df42e5fca6507f4f8a01c58f08ef917, type: 3}
+  - {fileID: 8300000, guid: 13fdf8dfbaa22ce4fb2b89a3c054c3a4, type: 3}
 --- !u!1 &50830924459713773
 GameObject:
   m_ObjectHideFlags: 0

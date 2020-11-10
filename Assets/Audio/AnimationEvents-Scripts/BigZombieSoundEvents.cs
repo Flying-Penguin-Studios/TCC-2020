@@ -10,6 +10,9 @@ public class BigZombieSoundEvents : MonoBehaviour
     [SerializeField]
     private AudioClip[] GolemRageClips;
 
+    [SerializeField]
+    private AudioClip[] GolemDamageClips;
+
     private AudioSource audioSource;
 
     private void Start()
@@ -25,6 +28,11 @@ public class BigZombieSoundEvents : MonoBehaviour
     private void GolemRage()
     {
         PlayRandomClip(GolemRageClips);
+    }
+
+    private void GolemDamage()
+    {
+        PlayRandomClip(GolemDamageClips);
     }
 
     void PlayRandomClip(AudioClip[] Clips)

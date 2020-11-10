@@ -172,6 +172,7 @@ MonoBehaviour:
   HP_Max: 100
   inStag: 0
   targetDistanceToGround: 0
+  jumping: 0
   patrulheiro: 0
   nextWaypoint: {fileID: 0}
   PatrolSpeed: 0
@@ -675,6 +676,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a9ec1336f4ce040c8b7bc9d576eeac75, type: 3}
   - {fileID: 8300000, guid: e8f92c2a3e9f74e65b90663e7cb36fc3, type: 3}
   - {fileID: 8300000, guid: d7d6abeb338ba47d4b8be75349b735a0, type: 3}
+  DamageClips:
+  - {fileID: 8300000, guid: 9df42e5fca6507f4f8a01c58f08ef917, type: 3}
+  - {fileID: 8300000, guid: 13fdf8dfbaa22ce4fb2b89a3c054c3a4, type: 3}
+  - {fileID: 8300000, guid: ceb74c0f039dfe848a3e4eb77192f74d, type: 3}
+  - {fileID: 8300000, guid: 7685507f89ffe804481a2ca7f6c237e8, type: 3}
 --- !u!1 &4843452764629035361
 GameObject:
   m_ObjectHideFlags: 0

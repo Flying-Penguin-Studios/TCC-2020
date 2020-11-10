@@ -1638,9 +1638,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SwordClips:
-  - {fileID: 8300000, guid: b2b23b2b88095cd47a91a41aabb58dcb, type: 3}
-  - {fileID: 8300000, guid: 01e04eed2079f2643a37c34e43da4128, type: 3}
-  - {fileID: 8300000, guid: bcd4f41b8847b0844ae2a39b41d5e742, type: 3}
+  - {fileID: 8300000, guid: 24cd681d3af603a4cb69cdd318f3ccab, type: 3}
+  - {fileID: 8300000, guid: 17bd501471022a74c863734072b273a9, type: 3}
+  - {fileID: 8300000, guid: a6306d840735aa9409ebf1b2e223a486, type: 3}
+  - {fileID: 8300000, guid: 8925547b3ef473a418a2d24db19943cb, type: 3}
+  - {fileID: 8300000, guid: b214ec62a081c5a479b80594be789f84, type: 3}
+  DamageClips:
+  - {fileID: 8300000, guid: 13fdf8dfbaa22ce4fb2b89a3c054c3a4, type: 3}
+  - {fileID: 8300000, guid: 9df42e5fca6507f4f8a01c58f08ef917, type: 3}
+  - {fileID: 8300000, guid: ceb74c0f039dfe848a3e4eb77192f74d, type: 3}
+  - {fileID: 8300000, guid: 7685507f89ffe804481a2ca7f6c237e8, type: 3}
 --- !u!1 &50830924459713773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,6 +1882,7 @@ MonoBehaviour:
   HP_Max: 100
   inStag: 0
   targetDistanceToGround: 0.5
+  jumping: 0
   patrulheiro: 0
   nextWaypoint: {fileID: 0}
   PatrolSpeed: 2

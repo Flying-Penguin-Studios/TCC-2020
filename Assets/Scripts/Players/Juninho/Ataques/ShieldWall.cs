@@ -21,4 +21,12 @@ public class ShieldWall : MonoBehaviour
     {
         StartCoroutine(Wall());
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.GetComponent<Projetil>())
+        {
+            Destroy(collision.collider.gameObject);
+        }
+    }
 }

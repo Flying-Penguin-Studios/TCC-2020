@@ -400,7 +400,7 @@ public abstract class PlayerController : MonoBehaviour
 
     // Ambos metodos vão retornar o valor da vida apos dar o dano
     public int TakeDamage(int dano)
-    {
+    {        
         if (GetBool("Fallen") || Invensible)
             return 0;
 
@@ -801,7 +801,7 @@ public abstract class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            TakeDamage(stats.currentLife);
+            SetDamage(stats.currentLife);
         }
 
         if (Input.GetKeyDown(KeyCode.F11))
@@ -838,7 +838,7 @@ public abstract class PlayerController : MonoBehaviour
     protected virtual void Start()
     {
         init();
-        StartCoroutine("CombatZone");
+        //StartCoroutine("CombatZone");
         Physics.IgnoreCollision(transform.GetChild(4).GetComponent<Collider>(), GetComponent<Collider>()); ;
     }
 

@@ -37,6 +37,10 @@ public class ArenaController : MonoBehaviour
             {
                 if (d_ArenaCompleted[Arena.gameObject.name])
                 {
+                    if(Arena.ARENA_BLOCK != null)
+                    {
+                        Arena.ARENA_BLOCK.SetActive(false);
+                    }
                     Destroy(Arena.gameObject);
                 }
             }
@@ -45,6 +49,8 @@ public class ArenaController : MonoBehaviour
 
     List<string> Arenas = new List<string>();
     Dictionary<string, bool> d_ArenaCompleted = new Dictionary<string, bool>();
+    Dictionary<Arena, GameObject> Block_ArenaCompleted = new Dictionary<Arena, GameObject>();
+
 
     void Start()
     {
@@ -53,6 +59,7 @@ public class ArenaController : MonoBehaviour
         for (int i = 0; i < arenas.Length - 1; i++)
         {
             d_ArenaCompleted.Add(arenas[i].gameObject.name, false);
+            Block_ArenaCompleted.Add(arenas[i], arenas[i].ARENA_BLOCK);
         }
     }
 
@@ -61,11 +68,16 @@ public class ArenaController : MonoBehaviour
         d_ArenaCompleted[Arena_Name] = true;
     }
 
-    private void Update()
+    public void ArenaCompleted(Arena Arena)
     {
-        if (Input.GetKeyDown(KeyCode.F7))
-        {
-            SceneManager.LoadScene("Teste_Controllers1");
-        }
+        d_ArenaCompleted[Arena.gameObject.name] = true;
     }
+
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.F7))
+    //    {
+    //        SceneManager.LoadScene("Teste_Controllers1");
+    //    }
+    //}
 }

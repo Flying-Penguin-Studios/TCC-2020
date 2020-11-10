@@ -30,6 +30,7 @@ public class CheckPointController : MonoBehaviour
 
     public Vector3 Pos1;
     public Vector3 Pos2;
+    public Vector3 CamPos;
 
     void Update()
     {
@@ -39,10 +40,11 @@ public class CheckPointController : MonoBehaviour
         }
     }
 
-    public void SetPositons(Transform Pos1, Transform Pos2)
+    public void SetPositons(Transform Pos1, Transform Pos2, Transform CamPos)
     {
         this.Pos1 = Pos1.position;
         this.Pos2 = Pos2.position;
+        this.CamPos = CamPos.position;
     }
 
     public void SetPlayers(GameObject Player)
@@ -54,5 +56,10 @@ public class CheckPointController : MonoBehaviour
     {
         Player1.transform.position = Pos1;
         Player2.transform.position = Pos2;
+
+        if (CamPos != Vector3.zero)
+        {
+            GameObject.FindObjectOfType<CameraPosition>().gameObject.transform.position = CamPos;
+        }
     }
 }

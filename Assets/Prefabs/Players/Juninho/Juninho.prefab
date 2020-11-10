@@ -221,6 +221,7 @@ MonoBehaviour:
   ToVivo: 1
   pressA: {fileID: 7663122132051177020}
   percentage: {fileID: 4470722601342454718}
+  percentAnim: {fileID: 7783079390713057391}
   Dash: {fileID: 0}
   Sup: {fileID: 0}
   Control: {fileID: 0}
@@ -547,7 +548,9 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9027316526597874604, guid: 8b801709ec10e284b9d05369856da697, type: 3}
+    - {fileID: 5004253551060298981, guid: 8b801709ec10e284b9d05369856da697, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8b801709ec10e284b9d05369856da697, type: 3}
 --- !u!1 &7663122132051177020 stripped
 GameObject:
@@ -558,6 +561,12 @@ GameObject:
 --- !u!224 &2533055686092426072 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7370291387778011310, guid: 8b801709ec10e284b9d05369856da697,
+    type: 3}
+  m_PrefabInstance: {fileID: 5003411562073136118}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7783079390713057391 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2984968694015069081, guid: 8b801709ec10e284b9d05369856da697,
     type: 3}
   m_PrefabInstance: {fileID: 5003411562073136118}
   m_PrefabAsset: {fileID: 0}

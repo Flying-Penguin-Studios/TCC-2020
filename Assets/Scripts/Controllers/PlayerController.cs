@@ -610,7 +610,7 @@ public abstract class PlayerController : MonoBehaviour
             if (Input.GetButton(Button))
             {
                 revive_value += Time.deltaTime;
-                percentage.fillAmount += revive_value/revive_time;
+                percentage.fillAmount += Time.deltaTime / revive_time;
                 print(revive_value + " - Tempo para reviver");
 
                 if (revive_value >= revive_time)
@@ -828,6 +828,7 @@ public abstract class PlayerController : MonoBehaviour
             Move();
         }
 
+        transform.GetChild(7).LookAt(Camera.main.gameObject.transform);
         //Quaternion[] Quarts = new Quaternion[9];
         //Vector3 central = this.transform.forward;
         //float angle = -18;

@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3316414724317327473}
   - component: {fileID: 4639292487456087853}
   - component: {fileID: 8017496372730406745}
-  - component: {fileID: 9027316526597874604}
+  - component: {fileID: 4915356571968878727}
   m_Layer: 0
   m_Name: ReviveAlly
   m_TagString: Untagged
@@ -178,18 +178,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!225 &9027316526597874604
-CanvasGroup:
+--- !u!95 &4915356571968878727
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3402276777814111690}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a46963d0d9e4b0f4dad76a81a8a516a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5063424445453194148
 GameObject:
   m_ObjectHideFlags: 0

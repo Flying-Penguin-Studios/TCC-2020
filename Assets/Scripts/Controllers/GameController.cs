@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
         {
             StartCoroutine(FadeOut(FadeObject));
         }
-        else if (ActualScene.name.ToUpper().Contains("Teste".ToUpper()) || ActualScene.name.ToUpper().Contains("Boss".ToUpper()))
+        else if (ActualScene.name.ToUpper().Contains("Teste".ToUpper()) /*|| ActualScene.name.ToUpper().Contains("Boss".ToUpper()*/)
         {
             //StartCoroutine(FadeOut(FadeObject));
             if (!FindObjectOfType<HUD>())
@@ -81,13 +81,15 @@ public class GameController : MonoBehaviour
 
             StartPlayers();
         }
-        else if (ActualScene.name.ToUpper().Contains("Ilhas".ToUpper()))
+        else if (ActualScene.name.ToUpper().Contains("Ilhas".ToUpper()) || ActualScene.name.ToUpper().Contains("Boss".ToUpper()))
         {
             StartCoroutine(FadeOut(FadeObject));
+
             if (!FindObjectOfType<HUD>())
             {
                 Instantiate(HUD);
             }
+
             Cursor.visible = false;
 
             StartPlayers();

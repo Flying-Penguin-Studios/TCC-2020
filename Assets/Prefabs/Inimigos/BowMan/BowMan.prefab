@@ -677,10 +677,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e8f92c2a3e9f74e65b90663e7cb36fc3, type: 3}
   - {fileID: 8300000, guid: d7d6abeb338ba47d4b8be75349b735a0, type: 3}
   DamageClips:
-  - {fileID: 8300000, guid: a4f03e00673672e4781b1ef888646c6b, type: 3}
-  - {fileID: 8300000, guid: f8466c89f4af7954dad51a827e41ff06, type: 3}
-  - {fileID: 8300000, guid: 1d63e17eb290a7c41a3ac97e6838db39, type: 3}
-  - {fileID: 8300000, guid: 15fbe52755f926e4582646f5240e2e9f, type: 3}
+  - {fileID: 8300000, guid: 544d9f71b3c2eae4b81c8c1b8a9382d2, type: 3}
+  - {fileID: 8300000, guid: 0d82ba1244ab4fe429f2db7f6c4edff6, type: 3}
+  - {fileID: 8300000, guid: d1f12f5095c68c34bb280db892162f8f, type: 3}
+  - {fileID: 8300000, guid: 2465e49009b19e34c8785f8be7946570, type: 3}
 --- !u!1 &4843452764629035361
 GameObject:
   m_ObjectHideFlags: 0

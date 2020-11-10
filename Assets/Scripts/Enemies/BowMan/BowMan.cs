@@ -31,8 +31,19 @@ public class BowMan : Mob {
     }
 
 
+    public override void TakeDamage(int damage, string player) {
 
-    public void KnockBack(Vector3 punchPosition)    {
+        if(!isVulnerable) {
+            return;
+        }
+
+        Stag();
+
+        base.TakeDamage(damage, player);
+    }
+
+
+    public void KnockBack(Vector3 punchPosition) {
 
         inStag = true;
         anim.SetTrigger("Stag");
@@ -43,6 +54,19 @@ public class BowMan : Mob {
         Vector3 impulse = direction * 5 + (Vector3.up * 6);
 
         rb.velocity = impulse;
+    }
+
+
+    private void Stag() {
+
+        if((Time.time >= nextStag)) {
+            inStag = true;
+            anim.SetTrigger("Stag");
+            FreezeConstraints(false);
+            rb.velocity = Vector3.zero;
+            rb.AddForce(-transform.forward * 1.5f, ForceMode.Impulse);
+            nextStag = Time.time + stagRate;
+        }        
     }
 
 

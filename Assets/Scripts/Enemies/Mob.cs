@@ -19,8 +19,8 @@ public class Mob : EnemyController {
     private bool isAlive = true;
     [HideInInspector]
     public bool inStag = false;
-    private float stagRate = 0f;
-    private float nextStag = 0;
+    protected float stagRate = 0f;
+    protected float nextStag = 0;
     private bool jump = false;
     private float jumpRate = 0;
     protected float nextJump = 0;
@@ -316,7 +316,7 @@ public class Mob : EnemyController {
     private Vector3 directionToIlandCenter(Vector3 playerPosition) {
 
         Vector3 iland = getIland();
-        Vector3 centerDirection = (playerPosition - iland).normalized * -2;
+        Vector3 centerDirection = (playerPosition - iland).normalized * -2.5f;
 
         return centerDirection; 
     }
@@ -390,9 +390,7 @@ public class Mob : EnemyController {
 
         if(!isVulnerable) {
             return;
-        }
-               
-        Stag();      
+        }  
 
         if(player == "Player1") {
             P1Incombat = true;
@@ -418,17 +416,7 @@ public class Mob : EnemyController {
     }
 
 
-    private void Stag() {
-
-        if(((enemy.name == "SwordMan") || (enemy.name == "BowMan")) && (Time.time >= nextStag)) {
-            inStag = true;
-            anim.SetTrigger("Stag");
-            FreezeConstraints(false);
-            rb.velocity = Vector3.zero;
-            rb.AddForce(-transform.forward * 1.5f, ForceMode.Impulse);
-            nextStag = Time.time + stagRate;
-        }        
-    }
+    
 
 
     /// <summary>

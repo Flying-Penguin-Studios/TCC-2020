@@ -71,6 +71,31 @@ public class SwordMan : Mob {
     }
 
 
+    public override void TakeDamage(int damage, string player) {
+
+        if(!isVulnerable) {
+            return;
+        }
+
+        Stag();
+
+        base.TakeDamage(damage, player);
+    }
+
+
+    private void Stag() {
+
+        if((Time.time >= nextStag)) {
+            inStag = true;
+            anim.SetTrigger("Stag");
+            FreezeConstraints(false);
+            rb.velocity = Vector3.zero;
+            rb.AddForce(-transform.forward * 1.5f, ForceMode.Impulse);
+            nextStag = Time.time + stagRate;
+        }        
+    }
+
+
     public void KnockBack(Vector3 punchPosition)    {
 
         inStag = true;

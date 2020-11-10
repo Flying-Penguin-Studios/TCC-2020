@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class PlayerController : MonoBehaviour
 {
@@ -497,6 +498,7 @@ public abstract class PlayerController : MonoBehaviour
     }
 
     public bool Caido { get => GetBool("Fallen"); }
+    public GameObject pressA;
 
     IEnumerator Fall()
     {
@@ -508,6 +510,7 @@ public abstract class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         while (GetBool("Fallen"))
         {
+            pressA.SetActive(true);
             if (Parter && Parter.Caido)
             {
                 SetDamage(stats.currentLife);
@@ -582,6 +585,7 @@ public abstract class PlayerController : MonoBehaviour
     public void Revive()
     {
         anim.SetBool("Fallen", false);
+        pressA.SetActive(false);
         stats.currentLife += (int)(stats.maxLife * 0.4f);
         SetLife();
         //Heal((int)(stats.maxLife * 0.4f));
@@ -590,6 +594,7 @@ public abstract class PlayerController : MonoBehaviour
     float revive_value = 0;
     const float revive_time = 2;
     bool StartRevive = false;
+    public Image percentage;
 
     protected void ReviveFriend(string Button)
     {
@@ -605,16 +610,19 @@ public abstract class PlayerController : MonoBehaviour
             if (Input.GetButton(Button))
             {
                 revive_value += Time.deltaTime;
+                percentage.fillAmount += revive_value/revive_time;
                 print(revive_value + " - Tempo para reviver");
 
                 if (revive_value >= revive_time)
                 {
+                    percentage.fillAmount = 0;
                     Parter.Revive();
                     ResetRevive();
                 }
             }
             else
             {
+                percentage.fillAmount = 0;
                 ResetRevive();
             }
         }

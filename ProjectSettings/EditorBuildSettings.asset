@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/0_Intro.unity
     guid: fa85f60e89b649b4a8c4ded0741b100f
   - enabled: 1
@@ -27,9 +27,12 @@ EditorBuildSettings:
     path: Assets/0_Projeto Antigo/Master Folder/Bruno/Testes/Teste_Controllers1.unity
     guid: a426157f4824a3844bfbcba6bbd508b7
   - enabled: 0
-    path: Assets/0_Projeto Antigo/Master Folder/Bruno/Boss/Boss.unity
-    guid: bbfebd1315015c64296317a7144fa0a2
-  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
     path: Assets/0_Projeto Antigo/Master Folder/Bruno/Boss/Boss.unity
     guid: 95574fde0484e0f4abdcfc0eac9c6605
+  - enabled: 1
+    path: Assets/Scenes/4-Boss.unity
+    guid: dd0dabad21052ee4382804d0b9128e7c
   m_configObjects: {}

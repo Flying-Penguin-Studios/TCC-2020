@@ -17947,8 +17947,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a714fa4b91ef844e91da7db7cf204d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pos1: {x: 0.28, y: 1.141, z: -34}
-  Pos2: {x: 3.75, y: 1.141, z: -34}
+  Pos1: {x: 0, y: 2, z: -60}
+  Pos2: {x: 1, y: 2, z: -60}
   CamPos: {x: 0, y: 0, z: 0}
 --- !u!4 &1667243680
 Transform:

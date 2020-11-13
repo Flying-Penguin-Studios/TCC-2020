@@ -3127,7 +3127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -31.19896, y: -951.56555}
+  m_AnchoredPosition: {x: 84, y: -824}
   m_SizeDelta: {x: 2467.2688, y: 2649.7698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &441049031
@@ -5058,7 +5058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -31.19896, y: -1101.3202}
+  m_AnchoredPosition: {x: 84.00002, y: -973.7546}
   m_SizeDelta: {x: 2467.2688, y: 2649.7698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &711207179
@@ -5083,7 +5083,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d60dd7cc60ac8c1438415cd01c65d8de, type: 3}
-    m_FontSize: 80
+    m_FontSize: 60
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -5095,8 +5095,10 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
   m_Text: "Am\xE1lia Soares Vieira de Vasconcelos\nGuilherme Itabayana Braga da Fonseca\nJulio
-    Cesar Dillinger Conway\nLuis Felipe Matsya de Aruanda Ramos Garrocho\nThiago
-    Teixeira Santos\n\nand all our classmates!"
+    Cesar Dillinger Conway\nLuiz Flavio Freitas Barbosa de Oliveira\nLuis Felipe
+    Matsya de Aruanda Ramos Garrocho\nRenato Dias Viana\nRoque Anderson Saldanha
+    Teixeira\nThiago Teixeira Santos\nVictor Rene Villavicencio Matienzo\nand all
+    our classmates!"
 --- !u!222 &711207180
 CanvasRenderer:
   m_ObjectHideFlags: 0

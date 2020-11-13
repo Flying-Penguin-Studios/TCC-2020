@@ -58,14 +58,14 @@ public abstract class PlayerController : MonoBehaviour
         else
             transform.GetChild(3).GetChild(0).GetComponent<ParticleSystem>().Play();
 
-        if (Parter && Parter.ToVivo)
+        if (Parter)
         {
             Vector3 FuturePos = transform.position + transform.forward * 2;
             float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
 
             if ((FuturePos - Parter.transform.position).magnitude > MaxDistance)
             {
-                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                rb.velocity = Vector3.zero;
                 return;
             }
         }
@@ -631,18 +631,18 @@ public abstract class PlayerController : MonoBehaviour
             {
                 revive_value += Time.deltaTime;
                 Parter.revi.FillPercentage(revive_value, revive_time);
-                //print(revive_value + " - Tempo para reviver");
+                print(revive_value + " - Tempo para reviver");
 
                 if (revive_value >= revive_time)
                 {
-                    Parter.revi.ResetPercentage();
+                    revi.ResetPercentage();
                     Parter.Revive();
                     ResetRevive();
                 }
             }
             else
             {
-                Parter.revi.ResetPercentage();
+                revi.ResetPercentage();
                 ResetRevive();
             }
         }
@@ -670,14 +670,14 @@ public abstract class PlayerController : MonoBehaviour
 
     public void InpulsePlayer(Vector3 Direction, float newDrag = -1)
     {
-        if (Parter && Parter.ToVivo)
+        if (Parter)
         {
             Vector3 FuturePos = transform.position + transform.forward * 2;
             float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
 
             if ((FuturePos - Parter.transform.position).magnitude > MaxDistance)
             {
-                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                rb.velocity = Vector3.zero;
                 return;
             }
         }
@@ -859,7 +859,7 @@ public abstract class PlayerController : MonoBehaviour
             //ForwardRaycast();
             Move();
 
-            if (Parter && Parter.ToVivo)
+            if (Parter)
             {
                 if (!GetBool("canMove"))
                 {
@@ -868,7 +868,7 @@ public abstract class PlayerController : MonoBehaviour
 
                     if ((FuturePos - Parter.transform.position).magnitude > MaxDistance)
                     {
-                        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                        rb.velocity = Vector3.zero;
                         return;
                     }
                 }

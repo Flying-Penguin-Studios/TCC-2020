@@ -34,9 +34,9 @@ public class Juninho : PlayerController
 
     void Update()
     {
-        //if (GameController.Singleton.GamePaused) { return; }
+        if (Time.timeScale < 1) { return; }
 
-        //Cheats();
+        Cheats();
 
         if (Input.GetKeyDown(KeyCode.F6))
         {
@@ -128,6 +128,12 @@ public class Juninho : PlayerController
 
     public void ShieldUP(Skill Skill, float Trigger)
     {
+        if (Caido)
+        {
+            Sup.CountCD();
+            return;
+        }
+
         if (Skill.IsAvaliable() && Trigger == 1 && OnGround() && CanTrigger && GetBool("canCast"))
         {
             CanTrigger = false;

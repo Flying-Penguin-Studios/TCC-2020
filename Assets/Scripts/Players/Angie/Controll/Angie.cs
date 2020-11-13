@@ -35,9 +35,9 @@ public class Angie : PlayerController
 
     void Update()
     {
-        //if (GameController.Singleton.GamePaused) { return; }
+        if (Time.timeScale < 1) { return; }
 
-        //Cheats();
+        Cheats();
 
         if (Input.GetKeyDown(KeyCode.F7))
         {

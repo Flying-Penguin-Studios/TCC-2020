@@ -42,6 +42,7 @@ public abstract class PlayerController : MonoBehaviour
     #region Movimentação
 
     protected float Distance;
+    public float MaxDistance = 50;
 
     void Walk(Vector3 moveDir, float moveAmout)
     {
@@ -56,6 +57,10 @@ public abstract class PlayerController : MonoBehaviour
             transform.GetChild(3).GetChild(0).GetComponent<ParticleSystem>().Stop();
         else
             transform.GetChild(3).GetChild(0).GetComponent<ParticleSystem>().Play();
+
+        Vector3 FuturePos = transform.position + transform.forward;
+        if ((FuturePos - Parter.transform.position).magnitude > MaxDistance)
+            return;
 
         moveDir *= speed * moveAmout;
         rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
@@ -837,7 +842,10 @@ public abstract class PlayerController : MonoBehaviour
             Move();
         }
 
-        transform.GetChild(7).LookAt(Camera.main.gameObject.transform);
+        Debug.DrawLine(transform.position, Parter.transform.position, Color.black);
+        //print(Vector3.Distance(transform.position, Parter.transform.position));
+
+        //transform.GetChild(7).LookAt(Camera.main.gameObject.transform);
         //Quaternion[] Quarts = new Quaternion[9];
         //Vector3 central = this.transform.forward;
         //float angle = -18;

@@ -22,13 +22,10 @@ public class ReviveAlly : MonoBehaviour
     public void ResetPercentage()
     {
         percentage.fillAmount = 0;
-        print("A");
     }
 
     public void FillPercentage(float currentTime, float cooldown)
     {
-        //print(transform.parent.parent.gameObject.name);
         percentage.fillAmount = currentTime / cooldown;
-        //print(percentage.fillAmount);
     }
 }

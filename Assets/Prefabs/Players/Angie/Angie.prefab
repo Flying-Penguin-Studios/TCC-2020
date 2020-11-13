@@ -243,9 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StringTrigger: 
   CD: 20
-  VortexZone: {fileID: 8525330702354610436, guid: 24ae76f71346cde4ca0a6aa96f4341b2,
-    type: 3}
-  VortexZoneT: {fileID: 1488365076262670173, guid: 73601b96481718f41b2599b86e6df551,
+  VortexZone: {fileID: 1488365076262670173, guid: 73601b96481718f41b2599b86e6df551,
     type: 3}
   SpawnPoint: {fileID: 3614994978689830402}
 --- !u!114 &1513151491

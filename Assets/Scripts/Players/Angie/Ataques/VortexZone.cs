@@ -14,11 +14,21 @@ public class VortexZone : MonoBehaviour
     [SerializeField]
     private int Duration = 5;
 
+    [Space(30)]
+
+    [SerializeField] float Speed = 3;
+
     private PlayerController Player;
+
+    Rigidbody rb;
+
+
 
     void Start()
     {
-        StartCoroutine("Move");
+        rb = GetComponent<Rigidbody>();
+        StartCoroutine(Move());
+        StartCoroutine(Vortex());
         GetComponent<Collider>().enabled = false;
     }
 
@@ -27,61 +37,41 @@ public class VortexZone : MonoBehaviour
         Player = n_Player;
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.DrawSphere(transform.position, GetComponent<SphereCollider>().radius);
-    //}
 
     IEnumerator Move()
     {
-        Vector3 Direction = transform.TransformDirection(Vector3.forward).normalized;
-        Vector3 Destiny = transform.position + (Direction * 10);
-        float Distance = Vector3.Distance(Direction, Destiny);
-
-        while (!(Distance >= 0 && Distance <= 1))
+        while (true)
         {
-            transform.position += Direction * (Time.deltaTime * 10);
-            Distance = Vector3.Distance(transform.position, Destiny);
+            Collider[] _collider = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, l_Mask);
+            Vector3 Dir = Vector3.zero;
 
-            l_collider = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, l_Mask);
-
-            foreach (Collider obj in l_collider)
+            if (_collider.Length > 0)
             {
-                Rigidbody rb = obj.GetComponent<Rigidbody>();
-
-                if (obj.gameObject.GetComponent<Zombie>())
+                foreach (Collider item in _collider)
                 {
-                    if (!obj.gameObject.GetComponent<Zombie>().berserkerModeOn)
-                        rb.velocity /= 2;
+                    Dir += item.gameObject.transform.position;
                 }
-                else
-                {
-                    rb.velocity /= 1.5f;
 
-                    //Vector3 Dir = (rb.transform.position - transform.position).normalized;
-
-                    //float Dist = Vector3.Distance(transform.position, rb.transform.position);
-                    //Dist = Mathf.Pow(Dist, 1.5f);
-
-                    //float PowerForce = Power / Dist * 50;
-                    //PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
-                    //Dir.y = 0;
-
-                    //rb.AddForce(Dir  * PowerForce, ForceMode.VelocityChange);
-                }
+                Dir /= _collider.Length;
+            }
+            else
+            {
+                Dir = transform.forward;
             }
 
-            yield return null;
-        }
+            Vector3 Mov = Vector3.Lerp(transform.position, Dir, Time.deltaTime);
+            Mov.y = 1;
+            transform.position = Mov;
 
-        GetComponent<Collider>().enabled = true;
-        StartCoroutine("Vortex");
-        yield return null;
+            Debug.DrawLine(transform.position, Dir, Color.red);
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     IEnumerator Vortex()
     {
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        //GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
         float TimeDuration = Time.time + Duration;
 

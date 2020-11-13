@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour
     public bool CriarPlayer1;
     public GameObject Player2;
     public bool CriarPlayer2;
+    [Space(5)]
+    public float MaxDistancePlayers = 20;
 
     [Header("HUD Options")]
     public GameObject HUD1;
@@ -222,13 +224,13 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            LoadScene("4-Boss");
-        }
-        else if (Input.GetKeyDown(KeyCode.F2))
-        {
-            LoadScene("Boss");
-        }
+        //if (Input.GetKeyDown(KeyCode.F1))
+        //{
+        //    LoadScene("4-Boss");
+        //}
+        //else if (Input.GetKeyDown(KeyCode.F2))
+        //{
+        //    LoadScene("Boss");
+        //}
     }
 }

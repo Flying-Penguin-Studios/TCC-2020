@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vortex : Skill
+public class Vortex_Backup : Skill
 {
     [SerializeField]
     private GameObject VortexZone;
@@ -16,11 +16,7 @@ public class Vortex : Skill
 
     protected override void Effect()
     {
-        Vector3 SpawPos = Player.transform.position + Player.transform.forward;
-        SpawPos.y += 1;
-
-        //GameObject Vortex = Instantiate(VortexZone, SpawnPoint.position, Player.transform.localRotation);
-        GameObject Vortex = Instantiate(VortexZone, SpawPos, Player.transform.localRotation);
+        GameObject Vortex = Instantiate(VortexZone, SpawnPoint.position, Player.transform.localRotation);
         Vortex.GetComponent<VortexZone>().SetPlayer(Player);
     }
 

@@ -42,7 +42,7 @@ public abstract class PlayerController : MonoBehaviour
     #region Movimentação
 
     protected float Distance;
-    public float MaxDistance = 50;
+    //public float MaxDistance = 50;
 
     void Walk(Vector3 moveDir, float moveAmout)
     {
@@ -58,9 +58,17 @@ public abstract class PlayerController : MonoBehaviour
         else
             transform.GetChild(3).GetChild(0).GetComponent<ParticleSystem>().Play();
 
-        Vector3 FuturePos = transform.position + transform.forward;
-        if ((FuturePos - Parter.transform.position).magnitude > MaxDistance)
-            return;
+        if (Parter)
+        {
+            Vector3 FuturePos = transform.position + transform.forward * 2;
+            float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
+
+            if ((FuturePos - Parter.transform.position).magnitude > MaxDistance)
+            {
+                rb.velocity = Vector3.zero;
+                return;
+            }
+        }
 
         moveDir *= speed * moveAmout;
         rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
@@ -173,8 +181,6 @@ public abstract class PlayerController : MonoBehaviour
 
     protected virtual void Move()
     {
-
-
         Vector3 v = vertical * Vector3.forward;
         Vector3 h = horizontal * Vector3.right;
         moveDir = (v + h).normalized;
@@ -624,7 +630,7 @@ public abstract class PlayerController : MonoBehaviour
             if (Input.GetButton(Button))
             {
                 revive_value += Time.deltaTime;
-                revi.FillPercentage(revive_value , revive_time);
+                Parter.revi.FillPercentage(revive_value, revive_time);
                 print(revive_value + " - Tempo para reviver");
 
                 if (revive_value >= revive_time)
@@ -664,6 +670,18 @@ public abstract class PlayerController : MonoBehaviour
 
     public void InpulsePlayer(Vector3 Direction, float newDrag = -1)
     {
+        if (Parter)
+        {
+            Vector3 FuturePos = transform.position + transform.forward * 2;
+            float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
+
+            if ((FuturePos - Parter.transform.position).magnitude > MaxDistance)
+            {
+                rb.velocity = Vector3.zero;
+                return;
+            }
+        }
+
         if (newDrag >= 0)
             rb.drag = newDrag;
 
@@ -840,10 +858,22 @@ public abstract class PlayerController : MonoBehaviour
         {
             //ForwardRaycast();
             Move();
-        }
 
-        Debug.DrawLine(transform.position, Parter.transform.position, Color.black);
-        //print(Vector3.Distance(transform.position, Parter.transform.position));
+            if (Parter)
+            {
+                if (!GetBool("canMove"))
+                {
+                    Vector3 FuturePos = transform.position + transform.forward * 2;
+                    float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
+
+                    if ((FuturePos - Parter.transform.position).magnitude > MaxDistance)
+                    {
+                        rb.velocity = Vector3.zero;
+                        return;
+                    }
+                }
+            }
+        }
 
         //transform.GetChild(7).LookAt(Camera.main.gameObject.transform);
         //Quaternion[] Quarts = new Quaternion[9];

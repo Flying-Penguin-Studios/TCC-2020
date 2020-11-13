@@ -28,7 +28,8 @@ public class Projetil : MonoBehaviour {
 
             if((other.name == "Player1") || other.name == "Player2") {
                 other.GetComponent<PlayerController>().TakeDamage(dano);
-                Instantiate(impactVFX, other.transform.position + Vector3.up, impactVFX.transform.rotation);
+                GameObject arrow =  Instantiate(impactVFX, other.transform.position + Vector3.up, impactVFX.transform.rotation);
+                Destroy(arrow, 2);
                 Destroy(this.gameObject);
             }
         }

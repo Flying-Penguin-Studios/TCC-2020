@@ -6,7 +6,7 @@ public class FonteHeal : MonoBehaviour {
 
 
 
-
+    public int healPerSecond = 1;
     private float fireRate = 1;
     private float nextFire = 0;
 
@@ -19,7 +19,7 @@ public class FonteHeal : MonoBehaviour {
 
             if(Time.time >= nextFire) {
 
-                other.GetComponent<PlayerController>().Heal(1);
+                other.GetComponent<PlayerController>().Heal(healPerSecond);
                 nextFire = Time.time + fireRate;
             }
         }

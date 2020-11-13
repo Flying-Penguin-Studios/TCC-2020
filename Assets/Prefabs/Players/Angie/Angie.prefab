@@ -192,7 +192,7 @@ MonoBehaviour:
   isAlive: 1
   ToVivo: 1
   pressA: {fileID: 3419070687564053059}
-  percentage: {fileID: 8872417624835710913}
+  revi: {fileID: 8551022592626052964}
   Dash: {fileID: 0}
   Sup: {fileID: 0}
   Control: {fileID: 0}
@@ -599,20 +599,31 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.0027810272
       objectReference: {fileID: 0}
+    - target: {fileID: 8570068232865562861, guid: 8b801709ec10e284b9d05369856da697,
+        type: 3}
+      propertyPath: percentage
+      value: 
+      objectReference: {fileID: 8872417624835710913}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b801709ec10e284b9d05369856da697, type: 3}
---- !u!1 &3419070687564053059 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3402276777814111690, guid: 8b801709ec10e284b9d05369856da697,
-    type: 3}
-  m_PrefabInstance: {fileID: 19608797527871369}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7353572177678835495 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7370291387778011310, guid: 8b801709ec10e284b9d05369856da697,
     type: 3}
   m_PrefabInstance: {fileID: 19608797527871369}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8551022592626052964 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8570068232865562861, guid: 8b801709ec10e284b9d05369856da697,
+    type: 3}
+  m_PrefabInstance: {fileID: 19608797527871369}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419070687564053059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa0cc50dbcdde674ea05c207af9353a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8872417624835710913 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8891375371251896392, guid: 8b801709ec10e284b9d05369856da697,
@@ -625,6 +636,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3419070687564053059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3402276777814111690, guid: 8b801709ec10e284b9d05369856da697,
+    type: 3}
+  m_PrefabInstance: {fileID: 19608797527871369}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &134632339528075542
 PrefabInstance:
   m_ObjectHideFlags: 0

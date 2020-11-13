@@ -608,7 +608,7 @@ public abstract class PlayerController : MonoBehaviour
     float revive_value = 0;
     const float revive_time = 2;
     bool StartRevive = false;
-    public Image percentage;
+    public ReviveAlly revi;
 
     protected void ReviveFriend(string Button)
     {
@@ -624,19 +624,19 @@ public abstract class PlayerController : MonoBehaviour
             if (Input.GetButton(Button))
             {
                 revive_value += Time.deltaTime;
-                percentage.fillAmount += revive_value / revive_time;
+                revi.FillPercentage(revive_value , revive_time);
                 print(revive_value + " - Tempo para reviver");
 
                 if (revive_value >= revive_time)
                 {
-                    percentage.fillAmount = 0;
+                    revi.ResetPercentage();
                     Parter.Revive();
                     ResetRevive();
                 }
             }
             else
             {
-                percentage.fillAmount = 0;
+                revi.ResetPercentage();
                 ResetRevive();
             }
         }

@@ -222,7 +222,7 @@ MonoBehaviour:
   isAlive: 0
   ToVivo: 1
   pressA: {fileID: 7663122132051177020}
-  percentage: {fileID: 4470722601342454718}
+  revi: {fileID: 3711335428578368283}
   Dash: {fileID: 0}
   Sup: {fileID: 0}
   Control: {fileID: 0}
@@ -566,6 +566,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.0027810272
       objectReference: {fileID: 0}
+    - target: {fileID: 8570068232865562861, guid: 8b801709ec10e284b9d05369856da697,
+        type: 3}
+      propertyPath: percentage
+      value: 
+      objectReference: {fileID: 4470722601342454718}
     - target: {fileID: 8891375371251896392, guid: 8b801709ec10e284b9d05369856da697,
         type: 3}
       propertyPath: m_FillAmount
@@ -587,6 +592,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5003411562073136118}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3711335428578368283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8570068232865562861, guid: 8b801709ec10e284b9d05369856da697,
+    type: 3}
+  m_PrefabInstance: {fileID: 5003411562073136118}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663122132051177020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa0cc50dbcdde674ea05c207af9353a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4470722601342454718 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8891375371251896392, guid: 8b801709ec10e284b9d05369856da697,

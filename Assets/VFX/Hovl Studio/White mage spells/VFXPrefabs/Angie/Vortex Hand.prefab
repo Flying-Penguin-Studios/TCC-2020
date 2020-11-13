@@ -40,13 +40,13 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488365076154334616}
   serializedVersion: 6
-  lengthInSec: 40
+  lengthInSec: 6
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1041,20 +1041,38 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 27.513681
-          outSlope: 27.513681
+          inSlope: 14.7866745
+          outSlope: 14.7866745
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.03589406
-          value: 0.9875777
-          inSlope: 27.513681
-          outSlope: 27.513681
-          tangentMode: 34
+          time: 0.06762846
+          value: 1
+          inSlope: -0.0023324545
+          outSlope: -0.0023324545
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 1
+          outWeight: 0.11146958
+        - serializedVersion: 3
+          time: 0.8306256
+          value: 1
+          inSlope: -0.08369733
+          outSlope: -1.6750987
+          tangentMode: 1
+          weightedMode: 0
+          inWeight: 0.08319352
+          outWeight: 0.35269323
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: -5.679015
+          outSlope: -5.679015
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.20647176
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -1353,7 +1371,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 1
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -1362,11 +1380,11 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
-        key5: {r: 0, g: 0, b: 0, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0}
+        key2: {r: 0, g: 0, b: 0, a: 1}
+        key3: {r: 0, g: 0, b: 0, a: 1}
+        key4: {r: 0, g: 0, b: 0, a: 1}
+        key5: {r: 0, g: 0, b: 0, a: 1}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
@@ -1379,10 +1397,10 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 65535
-        atime2: 0
-        atime3: 0
-        atime4: 0
-        atime5: 0
+        atime2: 65150
+        atime3: 65535
+        atime4: 65535
+        atime5: 65535
         atime6: 0
         atime7: 0
         m_Mode: 0
@@ -4945,13 +4963,13 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488365076649663672}
   serializedVersion: 6
-  lengthInSec: 40
+  lengthInSec: 6
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -5020,7 +5038,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5946,20 +5964,38 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 27.513681
-          outSlope: 27.513681
+          inSlope: 14.7866745
+          outSlope: 14.7866745
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.03589406
-          value: 0.9875777
-          inSlope: 27.513681
-          outSlope: 27.513681
-          tangentMode: 34
+          time: 0.06762846
+          value: 1
+          inSlope: -0.0023324545
+          outSlope: -0.0023324545
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 1
+          outWeight: 0.11146958
+        - serializedVersion: 3
+          time: 0.8306256
+          value: 1
+          inSlope: -0.08369733
+          outSlope: -1.6750987
+          tangentMode: 1
+          weightedMode: 0
+          inWeight: 0.08319352
+          outWeight: 0.35269323
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: -5.679015
+          outSlope: -5.679015
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.20647176
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -6258,7 +6294,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 1
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -6267,11 +6303,11 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
-        key5: {r: 0, g: 0, b: 0, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0}
+        key2: {r: 0, g: 0, b: 0, a: 1}
+        key3: {r: 0, g: 0, b: 0, a: 1}
+        key4: {r: 0, g: 0, b: 0, a: 1}
+        key5: {r: 0, g: 0, b: 0, a: 1}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
@@ -6284,10 +6320,10 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 65535
-        atime2: 0
-        atime3: 0
-        atime4: 0
-        atime5: 0
+        atime2: 65150
+        atime3: 65535
+        atime4: 65535
+        atime5: 65535
         atime6: 0
         atime7: 0
         m_Mode: 0
@@ -9815,13 +9851,13 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488365076653876799}
   serializedVersion: 6
-  lengthInSec: 40
+  lengthInSec: 6
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -9890,7 +9926,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10816,20 +10852,38 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 27.513681
-          outSlope: 27.513681
+          inSlope: 14.7866745
+          outSlope: 14.7866745
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.03589406
-          value: 0.9875777
-          inSlope: 27.513681
-          outSlope: 27.513681
-          tangentMode: 34
+          time: 0.06762846
+          value: 1
+          inSlope: -0.0023324545
+          outSlope: -0.0023324545
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 1
+          outWeight: 0.11146958
+        - serializedVersion: 3
+          time: 0.8306256
+          value: 1
+          inSlope: -0.08369733
+          outSlope: -1.6750987
+          tangentMode: 1
+          weightedMode: 0
+          inWeight: 0.08319352
+          outWeight: 0.35269323
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: -5.679015
+          outSlope: -5.679015
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.20647176
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -11128,7 +11182,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 1
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -11137,11 +11191,11 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
-        key5: {r: 0, g: 0, b: 0, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0}
+        key2: {r: 0, g: 0, b: 0, a: 1}
+        key3: {r: 0, g: 0, b: 0, a: 1}
+        key4: {r: 0, g: 0, b: 0, a: 1}
+        key5: {r: 0, g: 0, b: 0, a: 1}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
@@ -11154,10 +11208,10 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 65535
-        atime2: 0
-        atime3: 0
-        atime4: 0
-        atime5: 0
+        atime2: 65150
+        atime3: 65535
+        atime4: 65535
+        atime5: 65535
         atime6: 0
         atime7: 0
         m_Mode: 0
@@ -14685,13 +14739,13 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488365077273924472}
   serializedVersion: 6
-  lengthInSec: 40
+  lengthInSec: 6
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -14760,7 +14814,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -15686,20 +15740,38 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 27.513681
-          outSlope: 27.513681
+          inSlope: 14.7866745
+          outSlope: 14.7866745
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.03589406
-          value: 0.9875777
-          inSlope: 27.513681
-          outSlope: 27.513681
-          tangentMode: 34
+          time: 0.06762846
+          value: 1
+          inSlope: -0.0023324545
+          outSlope: -0.0023324545
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 1
+          outWeight: 0.11146958
+        - serializedVersion: 3
+          time: 0.8306256
+          value: 1
+          inSlope: -0.08369733
+          outSlope: -1.6750987
+          tangentMode: 1
+          weightedMode: 0
+          inWeight: 0.08319352
+          outWeight: 0.35269323
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: -5.679015
+          outSlope: -5.679015
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.20647176
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -15998,7 +16070,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 1
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -16007,11 +16079,11 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
-        key5: {r: 0, g: 0, b: 0, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0}
+        key2: {r: 0, g: 0, b: 0, a: 1}
+        key3: {r: 0, g: 0, b: 0, a: 1}
+        key4: {r: 0, g: 0, b: 0, a: 1}
+        key5: {r: 0, g: 0, b: 0, a: 1}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
@@ -16024,10 +16096,10 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 65535
-        atime2: 0
-        atime3: 0
-        atime4: 0
-        atime5: 0
+        atime2: 65150
+        atime3: 65535
+        atime4: 65535
+        atime5: 65535
         atime6: 0
         atime7: 0
         m_Mode: 0

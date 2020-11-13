@@ -214,6 +214,7 @@ MonoBehaviour:
   SparkleParticle: {fileID: 3395792076332924847, guid: bb8521f157b646f4da3607376aa91466,
     type: 3}
   isPlayer2: 0
+  MaxDistance: 20
   MinTimeCharge: 1.5
   MaxTimeCharge: 5
   getUpFriend: 0

@@ -61,11 +61,16 @@ public abstract class PlayerController : MonoBehaviour
         if (Parter)
         {
             Vector3 FuturePos = transform.position + transform.forward * 2;
+            Vector3 PosComparacao = Parter.transform.position;
+            FuturePos.y = 0;
+            PosComparacao.y = 0;
+
+
             float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
 
-            if ((FuturePos - Parter.transform.position).magnitude > MaxDistance)
+            if ((FuturePos - PosComparacao).magnitude > MaxDistance)
             {
-                rb.velocity = Vector3.zero;
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
                 return;
             }
         }
@@ -673,11 +678,16 @@ public abstract class PlayerController : MonoBehaviour
         if (Parter)
         {
             Vector3 FuturePos = transform.position + transform.forward * 2;
+            Vector3 PosComparacao = Parter.transform.position;
+            FuturePos.y = 0;
+            PosComparacao.y = 0;
+
+
             float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
 
-            if ((FuturePos - Parter.transform.position).magnitude > MaxDistance)
+            if ((FuturePos - PosComparacao).magnitude > MaxDistance)
             {
-                rb.velocity = Vector3.zero;
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
                 return;
             }
         }
@@ -864,11 +874,16 @@ public abstract class PlayerController : MonoBehaviour
                 if (!GetBool("canMove"))
                 {
                     Vector3 FuturePos = transform.position + transform.forward * 2;
+                    Vector3 PosComparacao = Parter.transform.position;
+                    FuturePos.y = 0;
+                    PosComparacao.y = 0;
+
+
                     float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
 
-                    if ((FuturePos - Parter.transform.position).magnitude > MaxDistance)
+                    if ((FuturePos - PosComparacao).magnitude > MaxDistance)
                     {
-                        rb.velocity = Vector3.zero;
+                        rb.velocity = new Vector3(0, rb.velocity.y, 0);
                         return;
                     }
                 }

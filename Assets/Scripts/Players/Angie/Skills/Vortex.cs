@@ -20,7 +20,8 @@ public class Vortex : Skill
         SpawPos.y += 1;
 
         //GameObject Vortex = Instantiate(VortexZone, SpawnPoint.position, Player.transform.localRotation);
-        GameObject Vortex = Instantiate(VortexZone, SpawPos, Player.transform.localRotation);
+        //GameObject Vortex = Instantiate(VortexZone, SpawPos, Player.transform.localRotation);
+        GameObject Vortex = Instantiate(VortexZone, SpawPos, Player.transform.rotation);
         Vortex.GetComponent<VortexZone>().SetPlayer(Player);
     }
 

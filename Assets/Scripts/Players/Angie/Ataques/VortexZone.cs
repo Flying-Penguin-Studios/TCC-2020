@@ -22,7 +22,7 @@ public class VortexZone : MonoBehaviour
 
     Rigidbody rb;
 
-
+    private Vector3 PlayT;
 
     void Start()
     {
@@ -35,6 +35,7 @@ public class VortexZone : MonoBehaviour
     public void SetPlayer(PlayerController n_Player)
     {
         Player = n_Player;
+        PlayT = Player.transform.forward;
     }
 
 
@@ -44,6 +45,7 @@ public class VortexZone : MonoBehaviour
         {
             Collider[] _collider = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, l_Mask);
             Vector3 Dir = Vector3.zero;
+            Vector3 Mov = Vector3.zero;
 
             if (_collider.Length > 0)
             {
@@ -53,17 +55,15 @@ public class VortexZone : MonoBehaviour
                 }
 
                 Dir /= _collider.Length;
+                Mov = Vector3.Lerp(transform.position, Dir, Time.deltaTime);
+                Mov.y = 1;
+                transform.position = Mov;
             }
             else
             {
-                Dir = transform.forward;
+                //transform.Translate(PlayT * Time.deltaTime);
+                transform.Translate(transform.forward * Time.deltaTime);
             }
-
-            Vector3 Mov = Vector3.Lerp(transform.position, Dir, Time.deltaTime);
-            Mov.y = 1;
-            transform.position = Mov;
-
-            Debug.DrawLine(transform.position, Dir, Color.red);
 
             yield return new WaitForEndOfFrame();
         }
@@ -95,7 +95,7 @@ public class VortexZone : MonoBehaviour
                     float Distance = Vector3.Distance(transform.position, rb.transform.position);
                     Distance = Mathf.Pow(Distance, 1.5f);
 
-                    float PowerForce = Power / Distance * 50;
+                    float PowerForce = Power / Distance * 25;
                     PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
                     Direction.y = 0;
 

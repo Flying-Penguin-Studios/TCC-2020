@@ -184,7 +184,6 @@ MonoBehaviour:
   SparkleParticle: {fileID: 1821929143923694868, guid: fe9087c1be137ce439ab083e0c84b8ef,
     type: 3}
   isPlayer2: 0
-  MaxDistance: 20
   MinTimeCharge: 1.5
   MaxTimeCharge: 5
   getUpFriend: 0
@@ -242,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StringTrigger: 
-  CD: 20
+  CD: 13
   VortexZone: {fileID: 1488365076262670173, guid: 73601b96481718f41b2599b86e6df551,
     type: 3}
   SpawnPoint: {fileID: 3614994978689830402}
@@ -439,7 +438,7 @@ MonoBehaviour:
   ExplosionImpactClips:
   - {fileID: 8300000, guid: 00710c6391c8aa84aa5edb275645b89c, type: 3}
   VortexClips:
-  - {fileID: 8300000, guid: 000238a090e9141429b691d12e9ad54b, type: 3}
+  - {fileID: 8300000, guid: 64b1e30e5f3835246be49cb9a00201b4, type: 3}
   VortexScreamClips:
   - {fileID: 8300000, guid: 796f6708ebd57c54f83c6efecbd10f10, type: 3}
   DashClips:

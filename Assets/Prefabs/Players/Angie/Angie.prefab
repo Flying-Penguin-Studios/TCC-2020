@@ -184,7 +184,6 @@ MonoBehaviour:
   SparkleParticle: {fileID: 1821929143923694868, guid: fe9087c1be137ce439ab083e0c84b8ef,
     type: 3}
   isPlayer2: 0
-  MaxDistance: 20
   MinTimeCharge: 1.5
   MaxTimeCharge: 5
   getUpFriend: 0
@@ -242,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StringTrigger: 
-  CD: 20
+  CD: 13
   VortexZone: {fileID: 1488365076262670173, guid: 73601b96481718f41b2599b86e6df551,
     type: 3}
   SpawnPoint: {fileID: 3614994978689830402}

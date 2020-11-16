@@ -206,6 +206,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss Final - Model w/Helmet
       objectReference: {fileID: 0}
+    - target: {fileID: 7069328383563200366, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7588737003918634452, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -24,11 +24,16 @@ public class Boss_Events : MonoBehaviour
 
     public void Dash()
     {
-        StartCoroutine(Boss.IDash());
+        //StartCoroutine(Boss.Dash());
     }
 
     public void UnlockAttack()
     {
         Boss.UnlockAttack();
+    }
+
+    public void SetAttacks()
+    {
+        Boss.SetBool("CanAttack", true);
     }
 }

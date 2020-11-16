@@ -121,8 +121,8 @@ public class GameController : MonoBehaviour
 
         if (ActualScene.name.ToUpper().Contains("Boss".ToUpper()))
         {
-            ScenePlayer1.transform.position = new Vector3(0, 2, -60);
-            ScenePlayer2.transform.position = new Vector3(1, 2, -60);
+            ScenePlayer1.transform.position = new Vector3(0, 2, -34);
+            ScenePlayer2.transform.position = new Vector3(3, 2, -34);
         }
         else if (CheckPointController.Singleton != null)
         {

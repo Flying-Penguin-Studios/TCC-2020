@@ -798,7 +798,6 @@ public abstract class PlayerController : MonoBehaviour
         return anim.GetBool(Bool);
     }
 
-
     protected void UseDash(float Use)
     {
         if (Dash.IsAvaliable() && Use == 1 && GetBool("canDash") && Dash.getCount() > 0) /*&& OnGround()*/

@@ -80,6 +80,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP_Max: 1000
   Target: {fileID: 0}
+  Player1: {fileID: 0}
+  Player2: {fileID: 0}
   HitArea: {fileID: 3011789830201916701}
   HUD: {fileID: 0}
   AggroP1: 0
@@ -173,6 +175,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889873701641411042, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.0037107712
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889873701641411042, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.01645233
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889873701641411042, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0000000021285402
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889873701641411042, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.000014894394
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889873701641411042, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.00090169837
       objectReference: {fileID: 0}
     - target: {fileID: 7069328383563200366, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
         type: 3}

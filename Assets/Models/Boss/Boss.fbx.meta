@@ -129,8 +129,15 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.5913633
+      - time: 0.58012736
         functionName: UnlockAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5838668
+        functionName: SetAttacks
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -200,6 +207,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.5727603
+        functionName: SetAttacks
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -252,6 +266,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.5618288
         functionName: TurnCollider
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.68629956
+        functionName: SetAttacks
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

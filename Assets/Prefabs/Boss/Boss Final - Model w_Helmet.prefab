@@ -4998,7 +4998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ae4c0c6235abe41b06a0042cdf27af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Alabarda: {fileID: 3889873701641411042}
+  Alabarda: {fileID: 253028660184984522}
 --- !u!1 &7123079464434421347
 GameObject:
   m_ObjectHideFlags: 0
@@ -6020,6 +6020,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 806e5afe4e1c4b2428d0d34c3e63a7bf, type: 3}
+--- !u!65 &253028660184984522 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 148263946033979877, guid: 806e5afe4e1c4b2428d0d34c3e63a7bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 111549286487673391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8638743550207112535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8533958459522121592, guid: 806e5afe4e1c4b2428d0d34c3e63a7bf,

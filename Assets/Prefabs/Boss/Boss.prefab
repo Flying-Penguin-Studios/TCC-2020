@@ -95,6 +95,7 @@ MonoBehaviour:
     AttackDamage: 0
     Skill1Damage: 0
     Skill2Damage: 0
+    HP: 0
     PercentToChangePhase: 0
     DurationChangePhase: 0
     TimeBetweenThunders: 0
@@ -293,6 +294,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8781324430507049866}
     m_Modifications:
+    - target: {fileID: 6224728857582434016, guid: af9f9340febc00948a4a840335b9d313,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8289083664433117724, guid: af9f9340febc00948a4a840335b9d313,
         type: 3}
       propertyPath: m_LocalPosition.x

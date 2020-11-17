@@ -11,6 +11,9 @@ public class ArenaBoss : MonoBehaviour
 
     public GameObject Boss;
 
+    public GameObject MainCan;
+    public GameObject SubCan;
+
     void Start()
     {
         Walls = transform.GetChild(0).gameObject;
@@ -24,8 +27,11 @@ public class ArenaBoss : MonoBehaviour
         Walls.SetActive(true);
         VFX.SetActive(true);
 
+        MainCan.SetActive(false);
+        SubCan.SetActive(true);
+
         Boss.GetComponent<Rigidbody>().constraints = ~RigidbodyConstraints.FreezeAll;
-        Boss.GetComponent<Boss>().enabled = true;        
+        Boss.GetComponent<Boss>().enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -62,6 +68,5 @@ public class ArenaBoss : MonoBehaviour
         {
             StartBoss();
         }
-
     }
 }

@@ -15,6 +15,7 @@ public class Boss_Phase1 : BossPhase
         Skill1Damage = 30;
         Skill2Damage = 30;
 
+        HP = 400;
         PercentToChangePhase = 70;
         DurationChangePhase = 20;
 

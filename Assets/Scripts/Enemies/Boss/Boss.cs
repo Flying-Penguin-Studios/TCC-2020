@@ -43,8 +43,10 @@ public class Boss : EnemyController
         StartPosition = transform.position;
         StartRot = transform.rotation;
         StartLocRot = transform.localRotation;
+        HUD.gameObject.SetActive(true);
 
         Init(Phase.speed);
+
         rb.angularDrag = 999;
         //rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
@@ -63,14 +65,18 @@ public class Boss : EnemyController
         Target = SortTarget();
         StartCoroutine(AggroControl());
 
-        HUD.SetLife(enemy.HP);
+        HUD.SetNewLife(1, Phase.HP);
+        enemy.HP = Phase.HP;
 
         Invoke("UnlockAttacks", Random.Range(1f, 3f));
 
         TimeDistance = Time.time + 10;
+        BattleStart = Time.time + 10;
 
         StartCoroutine(TakeDecision());
     }
+
+    float BattleStart;
 
     void UnlockAttacks()
     {
@@ -108,8 +114,14 @@ public class Boss : EnemyController
 
         if (Input.GetKeyDown(KeyCode.J))
         {
-            int d = enemy.HP - (int)(enemy.HP * (Phase.PercentToChangePhase / 100));
+            int d = enemy.HP - (int)(enemy.HP_Max * (Phase.PercentToChangePhase / 100));
             TakeDamage(d, "Player1");
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            int d = enemy.HP - 10;
+            TakeDamage(10, "Player1");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -156,7 +168,7 @@ public class Boss : EnemyController
 
             DistanceTarget = Vector3.Distance(transform.position, Target.transform.position);
 
-            if (DistanceTarget > 15)
+            if (DistanceTarget > 15 && Time.time > BattleStart)
             {
                 yield return StartCoroutine(Dash());
             }
@@ -406,23 +418,28 @@ public class Boss : EnemyController
             return;
 
         enemy.HP -= damage;
-        HUD.Life(enemy.HP);
+        HUD.SetLife(enemy.HP);
 
         if (enemy.HP <= 0)
         {
-            rb.velocity = Vector3.zero;
-            anim.Play("IdleChangePhase");
-            Destroy(this);
+            if (PhaseCount == 3)
+            {
+                rb.velocity = Vector3.zero;
+                anim.SetTrigger("Morre");
+
+                Destroy(GameObject.Find("ArenaBoss"));
+                Destroy(this);
+            }
+            else
+            {
+                StopAllCoroutines();
+                StartCoroutine(ChangePhase());
+                return;
+            }
+
         }
 
         GenerateAggro(player);
-
-        if (enemy.HP <= HP_Max * (Phase.PercentToChangePhase / 100))
-        {
-            StopAllCoroutines();
-            StartCoroutine(ChangePhase());
-            //StartCoroutine(Phase3Chaos());
-        }
     }
 
     int PhaseCount = 1;
@@ -430,6 +447,8 @@ public class Boss : EnemyController
     IEnumerator ChangePhase()
     {
         rb.velocity = Vector3.zero;
+        anim.SetFloat("Speed", 0);
+        anim.SetBool("OnChange", true);
 
         anim.SetTrigger("Change");
 
@@ -446,7 +465,7 @@ public class Boss : EnemyController
             yield return new WaitForFixedUpdate();
         }
 
-        yield return new WaitUntil(() => GetBool("OnChange"));
+        yield return new WaitWhile(() => GetBool("OnChange"));
 
         float Duration = Time.time + Phase.DurationChangePhase;
         //float Duration = Time.time + 5;
@@ -476,6 +495,7 @@ public class Boss : EnemyController
 
         PhaseCount++;
 
+
         if (PhaseCount == 2)
         {
             Phase = new Boss_Phase2();
@@ -483,15 +503,18 @@ public class Boss : EnemyController
         else if (PhaseCount == 3)
         {
             Phase = new Boss_Phase3();
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(true);
+            //transform.GetChild(0).gameObject.SetActive(false);
+            //transform.GetChild(1).gameObject.SetActive(true);
 
-            anim = this.transform.GetChild(1).GetComponent<Animator>();
+            //anim = this.transform.GetChild(1).GetComponent<Animator>();
 
             StartCoroutine(Phase3Chaos());
         }
 
-        TimeDistance = Time.time + 5;
+        HUD.SetNewLife(PhaseCount, Phase.HP);
+        enemy.HP = Phase.HP;
+
+        TimeDistance = Time.time + 15;
 
         StartCoroutine(TakeDecision());
 

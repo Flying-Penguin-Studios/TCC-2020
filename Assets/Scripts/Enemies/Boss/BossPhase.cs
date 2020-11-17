@@ -23,6 +23,7 @@ public class BossPhase
 
     [Space(20)]
 
+    public int HP;
     public float PercentToChangePhase;
     public float DurationChangePhase;
 
@@ -32,7 +33,7 @@ public class BossPhase
     public int ThunderDamage;
 
     [Space(20)]
-   
+
     public float MinRaioCD;
     public float MaxRaioCD;
 

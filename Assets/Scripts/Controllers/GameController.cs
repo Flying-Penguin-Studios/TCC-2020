@@ -85,6 +85,8 @@ public class GameController : MonoBehaviour
         }
         else if (ActualScene.name.ToUpper().Contains("Ilhas".ToUpper()) || ActualScene.name.ToUpper().Contains("Boss".ToUpper()))
         {
+            MaxDistancePlayers = 20;
+
             StartCoroutine(FadeOut(FadeObject));
 
             if (!FindObjectOfType<HUD>())
@@ -121,8 +123,9 @@ public class GameController : MonoBehaviour
 
         if (ActualScene.name.ToUpper().Contains("Boss".ToUpper()))
         {
-            ScenePlayer1.transform.position = new Vector3(0, 2, -34);
-            ScenePlayer2.transform.position = new Vector3(3, 2, -34);
+            MaxDistancePlayers = 999;
+            ScenePlayer1.transform.position = new Vector3(0, 1.3f, -37);
+            ScenePlayer2.transform.position = new Vector3(3.5f, 1.3f, -37);
         }
         else if (CheckPointController.Singleton != null)
         {

@@ -5350,7 +5350,7 @@ PrefabInstance:
     - target: {fileID: 936889038933669359, guid: d31bd91dfcc6c2c4193c141e9818127d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.81
+      value: 1.6200004
       objectReference: {fileID: 0}
     - target: {fileID: 936889038933669359, guid: d31bd91dfcc6c2c4193c141e9818127d,
         type: 3}
@@ -5391,6 +5391,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633299176524242888, guid: d31bd91dfcc6c2c4193c141e9818127d,
+        type: 3}
+      propertyPath: isPlayer2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8618723331379543795, guid: d31bd91dfcc6c2c4193c141e9818127d,
         type: 3}
@@ -6890,6 +6895,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1778371937}
     m_Modifications:
+    - target: {fileID: 3512571494956164924, guid: 0debe024ab01cea46a7e14a9bf46fc74,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 3676278434196269657, guid: 0debe024ab01cea46a7e14a9bf46fc74,
         type: 3}
       propertyPath: m_Name
@@ -6964,6 +6974,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2200001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337791200728747193, guid: 0debe024ab01cea46a7e14a9bf46fc74,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 8557061324142560615, guid: 0debe024ab01cea46a7e14a9bf46fc74,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0debe024ab01cea46a7e14a9bf46fc74, type: 3}
@@ -11219,7 +11239,7 @@ PrefabInstance:
     - target: {fileID: 8781324430507049866, guid: 9a667921bc3cf274185c2e1ef30d9f7f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.65
+      value: 10.75
       objectReference: {fileID: 0}
     - target: {fileID: 8781324430507049866, guid: 9a667921bc3cf274185c2e1ef30d9f7f,
         type: 3}
@@ -17705,15 +17725,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1654949329811137263, guid: 9af6d14495ae6d3418e8ccf7fd953e72,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731311962872209203, guid: 9af6d14495ae6d3418e8ccf7fd953e72,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6734457064276013006, guid: 9af6d14495ae6d3418e8ccf7fd953e72,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253342074430568619, guid: 9af6d14495ae6d3418e8ccf7fd953e72,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8307183139065611817, guid: 9af6d14495ae6d3418e8ccf7fd953e72,
         type: 3}
       propertyPath: m_Name
       value: IlhaG1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307183139065611817, guid: 9af6d14495ae6d3418e8ccf7fd953e72,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307183139065611817, guid: 9af6d14495ae6d3418e8ccf7fd953e72,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8647715721770343571, guid: 9af6d14495ae6d3418e8ccf7fd953e72,
         type: 3}
@@ -23361,6 +23406,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1513151487, guid: fd9bf46e05fa9714f8339a12e6c7eb5d, type: 3}
+      propertyPath: isPlayer2
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 267015207315663654, guid: fd9bf46e05fa9714f8339a12e6c7eb5d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23374,7 +23423,7 @@ PrefabInstance:
     - target: {fileID: 267015207315663654, guid: fd9bf46e05fa9714f8339a12e6c7eb5d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.8100004
+      value: 1.62
       objectReference: {fileID: 0}
     - target: {fileID: 267015207315663654, guid: fd9bf46e05fa9714f8339a12e6c7eb5d,
         type: 3}

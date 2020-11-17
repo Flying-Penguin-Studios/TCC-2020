@@ -151,7 +151,7 @@ public class Boss : EnemyController
 
             if (Input.GetKey(KeyCode.H))
             {
-                StartCoroutine(Dash());
+                yield return StartCoroutine(Dash());
             }
 
             DistanceTarget = Vector3.Distance(transform.position, Target.transform.position);
@@ -168,7 +168,6 @@ public class Boss : EnemyController
             {
                 if (Random.Range(0f, 100f) <= 10f)
                 {
-                    print("Parada");
                     //yield return StartCoroutine(Wait());
                     yield return StartCoroutine(Seek());
                 }
@@ -179,7 +178,6 @@ public class Boss : EnemyController
                 //}
                 else
                 {
-                    print("Seguindo");
                     yield return StartCoroutine(Seek());
                 }
             }
@@ -238,7 +236,7 @@ public class Boss : EnemyController
             rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
             LookToTarget();
 
-            if (TimeDistance + 5 < Time.time)
+            if (TimeDistance < Time.time || DistanceTarget > 12)
             {
                 yield return StartCoroutine(Dash());
             }
@@ -257,8 +255,9 @@ public class Boss : EnemyController
         while (AttackCount <= 3)
         {
             Attack();
+            anim.SetFloat("Speed", 0);
+            anim.SetBool("CanAttack", false);
 
-            yield return 1;
             yield return new WaitUntil(() => GetBool("CanAttack"));
 
             DistanceTarget = Vector3.Distance(transform.position, Target.transform.position);
@@ -285,22 +284,28 @@ public class Boss : EnemyController
         anim.SetTrigger("ResetAttack");
         AttackCount = 0;
         Target = GetNewTarget();
-        TimeDistance = Time.time;
+        TimeDistance = Time.time + 10;
         yield return null;
     }
 
     public IEnumerator Dash()
     {
+        anim.SetFloat("Speed", 0);
         rb.velocity = Vector3.zero;
         HitArea.setNewDamage(Phase.Skill1Damage);
         LookToTarget();
         anim.SetTrigger("Dash");
+        anim.SetBool("DashPreparation", true);
 
         Vector3 Destino = Target.transform.position;
         Destino.y = transform.position.y;
-        Vector3 moveDir = Vector3.Normalize(Target.transform.position - transform.position) * 40;
+        Vector3 moveDir = Vector3.Normalize(Target.transform.position - transform.position) * 25;
+
+        //print(GetBool("DashPreparation"));  
 
         yield return new WaitWhile(() => GetBool("DashPreparation"));
+
+        //print(GetBool("DashPreparation"));
 
         while (Vector3.Distance(Destino, transform.position) > 1)
         {
@@ -317,12 +322,14 @@ public class Boss : EnemyController
         LookToTarget();
 
         DistanceTarget = Vector3.Distance(transform.position, Target.transform.position);
-        TimeDistance = Time.time;
+        TimeDistance = Time.time + 10;
 
         if (DistanceTarget < 2.5f)
         {
             yield return StartCoroutine(NormalAttack());
         }
+
+        yield return new WaitForSeconds(.5f);
 
         yield return null;
     }
@@ -412,6 +419,7 @@ public class Boss : EnemyController
 
         if (enemy.HP <= HP_Max * (Phase.PercentToChangePhase / 100))
         {
+            StopAllCoroutines();
             StartCoroutine(ChangePhase());
             //StartCoroutine(Phase3Chaos());
         }
@@ -421,12 +429,9 @@ public class Boss : EnemyController
 
     IEnumerator ChangePhase()
     {
-        //CancelWanderWait();
+        rb.velocity = Vector3.zero;
 
         anim.SetTrigger("Change");
-
-        Moving = true;
-        CanAttack = false;
 
         rb.isKinematic = true;
         rb.useGravity = false;
@@ -441,13 +446,10 @@ public class Boss : EnemyController
             yield return new WaitForFixedUpdate();
         }
 
-        //transform.localRotation = StartLocRot;
-        //transform.rotation = StartRot;       
+        yield return new WaitUntil(() => GetBool("OnChange"));
 
-        yield return new WaitForSeconds(.3f);
-
-        //float Duration = Time.time + Phase.DurationChangePhase;
-        float Duration = Time.time + 5;
+        float Duration = Time.time + Phase.DurationChangePhase;
+        //float Duration = Time.time + 5;
 
         while (Duration > Time.time)
         {
@@ -470,6 +472,8 @@ public class Boss : EnemyController
         rb.isKinematic = false;
         rb.useGravity = true;
 
+        yield return new WaitWhile(() => GetBool("OnChange"));
+
         PhaseCount++;
 
         if (PhaseCount == 2)
@@ -489,10 +493,7 @@ public class Boss : EnemyController
 
         TimeDistance = Time.time + 5;
 
-        Moving = false;
-        CanAttack = true;
-
-        StartCoroutine(Seek());
+        StartCoroutine(TakeDecision());
 
         yield return null;
     }
@@ -501,7 +502,7 @@ public class Boss : EnemyController
     {
         yield return new WaitForSeconds(3f);
 
-        while (true)
+        while (enemy.HP > 0)
         {
             GameObject raio1 = Instantiate(Raio, Player1.transform.position, Quaternion.identity);
             GameObject raio2 = Instantiate(Raio, Player2.transform.position, Quaternion.identity);

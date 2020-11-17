@@ -57,10 +57,31 @@ public class SwordMan : Mob {
 
 
     protected override void Attack() {
+
+        /*
         attacking = true;
         sword.GetComponent<BoxCollider>().enabled = true;
         anim.SetTrigger("Attack");
+        */
+
+        StartCoroutine(WaitBeforeAttack());
     }
+
+
+    IEnumerator WaitBeforeAttack() {
+
+        float time = Random.Range(0, 0.5f);        
+
+        attacking = true;
+
+        yield return new WaitForSeconds(time);
+        sword.GetComponent<BoxCollider>().enabled = true;
+        anim.SetTrigger("Attack");
+
+        yield return null;
+
+    }
+
 
 
     public override void TakeDamage(int damage, string player) {

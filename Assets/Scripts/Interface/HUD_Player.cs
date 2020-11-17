@@ -25,7 +25,8 @@ public class HUD_Player : MonoBehaviour
     public Image background;
     public float fadeSpeed;
     bool coroutineStart = false;
-
+    bool coroutineStart2 = false;
+    public HealSprite heall;
 
     public void Init(PlayerController n_player)
     {
@@ -42,7 +43,12 @@ public class HUD_Player : MonoBehaviour
         {
             StartCoroutine(whiteBackground());
         }
-        
+
+        if ((life - currentLife < 0) && (currentLife < maxLife))
+        {
+            heall.HealS();
+        }
+
     }
 
     IEnumerator whiteBackground()

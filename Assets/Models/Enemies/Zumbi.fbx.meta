@@ -387,6 +387,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.39365077
+        functionName: GolemRage
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.44705883
+        functionName: BerserkerAnimation
+        data: 
+        objectReferenceParameter: {fileID: 5025128201466298871, guid: 3e9d9d6a537e7ea46b4c9340ea75f122,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 1
         functionName: ResetZombieAttack
         data: 
@@ -396,13 +411,6 @@ ModelImporter:
         messageOptions: 0
       - time: 1
         functionName: BecomeVulnerable
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.39365077
-        functionName: GolemRage
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

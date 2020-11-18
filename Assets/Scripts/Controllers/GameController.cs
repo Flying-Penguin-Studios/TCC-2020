@@ -36,6 +36,8 @@ public class GameController : MonoBehaviour
 
     [Header("HUD")]
     public GameObject HUD;
+	
+	[HideInInspector] public GameObject Scene_HUD;
 
     [Header("Fade Effects")]
     public GameObject FadeObject;
@@ -78,7 +80,7 @@ public class GameController : MonoBehaviour
             //StartCoroutine(FadeOut(FadeObject));
             if (!FindObjectOfType<HUD>())
             {
-                Instantiate(HUD);
+                Scene_HUD=Instantiate(HUD);
             }
 
             StartPlayers();
@@ -91,7 +93,7 @@ public class GameController : MonoBehaviour
 
             if (!FindObjectOfType<HUD>())
             {
-                Instantiate(HUD);
+                Scene_HUD=Instantiate(HUD);
             }
 
             Cursor.visible = false;

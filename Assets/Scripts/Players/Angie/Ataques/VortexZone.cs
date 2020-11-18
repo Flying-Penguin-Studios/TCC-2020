@@ -43,7 +43,7 @@ public class VortexZone : MonoBehaviour
     {
         while (true)
         {
-            Collider[] _collider = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, l_Mask);
+            Collider[] _collider = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius * 2, l_Mask);
             Vector3 Dir = Vector3.zero;
             Vector3 Mov = Vector3.zero;
 
@@ -62,7 +62,7 @@ public class VortexZone : MonoBehaviour
             else
             {
                 //transform.Translate(PlayT * Time.deltaTime);
-                transform.Translate(transform.forward * Time.deltaTime);
+                transform.Translate(transform.forward * Time.deltaTime * 3);
             }
 
             yield return new WaitForEndOfFrame();

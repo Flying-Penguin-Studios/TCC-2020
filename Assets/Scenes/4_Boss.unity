@@ -16655,7 +16655,7 @@ PrefabInstance:
     - target: {fileID: 5595686643906439606, guid: 392c2c2d2f9a05642b13fceae348c6a1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5595686643906439606, guid: 392c2c2d2f9a05642b13fceae348c6a1,
         type: 3}
@@ -18835,11 +18835,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream:Assets/Scenes/4-Boss.unity
-  m_RootOrder: 17
-=======
   m_RootOrder: 18
->>>>>>> Stashed changes:Assets/Scenes/4_Boss.unity
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1671090747
 PrefabInstance:
@@ -24822,14 +24818,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vida Boss
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream:Assets/Scenes/4-Boss.unity
-=======
     - target: {fileID: 5408660765688426872, guid: d6a0c6df4c049b24692b74e06fb00eef,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
->>>>>>> Stashed changes:Assets/Scenes/4_Boss.unity
     - target: {fileID: 6146404965987454280, guid: d6a0c6df4c049b24692b74e06fb00eef,
         type: 3}
       propertyPath: m_FillAmount

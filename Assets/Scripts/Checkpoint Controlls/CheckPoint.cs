@@ -20,7 +20,21 @@ public class CheckPoint : MonoBehaviour
                 GetComponent<Collider>().enabled = false;
 
                 GameObject _VFX = Instantiate(VFX, transform);
+
+                if (!GameController.Singleton.P1.ToVivo)
+                {
+                    GameController.Singleton.P1.transform.position = Pos1.position;
+                    GameController.Singleton.P1._Revive();
+                }
+
+                if (!GameController.Singleton.P2.ToVivo)
+                {
+                    GameController.Singleton.P2.transform.position = Pos2.position;
+                    GameController.Singleton.P2._Revive();
+                }
+
                 Destroy(_VFX, 1.3f);
+                Destroy(this, 1.3f);
             }
         }
     }

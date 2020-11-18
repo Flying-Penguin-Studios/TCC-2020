@@ -59,12 +59,17 @@ public class EventsAnimation : MonoBehaviour
 
     void D()
     {
-        Player.transform.GetChild(0).gameObject.SetActive(false);
-        Player.transform.GetChild(2).gameObject.SetActive(false);
-        Player.transform.GetChild(3).gameObject.SetActive(false);
-        Player.transform.GetChild(4).gameObject.SetActive(false);
-        Player.transform.GetChild(5).gameObject.SetActive(false);
-        GameController.Singleton.CheckPlayerIsAlive();
+        //Player.transform.GetChild(0).gameObject.SetActive(false);
+        //Player.transform.GetChild(2).gameObject.SetActive(false);
+        //Player.transform.GetChild(3).gameObject.SetActive(false);
+        //Player.transform.GetChild(4).gameObject.SetActive(false);
+        //Player.transform.GetChild(5).gameObject.SetActive(false);
+        //Player.transform.GetChild(6).gameObject.SetActive(false);
+        //Player.transform.GetChild(7).gameObject.SetActive(false);
+
+        //GameController.Singleton.CheckPlayerIsAlive();
+
+        Player.Kill();
     }
 
     public void SetRotateSpeed(float _value)

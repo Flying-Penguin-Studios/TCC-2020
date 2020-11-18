@@ -60,7 +60,7 @@ public abstract class PlayerController : MonoBehaviour
 
         if (Parter)
         {
-            if (Parter.ToVivo || !Parter.Caido)
+            if (Parter.ToVivo)
             {
                 Vector3 FuturePos = transform.position + transform.forward * 2;
                 Vector3 PosComparacao = Parter.transform.position;
@@ -557,11 +557,55 @@ public abstract class PlayerController : MonoBehaviour
         yield return null;
     }
 
+    public void _Revive()
+    {
+        stats.currentLife = stats.maxLife;
+        SetLife();
+
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(2).gameObject.SetActive(true);
+        transform.GetChild(3).gameObject.SetActive(true);
+        transform.GetChild(4).gameObject.SetActive(true);
+        transform.GetChild(5).gameObject.SetActive(true);
+        transform.GetChild(6).gameObject.SetActive(true);
+        transform.GetChild(7).gameObject.SetActive(true);
+
+        GetComponent<BoxCollider>().enabled = true;
+        //rb.useGravity = true;
+        Invoke("BackGravy", 0.5f);
+
+        ToVivo = true;
+    }
+
+    void BackGravy()
+    {
+        rb.useGravity = true;
+    }
+
+    void RemoveCollider()
+    {
+        GetComponent<BoxCollider>().enabled = false;
+    }
+
     public void Kill()
     {
+        rb.velocity = Vector3.zero;
         stats.currentLife = 0;
         SetLife();
+
+        rb.useGravity = false;
+        Invoke("RemoveCollider", 0.5f);
+        //GetComponent<BoxCollider>().enabled = false;
+
         transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
+        transform.GetChild(3).gameObject.SetActive(false);
+        transform.GetChild(4).gameObject.SetActive(false);
+        transform.GetChild(5).gameObject.SetActive(false);
+        transform.GetChild(6).gameObject.SetActive(false);
+        transform.GetChild(7).gameObject.SetActive(false);
+        GameController.Singleton.CheckPlayerIsAlive();
+
         ToVivo = false;
     }
 
@@ -643,14 +687,14 @@ public abstract class PlayerController : MonoBehaviour
 
                 if (revive_value >= revive_time)
                 {
-                    revi.ResetPercentage();
+                    Parter.revi.ResetPercentage();
                     Parter.Revive();
                     ResetRevive();
                 }
             }
             else
             {
-                revi.ResetPercentage();
+                Parter.revi.ResetPercentage();
                 ResetRevive();
             }
         }
@@ -680,7 +724,7 @@ public abstract class PlayerController : MonoBehaviour
     {
         if (Parter)
         {
-            if (Parter.ToVivo || !Parter.Caido)
+            if (Parter.ToVivo)
             {
                 Vector3 FuturePos = transform.position + transform.forward * 2;
                 Vector3 PosComparacao = Parter.transform.position;
@@ -878,7 +922,7 @@ public abstract class PlayerController : MonoBehaviour
             {
                 if (!GetBool("canMove"))
                 {
-                    if (Parter.ToVivo || !Parter.Caido)
+                    if (Parter.ToVivo)
                     {
                         Vector3 FuturePos = transform.position + transform.forward * 2;
                         Vector3 PosComparacao = Parter.transform.position;

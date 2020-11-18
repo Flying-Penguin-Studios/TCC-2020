@@ -87,8 +87,7 @@ public class Mob : EnemyController {
         ReachebleTarget = true;
 
         FreezeConstraints(true);
-        GameController.Singleton.UpdateScore();
-        print(GameController.Singleton.scoreP2);
+
     }
 
 

@@ -56,6 +56,8 @@ public class GameController : MonoBehaviour
     public PlayerController P1;
     [HideInInspector]
     public PlayerController P2;
+    [HideInInspector]
+    public int scoreP1 = 0, scoreP2 = 0;
 
     //public List<Arena> Arenas = new List<Arena>();
 
@@ -236,4 +238,10 @@ public class GameController : MonoBehaviour
         //    LoadScene("Boss");
         //}
     }
+
+
+    public void UpdateScore() {
+        HUD1.GetComponent<HUD>().UpdateScore(scoreP1, scoreP2);
+    }
+
 }

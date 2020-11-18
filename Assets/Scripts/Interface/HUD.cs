@@ -251,6 +251,10 @@ public class HUD : MonoBehaviour
         b.GetComponent<Image>().sprite = ButtonBase;
     }
 
+    public void UpdateScore(int scoreP1, int scoreP2) {
+        transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<Text>().text = scoreP1.ToString();
+        transform.GetChild(0).GetChild(4).GetChild(1).GetComponent<Text>().text = scoreP2.ToString();        
+    }
 
 
 

@@ -87,6 +87,8 @@ public class Mob : EnemyController {
         ReachebleTarget = true;
 
         FreezeConstraints(true);
+        GameController.Singleton.UpdateScore();
+        print(GameController.Singleton.scoreP2);
     }
 
 
@@ -411,12 +413,34 @@ public class Mob : EnemyController {
             isAlive = false;
             GetComponent<CapsuleCollider>().enabled = false;
             anim.SetTrigger("Dead");
+            ScoreCount(player);
             Die();
         }
     }
 
 
-    
+    /// <summary>
+    /// Atualiza o score dos jogadores
+    /// </summary>
+    /// <param name="player"></param>
+    private void ScoreCount(string player) {
+
+        int score = 0;
+
+        if(enemy.name == "SwordMan" || enemy.name == "SwordMan(Clone)") { score = 1; }
+        if(enemy.name == "BowMan" || enemy.name == "BowMan(Clone)") { score = 2; }
+        if(enemy.name == "Zombie" || enemy.name == "Zombie(Clone)") { score = 3; }
+
+
+        if(player == "Player1") {
+            GameController.Singleton.scoreP1 += score;
+        } else if(player == "Player2") {
+            GameController.Singleton.scoreP2 += score;
+        }
+
+        GameController.Singleton.UpdateScore();
+
+    }
 
 
     /// <summary>

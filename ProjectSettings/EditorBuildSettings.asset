@@ -29,10 +29,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/0_Projeto Antigo/Master Folder/Bruno/Boss/Boss.unity
     guid: 95574fde0484e0f4abdcfc0eac9c6605
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/4-Boss.unity
-    guid: dd0dabad21052ee4382804d0b9128e7c
+    guid: 11dd2ec41502b90489bf5af2b63a63f6
   m_configObjects: {}

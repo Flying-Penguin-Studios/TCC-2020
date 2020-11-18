@@ -22,7 +22,7 @@ public class SwordManSoundEvents : MonoBehaviour
         PlayRandomClip(SwordClips);
     }
 
-    private void SwordManDamage()
+    private void MobDamageSound()
     {
         PlayRandomClip(SwordManDamageClips);
     }

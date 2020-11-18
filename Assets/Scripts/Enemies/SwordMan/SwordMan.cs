@@ -57,13 +57,6 @@ public class SwordMan : Mob {
 
 
     protected override void Attack() {
-
-        /*
-        attacking = true;
-        sword.GetComponent<BoxCollider>().enabled = true;
-        anim.SetTrigger("Attack");
-        */
-
         StartCoroutine(WaitBeforeAttack());
     }
 

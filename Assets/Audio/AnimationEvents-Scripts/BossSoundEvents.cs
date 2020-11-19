@@ -5,10 +5,16 @@ using UnityEngine;
 public class BossSoundEvents : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip[] BossAttackClips;
+    private AudioClip[] BossAttackVoiceClips;
 
     [SerializeField]
-    private AudioClip[] BossDashClips;
+    private AudioClip[] BossAttackSFXClips;
+
+    [SerializeField]
+    private AudioClip[] BossDashVoiceClips;
+
+    [SerializeField]
+    private AudioClip[] BossDashSFXClips;
 
     [SerializeField]
     private AudioClip[] BossMagicScreamClips;
@@ -22,12 +28,14 @@ public class BossSoundEvents : MonoBehaviour
 
     private void PokiAttack()
     {
-        PlayRandomClip(BossAttackClips);
+        PlayRandomClip(BossAttackVoiceClips);
+        PlayRandomClip(BossAttackSFXClips);
     }
 
     private void PokiDash()
     {
-        PlayRandomClip(BossDashClips);
+        PlayRandomClip(BossDashVoiceClips);
+        PlayRandomClip(BossDashSFXClips);
     }
 
     private void PokiMagicScream()

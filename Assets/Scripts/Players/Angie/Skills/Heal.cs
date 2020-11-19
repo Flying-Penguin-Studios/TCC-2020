@@ -9,7 +9,7 @@ public class Heal : Skill
 
     protected override void Effect()
     {             
-        GameObject Heal = Instantiate(HealZone, Player.transform.position + new Vector3(0, -0.0f, 0), Player.transform.localRotation);
+        GameObject Heal = Instantiate(HealZone, Player.transform.position + new Vector3(0, 0.5f, 0), Player.transform.localRotation);
         Heal.GetComponent<HealZone>().SetPlayer(Player);
     }
 

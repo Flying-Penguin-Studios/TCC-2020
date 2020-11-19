@@ -8,6 +8,7 @@ public class Zombie : Mob {
     [Tooltip("Porcentagem (%) de vida para entrar em Berserker Mode"), Header("Zombie"), Space(10)]
     public float LifeToBerserkerMode;
     public bool berserkerModeOn = false;
+    public bool inTransformation = false;
 
     public GameObject LHand;
     public GameObject RHand;
@@ -24,8 +25,8 @@ public class Zombie : Mob {
         if(DistanceToTarget() <= minDistanceToPlayer && !attacking) {
             acceleration = false;
             Attack();
-        } else if(inStag) {
-
+        } else if(inTransformation) {
+            FreezeConstraints(true);
         } else {
             ChaseTarget();
         }
@@ -63,6 +64,7 @@ public class Zombie : Mob {
 
 
     private void EnterBerserkerMode() {
+        inTransformation = true;
         StartCoroutine(GetBigger());
         isVulnerable = false;
         berserkerModeOn = true;

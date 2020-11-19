@@ -123,6 +123,7 @@ public class AnimationEvents : MonoBehaviour {
 
     private void BecomeVulnerable() {
         zombie.isVulnerable = true;
+        zombie.inTransformation = false;
     }
 
 

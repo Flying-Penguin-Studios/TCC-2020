@@ -36,8 +36,8 @@ public class GameController : MonoBehaviour
 
     [Header("HUD")]
     public GameObject HUD;
-	
-	[HideInInspector] public GameObject Scene_HUD;
+
+    [HideInInspector] public GameObject Scene_HUD;
 
     [Header("Fade Effects")]
     public GameObject FadeObject;
@@ -82,7 +82,7 @@ public class GameController : MonoBehaviour
             //StartCoroutine(FadeOut(FadeObject));
             if (!FindObjectOfType<HUD>())
             {
-                Scene_HUD=Instantiate(HUD);
+                Scene_HUD = Instantiate(HUD);
             }
 
             StartPlayers();
@@ -95,7 +95,7 @@ public class GameController : MonoBehaviour
 
             if (!FindObjectOfType<HUD>())
             {
-                Scene_HUD=Instantiate(HUD);
+                Scene_HUD = Instantiate(HUD);
             }
 
             Cursor.visible = false;
@@ -144,10 +144,12 @@ public class GameController : MonoBehaviour
         if (CriarPlayer1 && !CriarPlayer2)
         {
             P2.Test();
+            MaxDistancePlayers = 999;
         }
         else if (!CriarPlayer1 && CriarPlayer2)
         {
             P1.Test();
+            MaxDistancePlayers = 999;
         }
     }
 
@@ -242,8 +244,9 @@ public class GameController : MonoBehaviour
     }
 
 
-    public void UpdateScore() {
-       GameController.Singleton.Scene_HUD.GetComponent<HUD>().UpdateScore(scoreP1, scoreP2);
+    public void UpdateScore()
+    {
+        GameController.Singleton.Scene_HUD.GetComponent<HUD>().UpdateScore(scoreP1, scoreP2);
     }
 
 }

@@ -37,7 +37,7 @@ public class BowMan : Mob {
             return;
         }
 
-        Stag();
+        if (damage > 0) { Stag(); }
 
         base.TakeDamage(damage, player);
     }

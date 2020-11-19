@@ -387,6 +387,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.0175953
+        functionName: BerserkerAnimationPreparation
+        data: 
+        objectReferenceParameter: {fileID: 7498299307174002887, guid: dc557e1c5c99e40489e1502f13181197,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.39365077
         functionName: GolemRage
         data: 

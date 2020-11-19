@@ -391,9 +391,11 @@ public class Mob : EnemyController {
 
         if(!isVulnerable) {
             return;
-        }  
+        }
 
-        if(player == "Player1") {
+        CallForHelp(player);
+
+        if (player == "Player1") {
             P1Incombat = true;
             P1Agro += damage;
         } else if(player == "Player2") {
@@ -415,6 +417,30 @@ public class Mob : EnemyController {
             ScoreCount(player);
             Die();
         }
+    }
+
+    
+
+    private void CallForHelp(string player) {
+
+        Collider[] friends = Physics.OverlapSphere(this.transform.position, 30, LayerMask.GetMask("EnemyHelp"));
+
+        foreach(Collider friend in friends) {
+            print(friend.transform.parent);
+        }
+    }
+
+
+    public void SetAggro(int aggro, string player) {
+
+        if (player == "Player1") {
+            P1Incombat = true;
+            P1Agro += aggro;
+        } else if(player == "Player2") {
+            P2Incombat = true;
+            P2Agro += aggro;
+        }
+
     }
 
 

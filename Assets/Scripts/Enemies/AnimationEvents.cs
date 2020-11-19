@@ -125,7 +125,14 @@ public class AnimationEvents : MonoBehaviour {
         zombie.isVulnerable = true;
     }
 
+
     
+    private void BerserkerAnimationPreparation(GameObject antecipation) {
+        GameObject instantiatedAntecipation = Instantiate(antecipation, zombie.transform.position, zombie.transform.rotation);
+        Destroy(instantiatedAntecipation, 2);
+    }
+
+
     private void BerserkerAnimation(GameObject animation) {
         GameObject instantiatedAnimation = Instantiate(animation, zombie.transform.position, zombie.transform.rotation);
         Destroy(instantiatedAnimation, 2);

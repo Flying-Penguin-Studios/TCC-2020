@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8de2fce3c46a1642b89ee7f323b40c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  danoMin: 5
-  danoMax: 15
+  danoMin: 10
+  danoMax: 25
 --- !u!1 &2968287621462131574
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,8 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8de2fce3c46a1642b89ee7f323b40c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  danoMin: 5
-  danoMax: 15
+  danoMin: 10
+  danoMax: 25
 --- !u!1001 &394733382594122071
 PrefabInstance:
   m_ObjectHideFlags: 0

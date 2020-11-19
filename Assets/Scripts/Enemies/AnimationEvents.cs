@@ -126,6 +126,10 @@ public class AnimationEvents : MonoBehaviour {
     }
 
     
+    private void BerserkerAnimation(GameObject animation) {
+        GameObject instantiatedAnimation = Instantiate(animation, zombie.transform.position, zombie.transform.rotation);
+        Destroy(instantiatedAnimation, 2);
+    }
 
 
 

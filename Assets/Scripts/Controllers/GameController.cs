@@ -243,7 +243,7 @@ public class GameController : MonoBehaviour
 
 
     public void UpdateScore() {
-        HUD1.GetComponent<HUD>().UpdateScore(scoreP1, scoreP2);
+       GameController.Singleton.Scene_HUD.GetComponent<HUD>().UpdateScore(scoreP1, scoreP2);
     }
 
 }

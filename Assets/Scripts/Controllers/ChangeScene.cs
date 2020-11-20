@@ -6,6 +6,6 @@ public class ChangeScene : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        GameController.Singleton.LoadScene("4-Boss");
+        GameController.Singleton.LoadScene("4_Boss");
     }
 }

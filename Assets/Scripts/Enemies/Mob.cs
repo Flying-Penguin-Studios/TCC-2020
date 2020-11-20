@@ -154,7 +154,9 @@ public class Mob : EnemyController {
     /// </summary>
     protected void Accelerate() {
 
-        if(acceleration) {
+        DustOnMove();
+
+        if (acceleration) {
             FreezeConstraints(false);
             if(speed < 1) speed += accelerationFactor * Time.fixedDeltaTime;
         } else {
@@ -170,6 +172,17 @@ public class Mob : EnemyController {
 
         velocity = transform.forward * movementSpeed * speed;
         rb.velocity = velocity;        
+    }
+
+
+    private void DustOnMove() {
+
+        if(speed > 0.5f) {
+            transform.GetChild(2).GetChild(0).GetComponent<ParticleSystem>().Play();
+        } else {
+            transform.GetChild(2).GetChild(0).GetComponent<ParticleSystem>().Stop();
+        }
+
     }
 
 
@@ -393,7 +406,7 @@ public class Mob : EnemyController {
             return;
         }
 
-        CallForHelp(player);
+        //CallForHelp(player);
 
         if (player == "Player1") {
             P1Incombat = true;

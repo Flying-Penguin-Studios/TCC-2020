@@ -7,7 +7,7 @@ public class SwordMan : Mob {
 
 
     public GameObject sword;
-
+    public GameObject swordTrail;
     
 
 
@@ -70,6 +70,11 @@ public class SwordMan : Mob {
         yield return new WaitForSeconds(time);
         sword.GetComponent<BoxCollider>().enabled = true;
         anim.SetTrigger("Attack");
+
+        GameObject trail = Instantiate(swordTrail, sword.transform.position, sword.transform.rotation);
+        trail.transform.SetParent(sword.transform);
+        trail.GetComponent<ParticleSystem>().Play();
+        Destroy(trail, 2);
 
         yield return null;
 

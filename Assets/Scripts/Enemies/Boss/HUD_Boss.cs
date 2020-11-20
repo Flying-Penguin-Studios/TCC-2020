@@ -12,6 +12,12 @@ public class HUD_Boss : MonoBehaviour
     private Image ActualVida;
     private float LifeBar;
 
+    public GameObject TelaDeVitoria;
+
+    public void Win()
+    {
+        TelaDeVitoria.SetActive(true);
+    }
 
     public void SetNewLife(int Count, float LifeBar)
     {

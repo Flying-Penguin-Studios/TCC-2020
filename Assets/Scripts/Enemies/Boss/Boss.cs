@@ -290,7 +290,7 @@ public class Boss : EnemyController
                     anim.SetTrigger("ResetAttack");
                     break;
                 }
-            }           
+            }
         }
 
         anim.SetTrigger("ResetAttack");
@@ -424,7 +424,7 @@ public class Boss : EnemyController
                 anim.SetTrigger("Morre");
 
                 Destroy(GameObject.Find("ArenaBoss"));
-                Destroy(this);
+                Invoke("Win", 5f);              
             }
             else
             {
@@ -436,6 +436,12 @@ public class Boss : EnemyController
         }
 
         GenerateAggro(player);
+    }
+
+    void Win()
+    {
+        HUD.Win();
+        Destroy(this);
     }
 
     int PhaseCount = 1;

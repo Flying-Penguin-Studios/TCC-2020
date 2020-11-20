@@ -731,11 +731,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossLightning
       objectReference: {fileID: 0}
-    - target: {fileID: 1101446207026651509, guid: 4d46eb2516029dc4f93ab1ffd26bc479,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7999082169533242230, guid: 4d46eb2516029dc4f93ab1ffd26bc479,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1851,6 +1846,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d31bd91dfcc6c2c4193c141e9818127d, type: 3}
+--- !u!1001 &315488931256165691
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2003917680393198757, guid: b10afcbbf625fe94db2dbb52e52b1010,
+        type: 3}
+      propertyPath: m_Name
+      value: TrailInimigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255083525077381669, guid: b10afcbbf625fe94db2dbb52e52b1010,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255083525077381669, guid: b10afcbbf625fe94db2dbb52e52b1010,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0069225
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255083525077381669, guid: b10afcbbf625fe94db2dbb52e52b1010,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0111300945
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255083525077381669, guid: b10afcbbf625fe94db2dbb52e52b1010,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255083525077381669, guid: b10afcbbf625fe94db2dbb52e52b1010,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255083525077381669, guid: b10afcbbf625fe94db2dbb52e52b1010,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.49999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255083525077381669, guid: b10afcbbf625fe94db2dbb52e52b1010,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255083525077381669, guid: b10afcbbf625fe94db2dbb52e52b1010,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255083525077381669, guid: b10afcbbf625fe94db2dbb52e52b1010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255083525077381669, guid: b10afcbbf625fe94db2dbb52e52b1010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255083525077381669, guid: b10afcbbf625fe94db2dbb52e52b1010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b10afcbbf625fe94db2dbb52e52b1010, type: 3}
 --- !u!1001 &1526476577431572439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2118,7 +2182,7 @@ PrefabInstance:
     - target: {fileID: 1651540446812675830, guid: b7ed2d0e831ca28448a3d3379f1c50d2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1651540446812675830, guid: b7ed2d0e831ca28448a3d3379f1c50d2,
         type: 3}

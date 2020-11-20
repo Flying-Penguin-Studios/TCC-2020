@@ -5221,7 +5221,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4919ba798c3cafd47ae52f012b4eae3d, type: 3}
   - {fileID: 8300000, guid: 67e37a93ecd7a134a8b2473bc97f070d, type: 3}
   BossDashSFXClips:
-  - {fileID: 8300000, guid: ddad3df56bd0b034f84148cf172feab3, type: 3}
   - {fileID: 8300000, guid: ea6ec462907c8a34cbb00259ba48c561, type: 3}
   BossMagicScreamClips: []
 --- !u!1 &7123079464434421347

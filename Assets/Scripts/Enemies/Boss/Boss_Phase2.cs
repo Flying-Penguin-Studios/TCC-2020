@@ -21,8 +21,8 @@ public class Boss_Phase2 : BossPhase
 
         TimeBetweenThunders = 5;
 
-        MaxRaioCD = 4;
-        MinRaioCD = 2;
+        MaxRaioCD = 2;
+        MinRaioCD = 1;
 
         ThunderDamage = 20;
 

@@ -19,7 +19,11 @@ public class CheckPoint : MonoBehaviour
                 CheckPointController.Singleton.SetPositons(Pos1, Pos2, PosCam);
                 GetComponent<Collider>().enabled = false;
 
-                GameObject _VFX = Instantiate(VFX, transform);
+                if (!gameObject.scene.name.Contains("Boss"))
+                {
+                    GameObject _VFX = Instantiate(VFX, transform);
+                    Destroy(_VFX, 1.3f);
+                }
 
                 if (!GameController.Singleton.P1.ToVivo)
                 {
@@ -35,8 +39,7 @@ public class CheckPoint : MonoBehaviour
 
                 GameController.Singleton.P1.HealFull();
                 GameController.Singleton.P2.HealFull();
-
-                Destroy(_VFX, 1.3f);
+                
                 Destroy(this, 1.3f);
             }
         }

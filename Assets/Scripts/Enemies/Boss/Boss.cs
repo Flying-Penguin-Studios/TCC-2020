@@ -114,8 +114,7 @@ public class Boss : EnemyController
 
         if (Input.GetKeyDown(KeyCode.J))
         {
-            int d = enemy.HP - (int)(enemy.HP_Max * (Phase.PercentToChangePhase / 100));
-            TakeDamage(d, "Player1");
+            TakeDamage(enemy.HP, "Player1");
         }
 
         if (Input.GetKeyDown(KeyCode.O))

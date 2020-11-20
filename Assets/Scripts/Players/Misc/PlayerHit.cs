@@ -21,7 +21,7 @@ public class PlayerHit : HitObject
 
     public void CrateVFX_HIT()
     {
-        GameObject VFX = Instantiate(VFX_HIT, transform.position, Quaternion.identity);
+        GameObject VFX = Instantiate(VFX_HIT, transform.position, transform.localRotation);
         Destroy(VFX, .8f);
     }
 

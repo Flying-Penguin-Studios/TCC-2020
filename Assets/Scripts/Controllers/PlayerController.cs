@@ -543,7 +543,7 @@ public abstract class PlayerController : MonoBehaviour
                 SetDamage(d);
                 yield return new WaitForSeconds(1f);
             }
-        }        
+        }
 
         //GetComponent<CapsuleCollider>().enabled = true;
         //Invoke("BackGravy", .5f);
@@ -668,7 +668,7 @@ public abstract class PlayerController : MonoBehaviour
         pressA.SetActive(false);
         stats.currentLife += (int)(stats.maxLife * 0.4f);
         SetLife();
-        ZoneInterction.enabled = false;       
+        ZoneInterction.enabled = false;
     }
 
     float revive_value = 0;
@@ -1080,7 +1080,31 @@ public abstract class PlayerController : MonoBehaviour
             if (SetDamage(FallDamage, true) > 0)
             {
                 StopCoroutine(Pisca());
-                transform.position = LastIslandPosition;
+
+                if (Parter.ToVivo)
+                {
+                    Vector3 FuturePos = LastIslandPosition;
+                    Vector3 PosComparacao = Parter.transform.position;
+                    FuturePos.y = 0;
+                    PosComparacao.y = 0;
+
+                    float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
+
+                    if ((FuturePos - PosComparacao).magnitude > MaxDistance)
+                    {
+                        transform.position = Parter.transform.position + Vector3.right * 2;
+                    }
+                    else
+                    {
+                        transform.position = LastIslandPosition;
+                    }
+                }
+                else
+                {
+                    transform.position = LastIslandPosition;
+                }
+
+
                 StartCoroutine(Pisca());
             }
             else

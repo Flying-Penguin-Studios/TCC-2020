@@ -1894,6 +1894,8 @@ MonoBehaviour:
   attacking: 0
   maxDistanceInCombat: 30
   sword: {fileID: 50830923568201898}
+  swordTrail: {fileID: 2003917680393198757, guid: b10afcbbf625fe94db2dbb52e52b1010,
+    type: 3}
 --- !u!1 &50830924675928866
 GameObject:
   m_ObjectHideFlags: 0

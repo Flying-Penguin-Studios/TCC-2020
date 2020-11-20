@@ -11652,6 +11652,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.491
       objectReference: {fileID: 0}
+    - target: {fileID: 1210061519560176622, guid: 9a667921bc3cf274185c2e1ef30d9f7f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3846522803789025301, guid: 9a667921bc3cf274185c2e1ef30d9f7f,
         type: 3}
       propertyPath: m_Constraints
@@ -11662,11 +11667,6 @@ PrefabInstance:
       propertyPath: HUD
       value: 
       objectReference: {fileID: 1138468785}
-    - target: {fileID: 6106761448491523065, guid: 9a667921bc3cf274185c2e1ef30d9f7f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6106761448491523065, guid: 9a667921bc3cf274185c2e1ef30d9f7f,
         type: 3}
       propertyPath: Player1

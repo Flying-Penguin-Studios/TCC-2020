@@ -73,7 +73,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261185648790484683}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb3b24ebaaba041429d654e8e622f08f, type: 3}
   m_Name: 
@@ -82,7 +82,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   Player1: {fileID: 0}
   Player2: {fileID: 0}
-  HitArea: {fileID: 3011789830201916701}
+  HitArea: {fileID: 7557244863663326893}
   HUD: {fileID: 0}
   AggroP1: 0
   AggroP2: 0
@@ -177,6 +177,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 2636254327918940596, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
+        type: 3}
+      propertyPath: DashColl
+      value: 
+      objectReference: {fileID: 5238852582781812229}
     - target: {fileID: 3889873701641411042, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
         type: 3}
       propertyPath: m_Size.x
@@ -280,9 +285,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1389906614388086820}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3011789830201916701 stripped
+--- !u!114 &7557244863663326893 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4217047479939556665, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
+  m_CorrespondingSourceObject: {fileID: 8910735365143076489, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
     type: 3}
   m_PrefabInstance: {fileID: 1389906614388086820}
   m_PrefabAsset: {fileID: 0}
@@ -292,6 +297,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd466d6a397e55a459bad199975b1552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &5238852582781812229 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 6628687432525653537, guid: 4334f5b0ae70ae04aaf1eb74c2502688,
+    type: 3}
+  m_PrefabInstance: {fileID: 1389906614388086820}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3365060920964342932
 PrefabInstance:
   m_ObjectHideFlags: 0

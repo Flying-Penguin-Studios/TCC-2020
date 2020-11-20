@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1633563981220897464}
   - component: {fileID: 1627475260168067403}
   - component: {fileID: 707931012935600473}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Portpt1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4829466166496875747}
   - component: {fileID: 7566391651256924899}
   - component: {fileID: 2209209438374407605}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Portpt2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 1428381192962174456}
   - component: {fileID: 3549133141278931005}
   - component: {fileID: 6482922821594126704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Portpt3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,9 +268,9 @@ GameObject:
   - component: {fileID: 8365276680182815525}
   - component: {fileID: 4063877069477800624}
   - component: {fileID: 779806758477012264}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Porto2
-  m_TagString: Untagged
+  m_TagString: Ponte
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

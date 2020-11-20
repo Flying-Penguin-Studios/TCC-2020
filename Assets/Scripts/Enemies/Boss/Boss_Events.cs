@@ -5,7 +5,8 @@ using UnityEngine;
 public class Boss_Events : MonoBehaviour
 {
     protected Boss Boss;
-    [SerializeField] Collider Alabarda;
+    [SerializeField] BoxCollider Alabarda;
+    [SerializeField] CapsuleCollider DashColl;
 
     void Start()
     {
@@ -15,6 +16,11 @@ public class Boss_Events : MonoBehaviour
     public void TurnCollider(int _Val)
     {
         Alabarda.enabled = _Val == 0 ? false : true;
+    }
+
+    public void DashCollider(int _Val)
+    {
+        DashColl.enabled = _Val == 0 ? false : true;
     }
 
     public void WalkAttack()

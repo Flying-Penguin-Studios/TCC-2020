@@ -220,7 +220,7 @@ public abstract class PlayerController : MonoBehaviour
         RaycastHit terrain;
         if (Physics.Raycast(this.transform.position, Vector3.down, out terrain, 999))
         {
-            if (terrain.transform.CompareTag("Terrain") || terrain.transform.CompareTag("StaticObject") || terrain.transform.CompareTag("ObjetosDeCena"))
+            if (terrain.transform.CompareTag("Terrain") || terrain.transform.CompareTag("StaticObject") || terrain.transform.CompareTag("ObjetosDeCena") || terrain.transform.CompareTag("Ponte"))
             {
                 float Distance = terrain.distance;
                 Distance = float.Parse(Distance.ToString("0.00"));
@@ -448,6 +448,7 @@ public abstract class PlayerController : MonoBehaviour
                     }
 
                     anim.SetTrigger("Death");
+                    StartCoroutine(Dissolve());
 
                     //GameController.Singleton.CheckPlayerIsAlive();
                 }
@@ -499,6 +500,7 @@ public abstract class PlayerController : MonoBehaviour
                     }
 
                     anim.SetTrigger("Death");
+                    StartCoroutine(Dissolve());
                 }
                 else if (getUp)
                 {
@@ -560,6 +562,17 @@ public abstract class PlayerController : MonoBehaviour
         stats.currentLife = stats.maxLife;
         SetLife();
 
+        Renderer[] rends = GetComponentsInChildren<Renderer>();
+
+        foreach (Renderer rend in rends)
+        {
+            try
+            {
+                rend.material.SetFloat("DissolveAmount", 1);
+            }
+            catch (System.Exception) { }
+        }
+
         transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(2).gameObject.SetActive(true);
         transform.GetChild(3).gameObject.SetActive(true);
@@ -584,6 +597,27 @@ public abstract class PlayerController : MonoBehaviour
     void RemoveCollider()
     {
         GetComponent<CapsuleCollider>().enabled = false;
+    }
+
+    IEnumerator Dissolve()
+    {
+        Renderer[] rends = GetComponentsInChildren<Renderer>();
+
+        for (float i = -1; i < 1; i += Time.deltaTime * 3)
+        {
+            foreach (Renderer rend in rends)
+            {
+                try
+                {
+                    rend.material.SetFloat("DissolveAmount", i);
+                }
+                catch (System.Exception) { }
+            }
+
+            yield return null;
+        }
+
+        yield return null;
     }
 
     public void Kill()

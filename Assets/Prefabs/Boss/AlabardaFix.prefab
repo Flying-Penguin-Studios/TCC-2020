@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7360459442801771543}
   - component: {fileID: 148263946033979877}
   - component: {fileID: 8801449732579185830}
+  - component: {fileID: 6517158796241038350}
   m_Layer: 16
   m_Name: AlabardaFix
   m_TagString: Untagged
@@ -94,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.0037107712, y: 0.0004921255, z: 0.013356804}
-  m_Center: {x: -0.0000000016543591, y: -0.000014892053, z: 0.0024494613}
+  m_Size: {x: 0.0037107712, y: 0.0012975322, z: 0.013356805}
+  m_Center: {x: -0.0000000017081833, y: 0.000037461024, z: 0.002449461}
 --- !u!114 &8801449732579185830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,3 +109,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd466d6a397e55a459bad199975b1552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &6517158796241038350
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017726724534773186}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.0040560113
+  m_Height: 0.01917493
+  m_Direction: 2
+  m_Center: {x: 4.4870568e-10, y: -0.000007172279, z: 0.0014865777}

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5551992483117018387}
   m_Layer: 8
   m_Name: CorpoPonte
-  m_TagString: Terrain
+  m_TagString: Ponte
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

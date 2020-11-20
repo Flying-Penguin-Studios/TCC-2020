@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 6589881710144228470}
   m_Layer: 8
   m_Name: Porto1
-  m_TagString: Terrain
+  m_TagString: Ponte
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

@@ -70,7 +70,7 @@ public class Boss : EnemyController
 
         Invoke("UnlockAttacks", Random.Range(1f, 3f));
 
-        TimeDistance = Time.time;
+        TimeDistance = Time.time + 5;
         BattleStart = Time.time + 10;
 
         StartCoroutine(TakeDecision());
@@ -251,6 +251,7 @@ public class Boss : EnemyController
                 yield return StartCoroutine(Dash());
             }
 
+            anim.SetFloat("Speed", 1);
             Target = GetNewTarget();
 
             yield return new WaitForEndOfFrame();
@@ -280,23 +281,26 @@ public class Boss : EnemyController
             }
             else
             {
-                float RandAttack = Random.Range(0f, 100f);
-                if (RandAttack >= 50)
-                {
-                    continue;
-                }
-                else
-                {
-                    anim.SetTrigger("ResetAttack");
-                    break;
-                }
+                //float RandAttack = Random.Range(0f, 100f);
+                //if (RandAttack >= 50)
+                //{
+                //    continue;
+                //}
+                //else
+                //{
+                anim.SetTrigger("ResetAttack");
+                break;
+                //}
             }
         }
 
         anim.SetTrigger("ResetAttack");
         AttackCount = 0;
         Target = GetNewTarget();
-        TimeDistance = Time.time + 10;
+        TimeDistance = Time.time + +2.5f;
+
+        yield return new WaitForSeconds(0.2f);
+
         yield return null;
     }
 
@@ -330,7 +334,7 @@ public class Boss : EnemyController
         LookToTarget();
 
         DistanceTarget = Vector3.Distance(transform.position, Target.transform.position);
-        TimeDistance = Time.time + 10;
+        TimeDistance = Time.time + 2.5f;
 
         if (DistanceTarget < 2.5f)
         {
@@ -424,7 +428,7 @@ public class Boss : EnemyController
                 anim.SetTrigger("Morre");
 
                 Destroy(GameObject.Find("ArenaBoss"));
-                Invoke("Win", 5f);              
+                Invoke("Win", 5f);
             }
             else
             {
@@ -457,15 +461,20 @@ public class Boss : EnemyController
         rb.isKinematic = true;
         rb.useGravity = false;
 
-        Vector3 Pos = StartPosition;
-        Pos.y += 5;
-        transform.position = Pos;
+        Vector3 Pos = new Vector3(1.8f, 3.8f, 2.1f);
 
-        while (transform.rotation != StartRot)
+        while (Vector3.Distance(transform.position, Pos) > .5f)
         {
-            transform.rotation = StartRot;
+            transform.position = Vector3.Lerp(transform.position, Pos, Time.deltaTime * 5);
+            transform.rotation = Quaternion.Lerp(transform.rotation, StartRot, Time.deltaTime * 10);
+
             yield return new WaitForFixedUpdate();
         }
+
+        //while (transform.rotation != StartRot)
+        //{
+        //    yield return new WaitForFixedUpdate();
+        //}
 
         yield return new WaitWhile(() => GetBool("OnChange"));
 
@@ -483,7 +492,7 @@ public class Boss : EnemyController
             yield return new WaitForSeconds(Random.Range(Phase.MinRaioCD, Phase.MaxRaioCD));
         }
 
-        while (transform.position != StartPosition)
+        while (Vector3.Distance(transform.position, StartPosition) > .5f)
         {
             transform.position = Vector3.Lerp(transform.position, StartPosition, Time.deltaTime * 10);
             yield return new WaitForFixedUpdate();
@@ -496,7 +505,6 @@ public class Boss : EnemyController
         yield return new WaitWhile(() => GetBool("OnChange"));
 
         PhaseCount++;
-
 
         if (PhaseCount == 2)
         {

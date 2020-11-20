@@ -20,9 +20,9 @@ GameObject:
   - component: {fileID: 3873227126194350576}
   - component: {fileID: 6899870428195704392}
   - component: {fileID: 308483225334449924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ponte
-  m_TagString: Untagged
+  m_TagString: Ponte
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

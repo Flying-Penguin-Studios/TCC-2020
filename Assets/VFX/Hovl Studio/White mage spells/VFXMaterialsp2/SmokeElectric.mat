@@ -30,7 +30,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - Color_DF130292: {r: 0.510489, g: 0.37068355, b: 0.92452836, a: 1}
-    - Vector2_3CCB29D6: {r: 0.5, g: 1, b: 0, a: 0}
+    - Color_DF130292: {r: 0.5174541, g: 0.37774152, b: 0.98833734, a: 1}
+    - Vector2_3CCB29D6: {r: 1, g: 2.39, b: 0.3, a: 0}
     - Vector2_8757772B: {r: -0.5, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []

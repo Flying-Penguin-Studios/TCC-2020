@@ -39,7 +39,12 @@ ModelImporter:
   - first:
       74: 5675782290198970196
     second: ZumbiRig|WalkRage
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 698227b74c8e87b4c960a3170e659246, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

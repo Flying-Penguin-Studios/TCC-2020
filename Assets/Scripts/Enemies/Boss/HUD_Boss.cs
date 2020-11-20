@@ -54,4 +54,9 @@ public class HUD_Boss : MonoBehaviour
         StopCoroutine(Life());
         ActualVida.fillAmount = Mathf.Clamp(actualLife / LifeBar, 0, 1);
     }
+
+    public void BackMenu()
+    {
+        GameController.Singleton.LoadScene("1_Menu");
+    }
 }

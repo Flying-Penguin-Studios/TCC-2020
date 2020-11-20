@@ -22,7 +22,8 @@ public class ArenaBoss : MonoBehaviour
 
     void StartBoss()
     {
-        Destroy(GetComponent<SphereCollider>());
+        Destroy(GetComponent<BoxCollider>());
+        GameController.Singleton.MaxDistancePlayers = 9999;
 
         Walls.SetActive(true);
         VFX.SetActive(true);

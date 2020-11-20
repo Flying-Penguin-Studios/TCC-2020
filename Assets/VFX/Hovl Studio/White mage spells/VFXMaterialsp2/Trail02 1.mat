@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SmokeElectric
-  m_Shader: {fileID: -6465566751694194690, guid: 36c22229ef4398c4a8742035741c037b,
+  m_Name: Trail02
+  m_Shader: {fileID: -6465566751694194690, guid: 719a109811c3c3d458fd9d51eaac4eb3,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,17 +20,11 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_687DDF86:
-        m_Texture: {fileID: 2800000, guid: 5c8a6d6e23fb06541acb6c92de5e7ac7, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_76E388EC:
-        m_Texture: {fileID: 2800000, guid: d06e9498a00104344b97f8294ba40c6c, type: 3}
+    - Texture2D_E7A03C47:
+        m_Texture: {fileID: 2800000, guid: ddd2497da944b0842baca3f78a1f51f2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - Color_DF130292: {r: 0.3589007, g: 0.22801706, b: 0.7924528, a: 1}
-    - Vector2_3CCB29D6: {r: 1.04, g: 1.93, b: 0.3, a: 0}
-    - Vector2_8757772B: {r: -0.5, g: 0.5, b: 0, a: 0}
+    - Color_CC2F38C1: {r: 1.9766746, g: 1.9766746, b: 1.9766746, a: 1}
   m_BuildTextureStacks: []

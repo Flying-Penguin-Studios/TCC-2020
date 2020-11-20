@@ -12244,6 +12244,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1110013493}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1112279432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5595686643906439601, guid: 392c2c2d2f9a05642b13fceae348c6a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1443323451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1120498200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15868,7 +15874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Boss: {fileID: 943470207}
-  MainCan: {fileID: 0}
+  MainCan: {fileID: 1112279432}
   SubCan: {fileID: 422583585}
 --- !u!65 &1382121500
 BoxCollider:
@@ -15881,8 +15887,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 35, y: 35, z: 10}
-  m_Center: {x: 2.4981823, y: 0, z: -5.7}
+  m_Size: {x: 35, y: 35, z: 30.12}
+  m_Center: {x: 2.4981823, y: 0, z: 4.18}
 --- !u!1001 &1382244427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24927,6 +24933,11 @@ PrefabInstance:
     - target: {fileID: 344209254616244780, guid: d6a0c6df4c049b24692b74e06fb00eef,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081273061112816339, guid: d6a0c6df4c049b24692b74e06fb00eef,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1273214452248281330, guid: d6a0c6df4c049b24692b74e06fb00eef,

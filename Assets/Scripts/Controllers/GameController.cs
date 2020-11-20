@@ -127,7 +127,7 @@ public class GameController : MonoBehaviour
 
         if (ActualScene.name.ToUpper().Contains("Boss".ToUpper()))
         {
-            //MaxDistancePlayers = 999;
+            MaxDistancePlayers = 12;
             ScenePlayer1.transform.position = new Vector3(0, 1.3f, -37);
             ScenePlayer2.transform.position = new Vector3(3.5f, 1.3f, -37);
         }

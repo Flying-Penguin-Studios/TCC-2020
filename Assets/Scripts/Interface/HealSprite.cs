@@ -29,8 +29,6 @@ public class HealSprite : MonoBehaviour
 
             Vector3 spawnPosition = GetBottomLeftCorner(panel) - new Vector3(Random.Range(0, panel.rect.x), Random.Range(0, panel.rect.y), 0);
 
-            //print("Spawn image at position: " + spawnPosition);
-
             GameObject spwanObj = Instantiate(imageToSpawn, spawnPosition, Quaternion.identity, panel);
             Destroy(spwanObj, 2f);
             yield return new WaitForSeconds(waitTime);

@@ -125,15 +125,9 @@ public class Juninho : PlayerController
 
     public float ShieldMaxDuration = 5f;
     private float ShieldTime;
-
+ 
     public void ShieldUP(Skill Skill, float Trigger)
     {
-        if (Caido)
-        {
-            Sup.CountCD();
-            return;
-        }
-
         if (Skill.IsAvaliable() && Trigger == 1 && OnGround() && CanTrigger && GetBool("canCast"))
         {
             CanTrigger = false;
@@ -147,6 +141,11 @@ public class Juninho : PlayerController
             {
                 CanTrigger = true;
                 SetBool("ShieldUP", false);
+            }
+
+            if (Caido)
+            {
+                Sup.CountCD();
             }
         }
     }

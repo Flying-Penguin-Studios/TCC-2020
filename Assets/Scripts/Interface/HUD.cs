@@ -252,9 +252,7 @@ public class HUD : MonoBehaviour
     }
 
     public void UpdateScore(int scoreP1, int scoreP2) {
-
-        //print(scoreP2);
-
+        
         this.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<Text>().text = scoreP1.ToString();
         this.transform.GetChild(0).GetChild(4).GetChild(1).GetComponent<Text>().text = scoreP2.ToString();        
     }

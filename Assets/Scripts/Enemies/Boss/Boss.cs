@@ -70,7 +70,7 @@ public class Boss : EnemyController
 
         Invoke("UnlockAttacks", Random.Range(1f, 3f));
 
-        TimeDistance = Time.time + 10;
+        TimeDistance = Time.time;
         BattleStart = Time.time + 10;
 
         StartCoroutine(TakeDecision());
@@ -168,7 +168,7 @@ public class Boss : EnemyController
 
             DistanceTarget = Vector3.Distance(transform.position, Target.transform.position);
 
-            if (DistanceTarget > 15 && Time.time > BattleStart)
+            if (DistanceTarget > 12 && Time.time > BattleStart)
             {
                 yield return StartCoroutine(Dash());
             }
@@ -185,7 +185,6 @@ public class Boss : EnemyController
                 }
                 //else if (Random.Range(0f, 100f) <= 30f)
                 //{
-                //    print("Vagando");
                 //    StartCoroutine(Wander());
                 //}
                 else
@@ -248,15 +247,17 @@ public class Boss : EnemyController
             rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
             LookToTarget();
 
-            if (TimeDistance < Time.time || DistanceTarget > 12)
+            if (TimeDistance < Time.time || (DistanceTarget > 12 && Time.time > BattleStart))
             {
                 yield return StartCoroutine(Dash());
             }
 
+            Target = GetNewTarget();
+
             yield return new WaitForEndOfFrame();
         }
 
-        Target = GetNewTarget();
+        //Target = GetNewTarget();
         Moving = false;
 
         yield return null;
@@ -290,7 +291,7 @@ public class Boss : EnemyController
                     anim.SetTrigger("ResetAttack");
                     break;
                 }
-            }
+            }           
         }
 
         anim.SetTrigger("ResetAttack");
@@ -309,15 +310,11 @@ public class Boss : EnemyController
         anim.SetTrigger("Dash");
         anim.SetBool("DashPreparation", true);
 
-        Vector3 Destino = Target.transform.position;
-        Destino.y = transform.position.y;
-        Vector3 moveDir = Vector3.Normalize(Target.transform.position - transform.position) * 25;
-
-        //print(GetBool("DashPreparation"));  
-
         yield return new WaitWhile(() => GetBool("DashPreparation"));
 
-        //print(GetBool("DashPreparation"));
+        Vector3 Destino = Target.transform.position;
+        Destino.y = transform.position.y;
+        Vector3 moveDir = Vector3.Normalize(Target.transform.position - transform.position) * 50;
 
         while (Vector3.Distance(Destino, transform.position) > 1)
         {

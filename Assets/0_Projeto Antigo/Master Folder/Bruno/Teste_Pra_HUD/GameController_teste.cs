@@ -32,16 +32,12 @@ public class GameController_teste : MonoBehaviour
     void Start()
     {
         Angie = GameObject.Find(StaticVariables.Names.Angie).GetComponent<PlayerController>().getStats();
-        print("Vida da Angie: " + Angie.currentLife);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //print("Vida do Juninho: " + Juninho.returnStats().currentLife);
-        //print("Vida da Angie: " + Angie.returnStats().currentLife);
-
-        if (Input.GetKeyDown(KeyCode.Z))
+       if (Input.GetKeyDown(KeyCode.Z))
         {
             Angie = GameObject.Find(StaticVariables.Names.Angie).GetComponent<PlayerController>().getStats();
             SceneManager.LoadScene("Master_Room_Teste");

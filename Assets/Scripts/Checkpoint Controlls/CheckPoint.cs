@@ -33,6 +33,9 @@ public class CheckPoint : MonoBehaviour
                     GameController.Singleton.P2._Revive();
                 }
 
+                GameController.Singleton.P1.HealFull();
+                GameController.Singleton.P2.HealFull();
+
                 Destroy(_VFX, 1.3f);
                 Destroy(this, 1.3f);
             }

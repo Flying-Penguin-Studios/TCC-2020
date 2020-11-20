@@ -67,7 +67,6 @@ public abstract class PlayerController : MonoBehaviour
                 FuturePos.y = 0;
                 PosComparacao.y = 0;
 
-
                 float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
 
                 if ((FuturePos - PosComparacao).magnitude > MaxDistance)
@@ -171,8 +170,6 @@ public abstract class PlayerController : MonoBehaviour
         {
             TargetInFront = null;
         }
-
-        //print(TargetInFront);
 
         return TargetInFront;
     }
@@ -525,7 +522,7 @@ public abstract class PlayerController : MonoBehaviour
         rb.velocity = Vector3.zero;
 
         rb.useGravity = false;
-        GetComponent<Collider>().enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
         transform.GetChild(4).GetComponent<Collider>().enabled = false;
 
         stats.currentLife += (int)(stats.maxLife * 0.3f);
@@ -546,10 +543,11 @@ public abstract class PlayerController : MonoBehaviour
                 SetDamage(d);
                 yield return new WaitForSeconds(1f);
             }
-        }
+        }        
 
-        rb.useGravity = true;
-        GetComponent<Collider>().enabled = true;
+        //GetComponent<CapsuleCollider>().enabled = true;
+        //Invoke("BackGravy", .5f);
+
         transform.GetChild(4).GetComponent<Collider>().enabled = true;
 
         rb.constraints = ~RigidbodyConstraints.FreezePosition;
@@ -568,12 +566,13 @@ public abstract class PlayerController : MonoBehaviour
         transform.GetChild(4).gameObject.SetActive(true);
         transform.GetChild(5).gameObject.SetActive(true);
         transform.GetChild(6).gameObject.SetActive(true);
-        transform.GetChild(7).gameObject.SetActive(true);
+        //transform.GetChild(7).gameObject.SetActive(true);
 
-        GetComponent<BoxCollider>().enabled = true;
+        GetComponent<CapsuleCollider>().enabled = true;
         //rb.useGravity = true;
         Invoke("BackGravy", 0.5f);
 
+        getUp = true;
         ToVivo = true;
     }
 
@@ -584,7 +583,7 @@ public abstract class PlayerController : MonoBehaviour
 
     void RemoveCollider()
     {
-        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
     }
 
     public void Kill()
@@ -617,6 +616,13 @@ public abstract class PlayerController : MonoBehaviour
         transform.GetChild(2).gameObject.SetActive(false);
         transform.GetChild(3).gameObject.SetActive(false);
         transform.GetChild(4).gameObject.SetActive(false);
+    }
+
+    public void HealFull()
+    {
+        stats.currentLife = stats.maxLife;
+        getUp = true;
+        SetLife();
     }
 
     public void Heal(int value)
@@ -656,11 +662,13 @@ public abstract class PlayerController : MonoBehaviour
 
     public void Revive()
     {
+        GetComponent<CapsuleCollider>().enabled = true;
+        Invoke("BackGravy", .5f);
         anim.SetBool("Fallen", false);
         pressA.SetActive(false);
         stats.currentLife += (int)(stats.maxLife * 0.4f);
         SetLife();
-        //Heal((int)(stats.maxLife * 0.4f));
+        ZoneInterction.enabled = false;       
     }
 
     float revive_value = 0;
@@ -683,7 +691,6 @@ public abstract class PlayerController : MonoBehaviour
             {
                 revive_value += Time.deltaTime;
                 Parter.revi.FillPercentage(revive_value, revive_time);
-                print(revive_value + " - Tempo para reviver");
 
                 if (revive_value >= revive_time)
                 {
@@ -1025,7 +1032,6 @@ public abstract class PlayerController : MonoBehaviour
     IEnumerator AutoHeal()
     {
         yield return new WaitForSeconds(7f);
-        //print("Start Heal");
 
         while (stats.currentLife < stats.maxLife)
         {
@@ -1033,7 +1039,6 @@ public abstract class PlayerController : MonoBehaviour
                 break;
 
             Heal(Mathf.RoundToInt(stats.maxLife * 0.05f));
-            //print("Curou na passiva");
             yield return new WaitForSeconds(3f);
         }
 

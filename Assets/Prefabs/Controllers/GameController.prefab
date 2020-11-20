@@ -47,9 +47,11 @@ MonoBehaviour:
   CriarPlayer1: 1
   Player2: {fileID: 6997604553415815145, guid: fd9bf46e05fa9714f8339a12e6c7eb5d, type: 3}
   CriarPlayer2: 1
+  MaxDistancePlayers: 20
   HUD1: {fileID: 557774866002362079, guid: 82fb19d443bc87f4b835553206cfef7b, type: 3}
-  HUD2: {fileID: 1828318354520199833, guid: 6454b7fe4f47bc34ba42df62de866ddd, type: 3}
+  HUD2: {fileID: 557774866002362079, guid: f69c8cea71a73f94493c0d3c0842ad49, type: 3}
   HUD: {fileID: 557774866002362079, guid: 82fb19d443bc87f4b835553206cfef7b, type: 3}
+  Scene_HUD: {fileID: 0}
   FadeObject: {fileID: 7213573186634040368, guid: e0b4fe520b13b004f9072196d5cf7cda,
     type: 3}
   MixerGeral: {fileID: 24100000, guid: 9f2e9ca6a00a1164baf575a5051e18ed, type: 2}
@@ -59,4 +61,6 @@ MonoBehaviour:
   ScenePlayer2: {fileID: 0}
   P1: {fileID: 0}
   P2: {fileID: 0}
+  scoreP1: 0
+  scoreP2: 0
   FadeSpeed: 0.4

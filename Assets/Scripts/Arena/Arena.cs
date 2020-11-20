@@ -81,11 +81,9 @@ public class Arena : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(_wave.Duration);
-            print("PROoooXIMO!");
         }
 
         yield return new WaitUntil(() => EnemyCount == 0);
-        print("cabo");
         ArenaController.Singleton.ArenaCompleted(this);
         Destroy(gameObject);
     }

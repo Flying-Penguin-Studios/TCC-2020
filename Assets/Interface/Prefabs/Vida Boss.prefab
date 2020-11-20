@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 9047963435866952885}
   - component: {fileID: 3811260421534927195}
   - component: {fileID: 8063114268490463681}
+  - component: {fileID: 5554040711714111754}
   m_Layer: 0
   m_Name: Vida Boss
   m_TagString: Untagged
@@ -671,6 +672,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5554040711714111754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408660765688426872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba11d447f5b5e74495b0df82e2bf75f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Vida1: {fileID: 1273214452248281330}
+  Vida2: {fileID: 8895671462442363447}
+  Vida3: {fileID: 6146404965987454280}
 --- !u!1 &8105368992534621998
 GameObject:
   m_ObjectHideFlags: 0

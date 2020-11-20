@@ -112,7 +112,7 @@ public class Boss : EnemyController
         //    StartCoroutine(Dash());
         //}
 
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             TakeDamage(enemy.HP, "Player1");
         }
@@ -329,6 +329,8 @@ public class Boss : EnemyController
         anim.SetTrigger("Attack");
 
         yield return new WaitWhile(() => GetBool("OnAttack"));
+        yield return new WaitForSeconds(.2f);
+
 
         Target = GetNewTarget();
         LookToTarget();
@@ -359,6 +361,13 @@ public class Boss : EnemyController
 
         yield return null;
     }
+
+    //Vector3 CheckHeal()
+    //{
+
+
+    //    //return null;
+    //}
 
     int AttackCount = 1;
 
@@ -449,6 +458,8 @@ public class Boss : EnemyController
     }
 
     int PhaseCount = 1;
+    public GameObject AlabardaVFX;
+    public GameObject AuraVFX;
 
     IEnumerator ChangePhase()
     {
@@ -471,6 +482,8 @@ public class Boss : EnemyController
             yield return new WaitForFixedUpdate();
         }
 
+        AuraVFX.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+
         //while (transform.rotation != StartRot)
         //{
         //    yield return new WaitForFixedUpdate();
@@ -486,8 +499,8 @@ public class Boss : EnemyController
             GameObject raio1 = Instantiate(Raio, Player1.transform.position, Quaternion.identity);
             GameObject raio2 = Instantiate(Raio, Player2.transform.position, Quaternion.identity);
 
-            raio1.GetComponent<ThunderWarning>().SetThunderDamage(Phase.ThunderDamage);
-            raio2.GetComponent<ThunderWarning>().SetThunderDamage(Phase.ThunderDamage);
+            raio1.GetComponent<Thunder>().SetDamage(Phase.ThunderDamage);
+            raio2.GetComponent<Thunder>().SetDamage(Phase.ThunderDamage);
 
             yield return new WaitForSeconds(Random.Range(Phase.MinRaioCD, Phase.MaxRaioCD));
         }
@@ -504,10 +517,12 @@ public class Boss : EnemyController
 
         yield return new WaitWhile(() => GetBool("OnChange"));
 
+        AuraVFX.transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
         PhaseCount++;
 
         if (PhaseCount == 2)
         {
+            AlabardaVFX.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
             Phase = new Boss_Phase2();
         }
         else if (PhaseCount == 3)
@@ -540,8 +555,8 @@ public class Boss : EnemyController
             GameObject raio1 = Instantiate(Raio, Player1.transform.position, Quaternion.identity);
             GameObject raio2 = Instantiate(Raio, Player2.transform.position, Quaternion.identity);
 
-            raio1.GetComponent<ThunderWarning>().SetThunderDamage(Phase.ThunderDamage);
-            raio2.GetComponent<ThunderWarning>().SetThunderDamage(Phase.ThunderDamage);
+            raio1.GetComponent<Thunder>().SetDamage(Phase.ThunderDamage);
+            raio2.GetComponent<Thunder>().SetDamage(Phase.ThunderDamage);
 
             yield return new WaitForSeconds(Random.Range(Phase.MinRaioCD, Phase.MaxRaioCD));
         }

@@ -5,20 +5,29 @@ using UnityEngine;
 public class Thunder : HitBoss
 {
     public int Damage;
+    private BoxCollider Collider;
+
 
     private void Start()
     {
-        //ActualDamage = Damage;
-        Destroy(gameObject, 1f);
+        Collider = GetComponent<BoxCollider>();
+        Invoke("Enable", 0.6f);
+        Destroy(gameObject, 3.2f);
+    }
+
+    void Enable()
+    {
+        Collider.enabled = true;
+        Invoke("Desable", 0.4f);
+    }
+
+    void Desable()
+    {
+        Collider.enabled = false;
     }
 
     public void SetDamage(int D)
     {
         ActualDamage = D;
-    }
-
-    void Update()
-    {
-        transform.Translate(transform.up * 14 * Time.deltaTime);
     }
 }

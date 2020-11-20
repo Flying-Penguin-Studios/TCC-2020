@@ -5002,6 +5002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alabarda: {fileID: 253028660184984522}
+  DashColl: {fileID: 6628687432525653537}
 --- !u!82 &1699073598268088995
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6253,6 +6254,12 @@ Transform:
 --- !u!65 &253028660184984522 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 148263946033979877, guid: 806e5afe4e1c4b2428d0d34c3e63a7bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 111549286487673391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &6628687432525653537 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 6517158796241038350, guid: 806e5afe4e1c4b2428d0d34c3e63a7bf,
     type: 3}
   m_PrefabInstance: {fileID: 111549286487673391}
   m_PrefabAsset: {fileID: 0}

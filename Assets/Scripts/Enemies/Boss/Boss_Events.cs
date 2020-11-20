@@ -42,4 +42,16 @@ public class Boss_Events : MonoBehaviour
     {
         Boss.SetBool("CanAttack", true);
     }
+
+    public void PreparationDash(GameObject VFX)
+    {
+        GameObject _VFX = Instantiate(VFX, transform.position + VFX.transform.position, Quaternion.identity);
+        Destroy(_VFX, 1.5f);
+    }
+
+    public void VFX_Dash(GameObject VFX)
+    {
+        GameObject dVFX = Instantiate(VFX, transform);
+        Destroy(dVFX, 1.2f);
+    }
 }

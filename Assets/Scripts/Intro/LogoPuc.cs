@@ -10,6 +10,7 @@ public class LogoPuc : MonoBehaviour
 
     public float LogoDuration;
     private CanvasGroup Logo;
+    public GameObject test;
 
 
     private void Start()
@@ -22,12 +23,13 @@ public class LogoPuc : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton("Submit") || Input.GetButton("Submit Joy") || Input.GetButton("Cancel") || Input.GetButton("Cancel Joy"))
+        if ((Input.anyKey) || (Input.GetButton("Submit") || Input.GetButton("Submit Joy") || Input.GetButton("Cancel") || Input.GetButton("Cancel Joy")))
         {
-            print("teste");
+            //print("teste");
             StopAllCoroutines();
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("1_Menu");
         }
+
     }
 
     private IEnumerator ShowHideLogo()
@@ -49,16 +51,11 @@ public class LogoPuc : MonoBehaviour
             yield return null;
         }
 
+        test.SetActive(false);
+
         yield return new WaitForSeconds(1f);
 
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
 
     }
-
-
-
-
-
-
-
 }

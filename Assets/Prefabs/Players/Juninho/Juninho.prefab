@@ -214,7 +214,6 @@ MonoBehaviour:
   SparkleParticle: {fileID: 3395792076332924847, guid: bb8521f157b646f4da3607376aa91466,
     type: 3}
   isPlayer2: 0
-  MaxDistance: 20
   MinTimeCharge: 1.5
   MaxTimeCharge: 5
   getUpFriend: 0
@@ -259,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StringTrigger: 
-  CD: 30
+  CD: 15
   Escudinho: {fileID: 1902000514771392619, guid: cd044c7b428a7ca4da33eb32b83957ce,
     type: 3}
 --- !u!114 &7842311614959066849
@@ -275,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StringTrigger: 
-  CD: 20
+  CD: 10
   ShoutEffect: {fileID: 2395310503566972942, guid: 566acdc330155d94da8745351d51e921,
     type: 3}
 --- !u!114 &3527970996397818621
@@ -291,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StringTrigger: 
-  CD: 25
+  CD: 7
   QuakeZone: {fileID: 5711081936975481613, guid: c3a947251e722644e8084a2f61a5a1d6,
     type: 3}
 --- !u!135 &116743416085609474

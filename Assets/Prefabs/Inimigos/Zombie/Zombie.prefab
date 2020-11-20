@@ -135,10 +135,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 66d70734b5c341b40a3f6e5e3b17cc48, type: 3}
   - {fileID: 8300000, guid: b0afd4e40a319194c96937c6380d4a6b, type: 3}
   - {fileID: 8300000, guid: 7277adad7afc09a438b76087b5d37e92, type: 3}
+  GolemPreRageClips:
+  - {fileID: 8300000, guid: 9c538b3d7cad8b146bf21b7a0764c852, type: 3}
   GolemRageClips:
-  - {fileID: 8300000, guid: 23fbff37559556d4d84e3386a75142d1, type: 3}
-  - {fileID: 8300000, guid: 36b47e9a590add3499a2126d1fd30198, type: 3}
-  - {fileID: 8300000, guid: fd33b076badc5034b9996a930c2e9d40, type: 3}
+  - {fileID: 8300000, guid: bcea8665fcee1f5408951d9361fa3826, type: 3}
   GolemDamageClips: []
 --- !u!114 &8353386506076173434
 MonoBehaviour:

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SmokeElectric
+  m_Shader: {fileID: -6465566751694194690, guid: 36c22229ef4398c4a8742035741c037b,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_687DDF86:
+        m_Texture: {fileID: 2800000, guid: 5c8a6d6e23fb06541acb6c92de5e7ac7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_76E388EC:
+        m_Texture: {fileID: 2800000, guid: d06e9498a00104344b97f8294ba40c6c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - Color_DF130292: {r: 0.78653026, g: 0.6054213, b: 1.319508, a: 1}
+    - Vector2_3CCB29D6: {r: 0.5, g: 1, b: 0, a: 0}
+    - Vector2_8757772B: {r: -0.5, g: 0.5, b: 0, a: 0}
+  m_BuildTextureStacks: []

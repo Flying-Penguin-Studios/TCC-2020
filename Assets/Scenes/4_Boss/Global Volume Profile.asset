@@ -16,12 +16,12 @@ MonoBehaviour:
   m_AdvancedMode: 0
   temperature:
     m_OverrideState: 1
-    m_Value: 22
+    m_Value: -9.3
     min: -100
     max: 100
   tint:
     m_OverrideState: 1
-    m_Value: 24
+    m_Value: 27
     min: -100
     max: 100
 --- !u!114 &-5579149578647077283
@@ -124,17 +124,17 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 0.13368055
           value: 0.11913359
-          inSlope: 0.77235645
-          outSlope: 0.77235645
+          inSlope: 0.6659033
+          outSlope: 0.6659033
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.9149306
-          value: 0.94584835
-          inSlope: 0.611594
-          outSlope: 0.611594
+          time: 0.9052864
+          value: 0.953917
+          inSlope: 0.20411332
+          outSlope: 0.20411332
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -308,8 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c23e3b12dc18c42a140437e53d3951, type: 3}
   m_Name: Tonemapping
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   mode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1

@@ -148,7 +148,7 @@ public class Boss : EnemyController
     {
         yield return new WaitForSeconds(.1f);
 
-        while (enemy.HP >= 0)
+        while (enemy.HP > 0)
         {
             if (Target == null)
             {
@@ -177,15 +177,10 @@ public class Boss : EnemyController
             }
             else
             {
-                if (Random.Range(0f, 100f) <= 10f)
+                if (Random.Range(0f, 100f) <= 30f)
                 {
-                    //yield return StartCoroutine(Wait());
-                    yield return StartCoroutine(Seek());
+                    yield return StartCoroutine(Wait());
                 }
-                //else if (Random.Range(0f, 100f) <= 30f)
-                //{
-                //    StartCoroutine(Wander());
-                //}
                 else
                 {
                     yield return StartCoroutine(Seek());
@@ -351,13 +346,17 @@ public class Boss : EnemyController
 
     IEnumerator Wait()
     {
-        Moving = true;
-        rb.velocity = Vector3.zero;
-        anim.SetFloat("Speed", 0);
+        float duration = Time.time + Random.Range(3f, 5f);
 
-        yield return new WaitForSeconds(Random.Range(1f, 2f));
+        while (Time.time < duration)
+        {
+            rb.velocity = Vector3.zero;
+            anim.SetFloat("Speed", 0);
+            Target = GetNewTarget();
+            LookToTarget();
 
-        Target = GetNewTarget();
+            yield return null;
+        }
 
         yield return null;
     }
@@ -433,6 +432,7 @@ public class Boss : EnemyController
         {
             if (PhaseCount == 3)
             {
+                StopAllCoroutines();
                 rb.velocity = Vector3.zero;
                 anim.SetTrigger("Morre");
 
@@ -460,6 +460,7 @@ public class Boss : EnemyController
     int PhaseCount = 1;
     public GameObject AlabardaVFX;
     public GameObject AuraVFX;
+    public GameObject PhaseVFX;
 
     IEnumerator ChangePhase()
     {
@@ -496,14 +497,53 @@ public class Boss : EnemyController
 
         while (Duration > Time.time)
         {
-            GameObject raio1 = Instantiate(Raio, Player1.transform.position, Quaternion.identity);
-            GameObject raio2 = Instantiate(Raio, Player2.transform.position, Quaternion.identity);
+            if (Player1.ToVivo)
+            {
+                GameObject raio1 = Instantiate(Raio, Player1.transform.position, Quaternion.identity);
+                raio1.GetComponent<Thunder>().SetDamage(Phase.ThunderDamage);
+            }
 
-            raio1.GetComponent<Thunder>().SetDamage(Phase.ThunderDamage);
-            raio2.GetComponent<Thunder>().SetDamage(Phase.ThunderDamage);
+            if (Player2.ToVivo)
+            {
+                GameObject raio2 = Instantiate(Raio, Player2.transform.position, Quaternion.identity);
+                raio2.GetComponent<Thunder>().SetDamage(Phase.ThunderDamage);
+            }
 
             yield return new WaitForSeconds(Random.Range(Phase.MinRaioCD, Phase.MaxRaioCD));
         }
+
+        PhaseCount++;
+
+        if (PhaseCount == 2)
+        {
+            AuraVFX.transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
+            AuraVFX.GetComponent<AudioSource>().Play();
+            AlabardaVFX.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+            Phase = new Boss_Phase2();
+        }
+        else if (PhaseCount == 3)
+        {
+            Phase = new Boss_Phase3();
+
+            PhaseVFX.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+            PhaseVFX.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+
+            yield return new WaitForSeconds(1.22f);
+
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
+
+            anim = this.transform.GetChild(1).GetComponent<Animator>();
+            AlabardaVFX = anim.transform.Find("RigBossRosto/Hand.R.001/AlabardaFix/RaioAlabarda").gameObject;
+            HitArea = anim.gameObject.GetComponentInChildren<HitBoss>();
+            anim.SetTrigger("Change");
+
+            yield return new WaitForSeconds(.5f);
+
+            StartCoroutine(Phase3Chaos());
+        }
+
+        anim.SetTrigger("ResetChange");
 
         while (Vector3.Distance(transform.position, StartPosition) > .5f)
         {
@@ -511,30 +551,10 @@ public class Boss : EnemyController
             yield return new WaitForFixedUpdate();
         }
 
-        anim.SetTrigger("ResetChange");
         rb.isKinematic = false;
         rb.useGravity = true;
 
         yield return new WaitWhile(() => GetBool("OnChange"));
-
-        AuraVFX.transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
-        PhaseCount++;
-
-        if (PhaseCount == 2)
-        {
-            AlabardaVFX.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-            Phase = new Boss_Phase2();
-        }
-        else if (PhaseCount == 3)
-        {
-            Phase = new Boss_Phase3();
-            //transform.GetChild(0).gameObject.SetActive(false);
-            //transform.GetChild(1).gameObject.SetActive(true);
-
-            //anim = this.transform.GetChild(1).GetComponent<Animator>();
-
-            StartCoroutine(Phase3Chaos());
-        }
 
         HUD.SetNewLife(PhaseCount, Phase.HP);
         enemy.HP = Phase.HP;
@@ -552,11 +572,17 @@ public class Boss : EnemyController
 
         while (enemy.HP > 0)
         {
-            GameObject raio1 = Instantiate(Raio, Player1.transform.position, Quaternion.identity);
-            GameObject raio2 = Instantiate(Raio, Player2.transform.position, Quaternion.identity);
+            if (Player1.ToVivo)
+            {
+                GameObject raio1 = Instantiate(Raio, Player1.transform.position, Quaternion.identity);
+                raio1.GetComponent<Thunder>().SetDamage(Phase.ThunderDamage);
+            }
 
-            raio1.GetComponent<Thunder>().SetDamage(Phase.ThunderDamage);
-            raio2.GetComponent<Thunder>().SetDamage(Phase.ThunderDamage);
+            if (Player2.ToVivo)
+            {
+                GameObject raio2 = Instantiate(Raio, Player2.transform.position, Quaternion.identity);
+                raio2.GetComponent<Thunder>().SetDamage(Phase.ThunderDamage);
+            }
 
             yield return new WaitForSeconds(Random.Range(Phase.MinRaioCD, Phase.MaxRaioCD));
         }

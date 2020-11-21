@@ -32,14 +32,6 @@ public class CheckPointController : MonoBehaviour
     public Vector3 Pos2;
     public Vector3 CamPos;
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SceneManager.LoadScene("Teste_Controllers1");
-        }
-    }
-
     public void SetPositons(Transform Pos1, Transform Pos2, Transform CamPos)
     {
         this.Pos1 = Pos1.position;

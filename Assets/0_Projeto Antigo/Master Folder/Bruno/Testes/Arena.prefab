@@ -194,6 +194,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 7, z: 14}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!1 &2790121350710841771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3156920004331443395}
+  - component: {fileID: 8133098704806494871}
+  m_Layer: 0
+  m_Name: Wall3 (1)
+  m_TagString: ArenaWall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3156920004331443395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2790121350710841771}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.1, y: -1.42, z: -0.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8603012972741764083}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8133098704806494871
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2790121350710841771}
+  m_Material: {fileID: 13400000, guid: f7fff790bd329234a8eab98f2bcc29a3, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: -28.39, y: 2.95, z: 27.94}
+  m_Center: {x: 8.43, y: 6.05, z: 0}
 --- !u!1 &3535815112870971752
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +317,7 @@ Transform:
   - {fileID: 1268244829412411687}
   - {fileID: 2021563565636221285}
   - {fileID: 8169340990652284158}
+  - {fileID: 3156920004331443395}
   m_Father: {fileID: 3224994370246743718}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

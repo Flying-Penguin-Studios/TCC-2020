@@ -26,15 +26,6 @@ public class Arena : MonoBehaviour
         VFX = transform.GetChild(1).gameObject;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F4))
-        {
-            StartArena();
-            //Destroy(gameObject, 10f);
-        }
-    }
-
     void StartArena()
     {
         Walls.SetActive(true);

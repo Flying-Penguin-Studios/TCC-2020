@@ -343,13 +343,30 @@ public class Boss : EnemyController
         yield return null;
     }
 
+    bool Waiting;
+    bool _TakeDamage = false;
 
     IEnumerator Wait()
     {
+        Waiting = true;
+
         float duration = Time.time + Random.Range(3f, 5f);
 
         while (Time.time < duration)
         {
+            if (DistanceTarget < 2.5f)
+            {
+                yield return StartCoroutine(NormalAttack());
+                break;
+            }
+
+            if (_TakeDamage)
+            {
+                yield return StartCoroutine(Dash());
+                _TakeDamage = false;
+                break;
+            }
+
             rb.velocity = Vector3.zero;
             anim.SetFloat("Speed", 0);
             Target = GetNewTarget();
@@ -435,6 +452,7 @@ public class Boss : EnemyController
                 StopAllCoroutines();
                 rb.velocity = Vector3.zero;
                 anim.SetTrigger("Morre");
+                AuraVFX.transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
 
                 Destroy(GameObject.Find("ArenaBoss"));
                 Invoke("Win", 5f);
@@ -446,6 +464,13 @@ public class Boss : EnemyController
                 return;
             }
 
+        }
+
+        if (Waiting)
+        {
+            _TakeDamage = true;
+            Waiting = false;
+            Target = player.Contains("1") ? Player1.gameObject : Player2.gameObject;
         }
 
         GenerateAggro(player);
@@ -474,6 +499,7 @@ public class Boss : EnemyController
         rb.useGravity = false;
 
         Vector3 Pos = new Vector3(1.8f, 3.8f, 2.1f);
+        float old_y = transform.position.y;
 
         while (Vector3.Distance(transform.position, Pos) > .5f)
         {
@@ -528,6 +554,13 @@ public class Boss : EnemyController
             PhaseVFX.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
             PhaseVFX.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
 
+            AudioSource[] v_a = PhaseVFX.GetComponents<AudioSource>();
+
+            foreach (AudioSource item in v_a)
+            {
+                item.Play();
+            }
+
             yield return new WaitForSeconds(1.22f);
 
             transform.GetChild(0).gameObject.SetActive(false);
@@ -544,10 +577,11 @@ public class Boss : EnemyController
         }
 
         anim.SetTrigger("ResetChange");
+        Vector3 _Pos = new Vector3(transform.position.x, old_y, transform.position.z);
 
-        while (Vector3.Distance(transform.position, StartPosition) > .5f)
+        while (Vector3.Distance(transform.position, _Pos) > .5f)
         {
-            transform.position = Vector3.Lerp(transform.position, StartPosition, Time.deltaTime * 10);
+            transform.position = Vector3.Lerp(transform.position, _Pos, Time.deltaTime * 7.5f);
             yield return new WaitForFixedUpdate();
         }
 

@@ -13,10 +13,14 @@ public class HUD_Boss : MonoBehaviour
     private float LifeBar;
 
     public GameObject TelaDeVitoria;
+    public Text ScoreP1;
+    public Text ScoreP2;
 
     public void Win()
     {
         TelaDeVitoria.SetActive(true);
+        ScoreP1.text = GameController.Singleton.scoreP1.ToString();
+        ScoreP2.text = GameController.Singleton.scoreP2.ToString();
     }
 
     public void SetNewLife(int Count, float LifeBar)

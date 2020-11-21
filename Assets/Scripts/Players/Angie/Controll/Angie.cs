@@ -37,7 +37,7 @@ public class Angie : PlayerController
     {
         if (Time.timeScale < 1) { return; }
 
-        Cheats();
+        //Cheats();
 
         if (Input.GetKeyDown(KeyCode.F7))
         {

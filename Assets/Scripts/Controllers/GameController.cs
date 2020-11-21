@@ -233,14 +233,10 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.F1))
-        //{
-        //    LoadScene("4-Boss");
-        //}
-        //else if (Input.GetKeyDown(KeyCode.F2))
-        //{
-        //    LoadScene("Boss");
-        //}
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            LoadScene("4_Boss");
+        }
     }
 
 

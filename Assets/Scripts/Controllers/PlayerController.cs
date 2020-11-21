@@ -214,6 +214,7 @@ public abstract class PlayerController : MonoBehaviour
         InpulsePlayer(Vector3.up, stats.jumpForce, 0);
     }
 
+
     protected bool OnGround()
     {
         bool onGround = false;

@@ -23,14 +23,14 @@ public class LoopController : MonoBehaviour
 
         } else if(frame == NormalLoopDuration) {
             secondVP.Play();
-            //Debug.Log("transition p1 raised");
+            Debug.Log("transition p1 raised");
 
         } else if(frame == (long)ownVP.frameCount-1) {
             RectTransform order = RawImageOther.GetComponent<RectTransform>();
             order.SetAsLastSibling();
             ownVP.Stop();
             ownVP.Prepare();
-            //Debug.Log("transition p2 raised");
+            Debug.Log("transition p2 raised");
         }
     }
 }

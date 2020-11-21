@@ -48,9 +48,9 @@ MonoBehaviour:
   Player2: {fileID: 6997604553415815145, guid: fd9bf46e05fa9714f8339a12e6c7eb5d, type: 3}
   CriarPlayer2: 1
   MaxDistancePlayers: 20
-  HUD1: {fileID: 557774866002362079, guid: 82fb19d443bc87f4b835553206cfef7b, type: 3}
+  HUD1: {fileID: 557774866002362079, guid: 786b9d839d51dd54e9fd88957185266d, type: 3}
   HUD2: {fileID: 557774866002362079, guid: f69c8cea71a73f94493c0d3c0842ad49, type: 3}
-  HUD: {fileID: 557774866002362079, guid: 82fb19d443bc87f4b835553206cfef7b, type: 3}
+  HUD: {fileID: 557774866002362079, guid: 786b9d839d51dd54e9fd88957185266d, type: 3}
   Scene_HUD: {fileID: 0}
   FadeObject: {fileID: 7213573186634040368, guid: e0b4fe520b13b004f9072196d5cf7cda,
     type: 3}

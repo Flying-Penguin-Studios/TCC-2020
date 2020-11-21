@@ -152,6 +152,8 @@ public class Menu : MonoBehaviour
     {
 
         resolutionsList = new List<Vector2>() {
+
+                                                    new Vector2(Screen.width, Screen.height),
                                                     new Vector2(640, 480),
                                                     new Vector2(800, 600),
                                                     new Vector2(854, 480),

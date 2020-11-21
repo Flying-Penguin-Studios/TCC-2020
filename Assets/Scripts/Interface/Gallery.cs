@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class Gallery : MonoBehaviour
 {
     public GameObject item;
+    public GameObject vfxGameObject;
     public Button backButton;
     public Camera cam;
     bool pressedL;
@@ -176,6 +177,15 @@ public class Gallery : MonoBehaviour
         for(int i = 0; i <= item.transform.childCount - 1; i++)
         {
             item.transform.GetChild(i).gameObject.SetActive(false);
+        }
+    }
+
+    public void DeactivateAllVFX()
+    {
+
+        for (int i = 0; i <= vfxGameObject.transform.childCount - 1; i++)
+        {
+            vfxGameObject.transform.GetChild(i).gameObject.SetActive(false);
         }
     }
 

@@ -41,9 +41,14 @@ public class BoySoundEvents : MonoBehaviour
     private AudioClip[] MaleFootstepsClips;
 
     [SerializeField]
+    private AudioClip[] WoodMaleFootstepsClips;
+
+    [SerializeField]
     private AudioClip[] MaleDamageClips;
 
     private AudioSource audioSource;
+
+    RaycastHit terrain;
 
     private void Start()
     {
@@ -107,7 +112,22 @@ public class BoySoundEvents : MonoBehaviour
 
     private void BoyFootsteps()
     {
-        PlayRandomClip(MaleFootstepsClips);
+        if (Physics.Raycast(this.transform.position, Vector3.down, out terrain, 999))
+        {
+            if (terrain.transform.CompareTag("Terrain") || terrain.transform.CompareTag("StaticObject") || terrain.transform.CompareTag("ObjetosDeCena") || terrain.transform.CompareTag("Ponte"))
+            {
+                if (terrain.transform.CompareTag("Ponte"))
+                {
+                    PlayRandomClip(WoodMaleFootstepsClips);
+                    //Aqui vc poe pra tocar o som de madeira
+                }
+                else
+                {
+                    PlayRandomClip(MaleFootstepsClips);
+                    //Aqui vc poe pra tocar o som de granma
+                }
+            }
+        }
     }
 
     public void BoyDamage()

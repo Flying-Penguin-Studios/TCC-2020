@@ -21,12 +21,17 @@ public class GirlSoundEvents : MonoBehaviour
     private AudioClip[] DashClips;
 
     [SerializeField]
-    private AudioClip[] FootstepsClips;
+    private AudioClip[] GrassFootstepsClips;
+
+    [SerializeField]
+    private AudioClip[] WoodFootstepsClips;
 
     [SerializeField]
     private AudioClip[] GirlDamageClips;
 
     private AudioSource audioSource;
+
+    RaycastHit terrain;
 
     private void Start()
     {
@@ -65,7 +70,22 @@ public class GirlSoundEvents : MonoBehaviour
 
     private void GirlFootsteps()
     {
-        PlayRandomClip(FootstepsClips);
+        if (Physics.Raycast(this.transform.position, Vector3.down, out terrain, 999))
+        {
+            if (terrain.transform.CompareTag("Terrain") || terrain.transform.CompareTag("StaticObject") || terrain.transform.CompareTag("ObjetosDeCena") || terrain.transform.CompareTag("Ponte"))
+            {
+                if (terrain.transform.CompareTag("Ponte"))
+                {
+                    PlayRandomClip(WoodFootstepsClips);
+                    //Aqui vc poe pra tocar o som de madeira
+                }
+                else
+                {
+                    PlayRandomClip(GrassFootstepsClips);
+                    //Aqui vc poe pra tocar o som de granma
+                }
+            }
+        }
     }
 
     public void GirlDamage()

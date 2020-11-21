@@ -331,6 +331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
+      propertyPath: WoodMaleFootstepsClips.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
       propertyPath: MaleDamageClips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: bfbc01ca9263b454ab0107d9152b2065, type: 3}
@@ -344,6 +349,46 @@ PrefabInstance:
       propertyPath: MaleDamageClips.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 68695c4617d27564fafe08452ae12548, type: 3}
+    - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: WoodMaleFootstepsClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f490557c89afe467885214cd4766b11f, type: 3}
+    - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: WoodMaleFootstepsClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: e45ff9455013a481586c38a9ee33e03d, type: 3}
+    - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: WoodMaleFootstepsClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: e2789359177a24ec58ab99d19402e336, type: 3}
+    - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: WoodMaleFootstepsClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: f169645ec553f4a6db40fc5b363ebc90, type: 3}
+    - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: WoodMaleFootstepsClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 03a5851036c3a42cdb95ec352be54310, type: 3}
+    - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: WoodMaleFootstepsClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3837d5dd524b1419aae4c0efae5592fe, type: 3}
+    - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: WoodMaleFootstepsClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 79befa02037a648279a4aa461833bc86, type: 3}
+    - target: {fileID: 1830951989664082590, guid: a4b8a0f91fe4c6c4d89b995720df675e,
+        type: 3}
+      propertyPath: WoodMaleFootstepsClips.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 167b6ae6cb1bd4b6183416b87a07b3b3, type: 3}
     - target: {fileID: 1938704988443107454, guid: a4b8a0f91fe4c6c4d89b995720df675e,
         type: 3}
       propertyPath: m_Name

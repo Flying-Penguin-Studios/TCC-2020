@@ -141,7 +141,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 796f6708ebd57c54f83c6efecbd10f10, type: 3}
   DashClips:
   - {fileID: 8300000, guid: 867232a6b6d1bd44fbdf65fde7eeb51d, type: 3}
-  FootstepsClips:
+  GrassFootstepsClips:
   - {fileID: 8300000, guid: 3d15de5f6e9c64be6a518b68db23d67e, type: 3}
   - {fileID: 8300000, guid: 19c8e1740f7eb4057a22360dae7fc6be, type: 3}
   - {fileID: 8300000, guid: 7739b0c2049c84061a3fa27d0dcec1f6, type: 3}
@@ -152,6 +152,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 60f1ba8badbde42ecb2697dc8664b1ee, type: 3}
   - {fileID: 8300000, guid: ca963dd98e1be450ab5b42d12920ec3d, type: 3}
   - {fileID: 8300000, guid: e5cc3e50da79b4c08acc8ef2dde8dbd5, type: 3}
+  WoodFootstepsClips:
+  - {fileID: 8300000, guid: 48405c5482af6487a8e44560ac7e7f9c, type: 3}
+  - {fileID: 8300000, guid: bbd4c366534b640ccaa0203582cda16a, type: 3}
+  - {fileID: 8300000, guid: f16cdd1c3c1f54ea1be52ff4c18c5c2a, type: 3}
+  - {fileID: 8300000, guid: 74c275611fb3c43f8aaad9878ff25cb9, type: 3}
+  - {fileID: 8300000, guid: 855e0f57e2e8a4235852e37ffaa351c4, type: 3}
+  - {fileID: 8300000, guid: 844669bf543b24aa1814eaee7243cd42, type: 3}
+  - {fileID: 8300000, guid: a4bb282d13ba44b23a8f781e2b9f4704, type: 3}
+  - {fileID: 8300000, guid: f2aa3e22a7f7040d7934d9870dfcbdf2, type: 3}
+  - {fileID: 8300000, guid: 60d3375e04d3947769ba5981707f86d8, type: 3}
+  - {fileID: 8300000, guid: 03ed4d73a69fa474897624392699a4f2, type: 3}
   GirlDamageClips:
   - {fileID: 8300000, guid: efaeeef98174e654188847c44a514121, type: 3}
   - {fileID: 8300000, guid: 9ed20bd52ba6300478cecd505bc1b812, type: 3}
@@ -647,17 +658,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 796f6708ebd57c54f83c6efecbd10f10, type: 3}
   DashClips:
   - {fileID: 8300000, guid: 867232a6b6d1bd44fbdf65fde7eeb51d, type: 3}
-  FootstepsClips:
-  - {fileID: 8300000, guid: 3d15de5f6e9c64be6a518b68db23d67e, type: 3}
-  - {fileID: 8300000, guid: 19c8e1740f7eb4057a22360dae7fc6be, type: 3}
-  - {fileID: 8300000, guid: 7739b0c2049c84061a3fa27d0dcec1f6, type: 3}
-  - {fileID: 8300000, guid: bf3ea6cd2155f44729acad1fe6721257, type: 3}
-  - {fileID: 8300000, guid: dfea68a25bf004ce7996a75e0d215b5c, type: 3}
-  - {fileID: 8300000, guid: 1ebab6ae23238478ba3b0d18648b4a12, type: 3}
-  - {fileID: 8300000, guid: 549819604bb994980bb676b524286306, type: 3}
-  - {fileID: 8300000, guid: 60f1ba8badbde42ecb2697dc8664b1ee, type: 3}
-  - {fileID: 8300000, guid: ca963dd98e1be450ab5b42d12920ec3d, type: 3}
-  - {fileID: 8300000, guid: e5cc3e50da79b4c08acc8ef2dde8dbd5, type: 3}
+  GrassFootstepsClips: []
+  WoodFootstepsClips: []
   GirlDamageClips:
   - {fileID: 8300000, guid: efaeeef98174e654188847c44a514121, type: 3}
   - {fileID: 8300000, guid: 9ed20bd52ba6300478cecd505bc1b812, type: 3}

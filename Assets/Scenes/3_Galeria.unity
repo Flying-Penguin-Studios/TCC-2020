@@ -14026,7 +14026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_SelectOnUp: {fileID: 1879916998}
     m_SelectOnDown: {fileID: 575972633}
     m_SelectOnLeft: {fileID: 1395876765}
@@ -15300,7 +15300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_SelectOnUp: {fileID: 575972633}
     m_SelectOnDown: {fileID: 1922950898}
     m_SelectOnLeft: {fileID: 1395876765}
@@ -15429,6 +15429,18 @@ MonoBehaviour:
       - m_Target: {fileID: 726645341}
         m_TargetAssemblyTypeName: AnimationsGallery, Assembly-CSharp
         m_MethodName: BackToIdle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 691063632}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19683,7 +19695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_SelectOnUp: {fileID: 427045683}
     m_SelectOnDown: {fileID: 1910686688}
     m_SelectOnLeft: {fileID: 1395876765}
@@ -24422,7 +24434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_SelectOnUp: {fileID: 1910686688}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 1395876765}
@@ -24551,6 +24563,18 @@ MonoBehaviour:
       - m_Target: {fileID: 494077047}
         m_TargetAssemblyTypeName: AnimationsGallery, Assembly-CSharp
         m_MethodName: BackToIdle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 442920463}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -42430,7 +42454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_SelectOnUp: {fileID: 198356372}
     m_SelectOnDown: {fileID: 427045683}
     m_SelectOnLeft: {fileID: 1395876765}
@@ -51350,12 +51374,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 130580648}
+      objectReference: {fileID: 1937590441}
     - target: {fileID: 8142959596119579983, guid: 323879139c380f04a9d75dfb9bd56f44,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
-      objectReference: {fileID: 1937590441}
+      objectReference: {fileID: 1264893600}
     - target: {fileID: 8142959596119579983, guid: 323879139c380f04a9d75dfb9bd56f44,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
@@ -61189,7 +61213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_SelectOnUp: {fileID: 198356372}
     m_SelectOnDown: {fileID: 427045683}
     m_SelectOnLeft: {fileID: 1395876765}
@@ -62297,7 +62321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_SelectOnUp: {fileID: 575972633}
     m_SelectOnDown: {fileID: 691063632}
     m_SelectOnLeft: {fileID: 1395876765}
@@ -62648,7 +62672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_SelectOnUp: {fileID: 691063632}
     m_SelectOnDown: {fileID: 1620274615}
     m_SelectOnLeft: {fileID: 1395876765}
@@ -62730,6 +62754,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1970278608}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -66072,6 +66108,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 427045683}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

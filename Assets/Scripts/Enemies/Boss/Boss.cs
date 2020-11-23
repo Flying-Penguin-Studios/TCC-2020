@@ -110,6 +110,14 @@ public class Boss : EnemyController
         return anim.GetBool(Name);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TakeDamage(enemy.HP, "Player1");
+        }
+    }
+
     IEnumerator TakeDecision()
     {
         yield return new WaitForSeconds(.1f);
@@ -126,18 +134,17 @@ public class Boss : EnemyController
             if (DistanceTarget > 12 && Time.time > BattleStart)
             {
                 yield return StartCoroutine(Dash());
-                yield return null;
             }
             else if (DistanceTarget < 2.5f)
             {
                 yield return StartCoroutine(NormalAttack());
-                yield return null;
             }
             else
             {
                 yield return StartCoroutine(Seek());
-                yield return null;
             }
+
+            yield return null;
         }
 
         yield return null;
@@ -217,6 +224,15 @@ public class Boss : EnemyController
             moveDir *= Phase.speed;
             anim.SetFloat("Speed", 1);
             rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
+
+            if (PhaseCount == 1)
+            {
+                Collider[] Vortex = Physics.OverlapSphere(transform.position, 3, LayerMask.GetMask("Vortex_Zone"));
+
+                if (Vortex.Length > 0)
+                    rb.velocity /= 2;
+            }
+
             LookToTarget();
 
             if (TimeDistance < Time.time || (DistanceTarget > 12 && Time.time > BattleStart))

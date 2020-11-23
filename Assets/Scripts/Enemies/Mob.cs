@@ -152,7 +152,7 @@ public class Mob : EnemyController {
     /// <summary>
     /// Aumenta ou diminui a velocidade do inimigo de forma gradativa.
     /// </summary>
-    protected void Accelerate() {
+    protected virtual void Accelerate() {
 
         DustOnMove();
 

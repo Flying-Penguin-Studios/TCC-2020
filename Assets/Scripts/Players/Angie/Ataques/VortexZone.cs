@@ -87,15 +87,7 @@ public class VortexZone : MonoBehaviour
                 {
                     Boss _b = obj.gameObject.GetComponent<Boss>();
 
-                    if(_b.PhaseCount == 1)
-                    {
-                        rb.velocity /= 2;
-                    }
-                    else if(_b.PhaseCount == 2)
-                    {
-                        continue;
-                    }
-                    else if(_b.PhaseCount == 3)
+                    if (_b.PhaseCount == 3)
                     {
                         Vector3 Direction = (transform.position - rb.transform.position).normalized;
 
@@ -110,14 +102,7 @@ public class VortexZone : MonoBehaviour
                     }
 
                 }
-                else if (obj.gameObject.GetComponent<Zombie>())
-                {
-                    if (!obj.gameObject.GetComponent<Zombie>().berserkerModeOn)
-                        rb.velocity *= 0;
-
-                    //rb.velocity /= 2;
-                }
-                else
+                else if (obj.gameObject.GetComponent<SwordMan>() || obj.gameObject.GetComponent<BowMan>())
                 {
                     Vector3 Direction = (transform.position - rb.transform.position).normalized;
 

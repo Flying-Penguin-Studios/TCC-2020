@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombie : Mob {
+public class Zombie : Mob
+{
 
-    
+
     [Tooltip("Porcentagem (%) de vida para entrar em Berserker Mode"), Header("Zombie"), Space(10)]
     public float LifeToBerserkerMode;
     public bool berserkerModeOn = false;
@@ -18,16 +19,22 @@ public class Zombie : Mob {
 
 
 
-    protected override void Combat() {
+    protected override void Combat()
+    {
 
         Target = SetTarget();
 
-        if(DistanceToTarget() <= minDistanceToPlayer && !attacking) {
+        if (DistanceToTarget() <= minDistanceToPlayer && !attacking)
+        {
             acceleration = false;
             Attack();
-        } else if(inTransformation) {
+        }
+        else if (inTransformation)
+        {
             FreezeConstraints(true);
-        } else {
+        }
+        else
+        {
             ChaseTarget();
         }
     }
@@ -35,13 +42,17 @@ public class Zombie : Mob {
 
 
 
-    protected override void Attack() {
+    protected override void Attack()
+    {
         attacking = true;
         attackType = SortAttack();
 
-        if(attackType == 1) {
+        if (attackType == 1)
+        {
             RHand.GetComponent<BoxCollider>().enabled = true;
-        } else {
+        }
+        else
+        {
             LHand.GetComponent<BoxCollider>().enabled = true;
         }
 
@@ -53,7 +64,8 @@ public class Zombie : Mob {
 
 
 
-    private int SortAttack() {
+    private int SortAttack()
+    {
         return Random.Range(1, 3);
     }
 
@@ -63,12 +75,13 @@ public class Zombie : Mob {
 
 
 
-    private void EnterBerserkerMode() {
+    private void EnterBerserkerMode()
+    {
         inTransformation = true;
         StartCoroutine(GetBigger());
         isVulnerable = false;
         berserkerModeOn = true;
-        anim.SetFloat("BerserkerModeOn", 1); 
+        anim.SetFloat("BerserkerModeOn", 1);
         anim.SetTrigger("ActivateBerserker");
         anim.SetFloat("AttackSpeedMultiplier", 1.5f);
         combatSpeed = 3;
@@ -78,26 +91,38 @@ public class Zombie : Mob {
 
 
 
-    public override void TakeDamage(int damage, string player) {
-        
+    public override void TakeDamage(int damage, string player)
+    {
+
         //Executa as regras da classe pai.
-        base.TakeDamage(damage, player);        
-        
-        if(enemy.HP <= (enemy.HP_Max * (LifeToBerserkerMode / 100)) && !berserkerModeOn) {
+        base.TakeDamage(damage, player);
+
+        if (enemy.HP <= (enemy.HP_Max * (LifeToBerserkerMode / 100)) && !berserkerModeOn)
+        {
             EnterBerserkerMode();
         }
     }
 
 
-    IEnumerator GetBigger() {
+    IEnumerator GetBigger()
+    {
 
-        for(float i = 1; i <= 1.5f; i = i + 0.15f * Time.fixedDeltaTime) {
+        for (float i = 1; i <= 1.5f; i = i + 0.15f * Time.fixedDeltaTime)
+        {
             transform.localScale = new Vector3(i, i, i);
             yield return null;
         }
     }
+    protected override void Accelerate()
+    {
+        base.Accelerate();
 
+        if (!berserkerModeOn)
+        {
+            Collider[] Vortex = Physics.OverlapSphere(transform.position, 3, LayerMask.GetMask("Vortex_Zone"));
 
-
-
+            if (Vortex.Length > 0)
+                rb.velocity /= 2;
+        }
+    }
 }

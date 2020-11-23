@@ -22538,6 +22538,18 @@ PrefabInstance:
       propertyPath: CriarPlayer1
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8153029383080014865, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: Player2
+      value: 
+      objectReference: {fileID: 8618723331379543795, guid: d31bd91dfcc6c2c4193c141e9818127d,
+        type: 3}
+    - target: {fileID: 8153029383080014865, guid: d1d6409af8738d14cb096792d1cca4ea,
+        type: 3}
+      propertyPath: Player1
+      value: 
+      objectReference: {fileID: 6997604553415815145, guid: fd9bf46e05fa9714f8339a12e6c7eb5d,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1d6409af8738d14cb096792d1cca4ea, type: 3}
 --- !u!1001 &1254131090

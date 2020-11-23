@@ -2,68 +2,93 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordMan : Mob {
+public class SwordMan : Mob
+{
 
 
 
     public GameObject sword;
     public GameObject swordTrail;
-    
 
 
 
-    protected override void ChaseTarget() {
-        
-        LookToTarget();        
 
-        if(EnemyHasGroundToMove() && !jumping) {
+    protected override void ChaseTarget()
+    {
+
+        LookToTarget();
+
+        if (EnemyHasGroundToMove() && !jumping)
+        {
 
             acceleration = !attacking;
             Accelerate();
 
-        } else {
-            
-            if(EnemyShouldJump() && !jumping && (Time.time >= nextJump)) {
+        }
+        else
+        {
+
+            if (EnemyShouldJump() && !jumping && (Time.time >= nextJump))
+            {
                 Jump();
             }
 
-            if(!jumping) {
+            if (!jumping)
+            {
                 acceleration = false;
                 Accelerate();
             }
 
         }
 
-        
+
     }
 
 
-    protected override void Combat() {
-
+    protected override void Combat()
+    {
         patrulheiro = false;
+        bool Shield = false;
         Target = SetTarget();
 
-        if(DistanceToTarget() <= minDistanceToPlayer && !attacking && !inStag && !jumping) {
+        RaycastHit r_Shield;
+
+        if (Physics.Raycast(transform.position, transform.forward, out r_Shield, 1.5f))
+        {
+            if (r_Shield.transform.CompareTag("Shield"))
+            {
+                Shield = true;
+            }
+        }
+
+        if ((DistanceToTarget() <= minDistanceToPlayer && !attacking && !inStag && !jumping) || Shield)
+        {
             acceleration = false;
             Attack();
-        } else if(inStag) {
+        }
+        else if (inStag)
+        {
             FreezeConstraints(false);
 
-        } else {
+        }
+        else
+        {
             ChaseTarget();
         }
 
     }
 
 
-    protected override void Attack() {
+    protected override void Attack()
+    {
         StartCoroutine(WaitBeforeAttack());
     }
 
 
-    IEnumerator WaitBeforeAttack() {
+    IEnumerator WaitBeforeAttack()
+    {
 
-        float time = Random.Range(0, 0.5f);        
+        float time = Random.Range(0, 0.5f);
 
         attacking = true;
 
@@ -82,33 +107,38 @@ public class SwordMan : Mob {
 
 
 
-    public override void TakeDamage(int damage, string player) {
+    public override void TakeDamage(int damage, string player)
+    {
 
-        if(!isVulnerable) {
+        if (!isVulnerable)
+        {
             return;
         }
 
         if (damage > 0) { Stag(); }
-        
+
 
         base.TakeDamage(damage, player);
     }
 
 
-    private void Stag() {
+    private void Stag()
+    {
 
-        if((Time.time >= nextStag)) {
+        if ((Time.time >= nextStag))
+        {
             inStag = true;
             anim.SetTrigger("Stag");
             FreezeConstraints(false);
             rb.velocity = Vector3.zero;
             rb.AddForce(-transform.forward * 1.5f, ForceMode.Impulse);
             nextStag = Time.time + stagRate;
-        }        
+        }
     }
 
 
-    public void KnockBack(Vector3 punchPosition)    {
+    public void KnockBack(Vector3 punchPosition)
+    {
 
         inStag = true;
         anim.SetTrigger("Stag");

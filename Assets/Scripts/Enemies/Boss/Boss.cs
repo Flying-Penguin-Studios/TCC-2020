@@ -100,40 +100,6 @@ public class Boss : EnemyController
         rb.AddForce(Dir, ForceMode.Impulse);
     }
 
-    void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    StartCoroutine(NormalAttack());
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.H))
-        //{
-        //    StartCoroutine(Dash());
-        //}
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            TakeDamage(enemy.HP, "Player1");
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            int d = enemy.HP - 10;
-            TakeDamage(10, "Player1");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            GenerateAggro(Player1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            GenerateAggro(Player2);
-        }
-    }
-
     public void SetBool(string Name, bool Value)
     {
         anim.SetBool(Name, Value);
@@ -155,36 +121,22 @@ public class Boss : EnemyController
                 Target = GetNewTarget();
             }
 
-            if (Input.GetKey(KeyCode.K))
-            {
-                StartCoroutine(NormalAttack());
-            }
-
-            if (Input.GetKey(KeyCode.H))
-            {
-                yield return StartCoroutine(Dash());
-            }
-
             DistanceTarget = Vector3.Distance(transform.position, Target.transform.position);
 
             if (DistanceTarget > 12 && Time.time > BattleStart)
             {
                 yield return StartCoroutine(Dash());
+                yield return null;
             }
             else if (DistanceTarget < 2.5f)
             {
                 yield return StartCoroutine(NormalAttack());
+                yield return null;
             }
             else
             {
-                if (Random.Range(0f, 100f) <= 30f)
-                {
-                    yield return StartCoroutine(Wait());
-                }
-                else
-                {
-                    yield return StartCoroutine(Seek());
-                }
+                yield return StartCoroutine(Seek());
+                yield return null;
             }
         }
 
@@ -228,11 +180,37 @@ public class Boss : EnemyController
 
         while (Time.time < Duration)
         {
+            HealZone Zone = FindObjectOfType<HealZone>();
+
+            if (Zone && Vector3.Distance(transform.position, Zone.transform.position) > 5)
+            {
+                Collider[] l_Player = Physics.OverlapSphere(Zone.gameObject.transform.position, Zone.gameObject.GetComponent<SphereCollider>().radius, LayerMask.GetMask("Player"));
+
+                if (l_Player.Length > 0)
+                {
+                    Target = l_Player[Random.Range(0, l_Player.Length - 1)].gameObject;
+                    yield return StartCoroutine(Dash());
+                    break;
+                }
+            }
+
+            RaycastHit Shield;
+
+            if (Physics.Raycast(transform.position, transform.forward, out Shield, 1.5f))
+            {
+                if (Shield.transform.CompareTag("Shield"))
+                {
+                    yield return StartCoroutine(NormalAttack());
+                    continue;
+                }
+            }
+
             DistanceTarget = Vector3.Distance(transform.position, Target.transform.position);
 
             if (DistanceTarget < 2.5f)
             {
                 yield return StartCoroutine(NormalAttack());
+                break;
             }
 
             Vector3 moveDir = Vector3.Normalize(Target.transform.position - transform.position);
@@ -244,6 +222,7 @@ public class Boss : EnemyController
             if (TimeDistance < Time.time || (DistanceTarget > 12 && Time.time > BattleStart))
             {
                 yield return StartCoroutine(Dash());
+                break;
             }
 
             anim.SetFloat("Speed", 1);
@@ -270,22 +249,25 @@ public class Boss : EnemyController
 
             DistanceTarget = Vector3.Distance(transform.position, Target.transform.position);
 
+            RaycastHit Shield;
+
+            if (Physics.Raycast(transform.position, transform.forward, out Shield, 1.5f))
+            {
+                if (Shield.transform.CompareTag("Shield"))
+                {
+                    yield return StartCoroutine(NormalAttack());
+                    continue;
+                }
+            }
+
             if (DistanceTarget < 2.5f)
             {
                 continue;
             }
             else
             {
-                //float RandAttack = Random.Range(0f, 100f);
-                //if (RandAttack >= 50)
-                //{
-                //    continue;
-                //}
-                //else
-                //{
                 anim.SetTrigger("ResetAttack");
                 break;
-                //}
             }
         }
 
@@ -316,6 +298,16 @@ public class Boss : EnemyController
 
         while (Vector3.Distance(Destino, transform.position) > 1)
         {
+            RaycastHit Shield;
+
+            if (Physics.Raycast(transform.position, transform.forward, out Shield, 1.5f))
+            {
+                if (Shield.transform.CompareTag("Shield"))
+                {
+                    break;
+                }
+            }
+
             rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
             yield return null;
         }
@@ -325,7 +317,6 @@ public class Boss : EnemyController
 
         yield return new WaitWhile(() => GetBool("OnAttack"));
         yield return new WaitForSeconds(.2f);
-
 
         Target = GetNewTarget();
         LookToTarget();
@@ -377,13 +368,6 @@ public class Boss : EnemyController
 
         yield return null;
     }
-
-    //Vector3 CheckHeal()
-    //{
-
-
-    //    //return null;
-    //}
 
     int AttackCount = 1;
 
@@ -482,7 +466,7 @@ public class Boss : EnemyController
         Destroy(this);
     }
 
-    int PhaseCount = 1;
+    public int PhaseCount = 1;
     public GameObject AlabardaVFX;
     public GameObject AuraVFX;
     public GameObject PhaseVFX;
@@ -492,6 +476,7 @@ public class Boss : EnemyController
         rb.velocity = Vector3.zero;
         anim.SetFloat("Speed", 0);
         anim.SetBool("OnChange", true);
+        anim.ResetTrigger("Attack");
 
         anim.SetTrigger("Change");
 

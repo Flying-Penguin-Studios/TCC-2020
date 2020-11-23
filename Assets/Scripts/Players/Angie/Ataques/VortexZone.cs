@@ -83,10 +83,39 @@ public class VortexZone : MonoBehaviour
             {
                 Rigidbody rb = obj.GetComponent<Rigidbody>();
 
-                if (obj.gameObject.GetComponent<Zombie>())
+                if (obj.gameObject.GetComponent<Boss>())
+                {
+                    Boss _b = obj.gameObject.GetComponent<Boss>();
+
+                    if(_b.PhaseCount == 1)
+                    {
+                        rb.velocity /= 2;
+                    }
+                    else if(_b.PhaseCount == 2)
+                    {
+                        continue;
+                    }
+                    else if(_b.PhaseCount == 3)
+                    {
+                        Vector3 Direction = (transform.position - rb.transform.position).normalized;
+
+                        float Distance = Vector3.Distance(transform.position, rb.transform.position);
+                        Distance = Mathf.Pow(Distance, 1.5f);
+
+                        float PowerForce = Power / Distance * 15;
+                        PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
+                        Direction.y = 0;
+
+                        rb.AddForce(Direction * PowerForce, ForceMode.VelocityChange);
+                    }
+
+                }
+                else if (obj.gameObject.GetComponent<Zombie>())
                 {
                     if (!obj.gameObject.GetComponent<Zombie>().berserkerModeOn)
-                        rb.velocity /= 2;
+                        rb.velocity *= 0;
+
+                    //rb.velocity /= 2;
                 }
                 else
                 {
@@ -95,7 +124,7 @@ public class VortexZone : MonoBehaviour
                     float Distance = Vector3.Distance(transform.position, rb.transform.position);
                     Distance = Mathf.Pow(Distance, 1.5f);
 
-                    float PowerForce = Power / Distance * 25;
+                    float PowerForce = Power / Distance * 50;
                     PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
                     Direction.y = 0;
 

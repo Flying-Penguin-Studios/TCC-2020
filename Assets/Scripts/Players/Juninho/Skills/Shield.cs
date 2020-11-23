@@ -1,21 +1,19 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Shield : Skill
 {
     public GameObject Escudinho;
-    private GameObject InstShield;
+    private GameObject InstShield;   
 
-    public int Duration = 5;
+    //public int Duration = 5;
 
     protected override void Effect()
     {
-        Vector3 n = Player.transform.position + Escudinho.transform.position;
-        //InstShield = Instantiate(Escudinho, n, Player.transform.localRotation);
-        InstShield = Instantiate(Escudinho, Player.transform);
-        InstShield.transform.parent = null;
-
+        Vector3 Position = Player.transform.position + Escudinho.transform.position;
+        InstShield = Instantiate(Escudinho, Position, Player.transform.localRotation);
     }
 
     public override void Play()

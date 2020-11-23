@@ -24,7 +24,7 @@ public class Juninho_Events : EventsAnimation
     public void OnDashCollider()
     {
         Juninho N_Juninho = Player as Juninho;
-        N_Juninho.NewMass(100);
+        N_Juninho.NewMass(9999);
         Juninho_Dash Dash = Player.Dash as Juninho_Dash;
         Dash.DashEffect(true);
     }
@@ -81,8 +81,9 @@ public class Juninho_Events : EventsAnimation
 
     public void MegaPunch(GameObject AreaEffect)
     {
-        GameObject Effect = Instantiate(AreaEffect, MegaPos.position, Player.transform.localRotation);
-        Effect.GetComponent<PlayerHit>().SetPlayer(Player);
+        GameObject Effect = Instantiate(AreaEffect, MegaPos);
+        Effect.transform.localScale = new Vector3(0.014846f, 0.014846f, 0.014846f);
+        Effect.GetComponentInChildren<PlayerHit>().SetPlayer(Player);
         Player.AttackHandle();
         MoveOnAnimation(2f);
     }

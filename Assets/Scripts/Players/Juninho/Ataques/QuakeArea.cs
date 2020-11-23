@@ -14,29 +14,35 @@ public class QuakeArea : PlayerHit
     {
         //Player = FindObjectOfType<Angie>();
         StartCoroutine("Expand");
+        Destroy(gameObject, 2.1f);
     }
 
     protected override void DamageInteraction(GameObject n_gameObject)
     {
-        Rigidbody rb = n_gameObject.GetComponent<Rigidbody>();
-        rb.velocity = Vector3.zero;
-        rb.AddForce(Vector3.back * 5, ForceMode.Impulse);
+        if (n_gameObject.GetComponent<SwordMan>())
+        {
+            n_gameObject.GetComponent<SwordMan>().KnockBack(transform.position);
+        }
+
+        if (n_gameObject.GetComponent<BowMan>())
+        {
+            n_gameObject.GetComponent<BowMan>().KnockBack(transform.position);
+        }
     }
 
     IEnumerator Expand()
     {
-        Vector3 sr = transform.localScale * MaxLenth;
+        SphereCollider Area = GetComponent<SphereCollider>();
+        Area.enabled = true;
 
-        while (transform.localScale.x < sr.x)
+        while (Area.radius < MaxLenth)
         {
-            Vector3 s = Vector3.one;
-            s.y = 0;
-            transform.localScale += s * ScaleSpeed;
+            Area.radius += ScaleSpeed * Time.deltaTime;
             yield return null;
         }
 
         Player.GetComponent<QuakePunch>().CountCD();
-        Destroy(gameObject);
+        //Destroy(gameObject);
         yield return null;
     }
 }

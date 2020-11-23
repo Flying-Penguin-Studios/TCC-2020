@@ -12,22 +12,34 @@ public class ExplosionArea : PlayerHit
 
     void Start()
     {
-        //Player = FindObjectOfType<Angie>();
+        Player = FindObjectOfType<Angie>();
         StartCoroutine("Explose");
+        Destroy(gameObject, 2.5f);
     }
 
     IEnumerator Explose()
     {
-        Vector3 sr = transform.localScale * MaxLenth;
+        //Vector3 sr = transform.localScale * MaxLenth;
 
-        while (transform.localScale.x < sr.x)
+        yield return new WaitForSeconds(.40f);
+
+        SphereCollider Area = GetComponent<SphereCollider>();
+        Area.enabled = true;
+
+        while (Area.radius < MaxLenth)
         {
-            transform.localScale += Vector3.one * ScaleSpeed;
+            Area.radius += ScaleSpeed * Time.deltaTime;
             yield return null;
         }
 
+        //while (transform.localScale.x < sr.x)
+        //{
+        //    transform.localScale += Vector3.one * ScaleSpeed;
+        //    yield return null;
+        //}
+
         Player.GetComponent<Explosion>().CountCD();
-        Destroy(gameObject);
+        //Destroy(gameObject);
         yield return null;
     }
 }

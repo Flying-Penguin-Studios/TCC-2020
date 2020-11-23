@@ -61,49 +61,67 @@ TextureImporter:
     second: Atlas_18
   - first:
       213: -8369517905372312421
-    second: Atlas_28
-  - first:
-      213: -9106852675655700425
-    second: Atlas_29
-  - first:
-      213: 745968338076216934
     second: Atlas_19
   - first:
-      213: -2834699621007424056
+      213: -9106852675655700425
     second: Atlas_20
   - first:
-      213: -2217874986795218178
-    second: Atlas_25
-  - first:
-      213: 2748396297729853354
+      213: 745968338076216934
     second: Atlas_21
   - first:
-      213: -4446556834619780616
+      213: -2834699621007424056
     second: Atlas_22
   - first:
-      213: -2151125692419375991
+      213: -2217874986795218178
     second: Atlas_23
   - first:
-      213: 7029400602700474323
+      213: 2748396297729853354
     second: Atlas_24
   - first:
-      213: 4355180666568580090
-    second: Atlas_27
+      213: -4446556834619780616
+    second: Atlas_25
   - first:
-      213: 5894979182433546639
+      213: -2151125692419375991
     second: Atlas_26
   - first:
-      213: -7503008079389545076
+      213: 7029400602700474323
     second: Atlas_27
   - first:
-      213: -7566632554201152900
+      213: 4355180666568580090
     second: Atlas_28
   - first:
-      213: 8970763576347242229
+      213: 5894979182433546639
     second: Atlas_29
   - first:
+      213: -7503008079389545076
+    second: Atlas_30
+  - first:
+      213: -7566632554201152900
+    second: Atlas_31
+  - first:
+      213: 8970763576347242229
+    second: Atlas_32
+  - first:
       213: 2185041290902523119
-    second: Atlas_25
+    second: Atlas_33
+  - first:
+      213: 2592197434785513267
+    second: Atlas_34
+  - first:
+      213: 2466828561161279858
+    second: Atlas_35
+  - first:
+      213: 3235062197104327778
+    second: Atlas_36
+  - first:
+      213: 6913638643635410091
+    second: Atlas_37
+  - first:
+      213: 5035139237759867391
+    second: Atlas_38
+  - first:
+      213: 7214893647509974784
+    second: Atlas_39
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -125,6 +143,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -159,6 +178,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -175,6 +195,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -588,7 +620,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_31
+      name: Atlas_19
       rect:
         serializedVersion: 2
         x: 1163
@@ -609,7 +641,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_32
+      name: Atlas_20
       rect:
         serializedVersion: 2
         x: 1367
@@ -630,7 +662,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_19
+      name: Atlas_21
       rect:
         serializedVersion: 2
         x: 1491
@@ -651,7 +683,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_20
+      name: Atlas_22
       rect:
         serializedVersion: 2
         x: 4
@@ -672,11 +704,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_33
+      name: Atlas_23
       rect:
         serializedVersion: 2
-        x: 1334
-        y: 1338
+        x: 468
+        y: 1348
         width: 116
         height: 116
       alignment: 0
@@ -693,7 +725,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_21
+      name: Atlas_24
       rect:
         serializedVersion: 2
         x: 1491
@@ -714,13 +746,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_22
+      name: Atlas_25
       rect:
         serializedVersion: 2
-        x: 4
-        y: 11
-        width: 378
-        height: 369
+        x: 1648
+        y: 813
+        width: 379
+        height: 137
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -735,13 +767,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_23
+      name: Atlas_26
       rect:
         serializedVersion: 2
-        x: 395
-        y: 9
-        width: 378
-        height: 371
+        x: 1647
+        y: 663
+        width: 372
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -756,13 +788,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_24
+      name: Atlas_27
       rect:
         serializedVersion: 2
-        x: 782
-        y: 14
-        width: 367
-        height: 360
+        x: 14
+        y: 438
+        width: 382
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -777,13 +809,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_30
+      name: Atlas_28
       rect:
         serializedVersion: 2
-        x: 1186
-        y: 297
-        width: 379
-        height: 137
+        x: 427
+        y: 447
+        width: 383
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -798,13 +830,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_26
+      name: Atlas_29
       rect:
         serializedVersion: 2
-        x: 1603
-        y: 8
-        width: 429
-        height: 477
+        x: 827
+        y: 448
+        width: 383
+        height: 121
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -819,13 +851,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_27
+      name: Atlas_30
       rect:
         serializedVersion: 2
-        x: 1186
-        y: 160
-        width: 116
-        height: 116
+        x: 1226
+        y: 438
+        width: 382
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -840,13 +872,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_28
+      name: Atlas_31
       rect:
         serializedVersion: 2
-        x: 1314
-        y: 162
-        width: 114
-        height: 114
+        x: 1603
+        y: 8
+        width: 429
+        height: 477
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -861,13 +893,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_29
+      name: Atlas_32
       rect:
         serializedVersion: 2
-        x: 1447
-        y: 162
-        width: 141
-        height: 127
+        x: 4
+        y: 11
+        width: 378
+        height: 369
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -882,13 +914,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atlas_25
+      name: Atlas_33
       rect:
         serializedVersion: 2
-        x: 1186
-        y: 5
-        width: 379
-        height: 137
+        x: 395
+        y: 9
+        width: 378
+        height: 371
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -902,10 +934,136 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Atlas_34
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 14
+        width: 367
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33fb11835d559f320800000000000000
+      internalID: 2592197434785513267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_35
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 297
+        width: 379
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2795ecda18feb3220800000000000000
+      internalID: 2466828561161279858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_36
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 160
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26cb2bc9def35ec20800000000000000
+      internalID: 3235062197104327778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_37
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 162
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba45d4367bd22ff50800000000000000
+      internalID: 6913638643635410091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_38
+      rect:
+        serializedVersion: 2
+        x: 1447
+        y: 162
+        width: 141
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff9de4d957860e540800000000000000
+      internalID: 5035139237759867391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_39
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 5
+        width: 378
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00fed08db83702460800000000000000
+      internalID: 7214893647509974784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a074d0847f7f13944a9bf156660df5ff
+    spriteID: d81f34c5b04020943ae78d28ea02dcb0
     internalID: 0
     vertices: []
     indices: 

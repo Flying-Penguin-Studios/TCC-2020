@@ -5,43 +5,53 @@ using UnityEngine;
 [SerializeField]
 public class Juninho : PlayerController
 {
-    [SerializeField]
-    bool isPlayer2 = true;
-
     protected override void Start()
     {
         base.Start();
-        stats = new playerStats(150, 7f, 8f, 8f, 12f);
+        stats = new playerStats(150, 7f, 8f, 12f, 12f);
 
-        HUD = GameObject.Find("HUD/Player1").GetComponent<HUD_Player>();
+        HUD = GameObject.Find("HUD/Juninho").GetComponent<HUD_Player>();
         Dash = GetComponent<Juninho_Dash>();
         Sup = GetComponent<Shield>();
         Control = GetComponent<Shout>();
         Damage = GetComponent<QuakePunch>();
 
         HUD.Init(this);
-        Dash.Init(GameObject.Find("HUD/Player1/Dash").GetComponent<HUD_Dash>(), this, "Dash");
-        Sup.Init(GameObject.Find("HUD/Player1/SkillLT").GetComponent<HUD_Skill>(), this, "Shield");
-        Control.Init(GameObject.Find("HUD/Player1/SkillY").GetComponent<HUD_Skill>(), this, "Shout");
-        Damage.Init(GameObject.Find("HUD/Player1/SkillB").GetComponent<HUD_Skill>(), this, "QPunch");
+        Dash.Init(GameObject.Find("HUD/Juninho/Dash").GetComponent<HUD_Dash>(), this, "Dash");
+        Sup.Init(GameObject.Find("HUD/Juninho/SkillLT").GetComponent<HUD_Skill>(), this, "Shield");
+        Control.Init(GameObject.Find("HUD/Juninho/SkillY").GetComponent<HUD_Skill>(), this, "Shout");
+        Damage.Init(GameObject.Find("HUD/Juninho/SkillB").GetComponent<HUD_Skill>(), this, "QPunch");
 
         MarkIndicator = this.transform.GetChild(2).gameObject;
 
-        //SetParter(FindObjectOfType<Angie>());
+        SetParter(FindObjectOfType<Angie>());
+    }
+
+    protected override void SoundDamage()
+    {
+        GetComponentInChildren<BoySoundEvents>().BoyDamage();
     }
 
     void Update()
     {
-        if (GameController.Singleton.GamePaused) { return; }
+        if (Time.timeScale < 1) { return; }
 
         //Cheats();
 
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            Kill();
+        }
+
         if (ToVivo)
         {
+            rb.WakeUp();
+
             OnGround();
             DustControl();
 
-            Distance = Vector3.Distance(transform.position, Parter.transform.position);
+            if (Parter && Parter.ToVivo)
+                Distance = Vector3.Distance(transform.position, Parter.transform.position);
 
             if (!isPlayer2)
             {
@@ -50,7 +60,7 @@ public class Juninho : PlayerController
                 UseDash(Input.GetAxis("P1_RT"));
                 if (!GetBool("Charging"))
                 {
-                    if (Parter.ToVivo)
+                    if (Parter && Parter.ToVivo)
                     {
                         if (Parter.GetBool("Fallen") && Distance <= 2f)
                         {
@@ -81,7 +91,7 @@ public class Juninho : PlayerController
                 UseDash(Input.GetAxis("P2_RT"));
                 if (!GetBool("Charging"))
                 {
-                    if (Parter.ToVivo)
+                    if (Parter && Parter.ToVivo)
                     {
                         if (Parter.GetBool("Fallen") && Distance <= 2f)
                         {
@@ -113,20 +123,29 @@ public class Juninho : PlayerController
 
     bool CanTrigger = true;
 
+    public float ShieldMaxDuration = 5f;
+    private float ShieldTime;
+ 
     public void ShieldUP(Skill Skill, float Trigger)
     {
         if (Skill.IsAvaliable() && Trigger == 1 && OnGround() && CanTrigger && GetBool("canCast"))
         {
             CanTrigger = false;
             SetTrigger(Skill.StringTrigger);
+            ShieldTime = Time.time + ShieldMaxDuration;
         }
 
         if (OnGround() && GetBool("ShieldUP"))
         {
-            if (Trigger == 0)
+            if (Trigger == 0 || Time.time > ShieldTime)
             {
                 CanTrigger = true;
                 SetBool("ShieldUP", false);
+            }
+
+            if (Caido)
+            {
+                Sup.CountCD();
             }
         }
     }

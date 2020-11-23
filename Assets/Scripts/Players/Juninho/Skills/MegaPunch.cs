@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class MegaPunch : PlayerHit
 {
-    BoxCollider Collider;
+    public BoxCollider Collider;
 
     void Start()
     {
         //Player = FindObjectOfType<Angie>();
-        Collider = GetComponent<BoxCollider>();
+        //Collider = GetComponent<BoxCollider>();
         StartCoroutine("Size");
-        //Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 1.5f);
     }
 
     IEnumerator Size()
     {
-        while (Collider.size.z <= 16)
+        while (Collider.size.z <= 7)
         {
             Collider.size += new Vector3(0, 0, 1);
             Collider.center += new Vector3(0, 0, 0.5f);
@@ -27,8 +27,8 @@ public class MegaPunch : PlayerHit
         yield return null;
     }
 
-    public void Destroy()
-    {
-        Destroy(gameObject);
-    }
+    //public void Destroy()
+    //{
+    //    Destroy(gameObject);
+    //}
 }

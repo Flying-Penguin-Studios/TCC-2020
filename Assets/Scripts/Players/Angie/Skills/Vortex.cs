@@ -7,22 +7,27 @@ public class Vortex : Skill
     [SerializeField]
     private GameObject VortexZone;
 
-    [SerializeField]
-    private GameObject VortexZoneT;
-    private GameObject Vortex_Temp;
+    //[SerializeField]
+    //private GameObject VortexZoneT;
+    //private GameObject Vortex_Temp;
 
     [SerializeField]
     private Transform SpawnPoint;
 
     protected override void Effect()
     {
-        GameObject Vortex = Instantiate(VortexZone, SpawnPoint.position, Player.transform.localRotation);
+        Vector3 SpawPos = Player.transform.position + Player.transform.forward;
+        SpawPos.y += 1;
+
+        //GameObject Vortex = Instantiate(VortexZone, SpawnPoint.position, Player.transform.localRotation);
+        //GameObject Vortex = Instantiate(VortexZone, SpawPos, Player.transform.localRotation);
+        GameObject Vortex = Instantiate(VortexZone, SpawPos, Player.transform.rotation);
         Vortex.GetComponent<VortexZone>().SetPlayer(Player);
     }
 
     public override void Play()
     {
-        Destroy(Vortex_Temp);
+        //Destroy(Vortex_Temp);
         Avaliable = false;
         HUD.WaitCD();
         Effect();
@@ -52,11 +57,14 @@ public class Vortex : Skill
 
     public void Teste()
     {
-        Vortex_Temp = Instantiate(VortexZoneT, Player.transform.position + Vector3.up * 3, Quaternion.identity);
+        Vector3 Pos = Player.transform.position;
+        Pos.y += 3;
+        //Vortex_Temp = Instantiate(VortexZoneT, Pos, Quaternion.identity);
     }
 
     public override void Brinks()
     {
-        Teste();
+        return;
+        //Teste();
     }
 }

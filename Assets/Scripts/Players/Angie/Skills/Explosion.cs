@@ -10,7 +10,9 @@ public class Explosion : Skill
     protected override void Effect()
     {
         //Instantiate(VortexZone, Player.transform.position, Player.transform.localRotation);
-        GameObject Explosion = Instantiate(ExplosionZone, Player.transform.position, Quaternion.identity);
+        Vector3 SpawnPos = Player.transform.position + ExplosionZone.transform.position;
+        GameObject Explosion = Instantiate(ExplosionZone, SpawnPos, Quaternion.identity);
+        //GameObject Explosion = Instantiate(ExplosionZone, Player.transform.position, Quaternion.identity);
         Explosion.GetComponent<PlayerHit>().SetPlayer(Player);
     }
 

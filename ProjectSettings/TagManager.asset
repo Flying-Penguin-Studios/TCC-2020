@@ -10,6 +10,8 @@ TagManager:
   - StaticObject
   - ObjetosDeCena
   - Shield
+  - ArenaWall
+  - Ponte
   layers:
   - Default
   - TransparentFX
@@ -32,6 +34,7 @@ TagManager:
   - Vortex_Zone
   - Shield
   - PlayerBlock
+  - VFX_Collider
   - 
   - 
   - 
@@ -40,8 +43,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - VFX
   - 
   m_SortingLayers:
   - name: Default

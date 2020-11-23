@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8153029383080014864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8153029383080014862}
+  - component: {fileID: 8153029383080014865}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8153029383080014862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8153029383080014864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8153029383080014865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8153029383080014864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d746e8d759ca959448b6611340994e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player1: {fileID: 8618723331379543795, guid: d31bd91dfcc6c2c4193c141e9818127d, type: 3}
+  CriarPlayer1: 1
+  Player2: {fileID: 6997604553415815145, guid: fd9bf46e05fa9714f8339a12e6c7eb5d, type: 3}
+  CriarPlayer2: 1
+  MaxDistancePlayers: 20
+  HUD1: {fileID: 557774866002362079, guid: 786b9d839d51dd54e9fd88957185266d, type: 3}
+  HUD2: {fileID: 557774866002362079, guid: f69c8cea71a73f94493c0d3c0842ad49, type: 3}
+  HUD: {fileID: 557774866002362079, guid: 786b9d839d51dd54e9fd88957185266d, type: 3}
+  Scene_HUD: {fileID: 0}
+  FadeObject: {fileID: 7213573186634040368, guid: e0b4fe520b13b004f9072196d5cf7cda,
+    type: 3}
+  MixerGeral: {fileID: 24100000, guid: 9f2e9ca6a00a1164baf575a5051e18ed, type: 2}
+  BGM_Volume: -30
+  SFX_Volume: -30
+  ScenePlayer1: {fileID: 0}
+  ScenePlayer2: {fileID: 0}
+  P1: {fileID: 0}
+  P2: {fileID: 0}
+  scoreP1: 0
+  scoreP2: 0
+  FadeSpeed: 0.4

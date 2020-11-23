@@ -42,11 +42,13 @@ public class Juninho_Hand : PlayerHit
     protected override void DamageInteraction()
     {
         PunchType.Effect();
+        CrateVFX_HIT();
     }
 
     protected override void DamageInteraction(GameObject n_gameObject)
     {
         PunchType.Effect(n_gameObject);
+        CrateVFX_HIT();
     }
 }
 

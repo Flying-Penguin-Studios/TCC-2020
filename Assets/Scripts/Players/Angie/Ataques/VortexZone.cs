@@ -14,39 +14,65 @@ public class VortexZone : MonoBehaviour
     [SerializeField]
     private int Duration = 5;
 
+    [Space(30)]
+
+    [SerializeField] float Speed = 3;
+
     private PlayerController Player;
+
+    Rigidbody rb;
+
+    private Vector3 PlayT;
 
     void Start()
     {
-        StartCoroutine("Move");
+        rb = GetComponent<Rigidbody>();
+        StartCoroutine(Move());
+        StartCoroutine(Vortex());
         GetComponent<Collider>().enabled = false;
     }
 
     public void SetPlayer(PlayerController n_Player)
     {
         Player = n_Player;
+        PlayT = Player.transform.forward;
     }
+
 
     IEnumerator Move()
     {
-        Vector3 Direction = transform.TransformDirection(Vector3.forward).normalized;
-        Vector3 Destiny = transform.position + (Direction * 10);
-        float Distance = Vector3.Distance(Direction, Destiny);        
-
-        while (!(Distance >= 0 && Distance <= 1))
+        while (true)
         {
-            transform.position += Direction * (Time.deltaTime * 10);
-            Distance = Vector3.Distance(transform.position, Destiny);
-            yield return null;
-        }
+            Collider[] _collider = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius * 2, l_Mask);
+            Vector3 Dir = Vector3.zero;
+            Vector3 Mov = Vector3.zero;
 
-        GetComponent<Collider>().enabled = true;
-        StartCoroutine("Vortex");
-        yield return null;
+            if (_collider.Length > 0)
+            {
+                foreach (Collider item in _collider)
+                {
+                    Dir += item.gameObject.transform.position;
+                }
+
+                Dir /= _collider.Length;
+                Mov = Vector3.Lerp(transform.position, Dir, Time.deltaTime);
+                Mov.y = 1;
+                transform.position = Mov;
+            }
+            else
+            {
+                //transform.Translate(PlayT * Time.deltaTime);
+                transform.Translate(transform.forward * Time.deltaTime * 3);
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     IEnumerator Vortex()
     {
+        //GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
         float TimeDuration = Time.time + Duration;
 
         while (TimeDuration >= Time.time)
@@ -57,9 +83,9 @@ public class VortexZone : MonoBehaviour
             {
                 Rigidbody rb = obj.GetComponent<Rigidbody>();
 
-                if (obj.name.ToUpper().Contains("ZOMBI"))
+                if (obj.gameObject.GetComponent<Zombie>())
                 {
-                    if (!obj.GetComponent<EnemyController>().BerserkerModeOn)
+                    if (!obj.gameObject.GetComponent<Zombie>().berserkerModeOn)
                         rb.velocity /= 2;
                 }
                 else
@@ -69,14 +95,23 @@ public class VortexZone : MonoBehaviour
                     float Distance = Vector3.Distance(transform.position, rb.transform.position);
                     Distance = Mathf.Pow(Distance, 1.5f);
 
-                    float PowerForce = (Power / Distance) * 100;
-                    PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 4));
+                    float PowerForce = Power / Distance * 25;
+                    PowerForce = Mathf.Clamp(PowerForce, 0.01f, Mathf.Pow(10, 3));
                     Direction.y = 0;
-                    rb.AddForce(Direction * PowerForce);
+
+                    rb.AddForce(Direction * PowerForce, ForceMode.VelocityChange);
                 }
             }
 
             yield return new WaitForFixedUpdate();
+        }
+
+        l_collider = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, l_Mask);
+
+        foreach (Collider obj in l_collider)
+        {
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            rb.velocity = Vector3.zero;
         }
 
         Player.GetComponent<Vortex>().CountCD();

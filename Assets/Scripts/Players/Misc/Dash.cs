@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //public interface IDash
 //{
@@ -15,6 +16,16 @@ public class Dash : Skill
     int CountDash;
     HUD_Dash HUD_Dash;
 
+    public Image DashCount;
+
+    [SerializeField]
+    private GameObject VFX;
+
+    //void Start()
+    //{
+    //    StopVFX();
+    //}
+
     public override void Init(HUD_Skill HUD_Skill, PlayerController Player, string Trigger)
     {
         base.Init(HUD_Skill, Player, Trigger);
@@ -22,11 +33,18 @@ public class Dash : Skill
         HUD_Dash = HUD as HUD_Dash;
         HUD_Dash.setSlotCount(CountDash);
         HUD_Dash.setSlotCD(0);
+        StaminaDash(CountDash);
+        StopVFX();
     }
 
     public int getCount()
     {
         return CountDash;
+    }
+
+    protected void StaminaDash(float Count)
+    {
+        DashCount.fillAmount = Count / MaxSlotDash;
     }
 
     protected override void ResetAllCDs()
@@ -41,12 +59,33 @@ public class Dash : Skill
     {
         Player.newVelocity(Vector3.zero);
         Player.InpulsePlayer();
+        StartCoroutine(Player.DashInvunable());
+
+        ParticleSystem[] Particles = VFX.GetComponentsInChildren<ParticleSystem>();
+
+        foreach (ParticleSystem item in Particles)
+        {
+            item.Play();
+        }
+
+        Invoke("StopVFX", 1.2f);
+    }
+
+    private void StopVFX()
+    {
+        ParticleSystem[] Particles = VFX.GetComponentsInChildren<ParticleSystem>();
+
+        foreach (ParticleSystem item in Particles)
+        {
+            item.Stop();
+        }
     }
 
     public override void CountCD()
     {
         int lastSlot = CountDash;
         CountDash--;
+        StaminaDash(CountDash);
         Avaliable = false;
 
         if (lastSlot == MaxSlotDash) StartCoroutine("Slot_CD");
@@ -78,6 +117,7 @@ public class Dash : Skill
             CountDash++;
             HUD_Dash.setSlotCount(CountDash);
             HUD_Dash.setSlotCD(0);
+            StaminaDash(CountDash);
         }
 
         yield return null;

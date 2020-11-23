@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class PlayerController : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public abstract class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject SparkleParticle;
 
-    bool Jumping;
+
+    public bool isPlayer2 = false;
 
     protected void init()
     {
@@ -33,15 +35,14 @@ public abstract class PlayerController : MonoBehaviour
         }
 
         rb.angularDrag = 999;
-        rb.drag = 4;
+        //rb.drag = 4;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
 
     #region Movimentação
 
     protected float Distance;
-
-    float t;
+    //public float MaxDistance = 50;
 
     void Walk(Vector3 moveDir, float moveAmout)
     {
@@ -49,12 +50,7 @@ public abstract class PlayerController : MonoBehaviour
             return;
 
         anim.SetFloat(StaticVariables.Animator.speedFloat, moveAmout);
-        //anim.SetFloat(StaticVariables.Animator.speedFloat, moveAmout, 0.075f, Time.fixedDeltaTime * 2);
-        //anim.speed = animSpeed;
 
-        t = rb.velocity.y;
-        rb.drag = moveAmout > 0 ? 0 : 4;
-        rb.drag = OnGround() ? 4 : 0;
         float speed = OnGround() ? stats.speed : stats.j_speed;
 
         if (moveDir == Vector3.zero)
@@ -62,28 +58,31 @@ public abstract class PlayerController : MonoBehaviour
         else
             transform.GetChild(3).GetChild(0).GetComponent<ParticleSystem>().Play();
 
-        if (OnGround())
-            moveDir += Vector3.down * moveDir.magnitude;
+        if (Parter)
+        {
+            if (Parter.ToVivo)
+            {
+                Vector3 FuturePos = transform.position + transform.forward * 2;
+                Vector3 PosComparacao = Parter.transform.position;
+                FuturePos.y = 0;
+                PosComparacao.y = 0;
 
-        //if(Parter.ToVivo)
-        //{
-        //    if (Distance <= MaxDistanceWalk)
-        //    {
-        //        rb.velocity = moveDir * (speed * moveAmout);
-        //        rb.velocity = new Vector3(rb.velocity.x, t, rb.velocity.z);
-        //    }
-        //}
-        //else
-        //{
-        rb.velocity = moveDir * (speed * moveAmout);
-        rb.velocity = new Vector3(rb.velocity.x, t, rb.velocity.z);
-        //}
+                float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
 
-        //Rotate(moveDir);
+                if ((FuturePos - PosComparacao).magnitude > MaxDistance)
+                {
+                    rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                    return;
+                }
+            }
+        }
+
+        moveDir *= speed * moveAmout;
+        rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
     }
 
-    [SerializeField]
-    float MaxDistanceWalk = 15;
+    //[SerializeField]
+    //float MaxDistanceWalk = 15;
 
     GameObject TargetInFront;
 
@@ -105,16 +104,7 @@ public abstract class PlayerController : MonoBehaviour
         Target.y = 0;
         tr = Quaternion.LookRotation(Target);
 
-        float speed = 0;
-        if (RotateSpeedVariant > 0)
-        {
-            speed = RotateSpeedVariant;
-        }
-        else
-        {
-            speed = rotateSpeed * (anim.GetBool("Charging") ? Time.deltaTime / 3 : Time.deltaTime);
-        }
-
+        float speed = RotateSpeedVariant > 0 ? RotateSpeedVariant : rotateSpeed * (anim.GetBool("Charging") ? Time.deltaTime / 3 : Time.deltaTime);
         Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, speed);
 
         transform.localRotation = targetRotation;
@@ -125,13 +115,10 @@ public abstract class PlayerController : MonoBehaviour
         GameObject TargetHandle = ForwardRaycast();
         if (TargetHandle)
         {
-            Vector3 Target = TargetHandle.transform.position - transform.position;
+            Vector3 Target = (TargetHandle.transform.position - transform.position).normalized;
             Target.y = 0;
-            //Quaternion tr = Quaternion.LookRotation(Target);
-            //transform.localRotation = Quaternion.Slerp(transform.rotation, tr, 1);
-
-            print(TargetHandle.name);
-            transform.LookAt(TargetHandle.transform.position);
+            Quaternion tr = Quaternion.LookRotation(Target);
+            transform.localRotation = Quaternion.Slerp(transform.rotation, tr, 1);
         }
     }
 
@@ -184,8 +171,6 @@ public abstract class PlayerController : MonoBehaviour
             TargetInFront = null;
         }
 
-        //print(TargetInFront);
-
         return TargetInFront;
     }
 
@@ -208,28 +193,27 @@ public abstract class PlayerController : MonoBehaviour
         float m = Mathf.Abs(horizontal) + Mathf.Abs(vertical);
         float moveAmout = Mathf.Clamp01(m);
 
-        Walk(moveDir, moveAmout);
+        if (!GetBool("Attacking"))
+            Walk(moveDir, moveAmout);
+
         Rotate(moveDir);
     }
 
 
-    public float JumpVar = 1.5f;
+    //public float JumpVar = 1.5f;
     protected virtual void Jump(bool Jump)
     {
         if (OnGround() && Jump && GetBool("canJump"))
         {
-            //Vector3 Direction = new Vector3(0, stats.jumpForce, 0);
-            // InpulsePlayer(Direction * 1.5f, 0);
-            //InpulsePlayer(Direction * VarTeste, 0);
             anim.SetTrigger(StaticVariables.Animator.jumpTrigger);
         }
     }
 
     public void Jump()
     {
-        Vector3 Direction = new Vector3(0, stats.jumpForce, 0);
-        InpulsePlayer(Direction * JumpVar, 0);
+        InpulsePlayer(Vector3.up, stats.jumpForce, 0);
     }
+
 
     protected bool OnGround()
     {
@@ -237,12 +221,12 @@ public abstract class PlayerController : MonoBehaviour
         RaycastHit terrain;
         if (Physics.Raycast(this.transform.position, Vector3.down, out terrain, 999))
         {
-            if (terrain.transform.CompareTag("Terrain") || terrain.transform.CompareTag("StaticObject") || terrain.transform.CompareTag("ObjetosDeCena"))
+            if (terrain.transform.CompareTag("Terrain") || terrain.transform.CompareTag("StaticObject") || terrain.transform.CompareTag("ObjetosDeCena") || terrain.transform.CompareTag("Ponte"))
             {
                 float Distance = terrain.distance;
                 Distance = float.Parse(Distance.ToString("0.00"));
 
-                if (Distance < 0.5f)
+                if (Distance < .4f)
                 {
                     onGround = true;
                     anim.SetFloat("groundDistance", 0);
@@ -253,6 +237,7 @@ public abstract class PlayerController : MonoBehaviour
                     transform.GetChild(3).GetChild(0).GetComponent<ParticleSystem>().Stop();
                     anim.SetFloat("groundDistance", Distance);
                 }
+
                 anim.SetBool("onGround", onGround);
             }
         }
@@ -331,6 +316,10 @@ public abstract class PlayerController : MonoBehaviour
     //float chargeTime = 0.3f;
     bool TimingCharge = false;
     bool StartCharge = false;
+
+    public float MinTimeCharge = 1.5f;
+    public float MaxTimeCharge = 5f;
+
     protected virtual void Atack(string InputControl)
     {
         if (OnGround())
@@ -341,13 +330,14 @@ public abstract class PlayerController : MonoBehaviour
                 {
                     anim.SetFloat("chargeValue", getFloat("chargeValue") + Time.fixedDeltaTime);
 
-                    if (getFloat("chargeValue") > 2f && !TimingCharge)
+                    if (getFloat("chargeValue") > MinTimeCharge && !TimingCharge)
                     {
                         TimingCharge = true;
-                        Instantiate(SparkleParticle, transform.position + Vector3.up, SparkleParticle.transform.rotation);
+                        GameObject a = Instantiate(SparkleParticle, transform.position + (Vector3.up * 1.5f) + Vector3.right, SparkleParticle.transform.rotation);
+                        Destroy(a, 1.0f);
                     }
 
-                    if (getFloat("chargeValue") > 5f)
+                    if (getFloat("chargeValue") > MaxTimeCharge)
                     {
                         TimingCharge = false;
                         anim.SetTrigger(StaticVariables.Animator.atackTrigger);
@@ -415,58 +405,26 @@ public abstract class PlayerController : MonoBehaviour
     //[HideInInspector]
     public bool ToVivo = false;
 
-    public void TakeDamage(int dano)
+    bool Invensible = false;
+
+    public IEnumerator DashInvunable()
     {
-        if (GetBool("Fallen"))
-            return;
-
-        if (stats.currentLife > 0)
-        {
-            stats.currentLife -= dano;
-            SetLife();
-
-            if (stats.currentLife <= 0)
-            {
-                stats.currentLife = 0;
-                SetLife();
-
-                if (!Parter.ToVivo || !getUp)
-                {
-                    ToVivo = false;
-
-                    if (gameObject.name == "Player1")
-                    {
-                        GameController.Singleton.P1IsAlive = false;
-                    }
-                    else if (gameObject.name == "Player2")
-                    {
-                        GameController.Singleton.P2IsAlive = false;
-                    }
-
-                    rb.useGravity = false;
-                    GetComponent<Collider>().enabled = false;
-                    ZoneInterction.enabled = false;
-
-                    if (!GetBool("Fallen"))
-                    {
-                        anim.SetTrigger("Fall");
-                    }
-
-                    anim.SetTrigger("Death");
-                }
-                else if (getUp)
-                {
-                    anim.SetTrigger("Fall");
-                    ZoneInterction.enabled = true;
-                    getUp = false;
-                    StartCoroutine("Fall");
-                }
-            }
-        }
+        Invensible = true;
+        yield return 3;
+        Invensible = false;
     }
 
-    public void SetDamage(int dano)
+    protected abstract void SoundDamage();
+
+    // Ambos metodos vão retornar o valor da vida apos dar o dano
+    public int TakeDamage(int dano)
     {
+        if (GetBool("Fallen") || Invensible)
+            return 0;
+
+        rb.velocity = Vector3.zero;
+        SoundDamage();
+
         if (stats.currentLife > 0)
         {
             stats.currentLife -= dano;
@@ -477,18 +435,9 @@ public abstract class PlayerController : MonoBehaviour
                 stats.currentLife = 0;
                 SetLife();
 
-                if (!Parter.ToVivo || !getUp)
+                if (!Parter.ToVivo || !getUp || Parter.Caido)
                 {
                     ToVivo = false;
-
-                    if (gameObject.name == "Player1")
-                    {
-                        GameController.Singleton.P1IsAlive = false;
-                    }
-                    else if (gameObject.name == "Player2")
-                    {
-                        GameController.Singleton.P2IsAlive = false;
-                    }
 
                     rb.useGravity = false;
                     GetComponent<Collider>().enabled = false;
@@ -500,6 +449,59 @@ public abstract class PlayerController : MonoBehaviour
                     }
 
                     anim.SetTrigger("Death");
+                    StartCoroutine(Dissolve());
+
+                    //GameController.Singleton.CheckPlayerIsAlive();
+                }
+                else if (getUp)
+                {
+                    anim.SetTrigger("Fall");
+                    ZoneInterction.enabled = true;
+                    getUp = false;
+                    rb.velocity = Vector3.zero;
+                    setCanMove(false);
+                    StartCoroutine(Fall());
+                }
+            }
+            else
+            {
+                //anim.SetTrigger("Stag");
+            }
+        }
+
+        return stats.currentLife;
+    }
+
+    public int SetDamage(int dano, bool fallDamage = false)
+    {
+        if (stats.currentLife > 0)
+        {
+            stats.currentLife -= dano;
+            SetLife();
+
+            if (stats.currentLife <= 0)
+            {
+                stats.currentLife = 0;
+                SetLife();
+
+                if (fallDamage)
+                    return 0;
+
+                if (!Parter.ToVivo || !getUp)
+                {
+                    ToVivo = false;
+
+                    rb.useGravity = false;
+                    GetComponent<Collider>().enabled = false;
+                    ZoneInterction.enabled = false;
+
+                    if (!GetBool("Fallen"))
+                    {
+                        anim.SetTrigger("Fall");
+                    }
+
+                    anim.SetTrigger("Death");
+                    StartCoroutine(Dissolve());
                 }
                 else if (getUp)
                 {
@@ -510,18 +512,30 @@ public abstract class PlayerController : MonoBehaviour
                 }
             }
         }
+
+        return stats.currentLife;
     }
 
     public bool Caido { get => GetBool("Fallen"); }
+    public GameObject pressA;
 
     IEnumerator Fall()
     {
+        rb.constraints = RigidbodyConstraints.FreezePosition;
+        rb.velocity = Vector3.zero;
+
+        rb.useGravity = false;
+        GetComponent<CapsuleCollider>().enabled = false;
+        transform.GetChild(4).GetComponent<Collider>().enabled = false;
+
         stats.currentLife += (int)(stats.maxLife * 0.3f);
         SetLife();
         yield return new WaitForSeconds(1f);
+
         while (GetBool("Fallen"))
         {
-            if (Parter.Caido)
+            pressA.SetActive(true);
+            if (Parter && Parter.Caido)
             {
                 SetDamage(stats.currentLife);
                 break;
@@ -534,19 +548,123 @@ public abstract class PlayerController : MonoBehaviour
             }
         }
 
+        //GetComponent<CapsuleCollider>().enabled = true;
+        //Invoke("BackGravy", .5f);
+
+        transform.GetChild(4).GetComponent<Collider>().enabled = true;
+
+        rb.constraints = ~RigidbodyConstraints.FreezePosition;
+
+        yield return null;
+    }
+
+    public void _Revive()
+    {
+        stats.currentLife = stats.maxLife;
+        SetLife();
+
+        Renderer[] rends = GetComponentsInChildren<Renderer>();
+
+        foreach (Renderer rend in rends)
+        {
+            try
+            {
+                rend.material.SetFloat("DissolveAmount", 1);
+            }
+            catch (System.Exception) { }
+        }
+
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(2).gameObject.SetActive(true);
+        transform.GetChild(3).gameObject.SetActive(true);
+        transform.GetChild(4).gameObject.SetActive(true);
+        transform.GetChild(5).gameObject.SetActive(true);
+        transform.GetChild(6).gameObject.SetActive(true);
+        //transform.GetChild(7).gameObject.SetActive(true);
+
+        GetComponent<CapsuleCollider>().enabled = true;
+        //rb.useGravity = true;
+        Invoke("BackGravy", 0.5f);
+
+        getUp = true;
+        ToVivo = true;
+    }
+
+    void BackGravy()
+    {
+        rb.useGravity = true;
+    }
+
+    void RemoveCollider()
+    {
+        GetComponent<CapsuleCollider>().enabled = false;
+    }
+
+    IEnumerator Dissolve()
+    {
+        Renderer[] rends = GetComponentsInChildren<Renderer>();
+
+        for (float i = -1; i < 1; i += Time.deltaTime * 3)
+        {
+            foreach (Renderer rend in rends)
+            {
+                try
+                {
+                    rend.material.SetFloat("DissolveAmount", i);
+                }
+                catch (System.Exception) { }
+            }
+
+            yield return null;
+        }
+
         yield return null;
     }
 
     public void Kill()
     {
+        rb.velocity = Vector3.zero;
         stats.currentLife = 0;
         SetLife();
+
+        rb.useGravity = false;
+        Invoke("RemoveCollider", 0.5f);
+        //GetComponent<BoxCollider>().enabled = false;
+
         transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
+        transform.GetChild(3).gameObject.SetActive(false);
+        transform.GetChild(4).gameObject.SetActive(false);
+        transform.GetChild(5).gameObject.SetActive(false);
+        transform.GetChild(6).gameObject.SetActive(false);
+        transform.GetChild(7).gameObject.SetActive(false);
+        GameController.Singleton.CheckPlayerIsAlive();
+
         ToVivo = false;
+    }
+
+    public void Test()
+    {
+        ToVivo = false;
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
+        transform.GetChild(3).gameObject.SetActive(false);
+        transform.GetChild(4).gameObject.SetActive(false);
+    }
+
+    public void HealFull()
+    {
+        stats.currentLife = stats.maxLife;
+        getUp = true;
+        SetLife();
     }
 
     public void Heal(int value)
     {
+        if (Caido)
+            return;
+
         if (ToVivo)
         {
             if (stats.currentLife > 0)
@@ -579,15 +697,19 @@ public abstract class PlayerController : MonoBehaviour
 
     public void Revive()
     {
+        GetComponent<CapsuleCollider>().enabled = true;
+        Invoke("BackGravy", .5f);
         anim.SetBool("Fallen", false);
+        pressA.SetActive(false);
         stats.currentLife += (int)(stats.maxLife * 0.4f);
         SetLife();
-        //Heal((int)(stats.maxLife * 0.4f));
+        ZoneInterction.enabled = false;
     }
 
     float revive_value = 0;
     const float revive_time = 2;
     bool StartRevive = false;
+    public ReviveAlly revi;
 
     protected void ReviveFriend(string Button)
     {
@@ -603,16 +725,18 @@ public abstract class PlayerController : MonoBehaviour
             if (Input.GetButton(Button))
             {
                 revive_value += Time.deltaTime;
-                print(revive_value + " - Tempo para reviver");
+                Parter.revi.FillPercentage(revive_value, revive_time);
 
                 if (revive_value >= revive_time)
                 {
+                    Parter.revi.ResetPercentage();
                     Parter.Revive();
                     ResetRevive();
                 }
             }
             else
             {
+                Parter.revi.ResetPercentage();
                 ResetRevive();
             }
         }
@@ -640,10 +764,38 @@ public abstract class PlayerController : MonoBehaviour
 
     public void InpulsePlayer(Vector3 Direction, float newDrag = -1)
     {
+        if (Parter)
+        {
+            if (Parter.ToVivo)
+            {
+                Vector3 FuturePos = transform.position + transform.forward * 2;
+                Vector3 PosComparacao = Parter.transform.position;
+                FuturePos.y = 0;
+                PosComparacao.y = 0;
+
+
+                float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
+
+                if ((FuturePos - PosComparacao).magnitude > MaxDistance)
+                {
+                    rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                    return;
+                }
+            }
+        }
+
         if (newDrag >= 0)
             rb.drag = newDrag;
 
         rb.AddForce(Direction, ForceMode.Impulse);
+    }
+
+    public void InpulsePlayer(Vector3 Direction, float Force, float newDrag = -1)
+    {
+        if (newDrag >= 0)
+            rb.drag = newDrag;
+
+        rb.AddForce(Direction * Force, ForceMode.Impulse);
     }
 
     public void newVelocity(Vector3 n_Vel)
@@ -651,12 +803,25 @@ public abstract class PlayerController : MonoBehaviour
         rb.velocity = n_Vel;
     }
 
-    public void InpulsePlayer()
+    public void DoDash()
+    {
+        Vector3 moveDir = getMoveDir();
+
+        InpulseRotate(moveDir);
+        rb.velocity = moveDir * getStats().force;
+    }
+
+    Vector3 getMoveDir()
     {
         Vector3 v = vertical * Vector3.forward;
         Vector3 h = horizontal * Vector3.right;
         Vector3 moveDir = (v + h).normalized;
-        if (moveDir == Vector3.zero)
+        return moveDir;
+    }
+
+    public void InpulsePlayer()
+    {
+        if (getMoveDir() == Vector3.zero)
         {
             Vector3 Direction = transform.TransformDirection(Vector3.forward) * getStats().force;
             InpulsePlayer(Direction, 0);
@@ -725,7 +890,6 @@ public abstract class PlayerController : MonoBehaviour
         return anim.GetBool(Bool);
     }
 
-
     protected void UseDash(float Use)
     {
         if (Dash.IsAvaliable() && Use == 1 && GetBool("canDash") && Dash.getCount() > 0) /*&& OnGround()*/
@@ -742,7 +906,7 @@ public abstract class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (ToVivo)
+        if (ToVivo && !Caido)
         {
             MarkOnGround();
             rb.useGravity = anim.GetBool("Gravity");
@@ -778,7 +942,7 @@ public abstract class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            TakeDamage(stats.currentLife);
+            SetDamage(stats.currentLife);
         }
 
         if (Input.GetKeyDown(KeyCode.F11))
@@ -786,11 +950,6 @@ public abstract class PlayerController : MonoBehaviour
             Heal(stats.maxLife);
             ToVivo = true;
             gameObject.SetActive(true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.F12))
-        {
-            Kill();
         }
     }
 
@@ -800,8 +959,32 @@ public abstract class PlayerController : MonoBehaviour
         {
             //ForwardRaycast();
             Move();
+
+            if (Parter)
+            {
+                if (!GetBool("canMove"))
+                {
+                    if (Parter.ToVivo)
+                    {
+                        Vector3 FuturePos = transform.position + transform.forward * 2;
+                        Vector3 PosComparacao = Parter.transform.position;
+                        FuturePos.y = 0;
+                        PosComparacao.y = 0;
+
+
+                        float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
+
+                        if ((FuturePos - PosComparacao).magnitude > MaxDistance)
+                        {
+                            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                            return;
+                        }
+                    }
+                }
+            }
         }
 
+        //transform.GetChild(7).LookAt(Camera.main.gameObject.transform);
         //Quaternion[] Quarts = new Quaternion[9];
         //Vector3 central = this.transform.forward;
         //float angle = -18;
@@ -820,13 +1003,13 @@ public abstract class PlayerController : MonoBehaviour
     protected virtual void Start()
     {
         init();
-        StartCoroutine("CombatZone");
+        //StartCoroutine("CombatZone");
         Physics.IgnoreCollision(transform.GetChild(4).GetComponent<Collider>(), GetComponent<Collider>()); ;
     }
 
     bool inCombat = false;
     bool asCombat = false;
-    protected List<EnemyController> l_Inimigos;
+    protected List<EnemyController_Old> l_Inimigos;
 
     IEnumerator CombatZone()
     {
@@ -836,12 +1019,12 @@ public abstract class PlayerController : MonoBehaviour
         {
             try
             {
-                l_Inimigos = new List<EnemyController>();
+                l_Inimigos = new List<EnemyController_Old>();
                 Collider[] l_collider = Physics.OverlapSphere(transform.position, 25, 16384);
 
                 foreach (Collider obj in l_collider)
                 {
-                    EnemyController inimigo = obj.GetComponent<EnemyController>();
+                    EnemyController_Old inimigo = obj.GetComponent<EnemyController_Old>();
                     if (inimigo)
                     {
                         if ((inimigo.Enemy.isAlive && inimigo.Enemy.inCombat) && !l_Inimigos.Contains(inimigo))
@@ -884,7 +1067,6 @@ public abstract class PlayerController : MonoBehaviour
     IEnumerator AutoHeal()
     {
         yield return new WaitForSeconds(7f);
-        //print("Start Heal");
 
         while (stats.currentLife < stats.maxLife)
         {
@@ -892,17 +1074,118 @@ public abstract class PlayerController : MonoBehaviour
                 break;
 
             Heal(Mathf.RoundToInt(stats.maxLife * 0.05f));
-            //print("Curou na passiva");
             yield return new WaitForSeconds(3f);
         }
 
         yield return null;
     }
 
-    protected PlayerController Parter;
+
+    PlayerController Parceiro;
+
+    protected PlayerController Parter
+    {
+        get
+        {
+            if (Parceiro)
+                return Parceiro;
+            else
+                return null;
+        }
+        set { Parceiro = value; }
+    }
 
     public void SetParter(PlayerController n_Parter)
     {
         Parter = n_Parter;
+    }
+
+    private Vector3 LastIslandPosition;
+
+    public void SetIslandPoint(Vector3 Pos)
+    {
+        LastIslandPosition = Pos;
+    }
+
+    int FallDamage = 10;
+    public void RespawnOnLastIsland()
+    {
+        if (LastIslandPosition != Vector3.zero)
+        {
+            if (SetDamage(FallDamage, true) > 0)
+            {
+                StopCoroutine(Pisca());
+
+                if (Parter.ToVivo)
+                {
+                    Vector3 FuturePos = LastIslandPosition;
+                    Vector3 PosComparacao = Parter.transform.position;
+                    FuturePos.y = 0;
+                    PosComparacao.y = 0;
+
+                    float MaxDistance = GameController.Singleton ? GameController.Singleton.MaxDistancePlayers : 20;
+
+                    if ((FuturePos - PosComparacao).magnitude > MaxDistance)
+                    {
+                        transform.position = Parter.transform.position + Vector3.right * 2;
+                    }
+                    else
+                    {
+                        transform.position = LastIslandPosition;
+                    }
+                }
+                else
+                {
+                    transform.position = LastIslandPosition;
+                }
+
+
+                StartCoroutine(Pisca());
+            }
+            else
+            {
+                Kill();
+            }
+        }
+    }
+
+    IEnumerator Pisca()
+    {
+        float BlinkTime = Time.time + 1;
+
+        SkinnedMeshRenderer[] Meshs = transform.GetComponentsInChildren<SkinnedMeshRenderer>();
+        MeshRenderer[] MeshsR = transform.GetComponentsInChildren<MeshRenderer>();
+
+        while (BlinkTime > Time.time)
+        {
+            foreach (SkinnedMeshRenderer Mesh in Meshs)
+            {
+                Mesh.enabled = !Mesh.enabled;
+            }
+
+            foreach (MeshRenderer Mesh in MeshsR)
+            {
+                Mesh.enabled = !Mesh.enabled;
+            }
+
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        foreach (SkinnedMeshRenderer Mesh in Meshs)
+        {
+            Mesh.enabled = true;
+        }
+
+        foreach (MeshRenderer Mesh in MeshsR)
+        {
+            Mesh.enabled = true;
+        }
+
+        yield return null;
+    }
+
+    public void NewVelocity(Vector3 Velocity)
+    {
+        rb.velocity = Velocity;
     }
 }

@@ -112,6 +112,12 @@ public class GameController : MonoBehaviour
         }
     }
 
+    void A()
+    {
+        ScenePlayer1.SetActive(true);
+        ScenePlayer2.SetActive(true);
+    }
+
     void StartPlayers()
     {
         ScenePlayer1 = Instantiate(Player1);
@@ -130,6 +136,9 @@ public class GameController : MonoBehaviour
             MaxDistancePlayers = 12;
             ScenePlayer1.transform.position = new Vector3(0, 1.3f, -37);
             ScenePlayer2.transform.position = new Vector3(3.5f, 1.3f, -37);
+            ScenePlayer1.SetActive(false);
+            ScenePlayer2.SetActive(false);
+            Invoke("A", 9.2f);
         }
         else if (CheckPointController.Singleton != null)
         {
